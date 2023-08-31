@@ -11,7 +11,7 @@ import stat3 from "../../../../public/img/icons/stat_3.svg";
 import stat4 from "../../../../public/img/icons/stat_4.svg";
 import hearts from "../../../../public/img/icons/hearts.svg";
 import cotton from "../../../../public/img/icons/hearts.svg";
-import leather from "../../../../public/img/icons/Leather.svg";
+import leather from "../../../../public/img/icons/leather.svg";
 import {BtnSmall} from "@/app/_components/partials/BtnSmall/BtnSmall";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
 
