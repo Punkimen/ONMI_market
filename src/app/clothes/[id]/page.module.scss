@@ -1,0 +1,90 @@
+@import '@/app/functions.scss';
+
+.clothe {
+  padding-top: toRem(100);
+}
+
+.img {
+  position: relative;
+  max-width: toRem(476);
+  width: 100%;
+  margin: 0 auto toRem(156);
+}
+
+.info {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: toRem(30);
+  background-color: #151515;
+  padding: toRem(14) toRem(15) toRem(15) toRem(36);
+  margin-bottom: toRem(112);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.category {
+  text-transform: uppercase;
+
+  &:not(:last-child) {
+    margin-right: toRem(24);
+  }
+
+  &:last-child {
+    color: var(--gray);
+  }
+}
+
+.stats {
+  display: flex;
+
+  &:not(:last-child) {
+    margin-right: toRem(86);
+  }
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+
+  img {
+    display: block;
+    margin-right: toRem(10);
+  }
+
+  span {
+    position: relative;
+    bottom: 0.1em;
+  }
+
+  &:not(:last-child) {
+    margin-right: toRem(24);
+  }
+}
+
+.price {
+  font-family: SFPro, sans-serif;
+  margin-right: toRem(25);
+}
+
+.btn__buy {
+  flex: 0 0 toRem(136);
+  display: block;
+  padding: toRem(7) toRem(15) toRem(8);
+  min-width: toRem(136);
+  width: 100%;
+}

@@ -1,0 +1,68 @@
+@import '@/app/functions.scss';
+
+.card {
+  border: toRem(1) solid #1F1F1F;
+  padding: toRem(55) toRem(82) toRem(125);
+
+  &__inner {
+    max-width: toRem(316);
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.img {
+  max-width: toRem(176);
+  width: 100%;
+  margin: 0 auto toRem(85);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: toRem(32);
+  }
+}
+
+.model {
+  font-size: toRem(12);
+  width: fit-content;
+  padding: toRem(10) toRem(16) toRem(11);
+  border: toRem(1) solid #252525;
+  border-radius: toRem(20);
+  margin: 0 auto;
+}
+
+.stats {
+  margin-bottom: toRem(80);
+  font-size: toRem(14);
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(8);
+    }
+  }
+
+  &__label {
+    color: var(--gray);
+    margin-right: toRem(12);
+  }
+
+  &__value {
+    text-align: right;
+  }
+}
+
+.btn {
+  margin-bottom: toRem(18);
+}
+
+.available {
+  font-size: toRem(12);
+  text-align: center;
+  color: var(--gray);
+}

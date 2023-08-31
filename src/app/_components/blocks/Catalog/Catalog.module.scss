@@ -1,0 +1,31 @@
+@import '@/app/functions.scss';
+
+.catalog {
+  width: calc(100% + toRem(2));
+  position: relative;
+  left: toRem(-1);
+}
+
+.card {
+  &:not(:first-child) {
+    position: relative;
+    left: toRem(-1);
+  }
+}
+
+.label {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: toRem(31);
+  font-weight: 600;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  &.row-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+

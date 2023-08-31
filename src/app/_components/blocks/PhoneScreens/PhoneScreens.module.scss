@@ -1,0 +1,36 @@
+@import '@/app/functions.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 toRem(113);
+  position: relative;
+  z-index: 2;
+}
+
+.screen {
+  max-width: toRem(294);
+  width: 100%;
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.text {
+  color: #fff;
+  margin-bottom: toRem(66);
+}
+
+.btn {
+  font-size: toRem(14);
+  padding: toRem(20) toRem(24) toRem(22);
+  max-width: toRem(170);
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: toRem(31);
+}

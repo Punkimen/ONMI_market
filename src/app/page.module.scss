@@ -1,0 +1,59 @@
+@import '@/app/functions.scss';
+
+.gallery {
+  padding-top: toRem(72);
+  margin-bottom: toRem(250);
+
+  &__text {
+    margin-bottom: toRem(110);
+  }
+}
+
+.omi-world {
+  margin-bottom: toRem(430);
+
+  &__text {
+    margin-bottom: toRem(136);
+  }
+}
+
+.zero {
+  margin-bottom: toRem(360);
+
+  &__text {
+    margin-bottom: toRem(86);
+  }
+
+  &__catalog {
+    margin-bottom: toRem(73);
+  }
+
+  &__btn {
+    display: block;
+    font-family: SFPro, sans-serif;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: toRem(21) toRem(20) toRem(22);
+    max-width: toRem(170);
+    width: 100%;
+    margin: 0 auto;
+    border-radius: toRem(31);
+  }
+}
+
+.available {
+  margin-bottom: toRem(310);
+
+  &__text {
+    margin-bottom: toRem(113);
+  }
+}
+
+.screens {
+  margin-bottom: toRem(264);
+}
+
+.decor {
+  position: relative;
+  top: toRem(5);
+}

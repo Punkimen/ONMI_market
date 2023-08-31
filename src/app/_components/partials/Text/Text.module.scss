@@ -1,0 +1,9 @@
+@import '@/app/functions.scss';
+
+.text {
+  color: var(--gray);
+  font-weight: 500;
+  font-size: toRem(22);
+  line-height: 1.4em;
+  text-align: center;
+}

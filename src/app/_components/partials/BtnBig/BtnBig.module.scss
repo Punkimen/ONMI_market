@@ -1,0 +1,31 @@
+@import '@/app/functions.scss';
+
+.btn {
+  text-align: center;
+  width: 100%;
+  display: block;
+  background-color: var(--secondary);
+  font-size: toRem(12);
+  line-height: 1.2em;
+  padding: toRem(16) toRem(16) toRem(17);
+  color: #fff;
+  border-radius: toRem(11);
+  transition: background-color ease-in .3s;
+
+  &.gray {
+    background-color: #121212;
+
+    &:hover {
+      background-color: #575757;
+    }
+  }
+
+  &:hover {
+    background-color: #1c1ee0;
+  }
+
+  &:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+  }
+}

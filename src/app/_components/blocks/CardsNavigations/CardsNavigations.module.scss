@@ -1,0 +1,259 @@
+@import '@/app/functions.scss';
+
+.cards {
+  display: flex;
+  max-width: toRem(1044);
+  width: 100%;
+  margin: 0 auto;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &_1 {
+      max-width: toRem(363);
+    }
+
+    &_2 {
+      max-width: toRem(314);
+    }
+
+    &_3 {
+      flex-grow: 1;
+    }
+  }
+}
+
+.card {
+  margin: toRem(5);
+  position: relative;
+  border-radius: toRem(18);
+  background: #171717;
+  overflow: hidden;
+
+  &__text {
+    font-size: toRem(21);
+    position: relative;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__money {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(36) toRem(36) toRem(37);
+  }
+
+  &__money-label {
+    text-align: center;
+    color: #F1AB3B;
+    font-size: toRem(39);
+    font-weight: bold;
+
+    @supports (--css: variables) {
+      background: #F1AB3B;
+      background: linear-gradient(162deg, #F1AB3B 0%, #AC0303 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      * {
+        background: inherit;
+      }
+    }
+  }
+
+  &__mini-games {
+    padding: toRem(34) toRem(22) toRem(20);
+
+    .card__text {
+      font-size: toRem(18);
+    }
+
+    .card__icon {
+      max-width: toRem(70);
+      width: 100%;
+      margin: 0 auto toRem(14);
+    }
+  }
+
+  &__social {
+    padding: toRem(34) toRem(12) toRem(20);
+    flex-grow: 1;
+
+    .card__text {
+      font-size: toRem(18);
+    }
+
+    .card__icon {
+      max-width: toRem(119);
+      width: 100%;
+      margin: 0 auto toRem(14);
+    }
+  }
+
+  &__discover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    .card__text {
+      max-width: toRem(208);
+      width: 100%;
+    }
+  }
+
+  &__hunger-games {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(15) toRem(34) toRem(15);
+    overflow: visible;
+  }
+
+  &__hunger-label {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: #3B6EF1;
+    font-weight: bold;
+    font-size: toRem(39);
+    line-height: 1em;
+
+    @supports (--css: variables) {
+      background: #3B6EF1;
+      background: linear-gradient(160deg, #3B6EF1 0%, #FFF 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      * {
+        background: inherit;
+      }
+    }
+  }
+
+  &__hunger-img {
+    position: absolute;
+    width: 87%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__signature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(45) toRem(24) toRem(46);
+  }
+
+  &__signature-text {
+    font-weight: bold;
+    color: #D3DB85;
+
+    @supports (--css: variables) {
+      background: #D3DB85;
+      background: linear-gradient(38deg, #D3DB85 0%, #A1BF0C 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      * {
+        background: inherit;
+      }
+    }
+  }
+
+  &__battle {
+    height: toRem(230);
+    text-align: center;
+    padding: toRem(40) toRem(24) toRem(40);
+  }
+
+  &__battle-label {
+    position: relative;
+    font-size: toRem(32);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__customize {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: toRem(38) toRem(15) toRem(38);
+  }
+
+  &__customize-img {
+    width: 100%;
+    margin-bottom: toRem(20);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__customize-text {
+    font-weight: bold;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__chat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: toRem(38) toRem(15) toRem(0);
+  }
+
+  &__chat-text {
+    font-weight: bold;
+    width: 90%;
+    margin: 0 auto toRem(20);
+  }
+
+  &__chat-img {
+    max-width: 141px;
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.row {
+  display: flex;
+}

@@ -1,0 +1,40 @@
+@import '@/app/functions.scss';
+
+.header {
+  padding: toRem(16) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: toRem(100);
+
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.nav {
+  margin: 0 toRem(32);
+}
+
+.right {
+  display: flex;
+}
+
+.bag {
+  margin-right: toRem(6);
+  min-width: toRem(142);
+}

@@ -1,0 +1,79 @@
+@import '@/app/functions.scss';
+
+.question {
+  padding: 0 toRem(46.51) 0 toRem(27.84);
+  position: relative;
+  border-top: toRem(1) solid var(--gray);
+
+  &.open {
+    .body {
+      max-height: toRem(1000);
+      padding-top: toRem(35.46);
+      padding-bottom: toRem(49.2);
+      opacity: 1;
+    }
+
+    .arrow {
+      transform: translateY(-50%) rotate(270deg);
+    }
+  }
+}
+
+.header {
+  position: relative;
+  padding-top: toRem(26.88);
+  padding-bottom: toRem(23.04);
+  cursor: pointer;
+  padding-right: toRem(57.6);
+}
+
+.title {
+  font-size: toRem(20.16);
+  line-height: toRem(30);
+  font-weight: 400;
+}
+
+.arrow {
+  width: toRem(41.28);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(180deg);
+  transition: transform ease 0.5s;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.body {
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  transition: all ease 0.5s;
+  font-size: toRem(18.05);
+  font-weight: 500;
+  line-height: toRem(32.4);
+  opacity: 0;
+  max-width: toRem(1002.5);
+  width: 100%;
+  transition: all ease 0.5s;
+  letter-spacing: toRem(0.0768);
+  color: var(--gray);
+
+  p,
+  ul {
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+
+  ul,
+  li {
+    list-style: disc;
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+}

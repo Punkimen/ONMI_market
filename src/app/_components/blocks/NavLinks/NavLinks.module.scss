@@ -1,0 +1,33 @@
+@import '@/app/functions.scss';
+
+.list {
+  display: flex;
+}
+
+.elem {
+  &:not(:last-child) {
+    margin-right: toRem(6);
+  }
+}
+
+.link {
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+  font-size: toRem(12);
+  letter-spacing: 0.03em;
+  padding: toRem(7) toRem(18) toRem(8);
+  transition: all ease-in .3s;
+  border-radius: toRem(17);
+
+  &:hover {
+    background-color: var(--graySecondary);
+    color: var(--dark);
+  }
+
+
+  &.active {
+    background-color: var(--graySecondary);
+    color: var(--dark);
+  }
+}
