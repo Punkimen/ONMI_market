@@ -7,8 +7,8 @@ import phone2 from '@/../public/img/reality/phone_2.png'
 import phone3 from '@/../public/img/reality/phone_3.png'
 import Image from "next/image";
 import {Text} from "@/app/_components/partials/Text/Text";
-import {BtnBig} from "@/app/_components/partials/BtnBig/BtnBig";
-import {BtnSmall} from "@/app/_components/partials/BtnSmall/BtnSmall";
+import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
+import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {horizontalTransform, triggerAnimate} from "@/app/_animations/animation";

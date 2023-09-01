@@ -6,7 +6,7 @@ import {Title} from "@/app/_components/partials/Title/Title";
 import cn from "classnames";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
-import {dataClothes} from "@/app/state/dataClothes";
+import {dataClothes} from "@/app/_state/dataClothes";
 import React, {FC} from "react";
 
 export const Clothes: FC = () => {

@@ -1,0 +1,59 @@
+@import '@/app/_styles/functions.scss';
+
+.title {
+  text-align: left;
+  margin-bottom: toRem(30);
+}
+
+.cart {
+  flex-grow: 1;
+  margin-right: toRem(87);
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.calc {
+  max-width: toRem(391);
+  width: 100%;
+  background: #111111;
+  padding: toRem(46) toRem(48) toRem(52);
+  border-radius: toRem(14);
+
+  &__top {
+    margin-bottom: toRem(36);
+  }
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+
+  &:not(:last-child) {
+    margin-bottom: toRem(15);
+  }
+
+  &__label {
+    white-space: nowrap;
+    color: var(--gray);
+  }
+
+  &__value {
+    white-space: nowrap;
+  }
+}
+
+.input {
+  height: toRem(53);
+  width: 100%;
+  margin-bottom: toRem(45);
+}
+
+.checkout__btn {
+  height: toRem(53);
+}

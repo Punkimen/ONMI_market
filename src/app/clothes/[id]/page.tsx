@@ -1,4 +1,4 @@
-import {dataClothes} from "@/app/state/dataClothes";
+import {dataClothes} from "@/app/_state/dataClothes";
 import React from 'react';
 import {Clothe} from "@/app/_components/screens/Clothe/Clothe";
 

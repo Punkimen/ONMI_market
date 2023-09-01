@@ -1,0 +1,41 @@
+@import '@/app/_styles/functions.scss';
+.block {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.label {
+  display: block;
+  margin-bottom: toRem(20);
+  color: #5A5A5A;
+}
+
+.input {
+  font-family: inherit;
+  display: block;
+  text-align: center;
+  outline: none;
+  border-radius: 9px;
+  background-color: #1B1B1B;
+  border: 1px solid #1B1B1B;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: toRem(20) toRem(15) toRem(22);
+  transition: all ease-in .3s;
+
+  &:focus {
+    border-color: #3f3f3f;
+
+  }
+
+  &:hover {
+    background-color: #2d2d2d;
+    border-color: #2d2d2d;
+  }
+
+  &::placeholder {
+    text-align: center;
+    color: #5A5A5A;
+  }
+}

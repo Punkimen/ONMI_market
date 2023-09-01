@@ -5,14 +5,14 @@ import cn from "classnames";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
 import {CardsNavigations} from "@/app/_components/blocks/CardsNavigations/CardsNavigations";
-import {BtnSmall} from "@/app/_components/partials/BtnSmall/BtnSmall";
+import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {Routes} from "@/app/_utils/Routes";
 import {PhoneScreens} from "@/app/_components/blocks/PhoneScreens/PhoneScreens";
 import {Question} from "@/app/_components/partials/Question/Question";
 import {Platform} from "@/app/_components/blocks/Platform/Platform";
 import React, {FC, useLayoutEffect, useRef} from "react";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
-import {useCatalogState, useQuestionsState} from "@/app/state/store";
+import {useCatalogState, useQuestionsState} from "@/app/_state/store";
 import {ICardOmi, IClothe} from "@/app/_types/cards.types";
 
 export const Home: FC = () => {

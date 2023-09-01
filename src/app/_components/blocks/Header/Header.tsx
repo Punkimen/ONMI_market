@@ -7,7 +7,7 @@ import logo from '@/../public/img/logo.svg';
 import {ILink} from "@/app/_types/nav.types";
 import {NavLinks} from "@/app/_components/blocks/NavLinks/NavLinks";
 import {Bag} from "@/app/_components/partials/Bag/Bag";
-import {BtnSmall} from "@/app/_components/partials/BtnSmall/BtnSmall";
+import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {Routes} from "@/app/_utils/Routes";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";

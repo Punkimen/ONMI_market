@@ -6,7 +6,7 @@ import stat1 from '@/../public/img/icons/stat_1.svg';
 import stat2 from '@/../public/img/icons/stat_2.svg';
 import stat3 from '@/../public/img/icons/stat_3.svg';
 import stat4 from '@/../public/img/icons/stat_4.svg';
-import {BtnBig} from "@/app/_components/partials/BtnBig/BtnBig";
+import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import cn from 'classnames';
 import Link from "next/link";
 import {Routes} from "@/app/_utils/Routes";
