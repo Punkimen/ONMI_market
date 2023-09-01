@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useLayoutEffect, useRef} from 'react';
 import s from './PhoneScreens.module.scss';
 import cn from 'classnames';
 // images
@@ -9,26 +9,39 @@ import Image from "next/image";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {BtnBig} from "@/app/_components/partials/BtnBig/BtnBig";
 import {BtnSmall} from "@/app/_components/partials/BtnSmall/BtnSmall";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {horizontalTransform, triggerAnimate} from "@/app/_animations/animation";
 
 export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
+  const screen_1 = useRef<HTMLDivElement>(null)
+  const screen_3 = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    horizontalTransform(gsap, screen_1.current, screen_1.current, '17.5vw', '0', true, null, 'top bottom', 'top+=25% center')
+    horizontalTransform(gsap, screen_3.current, screen_3.current, '-17.5vw', "0", true, null, 'top bottom', 'top+=25% center')
+  }, []);
   return (
     <div className={cn(s.block, className)}>
       <div className={s.wrapper}>
-        <div className={s.screen}>
+        <div ref={screen_1} className={cn(s.screen, s.screen_1)}>
           <Image src={phone1} alt="phone screen 1"/>
         </div>
-        <div className={s.screen}>
+        <div className={cn(s.screen, s.screen_2)}>
           <Image src={phone2} alt="phone screen 2"/>
         </div>
-        <div className={s.screen}>
-          <Image src={phone3} alt="phone screen 2"/>
+        <div ref={screen_3} className={cn(s.screen, s.screen_3)}>
+          <Image src={phone3} alt="phone screen 3"/>
         </div>
       </div>
       <Text className={s.text}>
         <>
-          <div className="row color_gray">Choose what it is, a game or a new image</div>
-          <div className="row color_gray">in the intersection of life and technology in</div>
-          <div className="row">Reality 2.0</div>
+          <div className="row color_gray">
+            <span className={'text-line'}>Choose what it is, a game or a new image</span>
+
+          </div>
+          <div className="row color_gray"><span data-delay={'0.1'}
+            className={'text-line'}>in the intersection of life and technology in</span></div>
+          <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
         </>
       </Text>
       <BtnSmall className={s.btn} onClick={() => {

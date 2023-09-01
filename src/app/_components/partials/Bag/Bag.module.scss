@@ -1,9 +1,6 @@
 @import '@/app/_styles/functions.scss';
 
 .bag {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: toRem(5) toRem(18) toRem(6);
   border: toRem(1) solid var(--gray);
   max-width: toRem(142);
@@ -12,4 +9,10 @@
   color: #fff;
   font-weight: 600;
   border-radius: toRem(17);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

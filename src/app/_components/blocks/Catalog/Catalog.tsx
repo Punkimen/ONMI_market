@@ -27,20 +27,9 @@ export const Catalog: FC<ICatalogProps> = ({
                                              cardsType,
                                              isCardsStats = true
                                            }) => {
-  const catalog = useRef(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const textLine = gsap.utils.toArray('text-line');
-      textLine?.forEach((el) => {
-        // @ts-ignore
-        el && triggerAnimate(el)
-      })
-    }, [catalog])
-  }, []);
   return (
-    <div ref={catalog} className={cn(s.catalog, className)}>
+    <div className={cn(s.catalog, className)}>
       {label && <div className={cn(s.label, 'text-line')}>{label}</div>}
       <div className={cn(s.wrapper, countsRow === 4 && s['row-4'])}>
         {cardsOmi && cardsOmi.map((card, index) => {

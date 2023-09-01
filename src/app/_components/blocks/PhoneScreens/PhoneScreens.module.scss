@@ -13,6 +13,20 @@
   width: 100%;
   position: relative;
 
+  &_1 {
+    //left: 17.5vw;
+    transform: translateX(17.5vw);
+  }
+
+  &_2 {
+    z-index: 2;
+  }
+
+  &_3 {
+    transform: translateX(-17.5vw);
+    //right: 17.5vw;
+  }
+
   img {
     display: block;
     width: 100%;

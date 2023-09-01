@@ -10,8 +10,10 @@ interface IBagProps {
 export const Bag: FC<IBagProps> = ({count, className}) => {
   return (
     <div className={cn(s.bag, className)}>
-      <div className={s.text}>Bag</div>
-      <div className={s.count}>{count}</div>
+      <div className={s.wrapper}>
+        <div className={s.text}>Bag</div>
+        <div className={s.count}>{count}</div>
+      </div>
     </div>
   )
 }

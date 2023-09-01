@@ -2,11 +2,14 @@
 
 .header {
   padding: toRem(16) 0;
-  //position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9;
+  &__btn{
+    height: 100%;
+  }
 }
 
 .wrapper {
@@ -20,8 +23,10 @@
 }
 
 .logo {
+  display: block;
   max-width: toRem(100);
   width: 100%;
+  overflow: hidden;
 
   img {
     max-width: toRem(100);
@@ -36,6 +41,7 @@
 }
 
 .right {
+  overflow: hidden;
   display: flex;
   min-width: toRem(230);
 }

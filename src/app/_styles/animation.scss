@@ -9,3 +9,16 @@
     opacity: 1;
   }
 }
+
+.opacity {
+  opacity: 0;
+
+  &.animate {
+    transition-property: opacity;
+    transition-duration: .6s;
+    transition-timing-function: cubic-bezier(.16, .01, .77, 1);
+    opacity: 1;
+  }
+
+  //transition: opacity ease-in .6s;
+}

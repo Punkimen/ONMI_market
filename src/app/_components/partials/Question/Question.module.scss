@@ -3,11 +3,6 @@
 .question {
   padding: 0 toRem(46.51) 0 toRem(27.84);
   position: relative;
-  border-top: toRem(1) solid var(--gray);
-
-  &:last-child {
-    border-bottom: toRem(1) solid var(--gray);
-  }
 
   &.open {
     .body {

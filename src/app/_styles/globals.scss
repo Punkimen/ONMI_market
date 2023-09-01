@@ -169,6 +169,26 @@ button {
   overflow: hidden;
 }
 
+.line {
+  position: absolute;
+  width: 0%;
+  height: 0.05vw;
+  background: var(--gray);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width cubic-bezier(.46, .05, .49, .95) .8s;
+
+  &_bottom {
+    top: auto;
+    bottom: 0;
+  }
+
+  &.animate {
+    width: 100%;
+  }
+}
+
 h1, h2, h3, h4 {
   .row {
     position: relative;

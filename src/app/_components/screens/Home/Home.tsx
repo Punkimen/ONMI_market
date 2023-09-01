@@ -17,22 +17,12 @@ import {questions} from "@/app/state/Questions";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
+import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 
 export const Home: FC = () => {
-  const content = useRef<HTMLDivElement>(null)
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const textLine = gsap.utils.toArray(".text-line");
-      textLine?.forEach((el) => {
-        // @ts-ignore
-        el && triggerAnimate(el)
-      })
-    }, [content])
-  }, []);
 
   return (
-    <div ref={content} className={s.content}>
+    <div  className={s.content}>
       <section className={s.gallery}>
         <div className="container">
           <Title tag='h1' className={cn(s['gallery__title'], 'gradient-text')}>
@@ -56,10 +46,10 @@ export const Home: FC = () => {
           <Title tag={'h2'}>
             <>
               <div className="row">
-                <div><span className='color_gray'>Omi</span> opens up super</div>
+                <div className={'text-line'}><span className='color_gray'>Omi</span> opens up super</div>
               </div>
               <div className="row">
-                <div>powers</div>
+                <div className={'text-line'}>powers</div>
               </div>
             </>
           </Title>
@@ -79,15 +69,17 @@ export const Home: FC = () => {
       <section className={s.zero}>
         <div className="container">
           <Title tag='h2'>
-            <><span className='color_gray'>onmi®</span> zero</>
+            <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
           </Title>
           <Text className={s['zero__text']}>
-            <div className='row'>Pre collection. Only for sale</div>
+            <div className='row'>
+              <span className={'text-line'}>Pre collection. Only for sale</span>
+            </div>
           </Text>
         </div>
         <Catalog className={s.zero__catalog} isCardsStats={false}
                  cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
-        <BtnSmall className={s.zero__btn} href={Routes.CLOTHES}>
+        <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
           Open collection
         </BtnSmall>
       </section>
@@ -95,23 +87,30 @@ export const Home: FC = () => {
         <Title tag={'h2'}>
           <>
             <div className="row">
-              <div><span className='color_gray'>Omi</span> available</div>
+              <div className={'text-line'}><span className='color_gray'>Omi</span> available</div>
             </div>
             <div className="row">
-              <div>in onmi® game</div>
+              <div className={'text-line'} data-delay={0.1}>in onmi® game</div>
             </div>
           </>
         </Title>
         <Text className={s['available__text']}>
           <>
-            <div className="row">Take four simple steps and start exploring</div>
-            <div className="row">the ONMI world</div>
+            <div className="row">
+              <span className={'text-line'}>Take four simple steps and start exploring</span>
+            </div>
+            <div className="row">
+              <span className={'text-line'}>the ONMI world</span>
+            </div>
           </>
         </Text>
         <PhoneScreens className={s.screens}/>
+        <div className={s.questions}>
         {questions.map((el, index) => {
           return <Question key={index} title={el.title} text={el.text}/>
         })}
+          <LineDecor position={"bottom"}/>
+        </div>
       </section>
       <Platform/>
     </div>

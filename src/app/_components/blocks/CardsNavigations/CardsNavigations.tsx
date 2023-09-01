@@ -17,31 +17,31 @@ export const CardsNavigations: FC = () => {
   return (
     <div className={s.cards}>
       <div className={cn(s["cards__col"], s['cards__col_1'])}>
-        <div className={cn(s.card, s['card__money'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__money'])}>
           <div className={s["card__money-label"]}>Earn money</div>
         </div>
         <div className={s.row}>
-          <div className={cn(s.card, s['card__mini-games'])}>
+          <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__mini-games'])}>
             <div className={s["card__icon"]}>
               <Image src={miniGames} alt={'mini games'}/>
             </div>
             <div className={s["card__text"]}>Mini-games</div>
           </div>
-          <div className={cn(s.card, s['card__social'])}>
+          <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__social'])}>
             <div className={s["card__icon"]}>
               <Image src={omiSocial} alt={'avatars'}/>
             </div>
             <div className={s["card__text"]}>Omi social ID</div>
           </div>
         </div>
-        <div className={cn(s.card, s['card__discover'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__discover'])}>
           <BackgroundImage src={map} alt={'map'}/>
           <div className={s["card__text"]}>Re-explore the world around you
           </div>
         </div>
       </div>
       <div className={cn(s["cards__col"], s['cards__col_2'])}>
-        <div className={cn(s.card, s['card__hunger-games'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__hunger-games'])}>
           <div className={s["card__hunger-label"]}>The Hunger
             Games
           </div>
@@ -49,18 +49,18 @@ export const CardsNavigations: FC = () => {
             <Image src={pose} alt={'omi pose'}/>
           </div>
         </div>
-        <div className={cn(s.card, s['card__signature'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__signature'])}>
           <BackgroundImage src={signature} alt={'signature'}/>
           <div className={cn(s['card__text'], s["card__signature-text"])}>Signature routes</div>
         </div>
       </div>
       <div className={cn(s["cards__col"], s['cards__col_3'])}>
-        <div className={cn(s.card, s['card__battle'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__battle'])}>
           <BackgroundImage src={battle} alt={'battle'}/>
           <div className={s['card__battle-label']}>Battles</div>
         </div>
         <div className={s.row}>
-          <div className={cn(s.card, s['card__customize'])}>
+          <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__customize'])}>
             <div className={s["card__customize-img"]}>
               <Image src={customize} alt={'customize jacket'}/>
             </div>
@@ -68,7 +68,7 @@ export const CardsNavigations: FC = () => {
               <br/> Customization
             </div>
           </div>
-          <div className={cn(s.card, s['card__chat'])}>
+          <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__chat'])}>
             <div className={cn(s["card__chat-text"], s['card__text'])}>Have meaningful conversations
             </div>
             <div className={s["card__chat-img"]}>

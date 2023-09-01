@@ -21,21 +21,34 @@ const links: Array<ILink> = [
   {title: 'clothes', href: Routes.CLOTHES},
 ]
 export const Header = () => {
+  const header = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      const textLine = gsap.utils.toArray(".text-line");
+      textLine?.forEach((el) => {
+        // @ts-ignore
+        el && triggerAnimate(el)
+      })
+    }, [header])
+  }, []);
   return (
-    <header className={cn(s.header)}>
+    <header ref={header} className={cn(s.header)}>
       <div className="container">
         <div className={s.wrapper}>
           <div className={s.left}>
             <Link href={Routes.HOME} className={s.logo}>
-                <Image src={logo} alt={'onmi'} priority={true}/>
+              <Image src={logo} className={'text-line'} alt={'onmi'} priority={true}/>
             </Link>
           </div>
           <NavLinks links={links} className={s.nav}/>
           <div className={cn(s.right)}>
-              <Bag count={0} className={cn(s.bag,)} data-delay='0.3'/>
-              <BtnSmall data-delay='0.4' onClick={() => {
+            <Bag count={0} className={cn(s.bag, 'text-line')} data-delay='0.3'/>
+            <div className={'text-line'} data-delay='0.4'>
+              <BtnSmall className={s.header__btn} onClick={() => {
                 console.log('work')
               }}>Log In</BtnSmall>
+            </div>
           </div>
         </div>
       </div>
