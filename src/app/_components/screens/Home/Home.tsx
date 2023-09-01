@@ -11,20 +11,28 @@ import {Routes} from "@/app/_utils/Routes";
 import {PhoneScreens} from "@/app/_components/blocks/PhoneScreens/PhoneScreens";
 import {Question} from "@/app/_components/partials/Question/Question";
 import {Platform} from "@/app/_components/blocks/Platform/Platform";
-import React, {useEffect} from "react";
+import React, {FC, useLayoutEffect, useRef} from "react";
 import {cardsOmi} from "@/app/state/dataBodies";
 import {questions} from "@/app/state/Questions";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {triggerAnimate} from "@/app/_animations/animation";
 
-export const Home = () => {
-
-  useEffect(() => {
+export const Home: FC = () => {
+  const content = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      const textLine = gsap.utils.toArray(".text-line");
+      textLine?.forEach((el) => {
+        // @ts-ignore
+        el && triggerAnimate(el)
+      })
+    }, [content])
   }, []);
 
   return (
-    <>
+    <div ref={content} className={s.content}>
       <section className={s.gallery}>
         <div className="container">
           <Title tag='h1' className={cn(s['gallery__title'], 'gradient-text')}>
@@ -33,15 +41,15 @@ export const Home = () => {
           <Text className={s['gallery__text']}>
             <>
               <div className={'row'}>
-                <span className={'text-line'}>Take four simple steps and start exploring</span>
+                <span className={'text-line'} data-delay="0.1">Take four simple steps and start exploring</span>
               </div>
               <div className={'row'}>
-                <span className={'text-line'}>the ONMI world</span>
+                <span className={'text-line'} data-delay="0.2">the ONMI world</span>
               </div>
             </>
           </Text>
         </div>
-        <Catalog className={s.catalog} cards={cardsOmi} cardsType={'omi'} countsRow={4} label={'Omi Bodys'}/>
+        <Catalog className={s.catalog} cardsOmi={cardsOmi} cardsType={'omi'} countsRow={4} label={'Omi Bodys'}/>
       </section>
       <section className={s['omi-world']}>
         <div className="container">
@@ -57,8 +65,12 @@ export const Home = () => {
           </Title>
           <Text className={s['omi-world__text']}>
             <>
-              <div className="row">Take four simple steps and start exploring</div>
-              <div className="row">the ONMI world</div>
+              <div className="row">
+                <span className={'text-line'}>Take four simple steps and start exploring</span>
+              </div>
+              <div className="row">
+                <span className={'text-line'}>the ONMI world</span>
+              </div>
             </>
           </Text>
           <CardsNavigations/>
@@ -74,7 +86,7 @@ export const Home = () => {
           </Text>
         </div>
         <Catalog className={s.zero__catalog} isCardsStats={false}
-                 cards={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
+                 cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
         <BtnSmall className={s.zero__btn} href={Routes.CLOTHES}>
           Open collection
         </BtnSmall>
@@ -102,6 +114,6 @@ export const Home = () => {
         })}
       </section>
       <Platform/>
-    </>
+    </div>
   )
 }

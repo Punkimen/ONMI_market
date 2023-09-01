@@ -24,7 +24,7 @@ export const Question: FC<IQuestionProps> = ({title, text}) => {
             </div>
             <div className={s.body}>
                 {text.map((el, index) => {
-                    return <p key={index} dangerouslySetInnerHTML={{__html: el}}/>
+                    return <div key={index} dangerouslySetInnerHTML={{__html: el}}/>
                 })}
             </div>
         </div>

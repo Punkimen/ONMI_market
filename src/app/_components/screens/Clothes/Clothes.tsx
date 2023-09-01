@@ -26,9 +26,9 @@ export const Clothes: FC = () => {
       </section>
       <section className={s.clothes}>
         <Catalog className={s.catalog} label={'hats'} cardsType={'clothes'}
-                 cards={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
+                 cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
         <Catalog className={s.catalog} label={'shirts'} cardsType={'clothes'}
-                 cards={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
+                 cardsClothe={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
       </section>
     </div>
   )

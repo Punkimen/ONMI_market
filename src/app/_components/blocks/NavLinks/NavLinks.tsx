@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useLayoutEffect} from 'react';
 import s from './NavLinks.module.scss';
 import Link from "next/link";
 import {ILink} from "@/app/_types/nav.types";
@@ -16,10 +16,14 @@ export const NavLinks: FC<INavLinksProps> = ({links, className}) => {
   return (
     <nav className={cn(s.nav, className)}>
       <ul className={s.list}>
-        {links && links.map(el => {
+        {links && links.map((el, index) => {
           return (
             <li className={s.elem} key={el.title + el.href}>
-              <Link className={cn(s.link, pathname === el.href && s.active)} href={el.href}>{el.title}</Link>
+              <Link className={cn(s.link, pathname === el.href && s.active)}
+                    data-delay={(index + 1) * 0.1}
+                    href={el.href}>
+                {el.title}
+              </Link>
             </li>
           )
         })}

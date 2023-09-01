@@ -62,7 +62,7 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
           </div>
         </div>
       </div>
-      <Catalog label={'similar'} cards={dataClothes.filter(el => el.category === clothe.category)} countsRow={5}/>
+      <Catalog label={'similar'} cardsClothe={dataClothes.filter(el => el.category === clothe.category)} countsRow={5}/>
     </section>
   )
 }
