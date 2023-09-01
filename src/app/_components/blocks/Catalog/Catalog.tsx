@@ -10,10 +10,11 @@ interface ICatalogProps {
   countsRow: number,
   label?: string,
   className?: string,
-  cardsType?: 'clothes' | 'omi'
+  cardsType?: 'clothes' | 'omi',
+  isCardsStats?: boolean,
 }
 
-export const Catalog: FC<ICatalogProps> = ({label, countsRow, cards, className, cardsType}) => {
+export const Catalog: FC<ICatalogProps> = ({label, countsRow, cards, className, cardsType,isCardsStats = true}) => {
   return (
     <div className={cn(s.catalog, className)}>
       {label && <div className={s.label}>{label}</div>}
@@ -21,7 +22,7 @@ export const Catalog: FC<ICatalogProps> = ({label, countsRow, cards, className, 
         {cardsType === 'omi' ? cards.map((card: ICardOmi) => {
           return <CardOmi className={s.card} key={card.id} {...card} />
         }) : cards.map((card: IClothe) => {
-          return <CardClothe className={s.card} key={card.id} {...card} />
+          return <CardClothe isStats={isCardsStats} className={s.card} key={card.id} {...card} />
         })}
       </div>
     </div>

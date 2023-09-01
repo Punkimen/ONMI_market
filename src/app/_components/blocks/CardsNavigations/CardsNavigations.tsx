@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import s from './CardsNavigations.module.scss';
 import cn from 'classnames';
-import Link from "next/link";
 import Image from "next/image";
 // images
 import miniGames from '@/../public/img/nav_cards/mini-games.svg'
@@ -18,62 +17,64 @@ export const CardsNavigations: FC = () => {
   return (
     <div className={s.cards}>
       <div className={cn(s["cards__col"], s['cards__col_1'])}>
-        <Link href='#' className={cn(s.card, s['card__money'])}>
+        <div className={cn(s.card, s['card__money'])}>
           <div className={s["card__money-label"]}>Earn money</div>
-        </Link>
+        </div>
         <div className={s.row}>
-          <Link href='#' className={cn(s.card, s['card__mini-games'])}>
+          <div className={cn(s.card, s['card__mini-games'])}>
             <div className={s["card__icon"]}>
               <Image src={miniGames} alt={'mini games'}/>
             </div>
             <div className={s["card__text"]}>Mini-games</div>
-          </Link>
-          <Link href='#' className={cn(s.card, s['card__social'])}>
+          </div>
+          <div className={cn(s.card, s['card__social'])}>
             <div className={s["card__icon"]}>
               <Image src={omiSocial} alt={'avatars'}/>
             </div>
             <div className={s["card__text"]}>Omi social ID</div>
-          </Link>
+          </div>
         </div>
-        <Link href='#' className={cn(s.card, s['card__discover'])}>
+        <div className={cn(s.card, s['card__discover'])}>
           <BackgroundImage src={map} alt={'map'}/>
-          <div className={s["card__text"]}>Discover new places in your city</div>
-        </Link>
+          <div className={s["card__text"]}>Re-explore the world around you
+          </div>
+        </div>
       </div>
       <div className={cn(s["cards__col"], s['cards__col_2'])}>
-        <Link href='#' className={cn(s.card, s['card__hunger-games'])}>
+        <div className={cn(s.card, s['card__hunger-games'])}>
           <div className={s["card__hunger-label"]}>The Hunger
             Games
           </div>
           <div className={s["card__hunger-img"]}>
             <Image src={pose} alt={'omi pose'}/>
           </div>
-        </Link>
-        <Link href='#' className={cn(s.card, s['card__signature'])}>
+        </div>
+        <div className={cn(s.card, s['card__signature'])}>
           <BackgroundImage src={signature} alt={'signature'}/>
-          <div className={cn(s['card__text'], s["card__signature-text"])}>Signature itineraries</div>
-        </Link>
+          <div className={cn(s['card__text'], s["card__signature-text"])}>Signature routes</div>
+        </div>
       </div>
       <div className={cn(s["cards__col"], s['cards__col_3'])}>
-        <Link href='#' className={cn(s.card, s['card__battle'])}>
+        <div className={cn(s.card, s['card__battle'])}>
           <BackgroundImage src={battle} alt={'battle'}/>
           <div className={s['card__battle-label']}>Battles</div>
-        </Link>
+        </div>
         <div className={s.row}>
-          <Link href='#' className={cn(s.card, s['card__customize'])}>
+          <div className={cn(s.card, s['card__customize'])}>
             <div className={s["card__customize-img"]}>
               <Image src={customize} alt={'customize jacket'}/>
             </div>
-            <div className={cn(s["card__customize-text"], s['card__text'])}>Сustomize<br/> your look</div>
-          </Link>
-          <Link href='#' className={cn(s.card, s['card__chat'])}>
-            <div className={cn(s["card__chat-text"], s['card__text'])}>Find & chat
-              friends
+            <div className={cn(s["card__customize-text"], s['card__text'])}>Omi
+              <br/> Customization
+            </div>
+          </div>
+          <div className={cn(s.card, s['card__chat'])}>
+            <div className={cn(s["card__chat-text"], s['card__text'])}>Have meaningful conversations
             </div>
             <div className={s["card__chat-img"]}>
               <Image src={chatPhone} alt={'screen chat'}/>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ import {Routes} from "@/app/_utils/Routes";
 
 const links: Array<ILink> = [
   {title: 'omis', href: Routes.HOME},
-  {title: 'collections', href: Routes.COLLECTIONS},
+  // {title: 'collections', href: Routes.COLLECTIONS},
   {title: 'clothes', href: Routes.CLOTHES},
 ]
 export const Header = () => {
@@ -20,9 +20,11 @@ export const Header = () => {
     <header className={s.header}>
       <div className="container">
         <div className={s.wrapper}>
-          <Link href={Routes.HOME} className={s.logo}>
-            <Image src={logo} alt={'onmi'} priority={true}/>
-          </Link>
+          <div className={s.left}>
+            <Link href={Routes.HOME} className={s.logo}>
+              <Image src={logo} alt={'onmi'} priority={true}/>
+            </Link>
+          </div>
           <NavLinks links={links} className={s.nav}/>
           <div className={s.right}>
             <Bag count={0} className={s.bag}/>

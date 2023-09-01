@@ -6,7 +6,7 @@ import Link from "next/link";
 
 interface IBtnSmallProps extends IBtn {
   className?: string;
-  type: 'white' | 'blue'
+  type?: 'white' | 'blue'
 }
 
 export const BtnSmall: FC<IBtnSmallProps> = ({children, type, className, onClick, disabled, href}) => {

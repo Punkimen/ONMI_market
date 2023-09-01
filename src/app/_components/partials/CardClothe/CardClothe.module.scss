@@ -1,4 +1,4 @@
-@import '@/app/functions.scss';
+@import '@/app/_styles/functions.scss';
 
 .card {
   font-family: SFPro, sans-serif;
@@ -30,7 +30,7 @@
 
 .img {
   display: flex;
-  margin: 0 auto toRem(50);
+  margin: 0 auto;
   width: toRem(225);
   min-height: toRem(312);
   align-items: center;
@@ -85,7 +85,9 @@
     margin-bottom: toRem(7);
   }
 }
-
+.bottom{
+  margin-top: toRem(50);
+}
 .btn {
   font-weight: 600;
   max-width: toRem(206);

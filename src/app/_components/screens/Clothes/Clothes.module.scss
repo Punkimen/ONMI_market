@@ -1,10 +1,13 @@
-@import '@/app/functions.scss';
-.hero{
+@import '@/app/_styles/functions.scss';
+
+.hero {
   position: relative;
-  &__text{
+
+  &__text {
     margin-bottom: toRem(300);
   }
 }
-.catalog{
+
+.catalog {
   margin-bottom: toRem(130);
 }

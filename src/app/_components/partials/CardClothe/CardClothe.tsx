@@ -13,6 +13,7 @@ import {Routes} from "@/app/_utils/Routes";
 
 interface ICardClotheProps extends IClothe {
   className?: string,
+  isStats?: boolean,
 }
 
 const statsIcons = [stat1, stat2, stat3, stat4]
@@ -24,17 +25,16 @@ export const CardClothe: FC<ICardClotheProps> = ({
                                                    category,
                                                    modelCategory,
                                                    collectionId,
-                                                   stats
+                                                   stats,
+                                                   isStats = true
                                                  }) => {
-
-
   return (
     <Link href={`${Routes.CLOTHES}/${id}`} className={cn(s.card)}>
       <div className={s.model}>{modelCategory}</div>
       <div className={s.img}>
         <Image src={imgSrc} alt={`${category} ${id}`}/>
       </div>
-      <div className={s.bottom}>
+      {isStats ? <div className={s.bottom}>
         <div className={s.stats}>
           {stats.map((el, index) => {
             return (
@@ -49,7 +49,7 @@ export const CardClothe: FC<ICardClotheProps> = ({
         }} className={s.btn}>
           {rewards.toString()} ONM
         </BtnBig>
-      </div>
+      </div> : null}
     </Link>
   )
 }

@@ -1,4 +1,4 @@
-@import '@/app/functions.scss';
+@import '@/app/_styles/functions.scss';
 
 .header {
   padding: toRem(16) 0;
@@ -15,11 +15,16 @@
   justify-content: space-between;
 }
 
-.logo {
-  width: toRem(100);
+.left {
+  min-width: toRem(230);
+}
 
+.logo {
+  max-width: toRem(100);
+  width: 100%;
 
   img {
+    max-width: toRem(100);
     display: block;
     width: 100%;
     height: auto;
@@ -32,6 +37,7 @@
 
 .right {
   display: flex;
+  min-width: toRem(230);
 }
 
 .bag {
