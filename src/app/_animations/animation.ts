@@ -23,7 +23,6 @@ export const triggerAnimate = (el, trigger, start) => {
 }
 
 export const horizontalTransform = (gsap, el, trigger, startVal, endVal, scrub = true, ease, start, end) => {
-  console.log(el)
   setStyle(el, el.dataset);
   gsap.fromTo(el, {
     x: startVal || 0,

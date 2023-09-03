@@ -20,7 +20,6 @@ export const NavLinks: FC<INavLinksProps> = ({links, className}) => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const textLine = gsap.utils.toArray(".text-line");
-      console.log(textLine)
       textLine?.forEach((el) => {
         // @ts-ignore
         el && triggerAnimate(el)

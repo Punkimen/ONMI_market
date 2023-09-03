@@ -13,10 +13,15 @@ export const BackgroundImage: FC<IBBackgroundImageProps> = ({src, alt}) => {
       alt={alt}
       src={src}
       quality={100}
-      fill
-      sizes="100vw"
+      /*  fill
+        sizes="100vw"*/
       style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
         objectFit: 'cover',
+        height: 'auto'
       }}
     />
   )

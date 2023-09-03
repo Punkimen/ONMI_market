@@ -13,9 +13,12 @@
   width: 100%;
   position: relative;
 
+  &:not(:last-child) {
+    margin-right: toRem(43);
+  }
+
   &_1 {
-    //left: 17.5vw;
-    transform: translateX(17.5vw);
+    transform: translateX(toRem(337));
   }
 
   &_2 {
@@ -23,8 +26,7 @@
   }
 
   &_3 {
-    transform: translateX(-17.5vw);
-    //right: 17.5vw;
+    transform: translateX(toRem(-337));
   }
 
   img {

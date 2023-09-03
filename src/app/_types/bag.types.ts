@@ -16,4 +16,7 @@ export interface IBagState {
     subtotal: number,
     vat: number,
     total: number,
+    addToCart:(cartItem: IGood)=> void
+    removeFromCart:(id: number)=> void
+    changeQuantityGood:(id: number, count: number)=> void
 }

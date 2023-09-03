@@ -43,10 +43,9 @@ export const Header = () => {
           </div>
           <NavLinks links={links} className={s.nav}/>
           <div className={cn(s.right)}>
-            <Bag count={0} className={cn(s.bag, 'text-line')} data-delay='0.3'/>
+            <Bag  className={cn(s.bag, 'text-line')} data-delay='0.3'/>
             <div className={'text-line'} data-delay='0.4'>
               <BtnSmall className={s.header__btn} onClick={() => {
-                console.log('work')
               }}>Log In</BtnSmall>
             </div>
           </div>

@@ -7,7 +7,6 @@ import {CardClothe} from "@/app/_components/partials/CardClothe/CardClothe";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
-
 interface ICatalogProps {
   cardsOmi?: ICardOmi[],
   cardsClothe?: IClothe[],
@@ -41,7 +40,7 @@ export const Catalog: FC<ICatalogProps> = ({
           return <div className={'text-line'} key={card.id} data-delay={index * 0.1}>
             <CardClothe isStats={isCardsStats}
                         className={cn(s.card)}
-                        key={card.id} {...card} />
+                        {...card} />
           </div>
         })}
       </div>

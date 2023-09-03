@@ -9,22 +9,23 @@ import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import {Input} from "@/app/_components/partials/Input/Input";
 import {CartItem} from "@/app/_components/partials/CartItem/CartItem";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
+import {useInput} from "@/app/_hooks/useInput";
 
 export const Bag: FC = () => {
-  const bagState = useBagState(state => state);
-  const [code, setCode] = useState("")
+  const bagGoods = useBagState(state => state.bag);
+  const code = useInput('')
   return (
     <div className={s.bag}>
       <div className="container">
-        <Title tag={'h2'} className={s.title}>
-          Shopping bag (2)
+        <Title tag={'h3'} className={s.title}>
+          Shopping bag ({bagGoods.length})
         </Title>
         <div className={s.wrapper}>
           <div className={s.cart}>
-            {bagState.bag?.map(el => {
+            {bagGoods.map(el => {
               return <CartItem key={el.id} {...el}/>
             })}
-            <LineDecor position={"bottom"}/>
+            {/*<LineDecor position={"bottom"}/>*/}
           </div>
           <div className={s.calc}>
             <div className={s.calc__top}>
@@ -41,9 +42,7 @@ export const Bag: FC = () => {
                 <div className={s.price__value}>$2400</div>
               </div>
             </div>
-            <Input className={s.input}  label={'Discount code'} onChange={() => {
-              setCode(code)
-            }} value={code}/>
+            <Input className={s.input} label={'Discount code'} placeholder={'xxx-xxx'} {...code}/>
             <BtnBig className={s.checkout__btn} onClick={() => {
             }}>Check out</BtnBig>
           </div>

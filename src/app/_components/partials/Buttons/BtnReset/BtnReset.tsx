@@ -10,6 +10,6 @@ interface IBtnReset extends IBtn {
 export const BtnReset: FC<IBtnReset> = ({children, className, onClick, disabled, href}) => {
   return (
     <button className={cn(s.btn, className)}
-            disabled={disabled} {...onClick}>{children}</button>
+            disabled={disabled} onClick={onClick}>{children}</button>
   )
 }

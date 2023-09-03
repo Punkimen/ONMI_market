@@ -58,7 +58,7 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
           <div className={s.right}>
             <div className={s.price}>${clothe.price}</div>
             <BtnSmall onClick={() => {
-            }} className={s.btn__buy} type={'blue'}>Buy</BtnSmall>
+            }} className={s.btn__buy} typeBtn={'blue'}>Buy</BtnSmall>
           </div>
         </div>
       </div>

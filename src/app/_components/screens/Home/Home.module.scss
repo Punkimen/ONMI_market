@@ -25,7 +25,12 @@
   }
 
   &__catalog {
-    margin-bottom: toRem(73);
+    max-width: toRem(1642);
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #1F1F1F;
+    border-radius: toRem(47);
+    margin: 0 auto toRem(73);
   }
 
   &__btn {

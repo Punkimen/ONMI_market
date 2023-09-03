@@ -17,8 +17,8 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
   const screen_1 = useRef<HTMLDivElement>(null)
   const screen_3 = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
-    horizontalTransform(gsap, screen_1.current, screen_1.current, '17.5vw', '0', true, null, 'top bottom', 'top+=25% center')
-    horizontalTransform(gsap, screen_3.current, screen_3.current, '-17.5vw', "0", true, null, 'top bottom', 'top+=25% center')
+    horizontalTransform(gsap, screen_1.current, screen_1.current, '21.0625rem', '0', true, null, 'top bottom', 'top+=25 center')
+    horizontalTransform(gsap, screen_3.current, screen_3.current, '-21.0625rem', "0", true, null, 'top bottom', 'top+=25 center')
   }, []);
   return (
     <div className={cn(s.block, className)}>
@@ -40,12 +40,12 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
 
           </div>
           <div className="row color_gray"><span data-delay={'0.1'}
-            className={'text-line'}>in the intersection of life and technology in</span></div>
+                                                className={'text-line'}>in the intersection of life and technology in</span>
+          </div>
           <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
         </>
       </Text>
       <BtnSmall className={s.btn} onClick={() => {
-        console.log()
       }}>More info</BtnSmall>
     </div>
   )

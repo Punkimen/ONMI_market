@@ -1,5 +1,5 @@
 import {IClothe} from "@/app/_types/cards.types";
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import s from './CardClothe.module.scss';
 import Image from "next/image";
 import stat1 from '@/../public/img/icons/stat_1.svg';
@@ -10,6 +10,7 @@ import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import cn from 'classnames';
 import Link from "next/link";
 import {Routes} from "@/app/_utils/Routes";
+import {useBagState} from "@/app/_state/store";
 
 interface ICardClotheProps extends IClothe {
   className?: string,
@@ -28,8 +29,13 @@ export const CardClothe: FC<ICardClotheProps> = ({
                                                    stats,
                                                    isStats = true
                                                  }) => {
+  const bagState = useBagState(state => state.bag)
+  const addtoCard = useBagState(state => state.addToCart)
+  const [hover, setHover] = useState(false)
+
   return (
-    <Link href={`${Routes.CLOTHES}/${id}`} className={cn(s.card)}>
+    <div className={cn(s.card)}>
+      <Link href={`${Routes.CLOTHES}/${id}`} className={s.card__link}/>
       <div className={s.model}>{modelCategory}</div>
       <div className={s.img}>
         <Image src={imgSrc} alt={`${category} ${id}`}/>
@@ -45,11 +51,33 @@ export const CardClothe: FC<ICardClotheProps> = ({
             )
           })}
         </div>
-        <BtnBig color={'gray'} onClick={() => {
+        <BtnBig color={'gray'} onMouseEnter={() => {
+          setHover(true)
+        }} onMouseLeave={() => {
+          setHover(false)
+        }} onClick={() => {
+          addtoCard({
+            id,
+            imgSrc,
+            price,
+            quantity: 1,
+            categoryName: category,
+            quantityMax: 1000,
+            collection: collectionId.toString(),
+            modelCategory
+          })
         }} className={s.btn}>
-          {rewards.toString()} ONM
+          {
+            bagState.filter(el => el.id === id).length > 0 ? 'Added' :
+              <>
+                <span className={cn(s.btn__text, !hover && s.hide)}>Add</span>
+                <span className={cn(s.btn__text, hover && s.hide)}>
+                  {rewards.toString()} ONM
+                </span>
+              </>
+          }
         </BtnBig>
       </div> : null}
-    </Link>
+    </div>
   )
 }

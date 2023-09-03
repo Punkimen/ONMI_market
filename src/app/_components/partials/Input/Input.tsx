@@ -7,17 +7,16 @@ interface InputProps extends React.HTMLProps<HTMLInputElement> {
   label?: string,
   blockClass?: string,
   labelClass?: string,
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   disabled?: boolean;
   className?: string,
 }
 
-export const Input: FC<InputProps> = ({label, blockClass,className, labelClass, ...props}) => {
+export const Input: FC<InputProps> = ({label, blockClass, className, labelClass, ...props}) => {
   return (
     <div className={cn(s.block, blockClass)}>
       {label ? <label className={cn(s.label, labelClass)}>{label}</label> : null}
-      <input className={cn(s.input, className)} {...props} placeholder={'xxx-xxx'}/>
+      <input className={cn(s.input, className)} {...props}/>
     </div>
   )
 }

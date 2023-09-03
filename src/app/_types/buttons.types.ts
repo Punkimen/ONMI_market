@@ -1,8 +1,10 @@
 import {ChildrenType} from "@/app/_types/children.types";
+import {HTMLAttributes} from "react";
 
-export interface IBtn {
+export interface IBtn extends React.HTMLProps<HTMLButtonElement> {
   children: ChildrenType;
   disabled?: boolean;
   onClick?: ()=>void;
-  href?: string
+  href?: string;
+  type?: "button" | "submit" | "reset";
 }

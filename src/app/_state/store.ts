@@ -10,7 +10,8 @@ import body2 from "@/../public/img/bodys/body_2.png";
 import body3 from "@/../public/img/bodys/body_3.png";
 import body4 from "@/../public/img/bodys/body_4.png";
 import {questions} from "@/app/_state/Questions";
-import {IBagState} from "@/app/_types/bag.types";
+import {IBagState, IGood} from "@/app/_types/bag.types";
+import {persist} from "zustand/middleware";
 
 interface ICatalogState {
   clothes: IClothe[],
@@ -236,30 +237,38 @@ export const useQuestionsState = create<IQuestionsState>((set) => ({
   ]
 }))
 
-export const useBagState = create<IBagState>((set) => ({
-  bag: [
+export const useBagState = create<IBagState>()(
+  persist(
+    (set) => ({
+      bag: [],
+      subtotal: 0,
+      vat: 0,
+      total: 0,
+      addToCart: (cartItem: IGood) => set(state => {
+        const filterBag = state.bag.filter(el => el.id === cartItem.id)
+        if (filterBag.length > 0) {
+          return {bag: [...state.bag]}
+        } else {
+          return {bag: [...state.bag, cartItem]}
+        }
+      }),
+      removeFromCart: (id: number) => set(state => {
+        return {bag: state.bag.filter(el => el.id !== id)}
+      }),
+      changeQuantityGood: (id: number, quantity: number) => set(state => {
+        const updatedBag = state.bag.map((item) => {
+          if (item.id === id) {
+            // Update the quantity of the matching item
+            return {...item, quantity: quantity};
+          }
+          return item;
+        });
+
+        return {...state, bag: updatedBag};
+      })
+    }),
     {
-      id: 1,
-      modelCategory: "A",
-      imgSrc: clothe1,
-      price: 149,
-      categoryName: 'hats',
-      quantityMax: 1000,
-      quantity: 1,
-      collection: 'A'
-    },
-    {
-      id: 2,
-      modelCategory: "A",
-      imgSrc: clothe2,
-      price: 149,
-      categoryName: 'hats',
-      quantityMax: 1000,
-      quantity: 1,
-      collection: 'A'
-    },
-  ],
-  subtotal: 0,
-  vat: 0,
-  total: 0,
-}))
+      name: 'bag-storage'
+    }
+  )
+)
