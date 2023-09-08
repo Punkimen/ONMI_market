@@ -10,10 +10,10 @@ import deleteIcon from "@/../public/img/icons/delete.svg";
 import {useBagState} from "@/app/_state/store";
 
 export const CartItem: FC<IGood> = ({
-                                      id, collection, modelCategory, quantity,
-                                      category,
-                                      imgSrc, price
-                                    }) => {
+  id, collection, modelCategory, quantity,
+  category,
+  imgSrc, price
+}) => {
   const removeGood = useBagState((state) => state.removeFromCart);
   const changeQuantityGood = useBagState((state) => state.changeQuantityGood);
   const [count, setCount] = useState(1);
@@ -32,7 +32,7 @@ export const CartItem: FC<IGood> = ({
     if (quantity === 0) {
       removeGood(id);
     }
-  }, [quantity]);
+  }, [id, quantity, removeGood]);
   return (
     <div className={s.good}>
       <LineDecor/>

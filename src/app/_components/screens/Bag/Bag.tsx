@@ -2,7 +2,6 @@
 
 import React, {FC, useEffect, useState} from 'react';
 import s from './Bag.module.scss';
-import cn from 'classnames';
 import {useBagState} from "@/app/_state/store";
 import {Title} from "@/app/_components/partials/Title/Title";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
@@ -17,7 +16,6 @@ export const Bag: FC = () => {
   const [bagItems, setBagItems] = useState<IGood[] | []>([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const [vat, setVat] = useState(0);
   const bagState = useStore(useBagState, state => state);
   const code = useInput('');
   useEffect(() => {
