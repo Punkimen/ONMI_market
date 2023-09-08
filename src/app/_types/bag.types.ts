@@ -1,13 +1,7 @@
 import {StaticImageData} from "next/image";
+import {IClothe} from "@/app/_types/cards.types";
 
-export interface IGood {
-    id: number,
-    imgSrc: string | StaticImageData,
-    modelCategory: 'A' | 'B' | 'C' | 'D',
-    categoryName: string,
-    collection: string,
-    price: number,
-    quantity: number,
+export interface IGood extends Pick<IClothe, 'id' | 'collection' | 'quantity' | 'imgSrc' | 'modelCategory' | 'price' | 'category'> {
     quantityMax: number,
 }
 

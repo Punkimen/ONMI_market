@@ -11,13 +11,13 @@ interface IQuestionProps {
 }
 
 export const Question: FC<IQuestionProps> = ({title, text}) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={cn(s.question, open && s.open)}>
       <LineDecor/>
       <div className={cn(s.header, 'opacity')} onClick={() => {
-        setOpen(!open)
+        setOpen(!open);
       }}>
         <div className={s.title}>{title}</div>
         <div className={s.arrow}>
@@ -26,9 +26,9 @@ export const Question: FC<IQuestionProps> = ({title, text}) => {
       </div>
       <div className={s.body}>
         {text.map((el, index) => {
-          return <div key={index} dangerouslySetInnerHTML={{__html: el}}/>
+          return <div key={index} dangerouslySetInnerHTML={{__html: el}}/>;
         })}
       </div>
     </div>
-  )
-}
+  );
+};

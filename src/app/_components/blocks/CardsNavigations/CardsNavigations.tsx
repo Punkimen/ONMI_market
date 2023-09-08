@@ -3,14 +3,14 @@ import s from './CardsNavigations.module.scss';
 import cn from 'classnames';
 import Image from "next/image";
 // images
-import miniGames from '@/../public/img/nav_cards/mini-games.svg'
-import omiSocial from '@/../public/img/nav_cards/social.png'
-import map from '@/../public/img/nav_cards/discover-map.png'
-import pose from '@/../public/img/nav_cards/hunger-pose.png'
-import signature from '@/../public/img/nav_cards/sugnature.svg'
-import battle from '@/../public/img/nav_cards/battle.png'
-import customize from '@/../public/img/nav_cards/customize.png'
-import chatPhone from '@/../public/img/nav_cards/chat-phone.png'
+import miniGames from '@/../public/img/nav_cards/mini-games.svg';
+import omiSocial from '@/../public/img/nav_cards/social.png';
+import map from '@/../public/img/nav_cards/discover-map.png';
+import pose from '@/../public/img/nav_cards/hunger-pose.png';
+import signature from '@/../public/img/nav_cards/sugnature.svg';
+import battle from '@/../public/img/nav_cards/battle.png';
+import customize from '@/../public/img/nav_cards/customize.png';
+import chatPhone from '@/../public/img/nav_cards/chat-phone.png';
 import {BackgroundImage} from "@/app/_components/partials/BackgroundImage/BackgroundImage";
 
 export const CardsNavigations: FC = () => {
@@ -78,5 +78,5 @@ export const CardsNavigations: FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

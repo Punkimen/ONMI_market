@@ -2,19 +2,21 @@ import React, {FC} from 'react';
 import s from './Footer.module.scss';
 import cn from 'classnames';
 import Link from "next/link";
-import x from '@/../public/img/icons/x.svg'
-import instagram from '@/../public/img/icons/instagram.svg'
-import fb from '@/../public/img/icons/fb.svg'
-import medium from '@/../public/img/icons/medium.svg'
+import x from '@/../public/img/icons/x.svg';
+import instagram from '@/../public/img/icons/instagram.svg';
+import fb from '@/../public/img/icons/fb.svg';
+import medium from '@/../public/img/icons/medium.svg';
 import Image from "next/image";
-import apple from '@/../public/img/icons/apple.svg'
-import googlePlay from '@/../public/img/icons/googlePlay.svg'
+import apple from '@/../public/img/icons/apple.svg';
+import googlePlay from '@/../public/img/icons/googlePlay.svg';
 import Logo from '@/../public/img/logo.svg';
+import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 
 export const Footer: FC = () => {
   return (
     <div className={s.footer}>
       <div className="container">
+        <LineDecor/>
         <div className={s["footer__wrapper"]}>
           <div className={s["footer__left"]}>
             <div className={s["footer__logo"]}>
@@ -64,8 +66,8 @@ export const Footer: FC = () => {
             making a payment. The use of cryptocurrencies can carry financial risks. Aware of possible risks and
             familiarize
             yourself. If you have any questions or suggestions, please contact us at: <a
-              href="welcome@onmi.io."
-              target="_blank">welcome@onmi.io.</a>
+            href="welcome@onmi.io."
+            target="_blank">welcome@onmi.io.</a>
             onmi is intended for
             users who are at least 12 years old. Please do not use the platform if you are under 12 years old. Thank you
             for
@@ -76,5 +78,5 @@ export const Footer: FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

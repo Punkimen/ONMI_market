@@ -14,7 +14,7 @@ export const BtnSmall: FC<IBtnSmallProps> = ({children, typeBtn, className, onCl
     <>
       {href ? <Link href={href} className={cn(s.btn, className, typeBtn === 'blue' && s.blue)}>{children}</Link> :
         <button className={cn(s.btn, className, typeBtn === 'blue' && s.blue)}
-                disabled={disabled} {...onClick}>{children}</button>}
+          disabled={disabled} {...onClick}>{children}</button>}
     </>
-  )
-}
+  );
+};

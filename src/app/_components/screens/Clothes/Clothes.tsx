@@ -8,28 +8,30 @@ import {Text} from "@/app/_components/partials/Text/Text";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
 import {dataClothes} from "@/app/_state/dataClothes";
 import React, {FC} from "react";
+import {Hero} from "@/app/_components/blocks/Hero/Hero";
 
 export const Clothes: FC = () => {
   return (
     <div className={s.content}>
-      <BackgroundImage src={bg} alt={'decor'}/>
-      <section className={s.hero}>
+      <Hero>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
-          onmi® zero
+          onmi® Zero
         </Title>
-        <Text className={s['hero__text']}>
+        <Text className={s['']}>
           <>
             <div className={'row'}>Take four simple steps and start exploring</div>
             <div className={'row'}>the ONMI world</div>
           </>
         </Text>
-      </section>
+      </Hero>
       <section className={s.clothes}>
-        <Catalog className={s.catalog} label={'hats'} cardsType={'clothes'}
-                 cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
-        <Catalog className={s.catalog} label={'shirts'} cardsType={'clothes'}
-                 cardsClothe={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
+        <Catalog
+          className={s.catalog} label={'hats'}
+          cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
+        <Catalog
+          className={s.catalog} label={'shirts'}
+          cardsClothe={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
       </section>
     </div>
-  )
-}
+  );
+};

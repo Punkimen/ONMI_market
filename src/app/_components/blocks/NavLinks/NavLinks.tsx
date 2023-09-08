@@ -14,17 +14,17 @@ interface INavLinksProps {
 }
 
 export const NavLinks: FC<INavLinksProps> = ({links, className}) => {
-  const pathname = usePathname()
-  const nav = useRef<HTMLDivElement>(null)
+  const pathname = usePathname();
+  const nav = useRef<HTMLDivElement>(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const textLine = gsap.utils.toArray(".text-line");
       textLine?.forEach((el) => {
         // @ts-ignore
-        el && triggerAnimate(el)
-      })
-    }, [nav])
+        el && triggerAnimate(el);
+      });
+    }, [nav]);
   }, []);
   return (
     <nav ref={nav} className={cn(s.nav, className)}>
@@ -33,13 +33,13 @@ export const NavLinks: FC<INavLinksProps> = ({links, className}) => {
           return (
             <li className={cn((s.elem), 'text-line')} key={el.title + el.href} data-delay={(index + 1) * 0.1}>
               <Link className={cn(s.link, pathname === el.href && s.active)}
-                    href={el.href}>
+                href={el.href}>
                 {el.title}
               </Link>
             </li>
-          )
+          );
         })}
       </ul>
     </nav>
-  )
-}
+  );
+};

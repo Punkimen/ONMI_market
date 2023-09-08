@@ -2,9 +2,9 @@ import React, {FC, useLayoutEffect, useRef} from 'react';
 import s from './PhoneScreens.module.scss';
 import cn from 'classnames';
 // images
-import phone1 from '@/../public/img/reality/phone_1.png'
-import phone2 from '@/../public/img/reality/phone_2.png'
-import phone3 from '@/../public/img/reality/phone_3.png'
+import phone1 from '@/../public/img/reality/phone_1.png';
+import phone2 from '@/../public/img/reality/phone_2.png';
+import phone3 from '@/../public/img/reality/phone_3.png';
 import Image from "next/image";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
@@ -14,11 +14,11 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {horizontalTransform, triggerAnimate} from "@/app/_animations/animation";
 
 export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
-  const screen_1 = useRef<HTMLDivElement>(null)
-  const screen_3 = useRef<HTMLDivElement>(null)
+  const screen_1 = useRef<HTMLDivElement>(null);
+  const screen_3 = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
-    horizontalTransform(gsap, screen_1.current, screen_1.current, '21.0625rem', '0', true, null, 'top bottom', 'top+=25 center')
-    horizontalTransform(gsap, screen_3.current, screen_3.current, '-21.0625rem', "0", true, null, 'top bottom', 'top+=25 center')
+    horizontalTransform(gsap, screen_1.current, screen_1.current, '21.0625rem', '0', true, null, 'top bottom', 'top+=25 center');
+    horizontalTransform(gsap, screen_3.current, screen_3.current, '-21.0625rem', "0", true, null, 'top bottom', 'top+=25 center');
   }, []);
   return (
     <div className={cn(s.block, className)}>
@@ -40,7 +40,7 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
 
           </div>
           <div className="row color_gray"><span data-delay={'0.1'}
-                                                className={'text-line'}>in the intersection of life and technology in</span>
+            className={'text-line'}>in the intersection of life and technology in</span>
           </div>
           <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
         </>
@@ -48,7 +48,7 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
       <BtnSmall className={s.btn} onClick={() => {
       }}>More info</BtnSmall>
     </div>
-  )
-}
+  );
+};
 
 

@@ -6,27 +6,27 @@ import Image from "next/image";
 import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
 import cn from "classnames";
 import {Input} from "@/app/_components/partials/Input/Input";
-import deleteIcon from "@/../public/img/icons/delete.svg"
+import deleteIcon from "@/../public/img/icons/delete.svg";
 import {useBagState} from "@/app/_state/store";
 import {useInput} from "@/app/_hooks/useInput";
 
 export const CartItem: FC<IGood> = ({
-                                      id,
-                                      collection,
-                                      modelCategory,
-                                      quantity,
-                                      categoryName,
-                                      quantityMax,
-                                      imgSrc,
-                                      price
-                                    }) => {
-  const removeGood = useBagState((state) => state.removeFromCart)
-  const changeQuantityGood = useBagState((state) => state.changeQuantityGood)
-  const [count, setCount] = useState(1)
+  id,
+  collection,
+  modelCategory,
+  quantity,
+  categoryName,
+  quantityMax,
+  imgSrc,
+  price
+}) => {
+  const removeGood = useBagState((state) => state.removeFromCart);
+  const changeQuantityGood = useBagState((state) => state.changeQuantityGood);
+  const [count, setCount] = useState(1);
   // const count = useInput(quantity?.toString())
   const handleQuantity = (increment: number) => {
-    changeQuantityGood(id, quantity + increment)
-  }
+    changeQuantityGood(id, quantity + increment);
+  };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value, 10); // Parse the input value to a number
     if (!isNaN(newValue)) { // Make sure it's a valid number
@@ -34,8 +34,8 @@ export const CartItem: FC<IGood> = ({
     }
   };
   useEffect(() => {
-    setCount(+quantity)
-  }, [quantity])
+    setCount(+quantity);
+  }, [quantity]);
   return (
     <div className={s.good}>
       <LineDecor/>
@@ -56,14 +56,14 @@ export const CartItem: FC<IGood> = ({
           <div className={cn(s.quantity, s.col)}>
             <BtnReset onClick={() => handleQuantity(-1)}>-</BtnReset>
             <Input className={s.count} value={count} onChange={handleInputChange} onBlur={() => {
-              changeQuantityGood(id, +count)
+              changeQuantityGood(id, +count);
             }}/>
             <BtnReset onClick={() => handleQuantity(1)}>+</BtnReset>
           </div>
           <div className={cn(s.price, s.col)}>{price}$</div>
           <div className={cn(s.col)}>
             <BtnReset className={s.delete} onClick={() => {
-              removeGood(id)
+              removeGood(id);
             }}>
               <Image src={deleteIcon} alt={'delete'}/>
             </BtnReset>
@@ -71,5 +71,5 @@ export const CartItem: FC<IGood> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

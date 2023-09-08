@@ -13,5 +13,5 @@ export const Text: FC<ITextProps> = ({className, children}) => {
     <div className={cn(s.text, className)}>
       {children}
     </div>
-  )
-}
+  );
+};

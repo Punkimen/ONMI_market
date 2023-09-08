@@ -6,6 +6,6 @@ import {Bag} from "@/app/_components/screens/Bag/Bag";
 const Page: NextPage = () => {
   return (
     <Bag/>
-  )
-}
+  );
+};
 export default Page;

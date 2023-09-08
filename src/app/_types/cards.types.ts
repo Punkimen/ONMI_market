@@ -1,6 +1,22 @@
 import {StaticImageData} from "next/image";
 
-export interface ICardOmi {
+export interface IClothe {
+  id: number,
+  imgSrc: string | StaticImageData,
+  modelCategory: 'A' | 'B' | 'C' | 'D',
+  category: 'hats' | 'shirts' | 'pants' | 'shoes',
+  stats: number[],
+  resources?: number[],
+  rewards: number,
+  quantity: number,
+  price: number,
+  collection: {
+    id: number,
+    name: string
+  }
+}
+
+export interface IBody {
   id: number,
   imgSrc: string | StaticImageData,
   modelCategory: 'A' | 'B' | 'C' | 'D',
@@ -11,14 +27,8 @@ export interface ICardOmi {
   quantity: number,
 }
 
-export interface IClothe {
-  id: number,
-  collectionId: number,
-  imgSrc: string | StaticImageData,
-  modelCategory: 'A' | 'B' | 'C' | 'D',
-  rewards: number,
-  price: number,
-  category: 'hats' | 'shirts',
-  stats: number[],
-  resources?: number[],
+export interface ICardClothe extends Pick<IClothe, 'id' | 'collection' | 'imgSrc' |
+  'modelCategory' | 'rewards' |
+  'price' | 'category' | 'stats' | 'resources' | 'quantity'> {
+  collectionId: number;
 }

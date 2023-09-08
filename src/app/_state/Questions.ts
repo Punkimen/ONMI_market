@@ -63,4 +63,4 @@ export const questions: Array<{ title: string, text: string[] }> = [
     "title": "Why blockchain and crypto?",
     "text": ["Blockchain technology is used for additional security, and transparency for the user's assets and their transactions. It is also used to support the game economy and its players."]
   }
-]
+];

@@ -45,4 +45,4 @@ export const cardsOmi: ICardOmi[] = [
     rewards: 900,
     typeClothes: ['A', 'B', 'C']
   }
-]
+];

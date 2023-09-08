@@ -19,8 +19,8 @@ export const triggerAnimate = (el, trigger, start) => {
     trigger: trigger || el,
     start: start || 'top bottom',
     onToggle: self => el.classList.add('animate'),
-  })
-}
+  });
+};
 
 export const horizontalTransform = (gsap, el, trigger, startVal, endVal, scrub = true, ease, start, end) => {
   setStyle(el, el.dataset);
@@ -35,11 +35,11 @@ export const horizontalTransform = (gsap, el, trigger, startVal, endVal, scrub =
       end: end || "bottom center",
       scrub: scrub
     }
-  })
-}
+  });
+};
 export const verticalTransform = (el, trigger, startVal, endValue, scrub = true, starAnim, endAnim) => {
-  const delay = el.getAttribute('data-delay') || 0
-  const duration = el.getAttribute('data-duration') || 1.2
+  const delay = el.getAttribute('data-delay') || 0;
+  const duration = el.getAttribute('data-duration') || 1.2;
   gsap.fromTo(el, {
     y: startVal || 0,
   }, {
@@ -53,5 +53,5 @@ export const verticalTransform = (el, trigger, startVal, endValue, scrub = true,
       end: endAnim || "bottom top",
       scrub: scrub
     }
-  })
-}
+  });
+};

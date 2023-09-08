@@ -5,8 +5,8 @@ import {Title} from "@/app/_components/partials/Title/Title";
 import {Text} from "@/app/_components/partials/Text/Text";
 import Link from "next/link";
 import Image from "next/image";
-import googleIcon from '@/../public/img/icons/googlePlay.svg'
-import appleIcon from '@/../public/img/icons/apple.svg'
+import googleIcon from '@/../public/img/icons/googlePlay.svg';
+import appleIcon from '@/../public/img/icons/apple.svg';
 
 interface IPlatformProps {
   className?: string
@@ -55,5 +55,5 @@ export const Platform: FC<IPlatformProps> = ({className}) => {
       </div>
 
     </section>
-  )
-}
+  );
+};

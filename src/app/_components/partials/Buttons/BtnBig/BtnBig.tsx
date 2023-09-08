@@ -15,8 +15,8 @@ export const BtnBig: FC<IBtnBigProps> = ({children, className, color, href, onCl
     <>
       {href ? <Link href={href} className={cn(s.btn, color === 'gray' && s.gray, className)}>{children}</Link>
         : <button className={cn(s.btn, color === 'gray' && s.gray, className)} disabled={disabled}
-                  onClick={onClick} {...props}>{children}</button>
+          onClick={onClick} {...props}>{children}</button>
       }
     </>
-  )
-}
+  );
+};

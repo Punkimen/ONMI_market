@@ -10,16 +10,16 @@ interface ICardOmiProps extends ICardOmi {
 }
 
 export const CardOmi: FC<ICardOmiProps> = ({
-                                             id,
-                                             points,
-                                             rewards,
-                                             imgSrc,
-                                             price,
-                                             quantity,
-                                             typeClothes,
-                                             modelCategory,
-                                             className
-                                           }) => {
+  id,
+  points,
+  rewards,
+  imgSrc,
+  price,
+  quantity,
+  typeClothes,
+  modelCategory,
+  className
+}) => {
   return (
     <div className={cn(s.card, className)}>
       <div className={s["card__inner"]}>
@@ -56,5 +56,5 @@ export const CardOmi: FC<ICardOmiProps> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

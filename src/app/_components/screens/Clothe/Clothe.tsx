@@ -14,8 +14,8 @@ import hearts from "@/../public/img/icons/hearts.svg";
 import cotton from "@/../public/img/icons/hearts.svg";
 import leather from "@/../public/img/icons/leather.svg";
 
-const statsIcons = [stat1, stat2, stat3, stat4]
-const resourcesIcons = [hearts, cotton, leather]
+const statsIcons = [stat1, stat2, stat3, stat4];
+const resourcesIcons = [hearts, cotton, leather];
 
 interface IClotheProps {
   clothe: IClothe
@@ -31,7 +31,7 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
         <div className={s.info}>
           <div className={s.left}>
             <div className={s.category}>{clothe.category} #{clothe.id}</div>
-            <div className={s.category}>collection #{clothe.collectionId}</div>
+            <div className={s.category}>collection #{clothe.collection.name}</div>
           </div>
           <div className={s.center}>
             <div className={s.stats}>
@@ -41,7 +41,7 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
                     <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
                     <span>{el}</span>
                   </div>
-                )
+                );
               })}
             </div>
             <div className={s.stats}>
@@ -51,7 +51,7 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
                     <Image className={s[`img_${index + 1}`]} src={resourcesIcons[index]} alt={'stat icon'}/>
                     <span>{el}</span>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -64,5 +64,5 @@ export const Clothe: FC<IClotheProps> = ({clothe}) => {
       </div>
       <Catalog label={'similar'} cardsClothe={dataClothes.filter(el => el.category === clothe.category)} countsRow={5}/>
     </section>
-  )
-}
+  );
+};

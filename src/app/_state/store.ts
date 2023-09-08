@@ -4,7 +4,7 @@ import clothe2 from "@/../public/img/clothes/clothe_2.png";
 import clothe3 from "@/../public/img/clothes/clothe_3.png";
 import clothe4 from "@/../public/img/clothes/clothe_4.png";
 import clothe5 from "@/../public/img/clothes/clothe_5.png";
-import {ICardOmi, IClothe} from "@/app/_types/cards.types";
+import {IBody, IClothe} from "@/app/_types/cards.types";
 import body1 from "@/../public/img/bodys/body_1.png";
 import body2 from "@/../public/img/bodys/body_2.png";
 import body3 from "@/../public/img/bodys/body_3.png";
@@ -12,162 +12,21 @@ import body4 from "@/../public/img/bodys/body_4.png";
 import {questions} from "@/app/_state/Questions";
 import {IBagState, IGood} from "@/app/_types/bag.types";
 import {persist} from "zustand/middleware";
+import {dataBodies, dataClothes} from "@/app/_state/dataClothes";
 
 interface ICatalogState {
-  clothes: IClothe[],
-  bodies: ICardOmi[],
+	clothes: IClothe[],
+	bodies: IBody[],
 }
 
 interface IQuestionsState {
-  questions: Array<{ title: string, text: string[] }>,
+	questions: Array<{ title: string, text: string[] }>,
 }
 
 export const useCatalogState = create<ICatalogState>((set) => ({
-  clothes: [
-    {
-      id: 1,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe1,
-      price: 149,
-      category: 'hats',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 2,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe2,
-      price: 149,
-      category: 'hats',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 3,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe3,
-      price: 149,
-      category: 'hats',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 4,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe4,
-      price: 149,
-      category: 'hats',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 5,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe5,
-      price: 149,
-      category: 'hats',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 6,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe1,
-      price: 149,
-      category: 'shirts',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 7,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe2,
-      price: 149,
-      category: 'shirts',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 8,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe3,
-      price: 149,
-      category: 'shirts',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 9,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe4,
-      price: 149,
-      category: 'shirts',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    },
-    {
-      id: 10,
-      collectionId: 1,
-      modelCategory: "A",
-      rewards: 250,
-      imgSrc: clothe5,
-      price: 149,
-      category: 'shirts',
-      stats: [14, 10, 12, 12], resources: [23, 25, 46]
-    }
-  ],
-  bodies: [
-    {
-      id: 1,
-      imgSrc: body1,
-      points: 400,
-      price: 149,
-      modelCategory: 'A',
-      quantity: 10000,
-      rewards: 900,
-      typeClothes: ['A', 'B', 'C']
-    },
-    {
-      id: 2,
-      imgSrc: body2,
-      points: 400,
-      price: 149,
-      modelCategory: 'A',
-      quantity: 10000,
-      rewards: 900,
-      typeClothes: ['A', 'B', 'C']
-    },
-    {
-      id: 3,
-      imgSrc: body3,
-      points: 400,
-      price: 149,
-      modelCategory: 'A',
-      quantity: 10000,
-      rewards: 900,
-      typeClothes: ['A', 'B', 'C']
-    },
-    {
-      id: 4,
-      imgSrc: body4,
-      points: 400,
-      price: 149,
-      modelCategory: 'A',
-      quantity: 10000,
-      rewards: 900,
-      typeClothes: ['A', 'B', 'C']
-    }
-  ]
-}))
+  clothes: dataClothes,
+  bodies: dataBodies
+}));
 export const useQuestionsState = create<IQuestionsState>((set) => ({
   questions: [
     {
@@ -235,7 +94,7 @@ export const useQuestionsState = create<IQuestionsState>((set) => ({
       "text": ["Blockchain technology is used for additional security, and transparency for the user's assets and their transactions. It is also used to support the game economy and its players."]
     }
   ]
-}))
+}));
 
 export const useBagState = create<IBagState>()(
   persist(
@@ -245,15 +104,15 @@ export const useBagState = create<IBagState>()(
       vat: 0,
       total: 0,
       addToCart: (cartItem: IGood) => set(state => {
-        const filterBag = state.bag.filter(el => el.id === cartItem.id)
+        const filterBag = state.bag.filter(el => el.id === cartItem.id);
         if (filterBag.length > 0) {
-          return {bag: [...state.bag]}
+          return {bag: [...state.bag]};
         } else {
-          return {bag: [...state.bag, cartItem]}
+          return {bag: [...state.bag, cartItem]};
         }
       }),
       removeFromCart: (id: number) => set(state => {
-        return {bag: state.bag.filter(el => el.id !== id)}
+        return {bag: state.bag.filter(el => el.id !== id)};
       }),
       changeQuantityGood: (id: number, quantity: number) => set(state => {
         const updatedBag = state.bag.map((item) => {
@@ -271,4 +130,4 @@ export const useBagState = create<IBagState>()(
       name: 'bag-storage'
     }
   )
-)
+);

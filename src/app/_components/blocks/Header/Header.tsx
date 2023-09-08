@@ -19,18 +19,18 @@ const links: Array<ILink> = [
   {title: 'omis', href: Routes.HOME},
   // {title: 'collections', href: Routes.COLLECTIONS},
   {title: 'clothes', href: Routes.CLOTHES},
-]
+];
 export const Header = () => {
-  const header = useRef<HTMLDivElement>(null)
+  const header = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const textLine = gsap.utils.toArray(".text-line");
       textLine?.forEach((el) => {
         // @ts-ignore
-        el && triggerAnimate(el)
-      })
-    }, [header])
+        el && triggerAnimate(el);
+      });
+    }, [header]);
   }, []);
   return (
     <header ref={header} className={cn(s.header)}>
@@ -52,5 +52,5 @@ export const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};

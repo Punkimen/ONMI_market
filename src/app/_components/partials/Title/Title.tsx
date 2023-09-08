@@ -11,5 +11,5 @@ interface ITitleProps {
 
 export const Title: FC<ITitleProps> = ({children, tag, className}) => {
   const TitleTag = tag;
-  return <TitleTag className={cn(s.title, className)}>{children}</TitleTag>
-}
+  return <TitleTag className={cn(s.title, className)}>{children}</TitleTag>;
+};

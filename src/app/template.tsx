@@ -6,7 +6,7 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
 
 const Template = ({children}: { children: React.ReactNode }) => {
-  const content = useRef<HTMLDivElement>(null)
+  const content = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
@@ -15,19 +15,19 @@ const Template = ({children}: { children: React.ReactNode }) => {
       const opacityElems = gsap.utils.toArray(".opacity");
       textLine?.forEach((el) => {
         // @ts-ignore
-        el && triggerAnimate(el)
-      })
+        el && triggerAnimate(el);
+      });
       linesDecor?.forEach((el) => {
         // @ts-ignore
-        el && triggerAnimate(el)
-      })
+        el && triggerAnimate(el);
+      });
       opacityElems?.forEach((el) => {
         // @ts-ignore
-        el && triggerAnimate(el)
-      })
-    }, [content])
+        el && triggerAnimate(el);
+      });
+    }, [content]);
   }, []);
-  return <div ref={content}>{children}</div>
-}
+  return <div ref={content}>{children}</div>;
+};
 
-export default Template
+export default Template;

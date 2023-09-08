@@ -1,5 +1,5 @@
 import React from "react";
-import Image, {StaticImageData} from 'next/image'
+import Image, {StaticImageData} from 'next/image';
 import {FC} from "react";
 
 interface IBBackgroundImageProps {
@@ -24,5 +24,5 @@ export const BackgroundImage: FC<IBBackgroundImageProps> = ({src, alt}) => {
         height: 'auto'
       }}
     />
-  )
-}
+  );
+};

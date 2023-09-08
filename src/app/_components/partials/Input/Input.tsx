@@ -18,5 +18,5 @@ export const Input: FC<InputProps> = ({label, blockClass, className, labelClass,
       {label ? <label className={cn(s.label, labelClass)}>{label}</label> : null}
       <input className={cn(s.input, className)} {...props}/>
     </div>
-  )
-}
+  );
+};

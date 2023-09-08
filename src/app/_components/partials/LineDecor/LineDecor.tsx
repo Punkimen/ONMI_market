@@ -9,5 +9,5 @@ interface ILineDecorProps {
 export const LineDecor: FC<ILineDecorProps> = ({position, color}) => {
   return (
     <div className={cn('line', position && 'line_bottom')} style={color && {color: color}}></div>
-  )
-}
+  );
+};

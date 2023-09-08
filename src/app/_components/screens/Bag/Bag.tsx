@@ -1,6 +1,6 @@
 'use client';
 
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import s from './Bag.module.scss';
 import cn from 'classnames';
 import {useBagState} from "@/app/_state/store";
@@ -10,20 +10,22 @@ import {Input} from "@/app/_components/partials/Input/Input";
 import {CartItem} from "@/app/_components/partials/CartItem/CartItem";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 import {useInput} from "@/app/_hooks/useInput";
+import {useStore} from "zustand";
 
 export const Bag: FC = () => {
-  const bagGoods = useBagState(state => state.bag);
-  const code = useInput('')
+  const [count, setCount] = useState(0)
+  const bagGoods = useStore(useBagState, state => state.bag);
+  const code = useInput('');
+  useEffect(()=>{
+    setCount(bagGoods.length);
+  },[bagGoods]);
   return (
     <div className={s.bag}>
       <div className="container">
-        <Title tag={'h3'} className={s.title}>
-          Shopping bag ({bagGoods.length})
-        </Title>
         <div className={s.wrapper}>
           <div className={s.cart}>
             {bagGoods.map(el => {
-              return <CartItem key={el.id} {...el}/>
+              return <CartItem key={el.id} {...el}/>;
             })}
             {/*<LineDecor position={"bottom"}/>*/}
           </div>
@@ -49,5 +51,5 @@ export const Bag: FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

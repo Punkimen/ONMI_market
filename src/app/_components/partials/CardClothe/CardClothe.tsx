@@ -1,4 +1,4 @@
-import {IClothe} from "@/app/_types/cards.types";
+import {ICardClothe, IClothe} from "@/app/_types/cards.types";
 import React, {FC, useState} from "react";
 import s from './CardClothe.module.scss';
 import Image from "next/image";
@@ -13,25 +13,26 @@ import {Routes} from "@/app/_utils/Routes";
 import {useBagState} from "@/app/_state/store";
 
 interface ICardClotheProps extends IClothe {
-  className?: string,
-  isStats?: boolean,
+	className?: string,
+	isStats?: boolean,
 }
 
-const statsIcons = [stat1, stat2, stat3, stat4]
+const statsIcons = [stat1, stat2, stat3, stat4];
 export const CardClothe: FC<ICardClotheProps> = ({
-                                                   id,
-                                                   imgSrc,
-                                                   price,
-                                                   rewards,
-                                                   category,
-                                                   modelCategory,
-                                                   collectionId,
-                                                   stats,
-                                                   isStats = true
-                                                 }) => {
-  const bagState = useBagState(state => state.bag)
-  const addtoCard = useBagState(state => state.addToCart)
-  const [hover, setHover] = useState(false)
+																									 id,
+																									 imgSrc,
+																									 price,
+																									 rewards,
+																									 category,
+																									 modelCategory,
+																									 stats,
+																									 isStats = true,
+																									 collection,
+																									 quantity
+																								 }) => {
+  const bagState = useBagState(state => state.bag);
+  const addtoCard = useBagState(state => state.addToCart);
+  const [hover, setHover] = useState(false);
 
   return (
     <div className={cn(s.card)}>
@@ -48,24 +49,24 @@ export const CardClothe: FC<ICardClotheProps> = ({
                 <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
                 <span>{el}</span>
               </div>
-            )
+            );
           })}
         </div>
         <BtnBig color={'gray'} onMouseEnter={() => {
-          setHover(true)
+          setHover(true);
         }} onMouseLeave={() => {
-          setHover(false)
+          setHover(false);
         }} onClick={() => {
           addtoCard({
             id,
             imgSrc,
             price,
             quantity: 1,
-            categoryName: category,
-            quantityMax: 1000,
-            collection: collectionId.toString(),
-            modelCategory
-          })
+            quantityMax: quantity,
+            collection: collection,
+            modelCategory: modelCategory,
+            category: category,
+          });
         }} className={s.btn}>
           {
             bagState.filter(el => el.id === id).length > 0 ? 'Added' :
@@ -79,5 +80,5 @@ export const CardClothe: FC<ICardClotheProps> = ({
         </BtnBig>
       </div> : null}
     </div>
-  )
-}
+  );
+};

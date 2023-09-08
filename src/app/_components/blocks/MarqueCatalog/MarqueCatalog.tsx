@@ -16,10 +16,10 @@ export const MarqueCatalog: FC<IMarqueCatalog> = ({cardsClothe, className}) => {
     <Marquee className={className}>
       {cardsClothe && cardsClothe?.map((card: IClothe, index) => {
         return <CardClothe isStats={false}
-                           key={card.id}
-                           className={cn(s.card)}
-                           {...card} />
+          key={card.id}
+          className={cn(s.card)}
+          {...card} />;
       })}
     </Marquee>
-  )
-}
+  );
+};
