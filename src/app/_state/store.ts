@@ -101,7 +101,7 @@ export const useBagState = create<IBagState>()(
     (set) => ({
       bag: [],
       subtotal: 0,
-      vat: 0,
+      vat: 20,
       total: 0,
       addToCart: (cartItem: IGood) => set(state => {
         const filterBag = state.bag.filter(el => el.id === cartItem.id);
@@ -121,9 +121,17 @@ export const useBagState = create<IBagState>()(
           }
           return item;
         });
-
         return {...state, bag: updatedBag};
-      })
+      }),
+      setSum: () => set((state) => {
+        const subtotal = state.bag.reduce((sum, el) => {
+          return sum + el.price * el.quantity;
+        }, 0);
+        const total = Math.ceil(subtotal + (subtotal * state.vat) / 100);
+        state.subtotal = subtotal;
+        state.total = total;
+        return {...state};
+      }),
     }),
     {
       name: 'bag-storage'

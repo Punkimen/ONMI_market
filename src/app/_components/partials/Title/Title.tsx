@@ -7,9 +7,10 @@ interface ITitleProps {
   children: ChildrenType,
   tag: 'h1' | 'h2' | 'h3' | 'h4',
   className?: string,
+  align?: 'left'|'right'
 }
 
-export const Title: FC<ITitleProps> = ({children, tag, className}) => {
+export const Title: FC<ITitleProps> = ({children, tag, className,align}) => {
   const TitleTag = tag;
-  return <TitleTag className={cn(s.title, className)}>{children}</TitleTag>;
+  return <TitleTag className={cn(s.title, className, align === "left" && s.left, align === "right" && s.right)}>{children}</TitleTag>;
 };
