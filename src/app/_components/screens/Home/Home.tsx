@@ -79,7 +79,7 @@ export const Home: FC = () => {
           </Text>
         </div>
         <MarqueCatalog className={s.zero__catalog}
-                       cardsClothe={clothes}/>
+          cardsClothe={clothes}/>
         <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
           Open collection
         </BtnSmall>

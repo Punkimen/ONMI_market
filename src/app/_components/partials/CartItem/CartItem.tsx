@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import s from './CartItem.module.scss';
 import {IGood} from "@/app/_types/bag.types";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
@@ -8,18 +8,12 @@ import cn from "classnames";
 import {Input} from "@/app/_components/partials/Input/Input";
 import deleteIcon from "@/../public/img/icons/delete.svg";
 import {useBagState} from "@/app/_state/store";
-import {useInput} from "@/app/_hooks/useInput";
 
 export const CartItem: FC<IGood> = ({
-  id,
-  collection,
-  modelCategory,
-  quantity,
-  categoryName,
-  quantityMax,
-  imgSrc,
-  price
-}) => {
+                                      id, collection, modelCategory, quantity,
+                                      category,
+                                      imgSrc, price
+                                    }) => {
   const removeGood = useBagState((state) => state.removeFromCart);
   const changeQuantityGood = useBagState((state) => state.changeQuantityGood);
   const [count, setCount] = useState(1);
@@ -35,6 +29,9 @@ export const CartItem: FC<IGood> = ({
   };
   useEffect(() => {
     setCount(+quantity);
+    if (quantity === 0) {
+      removeGood(id);
+    }
   }, [quantity]);
   return (
     <div className={s.good}>
@@ -42,12 +39,12 @@ export const CartItem: FC<IGood> = ({
       <div className={s.wrapper}>
         <div className={s.left}>
           <div className={s.img}>
-            <Image src={imgSrc} alt={`${categoryName} ${id}`}/>
+            <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
           <div className={s.info}>
-            <div className={s.name}>{categoryName} #{id}</div>
+            <div className={s.name}>{category} #{id}</div>
             <div className={s.collection}>
-              collection #{collection}
+              collection #{collection.name}
             </div>
           </div>
         </div>

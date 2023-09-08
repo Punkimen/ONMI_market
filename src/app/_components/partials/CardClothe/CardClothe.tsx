@@ -13,23 +13,23 @@ import {Routes} from "@/app/_utils/Routes";
 import {useBagState} from "@/app/_state/store";
 
 interface ICardClotheProps extends IClothe {
-	className?: string,
-	isStats?: boolean,
+  className?: string,
+  isStats?: boolean,
 }
 
 const statsIcons = [stat1, stat2, stat3, stat4];
 export const CardClothe: FC<ICardClotheProps> = ({
-																									 id,
-																									 imgSrc,
-																									 price,
-																									 rewards,
-																									 category,
-																									 modelCategory,
-																									 stats,
-																									 isStats = true,
-																									 collection,
-																									 quantity
-																								 }) => {
+                                                   id,
+                                                   imgSrc,
+                                                   price,
+                                                   rewards,
+                                                   category,
+                                                   modelCategory,
+                                                   stats,
+                                                   isStats = true,
+                                                   collection,
+                                                   quantity
+                                                 }) => {
   const bagState = useBagState(state => state.bag);
   const addtoCard = useBagState(state => state.addToCart);
   const [hover, setHover] = useState(false);

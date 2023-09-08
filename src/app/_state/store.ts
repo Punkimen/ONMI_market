@@ -15,12 +15,12 @@ import {persist} from "zustand/middleware";
 import {dataBodies, dataClothes} from "@/app/_state/dataClothes";
 
 interface ICatalogState {
-	clothes: IClothe[],
-	bodies: IBody[],
+  clothes: IClothe[],
+  bodies: IBody[],
 }
 
 interface IQuestionsState {
-	questions: Array<{ title: string, text: string[] }>,
+  questions: Array<{ title: string, text: string[] }>,
 }
 
 export const useCatalogState = create<ICatalogState>((set) => ({
@@ -117,7 +117,6 @@ export const useBagState = create<IBagState>()(
       changeQuantityGood: (id: number, quantity: number) => set(state => {
         const updatedBag = state.bag.map((item) => {
           if (item.id === id) {
-            // Update the quantity of the matching item
             return {...item, quantity: quantity};
           }
           return item;

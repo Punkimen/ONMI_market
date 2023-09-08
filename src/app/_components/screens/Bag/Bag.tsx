@@ -11,23 +11,26 @@ import {CartItem} from "@/app/_components/partials/CartItem/CartItem";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 import {useInput} from "@/app/_hooks/useInput";
 import {useStore} from "zustand";
+import {IGood} from "@/app/_types/bag.types";
 
 export const Bag: FC = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [bagItems, setBagItems] = useState<IGood[] | []>([]);
   const bagGoods = useStore(useBagState, state => state.bag);
   const code = useInput('');
-  useEffect(()=>{
+  useEffect(() => {
     setCount(bagGoods.length);
-  },[bagGoods]);
+    setBagItems([...bagGoods]);
+  }, [bagGoods]);
   return (
     <div className={s.bag}>
       <div className="container">
         <div className={s.wrapper}>
           <div className={s.cart}>
-            {bagGoods.map(el => {
+            {bagItems.length > 0 ? bagItems.map(el => {
               return <CartItem key={el.id} {...el}/>;
-            })}
-            {/*<LineDecor position={"bottom"}/>*/}
+            }) : <Title className={s.title} tag='h3'>Bag is empty</Title>}
+            {bagItems.length > 0 && <LineDecor position={"bottom"}/>}
           </div>
           <div className={s.calc}>
             <div className={s.calc__top}>

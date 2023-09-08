@@ -12,7 +12,7 @@ interface IBagProps {
 }
 
 export const Bag: FC<IBagProps> = ({className}) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const bagItems = useBagState(state => state.bag);
   const code = useInput('');
   useEffect(()=>{

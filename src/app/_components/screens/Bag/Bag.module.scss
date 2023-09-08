@@ -1,7 +1,13 @@
 @import '@/app/_styles/functions.scss';
-.bag{
+
+.bag {
   padding: toRem(55) 0 toRem(100);
 }
+
+.title {
+  text-align: left;
+}
+
 .cart {
   flex-grow: 1;
   margin-right: toRem(87);
