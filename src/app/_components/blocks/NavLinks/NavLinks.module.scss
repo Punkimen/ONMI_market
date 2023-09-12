@@ -19,6 +19,7 @@
   padding: toRem(7) toRem(18) toRem(8);
   transition: all ease-in .3s;
   border-radius: toRem(17);
+  background-color: #202020;
 
   &:hover {
     background-color: var(--graySecondary);

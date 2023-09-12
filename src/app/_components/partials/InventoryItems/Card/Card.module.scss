@@ -1,0 +1,38 @@
+@import '@/app/_styles/functions.scss';
+
+.card {
+  position: relative;
+  border-radius: toRem(31);
+  padding: toRem(50) toRem(15) toRem(45) toRem(15);
+  background-color: #111111;
+}
+
+.settings {
+  position: absolute;
+  top: toRem(15);
+  left: toRem(15);
+  width: toRem(21);
+  height: toRem(21);
+  border-radius: 50%;
+  background-color: #343434;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    flex: 0 0 3px;
+    border-radius: 50%;
+    display: block;
+    width: 3px;
+    height: 3px;
+    background-color: #111111;
+    margin: 0 1px;
+  }
+}
+

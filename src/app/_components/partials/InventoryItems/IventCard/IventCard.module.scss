@@ -1,0 +1,97 @@
+@import '@/app/_styles/functions.scss';
+
+.card {
+  width: 100%;
+  max-width: toRem(194);
+
+  &.omis {
+    max-width: toRem(354);
+  }
+}
+
+.model {
+  position: absolute;
+  top: toRem(15);
+  right: toRem(21);
+  width: toRem(28);
+  height: toRem(28);
+  border-radius: 50%;
+  background-color: #1B1A20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: toRem(13);
+  line-height: 1.2em;
+}
+
+.img {
+  max-width: toRem(120);
+  width: 100%;
+  margin: 0 auto toRem(50);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+
+  &.row {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.img_1 {
+  max-width: toRem(10);
+}
+
+.img_2 {
+  max-width: toRem(7);
+}
+
+.img_3 {
+  max-width: toRem(11);
+}
+
+.img_4 {
+  max-width: toRem(10.7);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: toRem(14);
+  font-weight: 600;
+
+  &:not(:last-child) {
+    margin-right: toRem(18);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: toRem(7);
+  }
+}
+
+.quality {
+  min-width: toRem(94);
+  border: 1px solid #333;
+  padding: toRem(11) toRem(14) toRem(10);
+  font-size: toRem(12);
+  border-radius: toRem(18);
+}

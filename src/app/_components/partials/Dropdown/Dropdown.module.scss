@@ -1,0 +1,40 @@
+@import '@/app/_styles/functions.scss';
+
+.dropdown {
+  position: relative;
+
+  &__menu {
+    min-width: toRem(120);
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #161616;
+    padding: toRem(12) 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity, max-height ease-in .3s;
+    border-radius: toRem(16);
+
+    &.show {
+      max-height: 50vh;
+      opacity: 1;
+    }
+  }
+}
+
+.link {
+  display: block;
+  padding: toRem(12) toRem(10);
+  color: #9B9B9B;
+  transition: color ease-in .2s;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: toRem(12);
+
+  &:hover {
+    color: #fff;
+  }
+}

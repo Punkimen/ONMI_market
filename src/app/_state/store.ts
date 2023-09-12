@@ -1,27 +1,44 @@
 import {create} from 'zustand';
-import clothe1 from "@/../public/img/clothes/clothe_1.png";
-import clothe2 from "@/../public/img/clothes/clothe_2.png";
-import clothe3 from "@/../public/img/clothes/clothe_3.png";
-import clothe4 from "@/../public/img/clothes/clothe_4.png";
-import clothe5 from "@/../public/img/clothes/clothe_5.png";
 import {IBody, IClothe} from "@/app/_types/cards.types";
-import body1 from "@/../public/img/bodys/body_1.png";
-import body2 from "@/../public/img/bodys/body_2.png";
-import body3 from "@/../public/img/bodys/body_3.png";
-import body4 from "@/../public/img/bodys/body_4.png";
-import {questions} from "@/app/_state/Questions";
 import {IBagState, IGood} from "@/app/_types/bag.types";
 import {persist} from "zustand/middleware";
 import {dataBodies, dataClothes} from "@/app/_state/dataClothes";
+import {IUser} from "@/app/_types/user.types";
+import avatar from '@/../public/img/avatar.png';
 
 interface ICatalogState {
   clothes: IClothe[],
   bodies: IBody[],
-}
+};
 
 interface IQuestionsState {
   questions: Array<{ title: string, text: string[] }>,
-}
+};
+
+export const useUser = create<IUser>()(
+  persist(
+    (set) => ({
+      isAuth: false,
+      nickname: "John Malcovich",
+      avatar: avatar,
+      balance: 0,
+      inventory: {
+        bodies: [],
+        resources: [],
+        boxes: [],
+        clothes: [],
+        minerals: []
+      },
+      auth: () => set(state => {
+        state.isAuth = !state.isAuth;
+        return {...state};
+      }),
+    }),
+    {
+      name: 'user-storage'
+    }
+  )
+);
 
 export const useCatalogState = create<ICatalogState>((set) => ({
   clothes: dataClothes,

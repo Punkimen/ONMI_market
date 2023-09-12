@@ -7,7 +7,8 @@
   left: 0;
   width: 100%;
   z-index: 9;
-  &__btn{
+
+  &__btn {
     height: 100%;
   }
 }
@@ -19,7 +20,8 @@
 }
 
 .left {
-  min-width: toRem(230);
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -27,6 +29,7 @@
   max-width: toRem(100);
   width: 100%;
   overflow: hidden;
+  margin-right: toRem(65);
 
   img {
     max-width: toRem(100);
@@ -36,17 +39,33 @@
   }
 }
 
-.nav {
-  margin: 0 toRem(32);
-}
-
 .right {
-  overflow: hidden;
   display: flex;
-  min-width: toRem(230);
 }
 
-.bag {
+.bag, .balance {
   margin-right: toRem(6);
   min-width: toRem(142);
+}
+
+.user {
+  margin-left: toRem(8);
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: toRem(33);
+  height: toRem(33);
+  margin-right: toRem(15);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.name {
+  font-size: toRem(12);
 }

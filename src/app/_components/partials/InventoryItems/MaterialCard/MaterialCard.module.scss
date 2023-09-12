@@ -1,0 +1,22 @@
+@import '@/app/_styles/functions.scss';
+
+.card {
+  width: toRem(119);
+  border-radius: toRem(26);
+  background-color: #1B1C1D;
+  padding: toRem(13) toRem(15) toRem(19);
+  font-size: toRem(14);
+}
+
+.img {
+  display: block;
+  margin-bottom: toRem(22);
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: toRem(5);
+}
+
+.value {
+}

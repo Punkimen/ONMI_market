@@ -32,3 +32,13 @@ export interface ICardClothe extends Pick<IClothe, 'id' | 'collection' | 'imgSrc
   'price' | 'category' | 'stats' | 'resources' | 'quantity'> {
   collectionId: number;
 }
+
+export interface IInvenCard extends Pick<IClothe, 'id' | 'imgSrc' | 'resources' | 'modelCategory'> {
+  quality?: number;
+}
+
+export interface IBox {
+  id: number,
+  collectionId: number,
+  imgSrc: string | StaticImageData,
+}
