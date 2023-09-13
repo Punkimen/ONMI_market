@@ -1,7 +1,7 @@
 @import '@/app/_styles/functions.scss';
 
 .bag {
-  padding: toRem(55) 0 toRem(100);
+  padding: toRem(55) 0 0;
   }
 
 .cart {
@@ -16,6 +16,8 @@
 }
 
 .calc {
+  position: sticky;
+  top: toRem(100);
   max-width: toRem(391);
   width: 100%;
   background: #111111;

@@ -5,7 +5,13 @@
   position: relative;
   left: toRem(-1);
 }
-
+.item{
+  &:not(:first-child){
+   .card{
+     border-left: none;
+   }
+  }
+}
 .card {
   &:not(:first-child) {
     position: relative;

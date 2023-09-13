@@ -16,9 +16,13 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={manrope.className}>
-        <Header/>
-        <main className='main'>{children}</main>
-        <Footer/>
+        <div className="page">
+          <div className="page-content">
+            <Header/>
+            <main className='main'>{children}</main>
+          </div>
+          <Footer/>
+        </div>
       </body>
     </html>
   );

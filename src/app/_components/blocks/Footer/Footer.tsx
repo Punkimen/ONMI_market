@@ -54,28 +54,6 @@ export const Footer: FC = () => {
             </div>
           </div>
         </div>
-        <div className={s["footer__text"]}>
-          <p>Welcome to onmi, the exciting XR app! Please read this carefully as it governs your use of the onmi
-            platform.
-            We value your privacy. Please read our privacy policy which details how we collect, use and protect your
-            personal information. Before you start playing, read the detailed contents of the game rules, mechanics and
-            terms of participation. We are committed to providing a fair and fun gaming environment for all of our
-            players.
-            You can choose from a variety of payment methods including Apple Pay, Google Pay, credit cards through the
-            Xsolla platform, and cryptocurrencies through Coinbase. Please familiarize yourself with each method before
-            making a payment. The use of cryptocurrencies can carry financial risks. Aware of possible risks and
-            familiarize
-            yourself. If you have any questions or suggestions, please contact us at: <a
-            href="welcome@onmi.io."
-            target="_blank">welcome@onmi.io.</a>
-            onmi is intended for
-            users who are at least 12 years old. Please do not use the platform if you are under 12 years old. Thank you
-            for
-            choosing onmi for entertainment and education! Last update date: August 10, 2023</p>
-        </div>
-        <div className={s["footer__copy"]}>
-          Copyright © 2023 onmi®. All rights reserved.
-        </div>
       </div>
     </div>
   );

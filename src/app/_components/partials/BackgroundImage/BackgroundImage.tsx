@@ -21,7 +21,7 @@ export const BackgroundImage: FC<IBBackgroundImageProps> = ({src, alt}) => {
         left: 0,
         width: '100%',
         objectFit: 'cover',
-        height: 'auto'
+        height: '100%'
       }}
     />
   );

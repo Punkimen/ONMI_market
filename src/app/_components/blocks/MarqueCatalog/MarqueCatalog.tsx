@@ -1,10 +1,9 @@
 import Marquee from "react-fast-marquee";
 import React, {FC} from "react";
-import EditPathVars = MotionPathHelper.EditPathVars;
 import {IClothe} from "@/app/_types/cards.types";
 import {CardClothe} from "@/app/_components/partials/CardClothe/CardClothe";
 import cn from "classnames";
-import s from "@/app/_components/blocks/Catalog/Catalog.module.scss";
+import s from "./MarqueCatalog.module.scss";
 
 interface IMarqueCatalog {
   cardsClothe: IClothe[],
@@ -13,7 +12,7 @@ interface IMarqueCatalog {
 
 export const MarqueCatalog: FC<IMarqueCatalog> = ({cardsClothe, className}) => {
   return (
-    <Marquee className={className}>
+    <Marquee className={cn(s.catalog, className)}>
       {cardsClothe && cardsClothe?.map((card: IClothe, index) => {
         return <CardClothe isStats={false}
           key={card.id}

@@ -130,6 +130,13 @@ a {
   padding-top: toRem(60);
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
 .container {
   width: 100%;
   padding: 0 toRem(24);
@@ -211,4 +218,18 @@ h1, h2, h3, h4 {
   }
 }
 
+.marquee {
+  &:not(:first-child) {
+    position: relative;
+    left: -1px;
+  }
 
+  .child {
+    border-left: 1px solid #1F1F1F;
+    border-right: 1px solid #1F1F1F;
+
+    &:not(:first-child) {
+      border-left: none;
+    }
+  }
+}

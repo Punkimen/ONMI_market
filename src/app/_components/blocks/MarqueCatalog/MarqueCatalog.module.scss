@@ -1,4 +1,12 @@
+@import '@/app/_styles/functions.scss';
+
+.catalog {
+  display: flex;
+
+}
 .card {
-  border-top: none !important;
-  border-bottom: none !important;
+  min-width: toRem(383);
+  width: toRem(383);
+  border: none;
+  position: relative;
 }

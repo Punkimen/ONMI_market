@@ -25,6 +25,7 @@
   }
 
   &__catalog {
+    display: flex;
     max-width: toRem(1642);
     width: 100%;
     overflow: hidden;

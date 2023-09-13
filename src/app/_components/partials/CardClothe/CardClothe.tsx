@@ -28,14 +28,15 @@ export const CardClothe: FC<ICardClotheProps> = ({
   stats,
   isStats = true,
   collection,
-  quantity
+  quantity,
+  ...props
 }) => {
   const bagState = useBagState(state => state.bag);
   const addtoCard = useBagState(state => state.addToCart);
   const [hover, setHover] = useState(false);
 
   return (
-    <div className={cn(s.card)}>
+    <div className={cn(s.card, props.className)}>
       <Link href={`${Routes.CLOTHES}/${id}`} className={s.card__link}/>
       <div className={s.model}>{modelCategory}</div>
       <div className={s.img}>

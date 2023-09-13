@@ -2,8 +2,6 @@
 
 .inventory {
   margin-top: toRem(16);
-  background-color: #0D0D0D;
-  border-radius: toRem(21);
 }
 
 .tabs {
@@ -12,6 +10,7 @@
   justify-content: center;
   padding: toRem(17) 0 toRem(14);
   border-bottom: toRem(1) solid #151515;
+  border-top: toRem(1) solid #151515;
 }
 
 .list {

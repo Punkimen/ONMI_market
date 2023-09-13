@@ -21,7 +21,7 @@ import {Dropdown} from "@/app/_components/partials/Dropdown/Dropdown";
 const links: Array<ILink> = [
   {title: 'omis', href: Routes.HOME},
   // {title: 'collections', href: Routes.COLLECTIONS},
-  {title: 'clothes', href: Routes.CLOTHES},
+  {title: 'Zero Collection', href: Routes.CLOTHES},
 ];
 export const Header = () => {
   const header = useRef<HTMLDivElement>(null);

@@ -2,10 +2,10 @@
 
 .card {
   width: 100%;
-  max-width: toRem(194);
+  max-width: toRem(353);
 
   &.omis {
-    max-width: toRem(354);
+    max-width: toRem(353);
   }
 }
 
@@ -43,6 +43,7 @@
   &.row {
     align-items: center;
     justify-content: space-between;
+    padding-left: toRem(15);
   }
 }
 
@@ -84,14 +85,14 @@
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: toRem(7);
+    margin-bottom: toRem(4);
   }
 }
 
 .quality {
   min-width: toRem(94);
   border: 1px solid #333;
-  padding: toRem(11) toRem(14) toRem(10);
+  padding: toRem(8) toRem(14) toRem(7);
   font-size: toRem(12);
   border-radius: toRem(18);
 }
