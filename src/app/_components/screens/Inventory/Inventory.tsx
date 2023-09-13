@@ -212,7 +212,7 @@ export const Inventory: FC = () => {
     "Clothes" |
     "Materials" |
     "Boxes">(// @ts-ignore
-    tabs.filter(el => el.isActive === true)[0].title);
+      tabs.filter(el => el.isActive === true)[0].title);
   const [cards, setCards] = useState([]);
   const changeTab = useCallback((title: string) => {
     setTabs(prevState => {
@@ -255,41 +255,41 @@ export const Inventory: FC = () => {
           {(activeTab === 'Omis' || activeTab === 'Clothes') && <div className={s.catalog}>
             {cards?.map(el => {
               return <IventCard key={el.id} className={cn(s.card)}
-                                imgSrc={el.imgSrc} id={el.id}
-                                resources={el.resources} quality={el.quality || null}
-                                modelCategory={el.modelCategory}/>;
+                imgSrc={el.imgSrc} id={el.id}
+                resources={el.resources} quality={el.quality || null}
+                modelCategory={el.modelCategory}/>;
             })}
           </div>}
           {activeTab === 'Boxes' && <div className={s.catalog}>
             {cards?.map(el => {
               return <BoxCard key={el.id} className={s.card} imgSrc={el.imgSrc} id={el.id}
-                              collectionId={el.collectionId}/>;
+                collectionId={el.collectionId}/>;
             })}
           </div>}
           {activeTab === 'Materials' && <>
-              <div className={s.catalog}>
-                {initData.resources.map(el => {
-                  return (
-                    <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
-                                  value={el.value}/>
-                  );
-                })}
-              </div>
-              <div className={s.label__mineral}>Minerals
-              </div>
-              <div className={s.catalog}>
-                {initData.minerals.map(el => {
-                  return (
-                    <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
-                                  value={el.value}/>
-                  )
-                })}
-              </div>
+            <div className={s.catalog}>
+              {initData.resources.map(el => {
+                return (
+                  <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
+                    value={el.value}/>
+                );
+              })}
+            </div>
+            <div className={s.label__mineral}>Minerals
+            </div>
+            <div className={s.catalog}>
+              {initData.minerals.map(el => {
+                return (
+                  <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
+                    value={el.value}/>
+                );
+              })}
+            </div>
           </>
           }
         </div>
       </div>
     </div>
   )
-    ;
+  ;
 };
