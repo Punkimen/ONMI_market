@@ -5,6 +5,8 @@ export interface IUser {
   isAuth: boolean;
   nickname: string | null;
   avatar: string | StaticImageData | null;
+  email: string;
+  password: string;
   balance: number;
   inventory: IInventory;
   auth: () => void;

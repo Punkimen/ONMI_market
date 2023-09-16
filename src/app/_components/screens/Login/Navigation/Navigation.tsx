@@ -11,6 +11,7 @@ import {useRouter} from "next/navigation";
 interface INavigationProps extends IBaseComponents {
   hide?: boolean;
   href?: string;
+  onClick?: ()=>void;
 }
 export const Navigation:FC<INavigationProps> =(props)=>{
   const router = useRouter();
@@ -22,7 +23,7 @@ export const Navigation:FC<INavigationProps> =(props)=>{
       <BtnBig color={"gray"} onClick={()=>router.back()} className={cn(s.nav__btn, s.nav__btn_arrow)}>
         <Image className={s.arrow} src={arrow} alt={'arrow'}/>
       </BtnBig>
-      <BtnBig className={s.nav__btn} color={'white'} href={props.href}>
+      <BtnBig className={s.nav__btn} color={'white'} href={props.href} onClick={()=>props.onClick && props.onClick()}>
         Continue
       </BtnBig>
     </div>

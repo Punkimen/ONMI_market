@@ -1,7 +1,6 @@
 "use client";
 import {useInput} from "@/app/_hooks/useInput";
 import s from "@/app/_components/screens/Login/Login.module.scss";
-import {Title} from "@/app/_components/partials/Title/Title";
 import {Input} from "@/app/_components/partials/Input/Input";
 import React from "react";
 import {LoginLayout} from "@/app/_components/screens/Login/LoginLayout";

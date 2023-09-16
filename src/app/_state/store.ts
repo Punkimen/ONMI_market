@@ -14,12 +14,13 @@ interface ICatalogState {
 interface IQuestionsState {
   questions: Array<{ title: string, text: string[] }>,
 };
-
 export const useUser = create<IUser>()(
   persist(
     (set) => ({
       isAuth: false,
       nickname: "John Malcovich",
+      email: "nul",
+      password: '',
       avatar: avatar,
       balance: 0,
       inventory: {

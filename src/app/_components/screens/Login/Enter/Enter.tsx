@@ -10,12 +10,23 @@ import arrow from "@/../public/img/icons/arrow_link.svg";
 import Image from "next/image";
 import {LoginLayout} from "@/app/_components/screens/Login/LoginLayout";
 import {Routes} from "@/app/_utils/Routes";
+import {useUser} from "@/app/_state/store";
+import {useStore} from "zustand";
+import {useRouter} from "next/navigation";
 
 export const Enter = () => {
   const email = useInput('');
   const password = useInput('');
+  const auth = useStore(useUser, (state)=>state);
+  const router = useRouter();
+
+  const onClick = ()=>{
+    auth.auth();
+    router.push(Routes.HOME);
+  };
+
   return (
-    <LoginLayout description='Enter your email and password' href={Routes.HOME}>
+    <LoginLayout description='Enter your email and password' onClick={onClick}>
       <div className={s.fields}>
         <Input {...email} blockClass={s.input} styletype={'line'} placeholder={"your@email.com"}/>
         <Input {...password} blockClass={s.input} styletype={'line'} placeholder={"password"} type={'password'}/>

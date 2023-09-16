@@ -9,8 +9,9 @@ interface ILoginLayout{
   description: string;
   isHideNav?: boolean;
   href?: string;
+  onClick?: ()=> void;
 }
-export const LoginLayout:FC<ILoginLayout> = ({children,href, title='Welcome to onmi®', description, isHideNav})=>{
+export const LoginLayout:FC<ILoginLayout> = ({children,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
   return(
     <div className={s.login}>
       <div className={s.container}>
@@ -21,7 +22,7 @@ export const LoginLayout:FC<ILoginLayout> = ({children,href, title='Welcome to o
           </div>
           {children}
         </div>
-        <Navigation hide={isHideNav} className={s.nav} href={href}/>
+        <Navigation hide={isHideNav} className={s.nav} href={href} onClick={onClick}/>
       </div>
     </div>
   );
