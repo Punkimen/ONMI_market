@@ -1,7 +1,9 @@
 @import '@/app/_styles/functions.scss';
+
 .block {
   font-size: 18px;
   font-weight: 600;
+  position: relative;
 }
 
 .label {
@@ -23,10 +25,31 @@
   font-weight: 600;
   padding: toRem(20) toRem(15) toRem(22);
   transition: all ease-in .3s;
+  width: 100%;
+
+  &.line {
+    border: none;
+    border-bottom: 1px solid #1b1b1b;
+    background-color: transparent;
+    text-align: left;
+    border-radius: 0;
+    padding-left: 0;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &::placeholder {
+      text-align: left;
+    }
+  }
 
   &:focus {
     border-color: #3f3f3f;
 
+    &::placeholder {
+      color: transparent;
+    }
   }
 
   &:hover {
@@ -37,5 +60,23 @@
   &::placeholder {
     text-align: center;
     color: #5A5A5A;
+  }
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+  &:hover {
+    svg {
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
+
+  svg {
+    transition: fill ease-in .2s;
+    fill: rgba(255, 255, 255, .2);
   }
 }

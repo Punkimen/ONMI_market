@@ -26,7 +26,7 @@ const Template = ({children}: { children: React.ReactNode }) => {
         el && triggerAnimate(el);
       });
     }, [content]);
-  }, []);
+  }, [content]);
   return <div ref={content}>{children}</div>;
 };
 

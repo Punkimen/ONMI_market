@@ -20,6 +20,15 @@
     }
   }
 
+  &.white {
+    background-color: #fff;
+    color: var(--dark);
+
+    &:hover {
+      background-color: var(--graySecondary);
+    }
+  }
+
   &:hover {
     background-color: #1c1ee0;
   }

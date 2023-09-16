@@ -3,5 +3,10 @@ export enum Routes {
   CLOTHES = '/clothes',
   COLLECTIONS = '/collections',
   BAG = '/bag',
-  INVENTORY = '/inventory'
+  INVENTORY = '/inventory',
+  LOGIN = '/login',
+  EMAIL= '/login/email',
+  ENTER= '/login/enter',
+  FORGOT= '/login/password',
+  RESET= '/login/resetPassword',
 }

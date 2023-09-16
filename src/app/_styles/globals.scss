@@ -119,6 +119,7 @@ h3 {
 }
 
 h4 {
+  font-size: toRem(40);
 }
 
 a {
@@ -136,7 +137,9 @@ a {
   min-height: 100vh;
   justify-content: space-between;
 }
-
+.page-content{
+  flex-grow: 1;
+}
 .container {
   width: 100%;
   padding: 0 toRem(24);
@@ -225,8 +228,8 @@ h1, h2, h3, h4 {
   }
 
   .child {
-    border-left: 1px solid #1F1F1F;
-    border-right: 1px solid #1F1F1F;
+    border-left: toRem(1) solid #1F1F1F;
+    border-right: toRem(1) solid #1F1F1F;
 
     &:not(:first-child) {
       border-left: none;

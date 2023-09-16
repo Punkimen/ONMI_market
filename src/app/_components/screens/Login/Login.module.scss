@@ -1,0 +1,73 @@
+@import '@/app/_styles/functions.scss';
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  min-height: calc(100vh - toRem(60));
+  padding-bottom: toRem(60);
+
+  .title {
+    text-align: left;
+  }
+}
+
+.container {
+  position: relative;
+  max-width: toRem(754);
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.content {
+  margin-bottom: toRem(80);
+}
+
+.description {
+  margin-bottom: toRem(56);
+}
+
+
+
+.text {
+  color: #9D9D9D;
+  font-weight: 500;
+  font-size: toRem(18);
+
+  &_small {
+    font-size: toRem(14);
+  }
+}
+
+.fields {
+  &:not(:last-child) {
+    margin-bottom: toRem(72);
+  }
+}
+
+.input {
+  &:not(:last-child) {
+    margin-bottom: toRem(20);
+  }
+}
+
+.btns {
+  display: flex;
+}
+
+.btn {
+  &:not(:last-child) {
+    margin-right: toRem(9);
+  }
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

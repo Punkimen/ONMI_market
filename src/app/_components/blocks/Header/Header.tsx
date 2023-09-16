@@ -55,10 +55,7 @@ export const Header = () => {
             <Bag className={cn(s.bag, 'text-line')} data-delay='0.3'/>
             <Balance className={cn(s.balance)} hide={!isAuth}/>
             <div className={'text-line'} data-delay='0.4'>
-              <BtnSmall className={s.header__btn} onClick={() => {
-                user.auth();
-                setIsAuth(user.isAuth);
-              }} hide={isAuth}>Log In</BtnSmall>
+              <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
             </div>
             <Dropdown menu={[{title: 'Inventory', href: Routes.INVENTORY}, {
               title: 'Sign out', href: "", onClick: () => {

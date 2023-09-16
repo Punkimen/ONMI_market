@@ -1,0 +1,49 @@
+@import '@/app/_styles/functions.scss';
+
+.btn {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #1C1C1C;
+  transition: background-color ease-in .2s;
+  color: var(--white);
+  font-weight: 600;
+  font-size: toRem(14);
+  padding: toRem(15) toRem(45) toRem(15) toRem(25);
+  border-radius: toRem(28);
+  min-height: toRem(55);
+
+  &:hover {
+    background-color: #363636;
+  }
+
+  &.white {
+    color: var(--dark);
+    background-color: var(--white);
+
+    &:hover {
+      background-color: var(--graySecondary);
+    }
+  }
+}
+
+.icon {
+  display: block;
+  margin-right: toRem(16);
+  width: toRem(16);
+  height: auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: toRem(24);
+  fill: var(--white);
+  pointer-events: none;
+
+  &.black {
+    fill: var(--dark);
+  }
+}

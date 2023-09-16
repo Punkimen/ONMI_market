@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import s from './Footer.module.scss';
-import cn from 'classnames';
 import Link from "next/link";
 import x from '@/../public/img/icons/x.svg';
 import instagram from '@/../public/img/icons/instagram.svg';
@@ -9,7 +8,7 @@ import medium from '@/../public/img/icons/medium.svg';
 import Image from "next/image";
 import apple from '@/../public/img/icons/apple.svg';
 import googlePlay from '@/../public/img/icons/googlePlay.svg';
-import Logo from '@/../public/img/logo.svg';
+import logo from '@/../public/img/logo.svg';
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 
 export const Footer: FC = () => {
@@ -20,7 +19,7 @@ export const Footer: FC = () => {
         <div className={s["footer__wrapper"]}>
           <div className={s["footer__left"]}>
             <div className={s["footer__logo"]}>
-              <Image src={Logo} alt={'ONMI'}/>
+              <Image src={logo} alt={'ONMI'}/>
             </div>
             <div className={s["footer__labels"]}>
               <span>onmi®</span>
