@@ -1,15 +1,27 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .header {
-  padding: toRem(16) 0;
+  padding: toVw(16) 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9;
+  @media(max-width: $md4 + px) {
+    padding: toVw(16, $md4) 0;
+  }
+  @media(max-width: $md5 + px) {
+    background: #000;
+    padding: toVw(23, 390) 0;
+    border-bottom: toVw(1, 390) solid #1F1F1F;
+  }
 
   &__btn {
     height: 100%;
+    @media(max-width: $md5 + px) {
+      display: none;
+    }
   }
 }
 
@@ -26,13 +38,25 @@
 
 .logo {
   display: block;
-  max-width: toRem(100);
+  max-width: toVw(100);
   width: 100%;
   overflow: hidden;
-  margin-right: toRem(65);
+  margin-right: toVw(65);
+
+  @media(max-width: $md2 + px) {
+    max-width: toVw(100, $md2);
+    margin-right: toVw(65, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: toVw(100, $md4);
+    margin-right: toVw(32, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    max-width: toVw(71, 390);
+    margin-right: toVw(32, 390);
+  }
 
   img {
-    max-width: toRem(100);
     display: block;
     width: 100%;
     height: auto;
@@ -41,23 +65,38 @@
 
 .right {
   display: flex;
+  @media(max-width: $md5 + px) {
+    align-items: center;
+  }
 }
 
 .bag, .balance {
-  margin-right: toRem(6);
-  min-width: toRem(142);
+  margin-right: toVw(6);
+  min-width: toVw(142);
+  @media(max-width: $md2 + px) {
+    min-width: toVw(142, $md2);
+    margin-right: toVw(6, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    min-width: toVw(142, $md4);
+    margin-right: toVw(6, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-right: toVw(19, 390);
+    min-width: toVw(99, 390);
+  }
 }
 
 .user {
-  margin-left: toRem(8);
+  margin-left: toVw(8);
   display: flex;
   align-items: center;
 }
 
 .avatar {
-  width: toRem(33);
-  height: toRem(33);
-  margin-right: toRem(15);
+  width: toVw(33);
+  height: toVw(33);
+  margin-right: toVw(15);
 
   img {
     display: block;
@@ -67,5 +106,5 @@
 }
 
 .name {
-  font-size: toRem(12);
+  font-size: toVw(12);
 }

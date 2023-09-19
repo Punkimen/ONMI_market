@@ -1,9 +1,19 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .text {
   color: var(--gray);
   font-weight: 500;
-  font-size: toRem(22);
+  font-size: toVw(22);
   line-height: 1.4em;
   text-align: center;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(22, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(16, 390);
+  }
 }

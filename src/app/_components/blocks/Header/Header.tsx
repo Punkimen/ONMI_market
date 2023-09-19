@@ -16,6 +16,8 @@ import cn from "classnames";
 import {Balance} from "@/app/_components/partials/Balance/Balance";
 import {useUser} from "@/app/_state/store";
 import {Dropdown} from "@/app/_components/partials/Dropdown/Dropdown";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import {Burger} from "@/app/_components/partials/Burger/Burger";
 
 
 const links: Array<ILink> = [
@@ -37,6 +39,8 @@ export const Header = () => {
   }, []);
   const user = useUser(state => state);
   const [isAuth, setIsAuth] = useState(false);
+  const windowWidth = useWindowWidth();
+
   useEffect(() => {
     setIsAuth(user.isAuth);
   }, [user.isAuth]);
@@ -49,7 +53,7 @@ export const Header = () => {
             <Link href={Routes.HOME} className={s.logo}>
               <Image src={logo} className={'text-line'} alt={'onmi'} priority={true}/>
             </Link>
-            <NavLinks links={links} className={s.nav}/>
+            <NavLinks links={links} className={s.nav} hide={windowWidth <= 568}/>
           </div>
           <div className={cn(s.right)}>
             <Bag className={cn(s.bag, 'text-line')} data-delay='0.3'/>
@@ -68,6 +72,7 @@ export const Header = () => {
                 {user.nickname && <div className={s.name}>{user.nickname}</div>}
               </div>
             </Dropdown>
+            <Burger hide={windowWidth <= 568 ? false : true}/>
           </div>
         </div>
       </div>

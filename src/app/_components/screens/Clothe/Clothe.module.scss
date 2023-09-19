@@ -1,14 +1,14 @@
 @import '@/app/_styles/functions.scss';
 
 .clothe {
-  padding-top: toRem(100);
+  padding-top: toVw(100);
 }
 
 .img {
   position: relative;
-  max-width: toRem(476);
+  max-width: toVw(476);
   width: 100%;
-  margin: 0 auto toRem(156);
+  margin: 0 auto toVw(156);
 }
 
 .info {
@@ -16,10 +16,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: toRem(30);
+  border-radius: toVw(30);
   background-color: #151515;
-  padding: toRem(14) toRem(15) toRem(15) toRem(36);
-  margin-bottom: toRem(112);
+  padding: toVw(14) toVw(15) toVw(15) toVw(36);
+  margin-bottom: toVw(112);
 }
 
 .left {
@@ -41,7 +41,7 @@
   text-transform: uppercase;
 
   &:not(:last-child) {
-    margin-right: toRem(24);
+    margin-right: toVw(24);
   }
 
   &:last-child {
@@ -53,7 +53,7 @@
   display: flex;
 
   &:not(:last-child) {
-    margin-right: toRem(86);
+    margin-right: toVw(86);
   }
 }
 
@@ -63,7 +63,7 @@
 
   img {
     display: block;
-    margin-right: toRem(10);
+    margin-right: toVw(10);
   }
 
   span {
@@ -72,19 +72,19 @@
   }
 
   &:not(:last-child) {
-    margin-right: toRem(24);
+    margin-right: toVw(24);
   }
 }
 
 .price {
   font-family: SFPro, sans-serif;
-  margin-right: toRem(25);
+  margin-right: toVw(25);
 }
 
 .btn__buy {
-  flex: 0 0 toRem(136);
+  flex: 0 0 toVw(136);
   display: block;
-  padding: toRem(7) toRem(15) toRem(8);
-  min-width: toRem(136);
+  padding: toVw(7) toVw(15) toVw(8);
+  min-width: toVw(136);
   width: 100%;
 }

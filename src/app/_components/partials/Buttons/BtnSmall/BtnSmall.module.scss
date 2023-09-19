@@ -1,16 +1,28 @@
 @import '@/app/_styles/functions';
+@import '@/app/_styles/var';
 
 .btn {
-  font-size: toRem(12);
+  font-size: toVw(12);
   font-weight: 600;
-  border-radius: toRem(17);
-  padding: toRem(6) toRem(24) toRem(5);
+  border-radius: toVw(17);
+  padding: toVw(6) toVw(24) toVw(5);
   background-color: var(--white);
   color: var(--dark);
   transition: background-color ease-in .3s;
   text-align: center;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+    border-radius: toVw(17, $md2);
+    padding: toVw(6, $md2) toVw(24, $md2) toVw(5, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(12, $md4);
+    border-radius: toVw(17, $md4);
+    padding: toVw(6, $md4) toVw(24, $md4) toVw(5, $md4);
+  }
 
   &:hover {
     background-color: var(--graySecondary);

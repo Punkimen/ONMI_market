@@ -1,41 +1,91 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .cards {
   display: flex;
-  max-width: toRem(1110);
+  max-width: toVw(1110);
   width: 100%;
   margin: 0 auto;
+  @media(max-width: $md2 + px) {
+    max-width: toVw(1110, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: calc(100% + toVw(10, $md4));
+    max-width: calc(100% + toVw(10, $md4));
+    margin: 0 toVw(-10);
+  }
+  @media(max-width: $md5 + px) {
+    display: block;
+  }
 
   &__col {
     display: flex;
     flex-direction: column;
-    width: 100%;
 
     &_1 {
-      max-width: toRem(363);
+      max-width: toVw(363);
+      @media(max-width: $md2 + px) {
+        max-width: toVw(363, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: 100%;
+      }
     }
 
     &_2 {
-      max-width: toRem(314);
+      max-width: toVw(314);
+      @media(max-width: $md2 + px) {
+        max-width: toVw(314, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: 100%;
+      }
     }
 
     &_3 {
       flex-grow: 1;
+      @media(max-width: $md4 + px) {
+        grid-column: 1/3;
+      }
     }
   }
 }
 
 .card {
-  margin: toRem(5);
+  margin: toVw(5);
   position: relative;
-  border-radius: toRem(18);
+  border-radius: toVw(18);
   background: #171717;
   overflow: hidden;
+  @media(max-width: $md2 + px) {
+    margin: toVw(5, $md2);
+    position: relative;
+    border-radius: toVw(18, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    margin: toVw(5, $md4);
+    border-radius: toVw(18, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin: toVw(5, 390);
+    border-radius: toVw(18, 390);
+  }
 
   &__text {
-    font-size: toRem(21);
+    font-size: toVw(21);
     position: relative;
     text-align: center;
+    @media(max-width: $md2 + px) {
+      font-size: toVw(18, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(18, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(18, 390);
+    }
   }
 
   &__icon {
@@ -52,15 +102,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: toRem(36) toRem(36) toRem(37);
+    padding: toVw(36) toVw(36) toVw(37);
+    @media(max-width: $md2 + px) {
+      padding: toVw(36, $md2) toVw(36, $md2) toVw(37, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      padding: toVw(36, $md4) toVw(36, $md4) toVw(37, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(36, 390) toVw(36, 390) toVw(37, 390);
+    }
   }
 
   &__money-label {
     text-align: center;
     color: #F1AB3B;
-    font-size: toRem(39);
+    font-size: toVw(39);
     font-weight: bold;
-
+    @media(max-width: $md2 + px) {
+      font-size: toVw(39, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(39, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(39, 390);
+    }
     @supports (--css: variables) {
       background: #F1AB3B;
       background: linear-gradient(162deg, #F1AB3B 0%, #AC0303 100%);
@@ -75,31 +142,59 @@
   }
 
   &__mini-games {
-    padding: toRem(34) toRem(22) toRem(20);
-
-    .card__text {
-      font-size: toRem(18);
+    padding: toVw(34) toVw(22) toVw(20);
+    @media(max-width: $md4 + px) {
+      padding: toVw(34, $md4) toVw(12, $md4) toVw(20, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(34, 390) toVw(22, 390) toVw(20, 390);
     }
 
     .card__icon {
-      max-width: toRem(70);
+      max-width: toVw(70);
       width: 100%;
-      margin: 0 auto toRem(14);
+      margin: 0 auto toVw(14);
+      @media(max-width: $md2 + px) {
+        max-width: toVw(70, $md2);
+        margin-bottom: toVw(14, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: toVw(70, $md4);
+        margin-bottom: toVw(14, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        max-width: toVw(70, 390);
+        margin-bottom: toVw(14, 390);
+      }
     }
   }
 
   &__social {
-    padding: toRem(34) toRem(12) toRem(20);
+    padding: toVw(34) toVw(12) toVw(20);
     flex-grow: 1;
-
-    .card__text {
-      font-size: toRem(18);
+    @media(max-width: $md4 + px) {
+      padding: toVw(34, $md4) toVw(12, $md4) toVw(20, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(34, 390) toVw(12, 390) toVw(20, 390);
     }
 
     .card__icon {
-      max-width: toRem(119);
+      max-width: toVw(119);
       width: 100%;
-      margin: 0 auto toRem(14);
+      margin: 0 auto toVw(14);
+      @media(max-width: $md2 + px) {
+        max-width: toVw(119, $md2);
+        margin-bottom: toVw(14, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: toVw(119, $md4);
+        margin-bottom: toVw(14, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        max-width: toVw(119, 390);
+        margin-bottom: toVw(14, 390);
+      }
     }
   }
 
@@ -108,10 +203,24 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    @media(max-width: $md5 + px) {
+      min-height: toVw(283, 390);
+    }
 
     .card__text {
-      max-width: toRem(208);
+      max-width: toVw(208);
       width: 100%;
+      @media(max-width: $md2 + px) {
+        max-width: toVw(208, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: toVw(208, $md4);
+        font-size: toVw(21, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        max-width: toVw(208, 390);
+        font-size: toVw(21, 390);
+      }
     }
   }
 
@@ -121,8 +230,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: toRem(15) toRem(34) toRem(15);
+    padding: toVw(15) toVw(34) toVw(15);
     overflow: visible;
+    @media(max-width: $md4 + px) {
+      height: toVw(410, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      height: toVw(522, 390);
+    }
   }
 
   &__hunger-label {
@@ -131,9 +246,18 @@
     z-index: 2;
     color: #3B6EF1;
     font-weight: bold;
-    font-size: toRem(39);
-    line-height: 1em;
-
+    font-size: toVw(39);
+    line-height: 1.3em;
+    @media(max-width: $md2 + px) {
+      font-size: toVw(39, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(39, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(39, 390);
+      width: 90%;
+    }
     @supports (--css: variables) {
       background: #3B6EF1;
       background: linear-gradient(160deg, #3B6EF1 0%, #FFF 100%);
@@ -149,10 +273,16 @@
 
   &__hunger-img {
     position: absolute;
-    width: 87%;
+    width: 90%;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    @media(max-width: $md2 + px) {
+      width: 68%;
+    }
+    @media(max-width: $md5 + px) {
+      width: 79%;
+    }
 
     img {
       display: block;
@@ -165,13 +295,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: toRem(45) toRem(24) toRem(46);
+    padding: toVw(45) toVw(24) toVw(46);
+    @media(max-width: $md2 + px) {
+      padding: toVw(45, $md2) toVw(24, $md2) toVw(46, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      padding: toVw(45, $md4) toVw(24, $md4) toVw(46, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(52, 390) toVw(24, 390) toVw(55, 390);
+    }
   }
 
   &__signature-text {
     font-weight: bold;
     color: #D3DB85;
-
+    @media(max-width: $md4 + px) {
+      font-size: toVw(21, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(26, 390);
+    }
     @supports (--css: variables) {
       background: #D3DB85;
       background: linear-gradient(38deg, #D3DB85 0%, #A1BF0C 100%);
@@ -186,16 +330,39 @@
   }
 
   &__battle {
-    height: toRem(230);
+    height: toVw(230);
     text-align: center;
-    padding: toRem(40) toRem(24) toRem(40);
+    padding: toVw(40) toVw(24) toVw(40);
+    @media(max-width: $md2 + px) {
+      padding: toVw(40, $md2) toVw(24, $md2) toVw(40, $md2);
+      height: toVw(230, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      padding: toVw(40, $md4) toVw(24, $md4) toVw(40, $md4);
+      height: toVw(352, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      height: toVw(228, 390);
+      padding: toVw(40, 390) toVw(24, 390) toVw(40, 390);
+    }
   }
 
   &__battle-label {
     position: relative;
-    font-size: toRem(32);
+    font-size: toVw(32);
     font-weight: bold;
     text-align: center;
+    @media(max-width: $md2 + px) {
+      text-align: center;
+      font-size: toVw(32, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      text-align: center;
+      font-size: toVw(32, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(32, 390);
+    }
   }
 
   &__customize {
@@ -203,16 +370,27 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: toRem(38) toRem(15) toRem(38);
+    padding: toVw(38) toVw(15) toVw(38);
+    @media(max-width: $md4 + px) {
+      padding: toVw(38, $md4) toVw(15, $md4) toVw(38, $md4);
+      min-height: toVw(470, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(38, 390) toVw(15, 390) toVw(45, 390);
+      min-height: toVw(324, 390);
+    }
   }
 
   &__customize-img {
     width: 100%;
-    margin-bottom: toRem(20);
+    margin-bottom: toVw(20);
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media(max-width: $md2 + px) {
+      margin-bottom: toVw(20, $md2);
+    }
 
     img {
       display: block;
@@ -232,20 +410,41 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: toRem(38) toRem(15) toRem(0);
+    padding: toVw(38) toVw(15) toVw(0);
+    @media(max-width: $md4 + px) {
+      padding: toVw(38, $md4) toVw(15, $md4) toVw(0, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      padding: toVw(38, 390) toVw(5, 390) toVw(0, 390);
+    }
   }
 
   &__chat-text {
     font-weight: bold;
     width: 90%;
-    margin: 0 auto toRem(20);
+    margin: 0 auto toVw(20);
+    @media(max-width: $md2 + px) {
+      margin-bottom: toVw(20, $md2);
+    }
+    @media(max-width: $md5 + px) {
+      width: 100%;
+      font-size: toVw(17, 390);
+    }
   }
 
   &__chat-img {
-    max-width: 141px;
+    max-width: toVw(141);
     width: 100%;
     margin: 0 auto;
-
+    @media(max-width: $md2 + px) {
+      max-width: toVw(141, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      max-width: 75%;
+    }
+    @media(max-width: $md5 + px) {
+      max-width: 88%;
+    }
     img {
       display: block;
       width: 100%;

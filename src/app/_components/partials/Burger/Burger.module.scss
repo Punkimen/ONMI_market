@@ -1,0 +1,53 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.burger {
+  position: relative;
+  top: 0;
+  right: 0px;
+  min-width: toVw(35, 390);
+  width: toVw(35, 390);
+  height: toVw(7, 390);
+  cursor: pointer;
+  z-index: 5;
+  display: none;
+  @media(max-width: $md5 + px) {
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    transition: all .3s ease 0s;
+    top: calc(50% - toVw(1));
+    left: 0;
+    height: toVw(2);
+    width: 100%;
+    background: #fff;
+    display: block;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:last-child {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    span {
+      transform: scale(0);
+
+      &:first-child {
+        transform: rotate(-45deg);
+        top: 50%;
+      }
+
+      &:last-child {
+        transform: rotate(45deg);
+        bottom: calc(50% - toVw(1));
+      }
+    }
+  }
+}

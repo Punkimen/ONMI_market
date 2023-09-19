@@ -8,7 +8,7 @@
 
 .label {
   display: block;
-  margin-bottom: toRem(20);
+  margin-bottom: toVw(20);
   color: #5A5A5A;
 }
 
@@ -23,7 +23,7 @@
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  padding: toRem(20) toRem(15) toRem(22);
+  padding: toVw(20) toVw(15) toVw(22);
   transition: all ease-in .3s;
   width: 100%;
 

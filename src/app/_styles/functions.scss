@@ -1,4 +1,15 @@
-@function toRem($value) {
-  $remValue: ($value / 16) + rem;
+@use "sass:math"; //You can use "sass:math"
+@function toRem($value, $fsz: 16) {
+  $remValue: ($value / $fsz) + rem;
   @return $remValue;
+}
+
+@function toVw($font, $vw-viewport: 1920){
+  $vw-context: $vw-viewport * 0.01 * 1px;
+  @return math.div($font * 1px, $vw-context) * 1vw;
+}
+
+@function px-to-rem($value) {
+  $remValue: calc((100vw * 16) / 1920 * $value);
+  @return #{$remValue};
 }

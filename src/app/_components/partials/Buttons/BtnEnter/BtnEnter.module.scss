@@ -9,10 +9,10 @@
   transition: background-color ease-in .2s;
   color: var(--white);
   font-weight: 600;
-  font-size: toRem(14);
-  padding: toRem(15) toRem(45) toRem(15) toRem(25);
-  border-radius: toRem(28);
-  min-height: toRem(55);
+  font-size: toVw(14);
+  padding: toVw(15) toVw(45) toVw(15) toVw(25);
+  border-radius: toVw(28);
+  min-height: toVw(55);
 
   &:hover {
     background-color: #363636;
@@ -30,8 +30,8 @@
 
 .icon {
   display: block;
-  margin-right: toRem(16);
-  width: toRem(16);
+  margin-right: toVw(16);
+  width: toVw(16);
   height: auto;
 }
 
@@ -39,7 +39,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: toRem(24);
+  right: toVw(24);
   fill: var(--white);
   pointer-events: none;
 

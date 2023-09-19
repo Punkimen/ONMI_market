@@ -4,9 +4,11 @@ import React, {useEffect, useLayoutEffect, useRef} from "react";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 const Template = ({children}: { children: React.ReactNode }) => {
   const content = useRef<HTMLDivElement>(null);
+  const windowWidth = useWindowWidth();
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
@@ -26,7 +28,7 @@ const Template = ({children}: { children: React.ReactNode }) => {
         el && triggerAnimate(el);
       });
     }, [content]);
-  }, [content]);
+  }, [content, windowWidth]);
   return <div ref={content}>{children}</div>;
 };
 

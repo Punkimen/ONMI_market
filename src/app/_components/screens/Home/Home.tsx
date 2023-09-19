@@ -17,22 +17,31 @@ import {IBody, IClothe} from "@/app/_types/cards.types";
 import {MarqueCatalog} from "@/app/_components/blocks/MarqueCatalog/MarqueCatalog";
 import {Hero} from "@/app/_components/blocks/Hero/Hero";
 import {useStore} from "zustand";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
 
 export const Home: FC = () => {
   const clothes: IClothe[] | undefined = useStore(useCatalogState, (state) => state?.clothes);
   const bodies: IBody[] | undefined = useStore(useCatalogState, (state) => state?.bodies);
-
+  const windowWidth = useWindowWidth();
   const questions = useQuestionsState((state) => state?.questions);
   return (
     <div className={s.content}>
       <Hero>
         <Title tag='h1' className={cn(s['gallery__title'], 'gradient-text')}>
-          <span className={'text-line'}>onmi® Gallery</span>
+          {windowWidth > 450 ?
+            <span className={'text-line'}>onmi® Gallery</span>
+            : <>
+              <div className="row">onmi®</div>
+              <div className="row">Gallery</div>
+            </>
+          }
         </Title>
-        <Text className={s['']}>
+        <Text className={s['gallery__text']}>
           <>
             <div className={'row'}>
-              <span className={'text-line'} data-delay="0.1">Take four simple steps and start exploring</span>
+              <span className={'text-line'}
+                data-delay="0.1">Take four simple steps and start exploring</span>
             </div>
             <div className={'row'}>
               <span className={'text-line'} data-delay="0.2">the ONMI world</span>
@@ -40,34 +49,46 @@ export const Home: FC = () => {
           </>
         </Text>
       </Hero>
-      <Catalog className={s.catalog} cardsOmi={bodies} countsRow={4} label={'Omi Bodys'}/>
+      <Catalog className={s.catalog} cardsOmi={bodies} countsRow={4} label={'Omi Bodys'} hide={windowWidth <= 768}/>
+      <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3} hide={windowWidth > 768}/>
+
+
       <section className={s['omi-world']}>
         <div className="container">
-          <Title tag={'h2'}>
-            <>
+          <Title tag={'h2'} className={s['omi-world__title']}>
+            {windowWidth > 450 ? <>
               <div className="row">
-                <div className={'text-line'}><span className='color_gray'>Omi</span> opens up super
-                </div>
+                <div className={'text-line'}><span className='color_gray'>Omi</span> gives</div>
               </div>
               <div className="row">
-                <div className={'text-line'}>powers</div>
+                <div className={'text-line'}>you superpowers</div>
               </div>
-            </>
+            </>: <>
+              <div className="row">
+                <div className={'text-line'}><span className='color_gray'>Omi</span> gives</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>you</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>super-po</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>wers</div>
+              </div>
+            </>}
           </Title>
           <Text className={s['omi-world__text']}>
             <>
               <div className="row">
-                <span className={'text-line'}>Take four simple steps and start exploring</span>
-              </div>
-              <div className="row">
-                <span className={'text-line'}>the ONMI world</span>
+                <span className={'text-line'}>Your ticket to Reality 2.0</span>
               </div>
             </>
           </Text>
           <CardsNavigations/>
         </div>
       </section>
-      <section className={s.zero}>
+      {/*   <section className={s.zero}>
         <div className="container">
           <Title tag='h2'>
             <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
@@ -113,7 +134,7 @@ export const Home: FC = () => {
           <LineDecor position={"bottom"}/>
         </div>
       </section>
-      <Platform/>
+      <Platform/>*/}
     </div>
   );
 };

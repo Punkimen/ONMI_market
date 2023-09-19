@@ -1,41 +1,83 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .card {
-  border: toRem(1) solid #1F1F1F;
-  padding: toRem(55) toRem(82) toRem(125);
+  border: toVw(1) solid #1F1F1F;
+  padding: toVw(55) toVw(82) toVw(125);
+  @media(max-width: $md5 + px) {
+    padding: toVw(45, 390) toVw(35, 390) toVw(25, 390);
+  }
 
   &__inner {
-    max-width: toRem(316);
+    max-width: toVw(316);
     width: 100%;
     margin: 0 auto;
+    @media(max-width: $md4 + px) {
+      max-width: 100%;
+    }
   }
 }
 
 .img {
-  max-width: toRem(176);
+  max-width: toVw(176);
   width: 100%;
-  margin: 0 auto toRem(85);
+  margin: 0 auto toVw(85);
+  @media(max-width: $md4 + px) {
+    max-width: toVw(120, $md4);
+    margin-bottom: toVw(32, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    max-width: toVw(94, 390);
+    margin-bottom: toVw(32, 390);
+  }
 
   img {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: toRem(32);
+    margin-bottom: toVw(32);
+    @media(max-width: $md4 + px) {
+      margin-bottom: toVw(16, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(34, $md5);
+    }
   }
 }
 
 .model {
-  font-size: toRem(12);
+  font-size: toVw(12);
   width: fit-content;
-  padding: toRem(10) toRem(16) toRem(11);
-  border: toRem(1) solid #252525;
-  border-radius: toRem(20);
+  padding: toVw(10) toVw(16) toVw(11);
+  border: toVw(1) solid #252525;
+  border-radius: toVw(20);
   margin: 0 auto;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    padding: toVw(10, 390) toVw(18, 390) toVw(11, 390);
+    border-radius: toVw(21, 390);
+  }
 }
 
 .stats {
-  margin-bottom: toRem(80);
-  font-size: toRem(14);
+  margin-bottom: toVw(80);
+  font-size: toVw(14);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    margin-bottom: toVw(34, 390);
+  }
 
   &__row {
     display: flex;
@@ -43,13 +85,16 @@
     justify-content: space-between;
 
     &:not(:last-child) {
-      margin-bottom: toRem(8);
+      margin-bottom: toVw(8);
+      @media(max-width: $md5 + px) {
+        margin-bottom: toVw(8, 390);
+      }
     }
   }
 
   &__label {
     color: var(--gray);
-    margin-right: toRem(12);
+    margin-right: toVw(12);
   }
 
   &__value {
@@ -58,12 +103,24 @@
 }
 
 .btn {
-  margin-bottom: toRem(18);
-  border-radius: toRem(11);
+  margin-bottom: toVw(18);
+  border-radius: toVw(11);
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(22, 390);
+  }
 }
 
 .available {
-  font-size: toRem(12);
+  font-size: toVw(12);
   text-align: center;
   color: var(--gray);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(12, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+  }
 }

@@ -49,7 +49,7 @@ export const CardsNavigations: FC = () => {
             <Image src={pose} alt={'omi pose'}/>
           </div>
         </div>
-        <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__signature'])}>
+        <div data-delay="0.1" className={cn(s.card, 'opacity', s.card__text, s['card__signature'])}>
           <BackgroundImage src={signature} alt={'signature'}/>
           <div className={cn(s['card__text'], s["card__signature-text"])}>Signature routes</div>
         </div>

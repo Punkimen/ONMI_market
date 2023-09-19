@@ -3,9 +3,9 @@ import s from './CardOmi.module.scss';
 import cn from 'classnames';
 import Image from "next/image";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
-import {ICardOmi} from "@/app/_types/cards.types";
+import {IBody} from "@/app/_types/cards.types";
 
-interface ICardOmiProps extends ICardOmi {
+interface ICardOmiProps extends IBody {
   className?: string
 }
 

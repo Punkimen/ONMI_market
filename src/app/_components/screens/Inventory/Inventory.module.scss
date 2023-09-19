@@ -1,16 +1,16 @@
 @import '@/app/_styles/functions.scss';
 
 .inventory {
-  margin-top: toRem(16);
+  margin-top: toVw(16);
 }
 
 .tabs {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: toRem(17) 0 toRem(14);
-  border-bottom: toRem(1) solid #151515;
-  border-top: toRem(1) solid #151515;
+  padding: toVw(17) 0 toVw(14);
+  border-bottom: toVw(1) solid #151515;
+  border-top: toVw(1) solid #151515;
 }
 
 .list {
@@ -19,7 +19,7 @@
 
 .elem {
   &:not(:last-child) {
-    margin-right: toRem(8);
+    margin-right: toVw(8);
   }
 }
 
@@ -27,8 +27,8 @@
   color: rgba(255, 255, 255, .3);
   font-size: 14px;
   font-weight: 600;
-  padding: toRem(6) toRem(12);
-  border-radius: toRem(17);
+  padding: toVw(6) toVw(12);
+  border-radius: toVw(17);
   transition: color, background-color ease-in .3s;
 
   &:hover {
@@ -44,7 +44,7 @@
 
 .body {
   min-height: 80vh;
-  padding: toRem(30) toRem(32) toRem(30);
+  padding: toVw(30) toVw(32) toVw(30);
 }
 
 .catalog {
@@ -52,15 +52,15 @@
   flex-wrap: wrap;
 
   &:not(:last-child) {
-    margin-bottom: toRem(43);
+    margin-bottom: toVw(43);
   }
 }
 
 .card {
-  margin: toRem(2) 0;
+  margin: toVw(2) 0;
 
   &:not(:last-child) {
-    margin-right: toRem(4);
+    margin-right: toVw(4);
   }
 }
 
@@ -68,5 +68,5 @@
   text-transform: uppercase;
   font-weight: 600;
   color: #9C9C9C;
-  margin-bottom: toRem(15);
+  margin-bottom: toVw(15);
 }

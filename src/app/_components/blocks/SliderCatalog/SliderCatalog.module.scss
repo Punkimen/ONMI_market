@@ -1,0 +1,35 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.label {
+  text-transform: uppercase;
+  margin-bottom: toVw(31);
+  font-weight: 600;
+  font-size: toVw(18, 768);
+  text-align: center;
+  @media(max-width: $md5 + px) {
+    font-size: toVw(18, $md5);
+    margin-bottom: toVw(28, $md5);
+    text-align: left;
+  }
+}
+
+.catalog {
+  &__slider {
+    @media(max-width: $md5 + px) {
+      padding: 0 toVw(16, 390);
+    }
+  }
+}
+
+.slider {
+  .card {
+    @media(max-width: $md5 + px) {
+      border: none;
+      background: #121212;
+      border-radius: toVw(21, 390);
+    }
+  }
+
+}
+

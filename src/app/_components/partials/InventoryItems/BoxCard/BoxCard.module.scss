@@ -1,15 +1,15 @@
 @import '@/app/_styles/functions.scss';
 
 .card {
-  max-width: toRem(353);
+  max-width: toVw(353);
   width: 100%;
   text-align: center;
 }
 
 .img {
-  max-width: toRem(210);
+  max-width: toVw(210);
   width: 100%;
-  margin: 0 auto toRem(50);
+  margin: 0 auto toVw(50);
 
   img {
     display: block;
@@ -20,10 +20,10 @@
 
 .label {
   text-transform: uppercase;
-  margin-bottom: toRem(6);
+  margin-bottom: toVw(6);
 }
 
 .collection {
   color: #828282;
-  font-size: toRem(14);
+  font-size: toVw(14);
 }

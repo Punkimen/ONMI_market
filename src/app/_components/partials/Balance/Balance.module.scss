@@ -1,14 +1,14 @@
 @import '@/app/_styles/functions.scss';
 
 .balance {
-  padding: toRem(5) toRem(18) toRem(6);
-  border: toRem(1) solid #2B2B2B;
-  max-width: toRem(142);
+  padding: toVw(5) toVw(18) toVw(6);
+  border: toVw(1) solid #2B2B2B;
+  max-width: toVw(142);
   width: 100%;
-  margin-right: toRem(6);
+  margin-right: toVw(6);
   color: #fff;
   font-weight: 600;
-  border-radius: toRem(17);
+  border-radius: toVw(17);
 }
 
 .wrapper {

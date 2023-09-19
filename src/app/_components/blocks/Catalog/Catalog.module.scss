@@ -1,9 +1,9 @@
 @import '@/app/_styles/functions.scss';
 
 .catalog {
-  width: calc(100% + toRem(2));
+  width: calc(100% + toVw(2));
   position: relative;
-  left: toRem(-1);
+  left: toVw(-1);
 }
 .item{
   &:not(:first-child){
@@ -15,14 +15,14 @@
 .card {
   &:not(:first-child) {
     position: relative;
-    left: toRem(-1);
+    left: toVw(-1);
   }
 }
 
 .label {
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: toRem(31);
+  margin-bottom: toVw(31);
   font-weight: 600;
 }
 

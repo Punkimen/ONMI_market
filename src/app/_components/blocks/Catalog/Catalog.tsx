@@ -2,15 +2,15 @@ import React, {FC} from 'react';
 import s from './Catalog.module.scss';
 import cn from 'classnames';
 import {CardOmi} from "@/app/_components/partials/CardOmi/CardOmi";
-import {ICardClothe, IBody, IClothe} from "@/app/_types/cards.types";
+import {IBody, IClothe} from "@/app/_types/cards.types";
 import {CardClothe} from "@/app/_components/partials/CardClothe/CardClothe";
+import {IBaseComponents} from "@/app/_types/base.types";
 
-interface ICatalogProps {
+export interface ICatalogProps extends IBaseComponents{
   cardsOmi?: IBody[],
   cardsClothe?: IClothe[],
   countsRow: number,
   label?: string,
-  className?: string,
   isCardsStats?: boolean,
 }
 
@@ -20,9 +20,10 @@ export const Catalog: FC<ICatalogProps> = ({
   cardsClothe,
   cardsOmi,
   className,
-  isCardsStats = true
+  isCardsStats = true,
+  hide
 }) => {
-
+  if(hide) return  null;
   return (
     <div className={cn(s.catalog, className)}>
       {label && <div className={cn(s.label, 'text-line')}>{label}</div>}

@@ -4,7 +4,7 @@
   font-family: SFPro, sans-serif;
   font-weight: 600;
   border: 1px solid #1F1F1F;
-  padding: toRem(28) toRem(24) toRem(50);
+  padding: toVw(28) toVw(24) toVw(50);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,17 +21,17 @@
 
 .model {
   position: absolute;
-  top: toRem(28);
-  right: toRem(24);
-  width: toRem(43);
-  height: toRem(43);
+  top: toVw(28);
+  right: toVw(24);
+  width: toVw(43);
+  height: toVw(43);
   border-radius: 50%;
   background-color: #1B1A20;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: toRem(17);
+  font-size: toVw(17);
   font-weight: 600;
   line-height: 1.1em;
 }
@@ -39,8 +39,8 @@
 .img {
   display: flex;
   margin: 0 auto;
-  width: toRem(202);
-  min-height: toRem(312);
+  width: toVw(202);
+  min-height: toVw(312);
   align-items: center;
   justify-content: center;
 
@@ -52,26 +52,26 @@
 }
 
 .img_1 {
-  max-width: toRem(10);
+  max-width: toVw(10);
 }
 
 .img_2 {
-  max-width: toRem(7);
+  max-width: toVw(7);
 }
 
 .img_3 {
-  max-width: toRem(11);
+  max-width: toVw(11);
 }
 
 .img_4 {
-  max-width: toRem(10.7);
+  max-width: toVw(10.7);
 }
 
 .stats {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-bottom: toRem(30);
+  margin-bottom: toVw(30);
 }
 
 .stat {
@@ -79,28 +79,28 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-size: toRem(14);
+  font-size: toVw(14);
   font-weight: 600;
 
   &:not(:last-child) {
-    margin-right: toRem(18);
+    margin-right: toVw(18);
   }
 
   img {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: toRem(7);
+    margin-bottom: toVw(7);
   }
 }
 
 .bottom {
-  margin-top: toRem(50);
+  margin-top: toVw(50);
 }
 
 .btn {
   font-weight: 600;
-  max-width: toRem(206);
+  max-width: toVw(206);
   margin: 0 auto;
   position: relative;
   z-index: 2;

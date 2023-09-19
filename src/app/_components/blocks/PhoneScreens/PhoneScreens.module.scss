@@ -3,22 +3,22 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  margin: 0 0 toRem(113);
+  margin: 0 0 toVw(113);
   position: relative;
   z-index: 2;
 }
 
 .screen {
-  max-width: toRem(294);
+  max-width: toVw(294);
   width: 100%;
   position: relative;
 
   &:not(:last-child) {
-    margin-right: toRem(43);
+    margin-right: toVw(43);
   }
 
   &_1 {
-    transform: translateX(toRem(337));
+    transform: translateX(toVw(337));
   }
 
   &_2 {
@@ -26,7 +26,7 @@
   }
 
   &_3 {
-    transform: translateX(toRem(-337));
+    transform: translateX(toVw(-337));
   }
 
   img {
@@ -38,15 +38,15 @@
 
 .text {
   color: #fff;
-  margin-bottom: toRem(66);
+  margin-bottom: toVw(66);
 }
 
 .btn {
-  font-size: toRem(14);
-  padding: toRem(20) toRem(24) toRem(22);
-  max-width: toRem(170);
+  font-size: toVw(14);
+  padding: toVw(20) toVw(24) toVw(22);
+  max-width: toVw(170);
   width: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: toRem(31);
+  border-radius: toVw(31);
 }

@@ -2,17 +2,17 @@
 
 .card {
   position: relative;
-  border-radius: toRem(31);
-  padding: toRem(50) toRem(27) toRem(45) toRem(27);
+  border-radius: toVw(31);
+  padding: toVw(50) toVw(27) toVw(45) toVw(27);
   background-color: #111111;
 }
 
 .settings {
   position: absolute;
-  top: toRem(15);
-  left: toRem(15);
-  width: toRem(21);
-  height: toRem(21);
+  top: toVw(15);
+  left: toVw(15);
+  width: toVw(21);
+  height: toVw(21);
   border-radius: 50%;
   background-color: #343434;
   display: flex;

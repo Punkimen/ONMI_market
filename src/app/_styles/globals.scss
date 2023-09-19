@@ -1,5 +1,6 @@
 @import 'functions';
 @import 'animation';
+@import 'var';
 
 @font-face {
   font-weight: 400;
@@ -37,7 +38,7 @@
   --green: #D6F82E;
   --secondary: #181ab6;
   --gradient-text: linear-gradient(11deg, #D4C9C1 0%, #414345 100%);
-  --viewport-desctop: 1920;
+  --viewport-desktop: 1920;
   --viewport-mobile: 320;
 
   --base-size: 16;
@@ -91,12 +92,21 @@ body {
 }
 
 body {
-  font-size: calc((100vw * var(--base-size)) / var(--viewport-desctop));
+  font-size: toVw(16);
   position: relative;
   color: rgb(var(--foreground-rgb));
   background-color: var(--dark);
   color: var(--white);
   overflow-x: hidden;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(16, $md4);
+  }
 }
 
 .page {
@@ -107,19 +117,48 @@ body {
 }
 
 h1 {
-  font-size: toRem(206);
+  font-size: toVw(206);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(180, $md2);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(80, 390);
+  }
 }
 
 h2 {
-  font-size: toRem(120);
+  font-size: toVw(120);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(120, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(80, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(80, 390);
+  }
 }
 
 h3 {
-  font-size: toRem(59);
+  font-size: toVw(59);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(59, $md2);
+  }
+  @media(max-width: $md4 + px) {
+  }
+  @media(max-width: $md5 + px) {
+  }
 }
 
 h4 {
-  font-size: toRem(40);
+  font-size: toVw(40);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(40, $md2);
+  }
+  @media(max-width: $md4 + px) {
+  }
+  @media(max-width: $md5 + px) {
+  }
 }
 
 a {
@@ -128,7 +167,7 @@ a {
 }
 
 .main {
-  padding-top: toRem(60);
+  padding-top: toVw(60);
 }
 
 .page {
@@ -137,12 +176,23 @@ a {
   min-height: 100vh;
   justify-content: space-between;
 }
-.page-content{
+
+.page-content {
   flex-grow: 1;
 }
+
 .container {
   width: 100%;
-  padding: 0 toRem(24);
+  padding: 0 toVw(24);
+  @media(max-width: $md2 + px) {
+    padding: 0 toVw(24, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    padding: 0 toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    padding: 0 toVw(16, 390);
+  }
 }
 
 ul, li {
@@ -228,11 +278,43 @@ h1, h2, h3, h4 {
   }
 
   .child {
-    border-left: toRem(1) solid #1F1F1F;
-    border-right: toRem(1) solid #1F1F1F;
+    border-left: toVw(1) solid #1F1F1F;
+    border-right: toVw(1) solid #1F1F1F;
 
     &:not(:first-child) {
       border-left: none;
     }
+  }
+}
+
+.swiper {
+  padding-bottom: toVw(70, $md4) !important;
+  @media(max-width: $md4 + px) {
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #464646 !important;
+  width: toVw(6);
+  height: toVw(6);
+  @media(max-width: $md2 + px) {
+    width: toVw(6);
+    height: toVw(6, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    width: toVw(6);
+    height: toVw(6, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(6);
+    height: toVw(6, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: toVw(6);
+    height: toVw(6, $md5);
+  }
+
+  &-active {
+    background: #fff !important;
   }
 }

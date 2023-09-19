@@ -1,12 +1,12 @@
 @import '@/app/_styles/functions.scss';
 
 .bag {
-  padding: toRem(55) 0 0;
+  padding: toVw(55) 0 0;
   }
 
 .cart {
   flex-grow: 1;
-  margin-right: toRem(87);
+  margin-right: toVw(87);
   position: relative;
 }
 
@@ -17,15 +17,15 @@
 
 .calc {
   position: sticky;
-  top: toRem(100);
-  max-width: toRem(391);
+  top: toVw(100);
+  max-width: toVw(391);
   width: 100%;
   background: #111111;
-  padding: toRem(46) toRem(48) toRem(52);
-  border-radius: toRem(14);
+  padding: toVw(46) toVw(48) toVw(52);
+  border-radius: toVw(14);
 
   &__top {
-    margin-bottom: toRem(36);
+    margin-bottom: toVw(36);
   }
 }
 
@@ -36,7 +36,7 @@
   font-weight: 600;
 
   &:not(:last-child) {
-    margin-bottom: toRem(15);
+    margin-bottom: toVw(15);
   }
 
   &__label {
@@ -50,11 +50,11 @@
 }
 
 .input {
-  height: toRem(53);
+  height: toVw(53);
   width: 100%;
-  margin-bottom: toRem(45);
+  margin-bottom: toVw(45);
 }
 
 .checkout__btn {
-  height: toRem(53);
+  height: toVw(53);
 }

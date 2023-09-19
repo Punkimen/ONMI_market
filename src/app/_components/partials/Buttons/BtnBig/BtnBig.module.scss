@@ -1,16 +1,30 @@
 @import '@/app/_styles/functions';
+@import '@/app/_styles/var';
 
 .btn {
   text-align: center;
   width: 100%;
   display: block;
   background-color: var(--secondary);
-  font-size: toRem(12);
+  font-size: toVw(12);
   line-height: 1.2em;
-  padding: toRem(16) toRem(16) toRem(17);
+  padding: toVw(16) toVw(16) toVw(17);
   color: #fff;
-  border-radius: toRem(27);
+  border-radius: toVw(27);
   transition: background-color ease-in .3s;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    padding: toVw(12, $md4) toVw(12, $md4) toVw(13, $md4);
+    font-size: toVw(12, $md4);
+    border-radius: toVw(9, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    padding: toVw(18, 390) toVw(12, 390) toVw(18, 390);
+    border-radius: toVw(9, 390);
+  }
 
   &.gray {
     background-color: #121212;

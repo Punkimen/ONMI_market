@@ -1,22 +1,22 @@
 @import '@/app/_styles/functions.scss';
 
 .text {
-  margin-bottom: toRem(125);
+  margin-bottom: toVw(125);
 }
 
 .btns {
   display: flex;
   align-items: center;
-  padding: toRem(5); /* 0.26vw to rem */
-  min-height: toRem(641); /* 32.97vw to rem */
+  padding: toVw(5); /* 0.26vw to rem */
+  min-height: toVw(641); /* 32.97vw to rem */
 }
 
 .btn {
   cursor: pointer;
-  border: toRem(1) solid #575757; /* 0.05vw to rem */
-  border-radius: toRem(266); /* 13.75vw to rem */
+  border: toVw(1) solid #575757; /* 0.05vw to rem */
+  border-radius: toVw(266); /* 13.75vw to rem */
   width: 100%;
-  height: toRem(528); /* 27.50vw to rem */
+  height: toVw(528); /* 27.50vw to rem */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,11 +29,11 @@
 .btn-text {
   text-transform: uppercase;
   color: #818181;
-  font-size: toRem(18.12); /* 0.94vw to rem */
+  font-size: toVw(18.12); /* 0.94vw to rem */
   font-weight: 600;
   text-align: center;
   position: relative;
-  top: toRem(-42.09); /* -2.19vw to rem */
+  top: toVw(-42.09); /* -2.19vw to rem */
 }
 
 .btn-label {
@@ -42,8 +42,8 @@
 }
 
 .btn-icon {
-  width: toRem(48); /* 2.50vw to rem */
-  margin-right: toRem(9.92); /* 0.52vw to rem */
+  width: toVw(48); /* 2.50vw to rem */
+  margin-right: toVw(9.92); /* 0.52vw to rem */
 
   img {
     display: block;
@@ -53,6 +53,6 @@
 }
 
 .btn-name {
-  font-size: toRem(48.96); /* 2.55vw to rem */
+  font-size: toVw(48.96); /* 2.55vw to rem */
   letter-spacing: -0.01em;
 }

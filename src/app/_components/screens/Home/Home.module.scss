@@ -1,37 +1,72 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .gallery {
-  padding-top: toRem(72);
-  margin-bottom: toRem(250);
+  padding-top: toVw(72);
+  margin-bottom: toVw(250);
+
+  &__title {
+    @media(max-width: $md5 + px) {
+      text-align: left;
+      margin-bottom: toVw(-20, 390);
+    }
+  }
+
+  &__text {
+    @media(max-width: $md5 + px) {
+      text-align: left;
+    }
+  }
 }
 
 .catalog {
-  margin-bottom: toRem(209);
+  margin-bottom: toVw(209);
+  @media(max-width: $md3 + px) {
+    margin-bottom: toVw(155, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(155, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(122, 390);
+  }
 }
 
 .omi-world {
-  margin-bottom: toRem(430);
+  margin-bottom: toVw(430);
+
+  &__title {
+    @media(max-width: $md5 + px) {
+      text-align: left;
+      margin-bottom: toVw(-85, 390);
+    }
+  }
 
   &__text {
-    margin-bottom: toRem(136);
+    margin-bottom: toVw(136);
+    @media(max-width: $md5 + px) {
+      text-align: left;
+      margin-bottom: toVw(56, 390);
+    }
   }
 }
 
 .zero {
-  margin-bottom: toRem(360);
+  margin-bottom: toVw(360);
 
   &__text {
-    margin-bottom: toRem(86);
+    margin-bottom: toVw(86);
   }
 
   &__catalog {
     display: flex;
-    max-width: toRem(1642);
+    max-width: toVw(1642);
     width: 100%;
     overflow: hidden;
     border: 1px solid #1F1F1F;
-    border-radius: toRem(47);
-    margin: 0 auto toRem(73);
+    border-radius: toVw(47);
+    margin: 0 auto toVw(73);
+
   }
 
   &__btn {
@@ -39,29 +74,29 @@
     font-family: SFPro, sans-serif;
     font-weight: 600;
     margin: 0 auto;
-    padding: toRem(21) toRem(20) toRem(22);
-    max-width: toRem(170);
+    padding: toVw(21) toVw(20) toVw(22);
+    max-width: toVw(170);
     width: 100%;
     margin: 0 auto;
-    border-radius: toRem(31);
+    border-radius: toVw(31);
   }
 }
 
 .available {
-  margin-bottom: toRem(310);
+  margin-bottom: toVw(310);
 
   &__text {
-    margin-bottom: toRem(113);
+    margin-bottom: toVw(113);
   }
 }
 
 .screens {
-  margin-bottom: toRem(264);
+  margin-bottom: toVw(264);
 }
 
 .decor {
   position: relative;
-  top: toRem(5);
+  top: toVw(5);
 }
 
 .questions {

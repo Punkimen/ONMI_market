@@ -1,9 +1,9 @@
 @import '@/app/_styles/functions.scss';
 
 .footer {
-  margin-top: toRem(100);
+  margin-top: toVw(100);
   position: relative;
-  padding: toRem(50) 0; /* 3.13vw to rem */
+  padding: toVw(50) 0; /* 3.13vw to rem */
 
   &__wrapper {
     display: flex;
@@ -23,9 +23,9 @@
   }
 
   &__logo {
-    margin-right: toRem(57.6); /* 3.6vw to rem */
-    width: toRem(83.36); /* 5.21vw to rem */
-    min-width: toRem(50); /* 3.13vw to rem */
+    margin-right: toVw(57); /* 3.6vw to rem */
+    width: toVw(83); /* 5.21vw to rem */
+    min-width: toVw(50); /* 3.13vw to rem */
 
     img {
       display: block;
@@ -35,7 +35,7 @@
   }
 
   &__labels {
-    font-size: toRem(15.04); /* 0.94vw to rem */
+    font-size: toVw(15); /* 0.94vw to rem */
     line-height: 1.1em;
 
     span {
@@ -46,7 +46,7 @@
   &__socials {
     display: flex;
     align-items: center;
-    margin-right: toRem(70.32); /* 4.17vw to rem */
+    margin-right: toVw(70); /* 4.17vw to rem */
 
     svg {
       display: block;
@@ -55,29 +55,29 @@
     }
 
     .x {
-      max-width: toRem(15.04); /* 0.94vw to rem */
+      max-width: toVw(15); /* 0.94vw to rem */
     }
 
     .instagram {
-      max-width: toRem(16.64); /* 1.04vw to rem */
+      max-width: toVw(16); /* 1.04vw to rem */
     }
 
     .fb {
-      max-width: toRem(17.44); /* 1.09vw to rem */
+      max-width: toVw(17); /* 1.09vw to rem */
     }
 
     .medium {
-      max-width: toRem(23.36); /* 1.46vw to rem */
+      max-width: toVw(23); /* 1.46vw to rem */
     }
 
     .discord {
-      max-width: toRem(20); /* 1.25vw to rem */
+      max-width: toVw(20); /* 1.25vw to rem */
     }
   }
 
   &__socials-link {
     &:not(:last-child) {
-      margin-right: toRem(29.12); /* 1.82vw to rem */
+      margin-right: toVw(29); /* 1.82vw to rem */
     }
   }
 
@@ -91,14 +91,14 @@
     outline: none;
 
     &:not(:last-child) {
-      margin-right: toRem(5.76); /* 0.36vw to rem */
+      margin-right: toVw(6); /* 0.36vw to rem */
     }
   }
 
   &__text {
-    font-size: toRem(10); /* 0.52vw to rem */
+    font-size: toVw(10); /* 0.52vw to rem */
     color: var(--gray);
-    margin-bottom: toRem(72); /* 2.92vw to rem */
+    margin-bottom: toVw(72); /* 2.92vw to rem */
     line-height: 1.5em;
 
     a {
@@ -112,21 +112,21 @@
   }
 
   &__copy {
-    font-size: toRem(14); /* 0.73vw to rem */
+    font-size: toVw(14); /* 0.73vw to rem */
   }
 }
 
 .app-btn {
-  border-radius: toRem(5.76); /* 0.36vw to rem */
+  border-radius: toVw(6); /* 0.36vw to rem */
   background-color: rgba(32, 32, 32, 0.71);
-  -webkit-backdrop-filter: blur(toRem(12.48)); /* 0.78vw to rem */
-  backdrop-filter: blur(toRem(12.48)); /* 0.78vw to rem */
+  //-webkit-backdrop-filter: blur(toVw(12)); /* 0.78vw to rem */
+  //backdrop-filter: blur(toVw(12)); /* 0.78vw to rem */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: toRem(13.44) toRem(27.2) toRem(12.32) toRem(26.56); /* .42vw .85vw .4vw .83vw to rem */
+  padding: toVw(13) toVw(27) toVw(12) toVw(26); /* .42vw .85vw .4vw .83vw to rem */
   text-transform: capitalize;
-  font-size: toRem(11.68); /* 0.73vw to rem */
+  font-size: toVw(12); /* 0.73vw to rem */
   font-weight: 500;
   letter-spacing: -0.01em;
   transition: background-color ease-in-out 0.3s;
@@ -138,15 +138,15 @@
   }
 
   &:not(:last-child) {
-    margin-right: toRem(8); /* 0.5vw to rem */
+    margin-right: toVw(8); /* 0.5vw to rem */
   }
 
   &__icon {
-    flex: 0 0 toRem(17.44); /* 1.09vw to rem */
-    max-width: toRem(17.44); /* 1.09vw to rem */
+    flex: 0 0 toVw(17); /* 1.09vw to rem */
+    max-width: toVw(17); /* 1.09vw to rem */
     display: block;
     width: 100%;
     height: auto;
-    margin-right: toRem(5.76); /* 0.36vw to rem */
+    margin-right: toVw(5); /* 0.36vw to rem */
   }
 }

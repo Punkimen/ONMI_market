@@ -3,7 +3,7 @@
 .good {
   position: relative;
   font-size: 18px;
-  height: toRem(150);
+  height: toVw(150);
 }
 
 .wrapper {
@@ -19,9 +19,9 @@
 }
 
 .img {
-  max-width: toRem(100);
+  max-width: toVw(100);
   width: 100%;
-  margin-right: toRem(50);
+  margin-right: toVw(50);
 
   img {
     display: block;
@@ -35,7 +35,7 @@
 }
 
 .collection {
-  font-size: toRem(16);
+  font-size: toVw(16);
   font-weight: 500;
   color: var(--gray);
 }
@@ -43,7 +43,7 @@
 .right {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: toRem(60);
+  gap: toVw(60);
 }
 
 .col {
@@ -62,8 +62,8 @@
 }
 
 .count {
-  width: toRem(50);
-  margin: 0 toRem(5);
+  width: toVw(50);
+  margin: 0 toVw(5);
   white-space: nowrap;
   text-align: center;
   border: none;
@@ -77,8 +77,8 @@
 }
 
 .delete {
-  width: toRem(21);
-  height: toRem(21);
+  width: toVw(21);
+  height: toVw(21);
   position: relative;
 
   img {
