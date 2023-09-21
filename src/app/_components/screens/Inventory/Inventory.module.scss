@@ -11,6 +11,12 @@
   padding: toVw(17) 0 toVw(14);
   border-bottom: toVw(1) solid #151515;
   border-top: toVw(1) solid #151515;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: toVw(68);
+  background-color: #000;
+  z-index: 8;
 }
 
 .list {
@@ -44,25 +50,32 @@
 
 .body {
   min-height: 80vh;
-  padding: toVw(30) toVw(32) toVw(30);
+  padding: toVw(100) 0 toVw(30);
 }
 
 .catalog {
-  display: flex;
-  flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: toVw(8);
+
+  &_flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   &:not(:last-child) {
     margin-bottom: toVw(43);
   }
 }
 
-.card {
+/*.card {
   margin: toVw(2) 0;
 
   &:not(:last-child) {
     margin-right: toVw(4);
   }
-}
+}*/
 
 .label__mineral {
   text-transform: uppercase;

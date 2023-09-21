@@ -25,13 +25,13 @@ export const CardsNavigations: FC = () => {
             <div className={s["card__icon"]}>
               <Image src={miniGames} alt={'mini games'}/>
             </div>
-            <div className={s["card__text"]}>Mini-games</div>
+            <div className={cn(s["card__text"],s.card__text_small )}>Mini-games</div>
           </div>
           <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__social'])}>
             <div className={s["card__icon"]}>
               <Image src={omiSocial} alt={'avatars'}/>
             </div>
-            <div className={s["card__text"]}>Omi social ID</div>
+            <div cclassName={cn(s["card__text"],s.card__text_small )}>Omi social ID</div>
           </div>
         </div>
         <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__discover'])}>

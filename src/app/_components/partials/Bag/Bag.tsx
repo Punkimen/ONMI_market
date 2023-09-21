@@ -6,18 +6,15 @@ import {Routes} from "@/app/_utils/Routes";
 import {useBagState} from "@/app/_state/store";
 import {useStore} from "zustand";
 import {useInput} from "@/app/_hooks/useInput";
+import {IBaseComponents} from "@/app/_types/base.types";
 
-interface IBagProps {
-  className?: string,
-}
-
-export const Bag: FC<IBagProps> = ({className}) => {
+export const Bag: FC<IBaseComponents> = ({className, hide}) => {
   const [count, setCount] = useState(0);
   const bagItems = useBagState(state => state.bag);
-  useEffect(()=>{
+  useEffect(() => {
     setCount(bagItems.length);
-  },[bagItems]);
-
+  }, [bagItems]);
+  if (hide) return null;
   return (
     <Link href={Routes.BAG} className={cn(s.bag, className)}>
       <div className={s.wrapper}>

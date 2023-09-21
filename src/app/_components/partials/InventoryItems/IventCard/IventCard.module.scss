@@ -2,10 +2,10 @@
 
 .card {
   width: 100%;
-  max-width: toVw(353);
+  //max-width: toVw(353);
 
   &.omis {
-    max-width: toVw(353);
+    //max-width: toVw(353);
   }
 }
 
@@ -25,7 +25,7 @@
 }
 
 .img {
-  max-width: toVw(120);
+  max-width: toVw(209);
   width: 100%;
   margin: 0 auto toVw(50);
 

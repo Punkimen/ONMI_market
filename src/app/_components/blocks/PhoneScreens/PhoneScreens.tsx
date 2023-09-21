@@ -23,7 +23,7 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
       horizontalTransform(gsap, screen_1.current, screen_1.current, '17.5vw', '0', true, null, 'top bottom', 'top+=25 center');
       horizontalTransform(gsap, screen_3.current, screen_3.current, '-17.5vw', "0", true, null, 'top bottom', 'top+=25 center');
     }
-  }, [windowWidth]);
+  }, [windowWidth,screen_1, screen_3]);
   return (
     <div className={cn(s.block, className)}>
       <div className={s.wrapper}>

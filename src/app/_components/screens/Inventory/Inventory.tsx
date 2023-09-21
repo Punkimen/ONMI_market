@@ -267,7 +267,7 @@ export const Inventory: FC = () => {
             })}
           </div>}
           {activeTab === 'Materials' && <>
-            <div className={s.catalog}>
+            <div className={cn(s.catalog, s.catalog_flex)}>
               {initData.resources.map(el => {
                 return (
                   <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
@@ -277,7 +277,7 @@ export const Inventory: FC = () => {
             </div>
             <div className={s.label__mineral}>Minerals
             </div>
-            <div className={s.catalog}>
+            <div className={cn(s.catalog, s.catalog_flex)}>
               {initData.minerals.map(el => {
                 return (
                   <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}

@@ -8,6 +8,9 @@
   left: 0;
   width: 100%;
   z-index: 10;
+  &.black{
+    background: #000;
+  }
   @media(max-width: $md4 + px) {
     padding: toVw(16, $md4) 0;
   }

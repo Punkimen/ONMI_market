@@ -20,7 +20,7 @@ export const NavLinks: FC<INavLinksProps> = ({links, className, ...props}) => {
   const pathname = usePathname();
   const windowWidth = useWindowWidth();
   const nav = useRef<HTMLDivElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const textLine = gsap.utils.toArray(".text-line");
@@ -29,7 +29,7 @@ export const NavLinks: FC<INavLinksProps> = ({links, className, ...props}) => {
         el && triggerAnimate(el);
       });
     }, [nav]);
-  }, [windowWidth]);
+  }, [windowWidth, nav]);
 
   if(props.hide) return null;
 

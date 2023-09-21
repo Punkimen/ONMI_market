@@ -23,11 +23,12 @@
   &__col {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     &_1 {
-      max-width: toVw(363);
+      max-width: toVw(379);
       @media(max-width: $md2 + px) {
-        max-width: toVw(363, $md2);
+        max-width: toVw(379, $md2);
       }
       @media(max-width: $md4 + px) {
         max-width: 100%;
@@ -35,7 +36,7 @@
     }
 
     &_2 {
-      max-width: toVw(314);
+      max-width: toVw(335);
       @media(max-width: $md2 + px) {
         max-width: toVw(314, $md2);
       }
@@ -85,6 +86,19 @@
     }
     @media(max-width: $md5 + px) {
       font-size: toVw(18, 390);
+    }
+
+    &_small {
+      font-size: toVw(18);
+      @media(max-width: $md2 + px) {
+        font-size: toVw(18, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        font-size: toVw(18, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        font-size: toVw(18, 390);
+      }
     }
   }
 
@@ -172,6 +186,7 @@
   &__social {
     padding: toVw(34) toVw(12) toVw(20);
     flex-grow: 1;
+    text-align: center;
     @media(max-width: $md4 + px) {
       padding: toVw(34, $md4) toVw(12, $md4) toVw(20, $md4);
     }
@@ -445,6 +460,7 @@
     @media(max-width: $md5 + px) {
       max-width: 88%;
     }
+
     img {
       display: block;
       width: 100%;
