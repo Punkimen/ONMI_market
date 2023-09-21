@@ -1,21 +1,30 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .catalog {
   width: calc(100% + toVw(2));
   position: relative;
   left: toVw(-1);
+
 }
-.item{
-  &:not(:first-child){
-   .card{
-     border-left: none;
-   }
+
+.item {
+  &:not(:first-child) {
+    .card {
+      border-left: none;
+    }
   }
 }
+
 .card {
+  height: 100%;
+
   &:not(:first-child) {
     position: relative;
     left: toVw(-1);
+  }
+  @media(max-width: $md5 + px){
+    border-bottom: none;
   }
 }
 
@@ -29,9 +38,16 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  @media(max-width: $md5 + px) {
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #1F1F1F;
+  }
 
   &.row-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media(max-width: $md5 + px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 

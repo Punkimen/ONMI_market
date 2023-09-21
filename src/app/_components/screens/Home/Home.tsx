@@ -49,8 +49,10 @@ export const Home: FC = () => {
           </>
         </Text>
       </Hero>
-      <Catalog className={s.catalog} cardsOmi={bodies} countsRow={4} label={'Omi Bodys'} hide={windowWidth <= 768}/>
-      <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3} hide={windowWidth > 768}/>
+      <Catalog className={s.catalog} cardsOmi={bodies} countsRow={4} label={'Omi Bodys'}
+        hide={windowWidth <= 768}/>
+      <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3}
+        hide={windowWidth > 768}/>
 
 
       <section className={s['omi-world']}>
@@ -63,7 +65,7 @@ export const Home: FC = () => {
               <div className="row">
                 <div className={'text-line'}>you superpowers</div>
               </div>
-            </>: <>
+            </> : <>
               <div className="row">
                 <div className={'text-line'}><span className='color_gray'>Omi</span> gives</div>
               </div>
@@ -88,10 +90,17 @@ export const Home: FC = () => {
           <CardsNavigations/>
         </div>
       </section>
-      {/*   <section className={s.zero}>
+      <section className={s.zero}>
         <div className="container">
-          <Title tag='h2'>
-            <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
+          <Title tag='h2' className={s['zero__title']}>
+            {windowWidth > 450 ?
+              <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
+              : <>
+                <div className="row color_gray">onmi®</div>
+                <div className="row">zero</div>
+              </>
+            }
+
           </Title>
           <Text className={s['zero__text']}>
             <div className='row'>
@@ -99,42 +108,63 @@ export const Home: FC = () => {
             </div>
           </Text>
         </div>
-        <MarqueCatalog className={s.zero__catalog}
-          cardsClothe={clothes}/>
-        <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
-          Open collection
-        </BtnSmall>
+        <div className={s.zero__wrapper}>
+          {windowWidth > 450 ? <MarqueCatalog className={s.zero__catalog}
+            cardsClothe={clothes}/> :
+            <Catalog countsRow={4} className={s.zero__catalog}
+              cardsClothe={clothes?.slice(0, 4)} isCardsStats={false}/>}
+        </div>
+        <div className="container">
+          <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
+                        Open collection
+          </BtnSmall>
+        </div>
       </section>
       <section className={s.available}>
-        <Title tag={'h2'}>
-          <>
-            <div className="row">
-              <div className={'text-line'}><span className='color_gray'>Omi</span> available</div>
-            </div>
-            <div className="row">
-              <div className={'text-line'} data-delay={0.1}>in onmi® game</div>
-            </div>
-          </>
-        </Title>
-        <Text className={s['available__text']}>
-          <>
-            <div className="row">
-              <span className={'text-line'}>Take four simple steps and start exploring</span>
-            </div>
-            <div className="row">
-              <span className={'text-line'}>the ONMI world</span>
-            </div>
-          </>
-        </Text>
-        <PhoneScreens className={s.screens}/>
+        <div className="container">
+          <Title tag={'h2'} className={s.available__title}>
+            {windowWidth > 450 ? <>
+              <div className="row">
+                <div className={'text-line'}><span className='color_gray'>Omi</span> available</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'} data-delay={0.1}>in onmi® game</div>
+              </div>
+            </> : <>
+              <div className="row">
+                <div className={'text-line color_gray'}>Omi</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>available</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>in onmi®</div>
+              </div>
+              <div className="row">
+                <div className={'text-line'}>game</div>
+              </div>
+            </>}
+          </Title>
+          <Text className={s['available__text']}>
+            <>
+              <div className="row">
+                <span className={'text-line'}>Take four simple steps and start exploring</span>
+              </div>
+              <div className="row">
+                <span className={'text-line'}>the ONMI world</span>
+              </div>
+            </>
+          </Text>
+          <PhoneScreens className={s.screens}/>
+        </div>
         <div className={s.questions}>
           {questions.map((el, index) => {
             return <Question key={index} title={el.title} text={el.text}/>;
           })}
-          <LineDecor position={"bottom"}/>
+          <LineDecor position={"bottom"}className={s.questions__line}/>
         </div>
       </section>
-      <Platform/>*/}
+      <Platform/>
     </div>
   );
 };

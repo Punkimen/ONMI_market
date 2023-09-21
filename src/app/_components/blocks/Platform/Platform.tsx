@@ -1,4 +1,5 @@
-import React, {FC, useState} from 'react';
+'use client';
+import React, {FC, useCallback, useRef, useState} from 'react';
 import s from './Platform.module.scss';
 import cn from 'classnames';
 import {Title} from "@/app/_components/partials/Title/Title";
@@ -7,15 +8,51 @@ import Link from "next/link";
 import Image from "next/image";
 import googleIcon from '@/../public/img/icons/googlePlay.svg';
 import appleIcon from '@/../public/img/icons/apple.svg';
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 interface IPlatformProps {
   className?: string
 }
 
+const scalingBtnPositive = (el:HTMLElement) => {
+  el.style.width = `120%`;
+  el.style.borderRadius = '15.10vw';
+};
+const scalingBtnNegative = (el:HTMLElement) => {
+  el.style.width = `80%`;
+};
+const setNormalSize = (el:HTMLElement) => {
+  el.style.width = "100%";
+};
+
 export const Platform: FC<IPlatformProps> = ({className}) => {
+  const windowWidth = useWindowWidth();
+  const googleBtn = useRef(null);
+  const appleBtn = useRef(null);
+
+  const hoverAppleBtn = useCallback(() => {
+    if(windowWidth > 768){
+      appleBtn.current && scalingBtnPositive(appleBtn.current);
+      googleBtn.current && scalingBtnNegative(googleBtn.current);
+    }
+  }, [windowWidth]);
+  const hoverGoogleBtn = useCallback(() => {
+    if(windowWidth > 768){
+      googleBtn.current && scalingBtnPositive(googleBtn.current);
+      appleBtn.current && scalingBtnNegative(appleBtn.current);
+    }
+  }, [windowWidth]);
+
+  const leveSizeBtns = useCallback(() => {
+    if(windowWidth > 768){
+      appleBtn.current && setNormalSize(appleBtn.current);
+      googleBtn.current && setNormalSize(googleBtn.current);
+    }
+  }, [windowWidth]);
+
   return (
     <section className={cn(s.platform, className)}>
-      <Title tag={'h2'}>
+      <Title className={s.title} tag={'h2'}>
         <>
           <div className="row">
             <div className='color_gray'>Choose</div>
@@ -34,7 +71,7 @@ export const Platform: FC<IPlatformProps> = ({className}) => {
         </>
       </Text>
       <div className={s.btns}>
-        <Link href={'#'} className={cn(s.btn, s.btn_google)}>
+        <Link href={'#'} ref={googleBtn} onMouseEnter={hoverGoogleBtn} onMouseLeave={leveSizeBtns} className={cn(s.btn, s.btn_google)}>
           <div className={s['btn-text']}>Download on the</div>
           <div className={s['btn-label']}>
             <div className={s['btn-icon']}>
@@ -43,7 +80,7 @@ export const Platform: FC<IPlatformProps> = ({className}) => {
             <div className={s['btn-name']}>Google Play</div>
           </div>
         </Link>
-        <Link href={'#'} className={cn(s.btn, s.btn_apple)}>
+        <Link href={'#'} ref={appleBtn} onMouseEnter={hoverAppleBtn} onMouseLeave={leveSizeBtns} className={cn(s.btn, s.btn_apple)}>
           <div className={s['btn-text']}>Download on the</div>
           <div className={s['btn-label']}>
             <div className={s['btn-icon']}>

@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .title {
   text-align: center;
@@ -11,6 +12,9 @@
 
   &.right {
     text-align: right;
+  }
+  @media(max-width: $md5 + px){
+    text-align: left;
   }
 }
 

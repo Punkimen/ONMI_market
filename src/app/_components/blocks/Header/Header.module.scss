@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9;
+  z-index: 10;
   @media(max-width: $md4 + px) {
     padding: toVw(16, $md4) 0;
   }

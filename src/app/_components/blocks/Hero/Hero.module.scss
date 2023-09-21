@@ -7,6 +7,7 @@
     padding: toVw(170, $md2) 0 toVw(233, $md2);
   }
   @media(max-width: $md5 + px) {
+    text-align: left;
     padding: toVw(108, 390) 0 toVw(94, 390);
   }
 }

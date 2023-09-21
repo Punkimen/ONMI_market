@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .card {
   font-family: SFPro, sans-serif;
@@ -9,7 +10,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+@media(max-width: $md2 + px){
+  padding: toVw(28, $md2) toVw(24, $md2) toVw(50, $md2);
+}
+  @media(max-width: $md5 + px){
+    padding: toVw(28, 390) toVw(24, 390) toVw(32, 390);
+  }
   &__link {
     position: absolute;
     top: 0;
@@ -34,6 +40,27 @@
   font-size: toVw(17);
   font-weight: 600;
   line-height: 1.1em;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(17, $md2);
+    top: toVw(28, $md2);
+    right: toVw(24, $md2);
+    width: toVw(43, $md2);
+    height: toVw(43, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(17, $md3);
+    top: toVw(28, $md3);
+    right: toVw(24, $md3);
+    width: toVw(43, $md3);
+    height: toVw(43, $md3);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(12, $md5);
+    top: toVw(10, $md5);
+    right: toVw(10, $md5);
+    width: toVw(24, $md5);
+    height: toVw(24, $md5);
+  }
 }
 
 .img {
@@ -43,6 +70,10 @@
   min-height: toVw(312);
   align-items: center;
   justify-content: center;
+  @media(max-width: $md3 + px) {
+    width: 75%;
+    height: 100%;
+  }
 
   img {
     display: block;

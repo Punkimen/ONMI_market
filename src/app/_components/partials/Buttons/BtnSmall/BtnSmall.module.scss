@@ -23,6 +23,11 @@
     border-radius: toVw(17, $md4);
     padding: toVw(6, $md4) toVw(24, $md4) toVw(5, $md4);
   }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    border-radius: toVw(17, 390);
+    padding: toVw(6, 390) toVw(24, 390) toVw(5, 390);
+  }
 
   &:hover {
     background-color: var(--graySecondary);

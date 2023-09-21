@@ -1,8 +1,18 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .question {
-  padding: 0 toVw(46.51) 0 toVw(27.84);
+  padding: 0 toVw(46) 0 toVw(27);
   position: relative;
+  @media(max-width: $md2 + px) {
+    padding: 0 toVw(46, $md2) 0 toVw(27, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    padding: 0 toVw(12, $md4) 0 toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    padding: 0 toVw(14, 390) 0 toVw(12, 390);
+  }
 
   &.open {
     .body {
@@ -10,6 +20,18 @@
       padding-top: toVw(35.46);
       padding-bottom: toVw(49.2);
       opacity: 1;
+      @media(max-width: $md2 + px) {
+        padding-top: toVw(35.46, $md2);
+        padding-bottom: toVw(49.2, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        padding-top: toVw(34, $md4);
+        padding-bottom: toVw(34, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        padding-top: toVw(34, 390);
+        padding-bottom: toVw(34, 390);
+      }
     }
 
     .arrow {
@@ -20,16 +42,34 @@
 
 .header {
   position: relative;
-  padding-top: toVw(26.88);
-  padding-bottom: toVw(23.04);
+  padding: toVw(27) toVw(57) toVw(23) toVw(0);
   cursor: pointer;
-  padding-right: toVw(57.6);
+
+  @media(max-width: $md2 + px) {
+    padding: toVw(27, $md2) toVw(57, $md2) toVw(23, $md2) toVw(0);
+  }
+  @media(max-width: $md4 + px) {
+    padding: toVw(27, $md2) toVw(57, $md2) toVw(27, $md2) toVw(0);
+  }
+  @media(max-width: $md5 + px) {
+    padding: toVw(25, 390) toVw(32, 390) toVw(19, 390) toVw(0);
+  }
 }
 
 .title {
-  font-size: toVw(20.16);
-  line-height: toVw(30);
+  font-size: toVw(20);
+  line-height: 1.4em;
   font-weight: 400;
+
+  @media(max-width: $md2 + px) {
+    font-size: toVw(20, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(16, 390);
+  }
 }
 
 .arrow {
@@ -39,6 +79,15 @@
   right: 0;
   transform: translateY(-50%) rotate(180deg);
   transition: transform ease 0.5s;
+  @media(max-width: $md2 + px) {
+    width: toVw(41.28, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(24, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: toVw(24, 390);
+  }
 
   img {
     display: block;
@@ -54,18 +103,34 @@
   transition: all ease 0.5s;
   font-size: toVw(18.05);
   font-weight: 500;
-  line-height: toVw(32.4);
+  line-height: 1.8em;
   opacity: 0;
   max-width: toVw(1002.5);
   width: 100%;
   transition: all ease 0.5s;
   letter-spacing: toVw(0.0768);
   color: var(--gray);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(18, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(18, $md4);
+    max-width: 100%;
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(16, 390);
+  }
 
   p,
   ul {
     &:not(:last-child) {
       margin-bottom: toVw(24);
+      @media(max-width: $md2 + px) {
+      }
+      @media(max-width: $md4 + px) {
+      }
+      @media(max-width: $md5 + px) {
+      }
     }
   }
 

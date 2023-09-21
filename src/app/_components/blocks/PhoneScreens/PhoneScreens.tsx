@@ -12,14 +12,18 @@ import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {horizontalTransform, triggerAnimate} from "@/app/_animations/animation";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
   const screen_1 = useRef<HTMLDivElement>(null);
   const screen_3 = useRef<HTMLDivElement>(null);
+  const windowWidth = useWindowWidth();
   useLayoutEffect(() => {
-    horizontalTransform(gsap, screen_1.current, screen_1.current, '21.0625rem', '0', true, null, 'top bottom', 'top+=25 center');
-    horizontalTransform(gsap, screen_3.current, screen_3.current, '-21.0625rem', "0", true, null, 'top bottom', 'top+=25 center');
-  }, []);
+    if (windowWidth > 450) {
+      horizontalTransform(gsap, screen_1.current, screen_1.current, '17.5vw', '0', true, null, 'top bottom', 'top+=25 center');
+      horizontalTransform(gsap, screen_3.current, screen_3.current, '-17.5vw', "0", true, null, 'top bottom', 'top+=25 center');
+    }
+  }, [windowWidth]);
   return (
     <div className={cn(s.block, className)}>
       <div className={s.wrapper}>
@@ -34,16 +38,29 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
         </div>
       </div>
       <Text className={s.text}>
-        <>
+        {windowWidth > 450 ? <>
           <div className="row color_gray">
             <span className={'text-line'}>Choose what it is, a game or a new image</span>
-
           </div>
           <div className="row color_gray"><span data-delay={'0.1'}
             className={'text-line'}>in the intersection of life and technology in</span>
           </div>
           <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
-        </>
+        </> : <>
+          <div className="row color_gray">
+            <span className={'text-line'}>An exciting game or a new way</span>
+          </div>
+          <div className="row color_gray"><span data-delay={'0.1'}
+            className={'text-line'}>of life built on the crossroads of</span>
+          </div>
+          <div className="row color_gray"><span data-delay={'0.1'}
+            className={'text-line'}>reality and technology?</span>
+          </div>
+          <div className="row color_gray"><span data-delay={'0.1'}
+            className={'text-line'}>The choice is yours in</span>
+          </div>
+          <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
+        </>}
       </Text>
       <BtnSmall className={s.btn} onClick={() => {
       }}>More info</BtnSmall>

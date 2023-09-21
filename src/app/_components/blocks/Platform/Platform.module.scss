@@ -1,7 +1,26 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.title {
+  @media(max-width: $md5 + px) {
+    font-size: toVw(62, 390);
+    text-align: center;
+  }
+}
 
 .text {
   margin-bottom: toVw(125);
+
+  @media(max-width: $md2 + px) {
+    margin-bottom: toVw(125, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(40, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    text-align: center;
+    margin-bottom: toVw(40, 390);
+  }
 }
 
 .btns {
@@ -9,6 +28,10 @@
   align-items: center;
   padding: toVw(5); /* 0.26vw to rem */
   min-height: toVw(641); /* 32.97vw to rem */
+  @media(max-width: $md4 + px) {
+    display: block;
+    min-height: auto;
+  }
 }
 
 .btn {
@@ -24,6 +47,19 @@
   transition: all ease 0.5s !important;
   background: none;
   color: #fff;
+  @media(max-width: $md4 + px) {
+    min-height: toVw(182, $md4);
+    &:not(:last-child) {
+      margin-bottom: toVw(5, $md4);
+    }
+  }
+  @media(max-width: $md5 + px) {
+    min-height: toVw(182, 390);
+    border-radius: toVw(266, 390);
+    &:not(:last-child) {
+      margin-bottom: toVw(5, 390);
+    }
+  }
 }
 
 .btn-text {
@@ -34,6 +70,17 @@
   text-align: center;
   position: relative;
   top: toVw(-42.09); /* -2.19vw to rem */
+  @media(max-width: $md2 + px) {
+    font-size:  toVw(18, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+    top: toVw(-10,$md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size:  toVw(10, 390);
+    top: toVw(-5,390);
+  }
 }
 
 .btn-label {
@@ -44,7 +91,18 @@
 .btn-icon {
   width: toVw(48); /* 2.50vw to rem */
   margin-right: toVw(9.92); /* 0.52vw to rem */
-
+  @media(max-width: $md2 + px) {
+    margin-right: toVw(10, $md2);
+    width:  toVw(48, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    margin-right: toVw(10, $md4);
+    width:  toVw(27, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-right: toVw(10, 390);
+    width:  toVw(27, 390);
+  }
   img {
     display: block;
     width: 100%;
@@ -55,4 +113,13 @@
 .btn-name {
   font-size: toVw(48.96); /* 2.55vw to rem */
   letter-spacing: -0.01em;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(49, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(32, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size:  toVw(27, 390);
+  }
 }
