@@ -28,6 +28,7 @@ const links: Array<ILink> = [
 ];
 export const Header = () => {
   const header = useRef<HTMLDivElement>(null);
+  const windowWidth = useWindowWidth();
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
@@ -37,10 +38,10 @@ export const Header = () => {
         el && triggerAnimate(el);
       });
     }, [header]);
-  }, []);
+  }, [windowWidth]);
   const user = useUser(state => state);
   const [isAuth, setIsAuth] = useState(false);
-  const windowWidth = useWindowWidth();
+
   const [show, setShow] = useState(false);
   useEffect(() => {
     setIsAuth(user.isAuth);
