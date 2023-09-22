@@ -31,7 +31,7 @@ export const CardsNavigations: FC = () => {
             <div className={s["card__icon"]}>
               <Image src={omiSocial} alt={'avatars'}/>
             </div>
-            <div cclassName={cn(s["card__text"],s.card__text_small )}>Omi social ID</div>
+            <div className={cn(s["card__text"],s.card__text_small )}>Omi social ID</div>
           </div>
         </div>
         <div data-delay="0.1" className={cn(s.card, 'opacity', s['card__discover'])}>
