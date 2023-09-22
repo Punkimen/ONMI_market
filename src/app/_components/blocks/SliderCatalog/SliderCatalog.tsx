@@ -45,7 +45,7 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
               spaceBetween: 8,
               loop: true,
             },
-            450: {
+            451: {
               slidesPerView: 2,
             },
             568: {
