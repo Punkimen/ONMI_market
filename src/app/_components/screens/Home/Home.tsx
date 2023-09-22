@@ -10,7 +10,7 @@ import {Routes} from "@/app/_utils/Routes";
 import {PhoneScreens} from "@/app/_components/blocks/PhoneScreens/PhoneScreens";
 import {Question} from "@/app/_components/partials/Question/Question";
 import {Platform} from "@/app/_components/blocks/Platform/Platform";
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 import {useCatalogState, useQuestionsState} from "@/app/_state/store";
 import {IBody, IClothe} from "@/app/_types/cards.types";
@@ -19,6 +19,7 @@ import {Hero} from "@/app/_components/blocks/Hero/Hero";
 import {useStore} from "zustand";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
+
 
 export const Home: FC = () => {
   const clothes: IClothe[] | undefined = useStore(useCatalogState, (state) => state?.clothes);
@@ -119,7 +120,7 @@ export const Home: FC = () => {
         </div>
         <div className="container">
           <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
-            Open collection
+                        Open collection
           </BtnSmall>
         </div>
       </section>

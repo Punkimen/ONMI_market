@@ -11,10 +11,14 @@ import cn from 'classnames';
 import Link from "next/link";
 import {Routes} from "@/app/_utils/Routes";
 import {useBagState} from "@/app/_state/store";
+import {CraftProgress} from "@/app/_components/partials/CraftProgress/CraftProgress";
+import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/ModalClotheCraft";
+import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
 
 interface ICardClotheProps extends IClothe {
-  className?: string,
-  isStats?: boolean,
+    className?: string,
+    isStats?: boolean,
+    onClick?: ()=>void,
 }
 
 const statsIcons = [stat1, stat2, stat3, stat4];
@@ -29,6 +33,9 @@ export const CardClothe: FC<ICardClotheProps> = ({
   isStats = true,
   collection,
   quantity,
+  craftPoint,
+  craftPointMax,
+  onClick,
   ...props
 }) => {
   const bagState = useBagState(state => state.bag);
@@ -36,50 +43,26 @@ export const CardClothe: FC<ICardClotheProps> = ({
   const [hover, setHover] = useState(false);
 
   return (
-    <div className={cn(s.card, props.className)}>
-      <Link href={`${Routes.CLOTHES}/${id}`} className={s.card__link}/>
-      <div className={s.model}>{modelCategory}</div>
-      <div className={s.img}>
-        <Image src={imgSrc} alt={`${category} ${id}`}/>
-      </div>
-      {isStats ? <div className={s.bottom}>
-        <div className={s.stats}>
-          {stats.map((el, index) => {
-            return (
-              <div key={index} className={s.stat}>
-                <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
-                <span>{el}</span>
-              </div>
-            );
-          })}
+    <>
+      <div className={cn(s.card, props.className)} onClick={onClick}>
+        <div className={s.model}>{modelCategory}</div>
+        <div className={s.img}>
+          <Image src={imgSrc} alt={`${category} ${id}`}/>
         </div>
-        <BtnBig color={'gray'} onMouseEnter={() => {
-          setHover(true);
-        }} onMouseLeave={() => {
-          setHover(false);
-        }} onClick={() => {
-          addtoCard({
-            id,
-            imgSrc,
-            price,
-            quantity: 1,
-            quantityMax: quantity,
-            collection: collection,
-            modelCategory: modelCategory,
-            category: category,
-          });
-        }} className={s.btn}>
-          {
-            bagState.filter(el => el.id === id).length > 0 ? 'Added' :
-              <>
-                <span className={cn(s.btn__text, !hover && s.hide)}>Add</span>
-                <span className={cn(s.btn__text, hover && s.hide)}>
-                  {rewards.toString()} ONM
-                </span>
-              </>
-          }
-        </BtnBig>
-      </div> : null}
-    </div>
+        {isStats ? <div className={s.bottom}>
+          <div className={s.stats}>
+            {stats.map((el, index) => {
+              return (
+                <div key={index} className={s.stat}>
+                  <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
+                  <span>{el}</span>
+                </div>
+              );
+            })}
+          </div>
+          <CraftProgress craftPoint={craftPoint} craftPointMax={craftPointMax}/>
+        </div> : null}
+      </div>
+    </>
   );
 };

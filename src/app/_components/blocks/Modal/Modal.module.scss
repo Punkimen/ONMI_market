@@ -1,0 +1,51 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.wrapper {
+  position: fixed !important;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%; transform:translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.modal {
+  position: relative;
+  padding: toVw(65) toVw(30) toVw(42) toVw(30);
+  background: #111111;
+  border-radius: toVw(31);
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: toVw(22);
+  right: toVw(22);
+  transition: fill ease .2s;
+
+  &:hover {
+    svg {
+      fill: #484848;
+    }
+  }
+
+  svg {
+    fill: #333;
+  }
+
+}

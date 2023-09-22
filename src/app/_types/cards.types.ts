@@ -10,6 +10,8 @@ export interface IClothe {
   rewards: number,
   quantity: number,
   price: number,
+  craftPoint: number,
+  craftPointMax: number,
   collection: {
     id: number,
     name: string

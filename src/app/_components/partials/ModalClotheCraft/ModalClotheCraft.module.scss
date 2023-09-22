@@ -1,0 +1,49 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.modal {
+  text-align: center;
+  max-width: toVw(537);
+  width: 100%;
+  font-family: SFPro, sans-serif;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: toVw(20);
+  margin-bottom: toVw(8);
+}
+
+.text {
+  font-size: toVw(14);
+  margin: 0 auto toVw(53);
+  color: #6E6E6E;
+  max-width: toVw(315);
+  font-weight: 600;
+}
+
+.img {
+  max-width: toVw(238);
+  margin: 0 auto toVw(61);
+  filter: grayscale(1);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.btn {
+  max-width: toVw(336);
+  width: 100%;
+  font-size: toVw(16);
+  font-weight: 600;
+  margin: 0 auto toVw(43);
+}
+
+.link {
+  color: #6E6E6E;
+  font-size: toVw(14);
+  font-weight: 500;
+}

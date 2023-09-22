@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {IBaseComponents} from "@/app/_types/base.types";
+import {CardClothe} from "@/app/_components/partials/CardClothe/CardClothe";
 
 interface ISliderCatalogProps extends IBaseComponents, Omit<ICatalogProps, 'countsRow'> {
   slidesPerView?: number
@@ -38,7 +39,7 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
           pagination={true}
           modules={[Pagination]}
           slidesPerView={3}
-
+          autoHeight={true}
           breakpoints={{
             320: {
               slidesPerView: "auto",
@@ -59,6 +60,12 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
           {cardsOmi && cardsOmi.map((card) => {
             return <SwiperSlide key={card.id} className={s.slide}>
               <CardOmi
+                className={cn(s.card)} {...card} />
+            </SwiperSlide>;
+          })}
+          {cardsClothe && cardsClothe.map((card) => {
+            return <SwiperSlide key={card.id} className={s.slide}>
+              <CardClothe
                 className={cn(s.card)} {...card} />
             </SwiperSlide>;
           })}

@@ -25,6 +25,7 @@
 .slider {
 
   .card {
+
     @media(max-width: $md5 + px) {
       border: none;
       background: #121212;
@@ -35,11 +36,17 @@
 }
 
 .slide {
+  &:not(:last-child) {
+    .card {
+      border-right: none;
+    }
+  }
+
   @media(max-width: $md5 + px) {
     max-width: 95%;
- /*   &:not(:last-child) {
-      margin-right: toVw(6, 390);
-    }*/
+    /*   &:not(:last-child) {
+         margin-right: toVw(6, 390);
+       }*/
   }
 }
 

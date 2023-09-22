@@ -5,7 +5,12 @@
   width: calc(100% + toVw(2));
   position: relative;
   left: toVw(-1);
-
+&__btn{
+  margin: toVw(58) auto 0;
+  font-weight: 600;
+  max-width: toVw(292);
+  font-size: toVw(14);
+}
 }
 
 .item {

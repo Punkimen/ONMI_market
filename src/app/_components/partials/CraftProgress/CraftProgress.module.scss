@@ -1,0 +1,27 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  padding: toVw(12) toVw(18) toVw(11);
+  border: toVw(1) solid #2B2B2B;
+  border-radius: toVw(22);
+}
+
+.label {
+  color: rgba(255, 255, 255, .33);
+  margin-right: toVw(12);
+}
+.points{
+  display: flex;
+  span{
+    &:first-child{
+      &::after{
+        content: "/";
+      }
+    }
+  }
+}

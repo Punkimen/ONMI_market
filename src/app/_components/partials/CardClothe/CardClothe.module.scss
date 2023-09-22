@@ -4,18 +4,21 @@
 .card {
   font-family: SFPro, sans-serif;
   font-weight: 600;
+  height: 100%;
   border: 1px solid #1F1F1F;
   padding: toVw(28) toVw(24) toVw(50);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-@media(max-width: $md2 + px){
-  padding: toVw(28, $md2) toVw(24, $md2) toVw(50, $md2);
-}
-  @media(max-width: $md5 + px){
+  cursor: pointer;
+  @media(max-width: $md2 + px) {
+    padding: toVw(28, $md2) toVw(24, $md2) toVw(50, $md2);
+  }
+  @media(max-width: $md5 + px) {
     padding: toVw(28, 390) toVw(24, 390) toVw(32, 390);
   }
+
   &__link {
     position: absolute;
     top: 0;
@@ -40,19 +43,13 @@
   font-size: toVw(17);
   font-weight: 600;
   line-height: 1.1em;
-  @media(max-width: $md2 + px) {
-    font-size: toVw(17, $md2);
-    top: toVw(28, $md2);
-    right: toVw(24, $md2);
-    width: toVw(43, $md2);
-    height: toVw(43, $md2);
-  }
+
   @media(max-width: $md3 + px) {
-    font-size: toVw(17, $md3);
-    top: toVw(28, $md3);
-    right: toVw(24, $md3);
-    width: toVw(43, $md3);
-    height: toVw(43, $md3);
+    font-size: toVw(12, $md3);
+    top: toVw(12, $md3);
+    right: toVw(12, $md3);
+    width: toVw(24, $md3);
+    height: toVw(24, $md3);
   }
   @media(max-width: $md5 + px) {
     font-size: toVw(12, $md5);
@@ -84,18 +81,42 @@
 
 .img_1 {
   max-width: toVw(10);
+  @media(max-width: $md2 + px) {
+    max-width: toVw(10, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: toVw(10, $md4);
+  }
 }
 
 .img_2 {
   max-width: toVw(7);
+  @media(max-width: $md2 + px) {
+    max-width: toVw(7, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: toVw(7, $md4);
+  }
 }
 
 .img_3 {
   max-width: toVw(11);
+  @media(max-width: $md2 + px) {
+    max-width: toVw(11, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: toVw(11, $md4);
+  }
 }
 
 .img_4 {
   max-width: toVw(10.7);
+  @media(max-width: $md2 + px) {
+    max-width: toVw(10.7, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: toVw(10.7, $md4);
+  }
 }
 
 .stats {
@@ -103,6 +124,9 @@
   align-items: flex-end;
   justify-content: center;
   margin-bottom: toVw(30);
+  @media(max-width: $md2 + px) {
+    margin-bottom: toVw(30, $md2);
+  }
 }
 
 .stat {
@@ -112,9 +136,21 @@
   align-items: center;
   font-size: toVw(14);
   font-weight: 600;
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(12, $md4);
+  }
 
   &:not(:last-child) {
     margin-right: toVw(18);
+    @media(max-width: $md2 + px) {
+      margin-right: toVw(12, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      margin-right: toVw(8, $md4);
+    }
   }
 
   img {
@@ -135,7 +171,12 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
-
+  @media(max-width: $md2 + px) {
+    max-width: toVw(206, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    max-width: 100%;
+  }
   /*  &::hover {
       .btn__text {
         &::fir

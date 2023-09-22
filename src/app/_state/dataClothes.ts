@@ -19,9 +19,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe1,
     price: 149,
     category: 'hats',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 2,
@@ -31,9 +32,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe2,
     price: 149,
     category: 'hats',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 3,
@@ -43,9 +45,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe3,
     price: 149,
     category: 'hats',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 4,
@@ -55,9 +58,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe4,
     price: 149,
     category: 'hats',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 5,
@@ -67,9 +71,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe5,
     price: 149,
     category: 'hats',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 6,
@@ -79,9 +84,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe1,
     price: 149,
     category: 'shirts',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 7,
@@ -91,9 +97,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe2,
     price: 149,
     category: 'shirts',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 8,
@@ -103,9 +110,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe3,
     price: 149,
     category: 'shirts',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 9,
@@ -115,9 +123,10 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe4,
     price: 149,
     category: 'shirts',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   },
   {
     id: 10,
@@ -127,19 +136,21 @@ export const dataClothes: Array<IClothe> = [
     imgSrc: clothe5,
     price: 149,
     category: 'shirts',
-    stats: [14, 10, 12, 12],
+    stats: [14, 10, 12],
     resources: [23, 25, 46],
-    quantity: 1000
+    quantity: 1000, craftPointMax: 1000,
+    craftPoint: 50,
   }
 ];
-export const dataBodies: Array<IBody> =[
+export const dataBodies: Array<IBody> = [
   {
     id: 1,
     imgSrc: body1,
     points: 400,
     price: 149,
     modelCategory: 'A',
-    quantity: 10000,
+    quantity: 1000,
+
     rewards: 900,
     typeClothes: ['A', 'B', 'C']
   },
@@ -149,7 +160,8 @@ export const dataBodies: Array<IBody> =[
     points: 400,
     price: 149,
     modelCategory: 'A',
-    quantity: 10000,
+    quantity: 1000,
+
     rewards: 900,
     typeClothes: ['A', 'B', 'C']
   },
@@ -159,7 +171,8 @@ export const dataBodies: Array<IBody> =[
     points: 400,
     price: 149,
     modelCategory: 'A',
-    quantity: 10000,
+    quantity: 1000,
+
     rewards: 900,
     typeClothes: ['A', 'B', 'C']
   },
@@ -169,7 +182,7 @@ export const dataBodies: Array<IBody> =[
     points: 400,
     price: 149,
     modelCategory: 'A',
-    quantity: 10000,
+    quantity: 1000,
     rewards: 900,
     typeClothes: ['A', 'B', 'C']
   }

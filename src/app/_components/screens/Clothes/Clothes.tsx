@@ -7,15 +7,21 @@ import cn from "classnames";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
 import {dataClothes} from "@/app/_state/dataClothes";
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {Hero} from "@/app/_components/blocks/Hero/Hero";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
+import {useCatalogState} from "@/app/_state/store";
 
 export const Clothes: FC = () => {
+  const windowWidth = useWindowWidth();
+  const clothes = useCatalogState(state => state.clothes);
+  const [show, setShow] = useState(false);
   return (
     <div className={s.content}>
       <Hero>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
-          onmi® Zero
+                    onmi® Zero
         </Title>
         <Text className={s['']}>
           <>
@@ -24,13 +30,25 @@ export const Clothes: FC = () => {
           </>
         </Text>
       </Hero>
-      <section className={s.clothes}>
-        <Catalog
-          className={s.catalog} label={'hats'}
-          cardsClothe={dataClothes.filter(el => el.category === 'hats')} countsRow={5}/>
-        <Catalog
-          className={s.catalog} label={'shirts'}
-          cardsClothe={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
+      <section className={s.clothes} onClick={()=>setShow(true)}>
+        {windowWidth > 768 ?
+          <Catalog
+            className={s.catalog} label={'hats'}
+            cardsClothe={clothes.filter(el => el.category === 'hats')} countsRow={5}/>
+          :
+          <SliderCatalog className={s.catalog} cardsClothe={clothes.filter(el => el.category === 'hats')}
+            label={'hats'} slidesPerView={3}
+          />}
+
+        {windowWidth > 768 ?
+          <Catalog
+            className={s.catalog} label={'hats'}
+            cardsClothe={dataClothes.filter(el => el.category === 'shirts')} countsRow={5}/>
+          :
+          <SliderCatalog className={s.catalog}
+            cardsClothe={dataClothes.filter(el => el.category === 'shirts')} label={'Shirts'}
+            slidesPerView={3}
+          />}
       </section>
     </div>
   );
