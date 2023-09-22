@@ -20,19 +20,23 @@
       padding-left: toVw(16, 390);
     }
   }
+
+  &__slider_omi {
+    padding: 0 toVw(16, 390);
+  }
 }
 
 .slider {
 
   .card {
-
-    @media(max-width: $md5 + px) {
-      border: none;
-      background: #121212;
-      border-radius: toVw(21, 390);
+    &_omi {
+      @media(max-width: $md5 + px) {
+        border: none;
+        background: #121212;
+        border-radius: toVw(21, 390);
+      }
     }
   }
-
 }
 
 .slide {
@@ -42,11 +46,13 @@
     }
   }
 
-  @media(max-width: $md5 + px) {
-    max-width: 95%;
-    /*   &:not(:last-child) {
-         margin-right: toVw(6, 390);
-       }*/
+  &_omi {
+    @media(max-width: $md5 + px) {
+      max-width: 95%;
+      /*   &:not(:last-child) {
+           margin-right: toVw(6, 390);
+         }*/
+    }
   }
 }
 

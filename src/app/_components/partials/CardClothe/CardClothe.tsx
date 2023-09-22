@@ -14,6 +14,7 @@ import {useBagState} from "@/app/_state/store";
 import {CraftProgress} from "@/app/_components/partials/CraftProgress/CraftProgress";
 import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/ModalClotheCraft";
 import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 interface ICardClotheProps extends IClothe {
     className?: string,
@@ -21,7 +22,8 @@ interface ICardClotheProps extends IClothe {
     onClick?: ()=>void,
 }
 
-const statsIcons = [stat1, stat2, stat3, stat4];
+const statsIcons = [stat1, stat2, stat3];
+const rarity = ["A", "B","C", "D"];
 export const CardClothe: FC<ICardClotheProps> = ({
   id,
   imgSrc,
@@ -41,28 +43,66 @@ export const CardClothe: FC<ICardClotheProps> = ({
   const bagState = useBagState(state => state.bag);
   const addtoCard = useBagState(state => state.addToCart);
   const [hover, setHover] = useState(false);
+  const windowWidth = useWindowWidth();
 
-  return (
-    <>
-      <div className={cn(s.card, props.className)} onClick={onClick}>
-        <div className={s.model}>{modelCategory}</div>
-        <div className={s.img}>
-          <Image src={imgSrc} alt={`${category} ${id}`}/>
-        </div>
-        {isStats ? <div className={s.bottom}>
-          <div className={s.stats}>
-            {stats.map((el, index) => {
-              return (
-                <div key={index} className={s.stat}>
-                  <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
-                  <span>{el}</span>
-                </div>
-              );
-            })}
+  if(windowWidth > 450){
+    return (
+      <>
+        <div className={cn(s.card, props.className)} onClick={onClick}>
+          <div className={s.model}>{modelCategory}</div>
+          <div className={s.img}>
+            <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
-          <CraftProgress craftPoint={craftPoint} craftPointMax={craftPointMax}/>
-        </div> : null}
-      </div>
-    </>
-  );
+          {isStats ? <div className={s.bottom}>
+            <div className={s.stats}>
+              {stats.map((el, index) => {
+                return (
+                  <div key={index} className={s.stat}>
+                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
+                    <span>{el}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <CraftProgress craftPoint={craftPoint} craftPointMax={craftPointMax}/>
+          </div> : null}
+        </div>
+      </>
+    );
+  }else{
+    return (
+      <>
+        <div className={cn(s.card, props.className)} onClick={onClick}>
+          <div className={s.model}>{modelCategory}</div>
+          <div className={s.img}>
+            <Image src={imgSrc} alt={`${category} ${id}`}/>
+          </div>
+          {isStats && windowWidth > 450 ? <div className={s.bottom}>
+            <div className={s.stats}>
+              {stats.map((el, index) => {
+                return (
+                  <div key={index} className={s.stat}>
+                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
+                    <span>{el}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <CraftProgress craftPoint={craftPoint} hide={windowWidth <= 450} craftPointMax={craftPointMax}/>
+          </div> : null}
+          <div className={s.rarity}>
+            <div className={s.rarity__label}>Types of rarity:</div>
+            <div className={s.rarity__type}>
+              {rarity.map(el=>{
+                return <span key={el} className={cn(el === modelCategory && s.current)}>{el}</span>;
+              })}
+            </div>
+          </div>
+          <BtnBig>Buy (${price})</BtnBig>
+        </div>
+      </>
+    );
+  }
+
+
 };

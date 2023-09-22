@@ -9,17 +9,27 @@
   padding: toVw(12) toVw(18) toVw(11);
   border: toVw(1) solid #2B2B2B;
   border-radius: toVw(22);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+    padding: toVw(12, $md2) toVw(18, $md2) toVw(11, $md2);
+    border-radius: toVw(22, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(12, $md4);
+  }
 }
 
 .label {
   color: rgba(255, 255, 255, .33);
   margin-right: toVw(12);
 }
-.points{
+
+.points {
   display: flex;
-  span{
-    &:first-child{
-      &::after{
+
+  span {
+    &:first-child {
+      &::after {
         content: "/";
       }
     }

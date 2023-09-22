@@ -295,7 +295,11 @@ h1, h2, h3, h4 {
 
 .swiper-wrapper {
   display: flex;
-  align-items: stretch;
+  align-items: stretch !important;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
 
 .swiper-pagination-bullet {

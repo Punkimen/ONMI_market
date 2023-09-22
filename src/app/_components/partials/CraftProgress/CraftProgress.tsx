@@ -4,11 +4,12 @@ import cn from 'classnames';
 import {IBaseComponents} from "@/app/_types/base.types";
 
 interface ICraftProgressProps extends IBaseComponents {
-    craftPoint: number,
-    craftPointMax: number,
+  craftPoint: number,
+  craftPointMax: number,
 }
 
 export const CraftProgress: FC<ICraftProgressProps> = ({craftPoint, craftPointMax, hide, className}) => {
+  if (hide) return null;
   return (
     <div className={s.progress}>
       <div className={s.label}>Already crafted</div>
