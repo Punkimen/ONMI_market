@@ -23,7 +23,7 @@ export const Balance: FC<IBalanceProps> = ({className, ...props}) => {
   return (
     <div className={cn(s.balance, className)}>
       <div className={s.wrapper}>
-        <div className={s.text}>ONM</div>
+        <div className={s.text}>MAC</div>
         <div className={s.count}>
           {balance}
         </div>

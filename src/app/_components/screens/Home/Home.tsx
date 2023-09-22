@@ -41,10 +41,10 @@ export const Home: FC = () => {
           <>
             <div className={'row'}>
               <span className={'text-line'}
-                data-delay="0.1">Take four simple steps and start exploring</span>
+                data-delay="0.1">Digital art with a story and the essential</span>
             </div>
             <div className={'row'}>
-              <span className={'text-line'} data-delay="0.2">the ONMI world</span>
+              <span className={'text-line'} data-delay="0.2">goods for Reality 2.0</span>
             </div>
           </>
         </Text>
@@ -83,7 +83,10 @@ export const Home: FC = () => {
           <Text className={s['omi-world__text']}>
             <>
               <div className="row">
-                <span className={'text-line'}>Your ticket to Reality 2.0</span>
+                <span className={'text-line'}>Intuitive. Addictive.</span>
+              </div>
+              <div className="row">
+                <span className={'text-line'}>Designed for rewards.</span>
               </div>
             </>
           </Text>
@@ -116,7 +119,7 @@ export const Home: FC = () => {
         </div>
         <div className="container">
           <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
-                        Open collection
+            Open collection
           </BtnSmall>
         </div>
       </section>
@@ -161,7 +164,7 @@ export const Home: FC = () => {
           {questions.map((el, index) => {
             return <Question key={index} title={el.title} text={el.text}/>;
           })}
-          <LineDecor position={"bottom"}className={s.questions__line}/>
+          <LineDecor position={"bottom"} className={s.questions__line}/>
         </div>
       </section>
       <Platform/>

@@ -17,12 +17,13 @@
 .catalog {
   &__slider {
     @media(max-width: $md5 + px) {
-      padding: 0 toVw(16, 390);
+      padding-left: toVw(16, 390);
     }
   }
 }
 
 .slider {
+
   .card {
     @media(max-width: $md5 + px) {
       border: none;
@@ -31,5 +32,14 @@
     }
   }
 
+}
+
+.slide {
+  @media(max-width: $md5 + px) {
+    max-width: 95%;
+ /*   &:not(:last-child) {
+      margin-right: toVw(6, 390);
+    }*/
+  }
 }
 

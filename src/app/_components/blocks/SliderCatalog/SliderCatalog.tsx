@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 import {IBaseComponents} from "@/app/_types/base.types";
 
 interface ISliderCatalogProps extends IBaseComponents, Omit<ICatalogProps, 'countsRow'> {
-    slidesPerView?: number
+  slidesPerView?: number
 }
 
 export const SliderCatalog: FC<ISliderCatalogProps> = ({
@@ -24,7 +24,7 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
   slidesPerView
 }) => {
 
-  if(hide) return null;
+  if (hide) return null;
 
   return (
     <div className={cn(s.catalog, className)}>
@@ -38,9 +38,12 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
           pagination={true}
           modules={[Pagination]}
           slidesPerView={3}
+
           breakpoints={{
             320: {
-              slidesPerView: 1
+              slidesPerView: "auto",
+              spaceBetween: 8,
+              loop: true,
             },
             450: {
               slidesPerView: 2,
@@ -54,7 +57,7 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
           }}
         >
           {cardsOmi && cardsOmi.map((card) => {
-            return <SwiperSlide key={card.id}>
+            return <SwiperSlide key={card.id} className={s.slide}>
               <CardOmi
                 className={cn(s.card)} {...card} />
             </SwiperSlide>;
