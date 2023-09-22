@@ -14,9 +14,9 @@ export const Bag: FC<IBaseComponents> = ({className, hide}) => {
   useEffect(() => {
     setCount(bagItems.length);
   }, [bagItems]);
-  if (hide) return null;
+  if (count === 0) return null;
   return (
-    <Link href={Routes.BAG} className={cn(s.bag, className)}>
+    <Link href={Routes.BAG} className={cn(s.bag, count !==0 && s.show, className)}>
       <div className={s.wrapper}>
         <div className={s.text}>Bag</div>
         <div className={s.count}>

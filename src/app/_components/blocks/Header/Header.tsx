@@ -61,7 +61,7 @@ export const Header = () => {
               <NavLinks links={links} className={s.nav} hide={windowWidth <= 450}/>
             </div>
             <div className={cn(s.right)}>
-              <Bag className={cn(s.bag, 'text-line')} hide={bag.length === 0} data-delay='0.3'/>
+              <Bag className={cn(s.bag ,'text-line')}  data-delay='0.3'/>
               <Balance className={cn(s.balance)} hide={!isAuth}/>
               {windowWidth > 450 && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
@@ -71,7 +71,7 @@ export const Header = () => {
                   user.auth();
                   setIsAuth(user.isAuth);
                 }
-              }]} hide={!isAuth}>
+              }]} hide={!isAuth || windowWidth <= 450}>
                 <div className={s.user}>
                   {user.avatar && <Image className={s.avatar} src={user.avatar} alt={'avatar'}/>}
                   {user.nickname && <div className={s.name}>{user.nickname}</div>}

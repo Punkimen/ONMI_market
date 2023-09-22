@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .balance {
   padding: toVw(5) toVw(18) toVw(6);
@@ -9,12 +10,32 @@
   color: #fff;
   font-weight: 600;
   border-radius: toVw(17);
+  @media(max-width: $md2 + px){
+    padding: toVw(5, $md2) toVw(18, $md2) toVw(6, $md2);
+    max-width: toVw(142, $md2);
+    margin-right: toVw(6, $md2);
+    border-radius: toVw(17, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    padding: toVw(5, $md4) toVw(18, $md4) toVw(6, $md4);
+    max-width: toVw(142, $md4);
+    margin-right: toVw(6, $md4);
+    border-radius: toVw(17, $md4);
+    font-size: toVw(12, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    padding: toVw(5, 390) toVw(16, 390) toVw(6, 390);
+    font-size: toVw(12, 390);
+    max-width: toVw(99, 390);
+    border-radius: toVw(17, 390);
+  }
 }
 
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
 .count {

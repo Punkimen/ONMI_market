@@ -30,7 +30,6 @@
 
 .wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -74,6 +73,8 @@
 }
 
 .bag, .balance {
+  display: block;
+  height: 100%;
   margin-right: toVw(6);
   min-width: toVw(142);
   @media(max-width: $md2 + px) {
@@ -85,9 +86,10 @@
     margin-right: toVw(6, $md4);
   }
   @media(max-width: $md5 + px) {
-    margin-right: toVw(19, 390);
+    margin-right: toVw(8, 390);
     min-width: toVw(99, 390);
   }
+
 }
 
 .user {
@@ -100,6 +102,17 @@
   width: toVw(33);
   height: toVw(33);
   margin-right: toVw(15);
+  @media(max-width: $md2 + px){
+    width: toVw(33, $md2);
+    height: toVw(33, $md2);
+    margin-right: toVw(15, $md2);
+  }
+  @media(max-width: $md4 + px){
+    width: toVw(33, $md4);
+    height: toVw(33, $md4);
+    margin-right: 0;
+  }
+  @media(max-width: $md5 + px){}
 
   img {
     display: block;
@@ -110,4 +123,11 @@
 
 .name {
   font-size: toVw(12);
+  @media(max-width: $md2 + px){
+     font-size: toVw(12, $md2);
+  }
+  @media(max-width: $md4 + px){
+    display: none;
+  }
+  @media(max-width: $md5 + px){}
 }
