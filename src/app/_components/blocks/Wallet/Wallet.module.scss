@@ -26,6 +26,10 @@
   }
 }
 
+.top {
+  margin-bottom: toVw(50);
+}
+
 .close {
   position: absolute;
   top: toVw(22);
@@ -49,7 +53,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  min-height: toVw(600);
+  min-height: toVw(400);
 }
 
 .powered {
@@ -63,5 +67,23 @@
 
   span {
     margin-right: toVw(7);
+  }
+}
+
+.block {
+  &:not(:last-child) {
+    margin-bottom: toVw(13);
+  }
+}
+
+.text {
+  font-size: toVw(14);
+  color: #B8B8B8;
+  margin-bottom: toVw(78);
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: toVw(26);
+    }
   }
 }

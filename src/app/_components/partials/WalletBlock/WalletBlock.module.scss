@@ -1,0 +1,46 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.wallet {
+  background: #0A0A0A;
+  border-radius: toVw(27);
+  padding: toVw(29) toVw(19) toVw(22) toVw(35);
+  min-height: toVw(189);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &_soon {
+    color: #888888;
+  }
+
+  .btn {
+    font-size: toVw(14);
+    font-weight: 600;
+    max-width: toVw(118);
+    width: 100%;
+    height: toVw(40);
+    padding-top: toVw(5);
+    padding-bottom: toVw(5);
+  }
+
+}
+
+.content {
+  margin-bottom: toVw(41);
+}
+
+.value {
+  font-size: toVw(28);
+  font-weight: bold;
+  margin-bottom: toVw(4);
+}
+
+.course {
+  font-size: toVw(14);
+}
+
+.btn_top {
+  margin-left: auto;
+  margin-right: 0;
+}
