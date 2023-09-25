@@ -12,6 +12,24 @@
   }
 }
 
+.close {
+  position: absolute;
+  top: toVw(22);
+  right: toVw(22);
+  transition: fill ease .2s;
+
+  &:hover {
+    svg {
+      fill: #484848;
+    }
+  }
+
+  svg {
+    fill: #333;
+  }
+
+}
+
 .container {
   position: relative;
   max-width: toVw(754);
@@ -30,7 +48,6 @@
 .description {
   margin-bottom: toVw(56);
 }
-
 
 
 .text {

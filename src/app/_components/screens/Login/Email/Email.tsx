@@ -12,7 +12,7 @@ export const Email = ()=>{
   return (
     <LoginLayout description='Enter your email to continue' href={Routes.ENTER}>
       <div className={s.fields}>
-        <Input {...email} styletype={'line'} blockClass={s.input} placeholder={"your@email.com"}/>
+        <Input {...email} className={'opacity'} styletype={'line'} blockClass={s.input} placeholder={"your@email.com"}/>
       </div>
     </LoginLayout>
   );

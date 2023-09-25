@@ -16,12 +16,12 @@ interface IBtnEnterProps extends IBtn{
 export const BtnEnter:FC<IBtnEnterProps> = ({icon,className,color, href, ...props})=>{
   return (
     <>
-      {href ? <Link href={href} className={cn(s.btn, color === "white" && s.white, className)}>
+      {href ? <Link href={href} className={cn(s.btn, color === "white" && s.white, className)} {...props}>
         {icon && <Image className={s.icon} src={icon} alt={'icon'}/>}
         {props.children}
         <Image className={s.arrow} src={color === 'white' ? arrowBlack : arrow} alt={'icon'}/>
       </Link> :
-        <button className={cn(s.btn,color === "white" && s.white, className)} onClick={props.onClick}>
+        <button className={cn(s.btn,color === "white" && s.white, className)} onClick={props.onClick} {...props}>
           {icon && <Image className={s.icon} src={icon} alt={'icon'}/>}
           {props.children}
           <Image className={s.arrow} src={color === 'white' ? arrowBlack : arrow} alt={'icon'}/>

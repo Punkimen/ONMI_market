@@ -1,0 +1,24 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+  padding: toVw(11) toVw(22) toVw(10) toVw(22);
+  width: fit-content;
+  background: #D6F82E;
+  color: #000;
+  font-size: toVw(16);
+  letter-spacing: 0;
+  border-radius: toVw(20);
+  font-weight: 600;
+
+  &__label {
+    white-space: nowrap;
+    margin-right: toVw(16);
+  }
+
+  &__timer {
+    white-space: nowrap;
+  }
+}

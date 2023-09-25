@@ -10,7 +10,7 @@ import {Routes} from "@/app/_utils/Routes";
 import {PhoneScreens} from "@/app/_components/blocks/PhoneScreens/PhoneScreens";
 import {Question} from "@/app/_components/partials/Question/Question";
 import {Platform} from "@/app/_components/blocks/Platform/Platform";
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {LineDecor} from "@/app/_components/partials/LineDecor/LineDecor";
 import {useCatalogState, useQuestionsState} from "@/app/_state/store";
 import {IBody, IClothe} from "@/app/_types/cards.types";
@@ -26,11 +26,21 @@ export const Home: FC = () => {
   const bodies: IBody[] | undefined = useStore(useCatalogState, (state) => state?.bodies);
   const windowWidth = useWindowWidth();
   const questions = useQuestionsState((state) => state?.questions);
+  const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
+
+  useEffect(() => {
+    if (windowWidth && windowWidth <= 450) {
+      setShowCollectionsMob(true);
+    } else if(windowWidth){
+      setShowCollectionsMob(false);
+    }
+  }, [windowWidth]);
+
   return (
     <div className={s.content}>
       <Hero>
         <Title tag='h1' className={cn(s['gallery__title'], 'gradient-text')}>
-          {windowWidth > 450 ?
+          {!showCollectionsMob ?
             <span className={'text-line'}>onmi® Gallery</span>
             : <>
               <div className="row">onmi®</div>

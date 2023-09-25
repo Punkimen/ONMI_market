@@ -2,7 +2,19 @@
 
 .hero {
   position: relative;
+
+  &__title {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
   }
+}
+
+.timer {
+  position: absolute;
+  top: 15%;
+  right: -10%;
+}
 
 .catalog {
   margin-bottom: toVw(130);

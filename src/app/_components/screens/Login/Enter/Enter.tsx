@@ -13,6 +13,7 @@ import {Routes} from "@/app/_utils/Routes";
 import {useUser} from "@/app/_state/store";
 import {useStore} from "zustand";
 import {useRouter} from "next/navigation";
+import cn from "classnames";
 
 export const Enter = () => {
   const email = useInput('');
@@ -28,10 +29,10 @@ export const Enter = () => {
   return (
     <LoginLayout description='Enter your email and password' onClick={onClick}>
       <div className={s.fields}>
-        <Input {...email} blockClass={s.input} styletype={'line'} placeholder={"your@email.com"}/>
-        <Input {...password} blockClass={s.input} styletype={'line'} placeholder={"password"} type={'password'}/>
+        <Input {...email} blockClass={s.input} className={'opacity'}  styletype={'line'} placeholder={"your@email.com"}/>
+        <Input {...password} blockClass={s.input} className={'opacity'} data-delay="0.1" styletype={'line'} placeholder={"password"} type={'password'}/>
       </div>
-      <Link href={Routes.FORGOT} className={s.text_small}>
+      <Link href={Routes.FORGOT} className={cn(s.text_small, 'opacity')} data-delay="0.2">
         <span>Forgot password </span>
         <Image src={arrow} alt={'arrow'}/>
       </Link>

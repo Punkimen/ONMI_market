@@ -43,7 +43,16 @@ export const Header = () => {
   const user = useUser(state => state);
   const [isAuth, setIsAuth] = useState(false);
   const [show, setShow] = useState(false);
-  const bag = useBagState(state=> state.bag);
+  const bag = useBagState(state => state.bag);
+  const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
+
+  useEffect(() => {
+    if (windowWidth && windowWidth <= 450) {
+      setShowCollectionsMob(true);
+    } else if (windowWidth) {
+      setShowCollectionsMob(false);
+    }
+  }, [windowWidth]);
   const pathname = usePathname();
   useEffect(() => {
     setIsAuth(user.isAuth);
@@ -58,12 +67,13 @@ export const Header = () => {
               <Link href={Routes.HOME} className={s.logo}>
                 <Image src={logo} className={'text-line'} alt={'onmi'} priority={true}/>
               </Link>
-              <NavLinks links={links} className={s.nav} hide={windowWidth <= 450}/>
+              {!showCollectionsMob && <NavLinks links={links} className={s.nav}/>}
+
             </div>
             <div className={cn(s.right)}>
-              <Bag className={cn(s.bag ,'text-line')}  data-delay='0.3'/>
+              <Bag className={cn(s.bag, 'text-line')} data-delay='0.3'/>
               <Balance className={cn(s.balance)} hide={!isAuth}/>
-              {windowWidth > 450 && <div className={'text-line'} data-delay='0.4'>
+              {!showCollectionsMob && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
               </div>}
               <Dropdown menu={[{title: 'Inventory', href: Routes.INVENTORY}, {
@@ -77,12 +87,13 @@ export const Header = () => {
                   {user.nickname && <div className={s.name}>{user.nickname}</div>}
                 </div>
               </Dropdown>
-              <Burger active={show} setActive={()=>setShow(!show)} hide={windowWidth <= 450 ? false : true}/>
+              {showCollectionsMob && <Burger active={show} setActive={() => setShow(!show)}/>}
             </div>
           </div>
         </div>
       </header>
-      <MenuMob links={links} isShow={show} setIsShow={()=>setShow(false)}  hide={windowWidth <= 450 ? false : true}/>
+      {showCollectionsMob &&  <MenuMob links={links} isShow={show} setIsShow={() => setShow(false)}/>}
+
     </>
   );
 };

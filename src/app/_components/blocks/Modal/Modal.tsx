@@ -18,8 +18,8 @@ export const Modal: FC<IModalProps> = ({children, onHandle, show, className}) =>
     onHandle(false);
   });
   return (
-    <div className={cn(s.wrapper, className, show && s.show)}>
-      <div className={cn(s.modal)} ref={modalRef}>
+    <div className={cn(s.wrapper, show && s.show)}>
+      <div className={cn(s.modal, className)} ref={modalRef}>
         <BtnReset className={s.close} onClick={()=>onHandle(false)}>
           <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd"
