@@ -20,6 +20,7 @@ import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {Burger} from "@/app/_components/partials/Burger/Burger";
 import {MenuMob} from "@/app/_components/blocks/MenuMob/MenuMob";
 import {usePathname} from "next/navigation";
+import {Wallet} from "@/app/_components/blocks/Wallet/Wallet";
 
 
 const links: Array<ILink> = [
@@ -45,7 +46,7 @@ export const Header = () => {
   const [show, setShow] = useState(false);
   const bag = useBagState(state => state.bag);
   const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
-
+  const [walletShow, setWalletShow] = useState(false);
   useEffect(() => {
     if (windowWidth && windowWidth <= 450) {
       setShowCollectionsMob(true);
@@ -72,7 +73,7 @@ export const Header = () => {
             </div>
             <div className={cn(s.right)}>
               <Bag className={cn(s.bag, 'text-line')} data-delay='0.3'/>
-              <Balance className={cn(s.balance)} hide={!isAuth}/>
+              <Balance className={cn(s.balance)} onClick={()=>setWalletShow(!walletShow)} hide={!isAuth}/>
               {!showCollectionsMob && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
               </div>}
@@ -93,7 +94,7 @@ export const Header = () => {
         </div>
       </header>
       {showCollectionsMob &&  <MenuMob links={links} isShow={show} setIsShow={() => setShow(false)}/>}
-
+      <Wallet show={walletShow} close={()=>setWalletShow(false)} />
     </>
   );
 };

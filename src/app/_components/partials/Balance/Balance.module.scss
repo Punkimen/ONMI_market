@@ -2,6 +2,7 @@
 @import '@/app/_styles/var.scss';
 
 .balance {
+  cursor: pointer;
   padding: toVw(5) toVw(18) toVw(6);
   border: toVw(1) solid #2B2B2B;
   max-width: toVw(142);

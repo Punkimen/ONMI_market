@@ -160,7 +160,16 @@ h4 {
   @media(max-width: $md5 + px) {
   }
 }
-
+h5 {
+  font-size: toVw(25);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(25, $md2);
+  }
+  @media(max-width: $md4 + px) {
+  }
+  @media(max-width: $md5 + px) {
+  }
+}
 a {
   color: inherit;
   text-decoration: none;

@@ -7,8 +7,10 @@ import {IBaseComponents} from "@/app/_types/base.types";
 
 interface IBalanceProps extends IBaseComponents {
   className?: string;
+  onClick?: ()=>void;
+
 };
-export const Balance: FC<IBalanceProps> = ({className, ...props}) => {
+export const Balance: FC<IBalanceProps> = ({className,onClick, ...props}) => {
   const [balance, setBalance] = useState(0);
   const balanceStore = useUser(state => state.balance);
 
@@ -21,7 +23,7 @@ export const Balance: FC<IBalanceProps> = ({className, ...props}) => {
   }
 
   return (
-    <div className={cn(s.balance, className)}>
+    <div className={cn(s.balance, className)} onClick={onClick}>
       <div className={s.wrapper}>
         <div className={s.text}>MAC</div>
         <div className={s.count}>
