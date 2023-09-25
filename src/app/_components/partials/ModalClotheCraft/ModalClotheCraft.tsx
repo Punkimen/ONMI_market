@@ -8,24 +8,41 @@ import Link from "next/link";
 import {IBaseComponents} from "@/app/_types/base.types";
 import {IClothe} from "@/app/_types/cards.types";
 import Image from "next/image";
-interface IModalClothCraftProps extends IBaseComponents, Pick<IClothe, 'price' | 'imgSrc' | 'collection' | 'category' | 'imgSrc'>{
-  show: boolean,
-  onHandle: (isShow: boolean)=>void;
+
+interface IModalClothCraftProps extends IBaseComponents, Pick<IClothe, 'price' | 'imgSrc' | 'collection' | 'category' | 'imgSrc'> {
+    show: boolean,
+    onHandle: (isShow: boolean) => void;
+    type?: "OMI",
+    model?: 'A' | 'B' | 'C' | 'D'
 }
-export const ModalClotheCraft:FC<IModalClothCraftProps> = ({show, onHandle,imgSrc,className,category,price,collection,hide})=>{
+
+export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
+  show,
+  type,
+  model,
+  onHandle,
+  imgSrc,
+  className,
+  category,
+  price,
+  collection,
+  hide
+}) => {
   return (
-    <Modal className={s.modal} show={show} onHandle={onHandle}>
+    <Modal className={cn(s.modal, className, type === 'OMI' && s.modal_omi)} show={show} onHandle={onHandle}>
       <div className={s.title}>{category}</div>
-      <div className={s.text}>{collection.name}</div>
+      <div className={s.text}>{type === 'OMI' ? `${model}-Model` : collection.name}</div>
       <div className={s.img}>
-        <Image src={imgSrc} alt={category} />
+        <Image src={imgSrc} alt={category}/>
       </div>
-      <div className={s.text}>Final attributes, colors and type will be determined automatically</div>
+
+      {type === 'OMI' ? null :
+        <div className={s.text}>Final attributes, colors and type will be determined automatically</div>}
       <BtnBig className={s.btn}>
-        Craft for 290 MAC
+                Craft for 290 MAC
       </BtnBig>
       <Link href={''} className={s.link}>
-        How crafting works →
+                How crafting works →
       </Link>
     </Modal>
   );

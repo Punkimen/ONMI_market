@@ -31,11 +31,10 @@ export const Home: FC = () => {
   useEffect(() => {
     if (windowWidth && windowWidth <= 450) {
       setShowCollectionsMob(true);
-    } else if(windowWidth){
+    } else if (windowWidth) {
       setShowCollectionsMob(false);
     }
   }, [windowWidth]);
-
   return (
     <div className={s.content}>
       <Hero>
@@ -130,7 +129,7 @@ export const Home: FC = () => {
         </div>
         <div className="container">
           <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
-                        Open collection
+            Open collection
           </BtnSmall>
         </div>
       </section>

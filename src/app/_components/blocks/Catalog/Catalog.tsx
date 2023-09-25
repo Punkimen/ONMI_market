@@ -1,5 +1,5 @@
 "use client";
-import React, {FC, useState} from 'react';
+import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
 import s from './Catalog.module.scss';
 import cn from 'classnames';
 import {CardOmi} from "@/app/_components/partials/CardOmi/CardOmi";
@@ -9,7 +9,10 @@ import {IBaseComponents} from "@/app/_types/base.types";
 import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/ModalClotheCraft";
 import {useCatalogState} from "@/app/_state/store";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
-export interface ICatalogProps extends IBaseComponents{
+import {useMousePosition} from "@/app/_hooks/useMousePosition";
+import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
+
+export interface ICatalogProps extends IBaseComponents {
   cardsOmi?: IBody[],
   cardsClothe?: IClothe[],
   countsRow: number,
@@ -26,34 +29,84 @@ export const Catalog: FC<ICatalogProps> = ({
   isCardsStats = true,
   hide
 }) => {
-  const clothe = useCatalogState(state=> state.clothes[0]);
+  const clothe = useCatalogState(state => state.clothes[0]);
+  const omis = useCatalogState(state => state.bodies[0]);
   const [show, setShow] = useState(false);
-  const onHandle = (isShow: boolean)=>{
+  const [hover, setHover] = useState(false);
+  const catalog = useRef(null);
+  const mousePosition = useMousePosition();
+  const [coord, setCoord] = useState({x: 0, y: 0});
+  const onHandle = (isShow: boolean) => {
     setShow(isShow);
   };
-  if(hide) return  null;
+  const handleMouseEnter = useCallback(() => {
+    setHover(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHover(false);
+  }, []);
+
+  useEffect(() => {
+    catalog.current?.addEventListener('mouseenter', handleMouseEnter);
+    catalog.current?.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      catalog.current?.removeEventListener('mouseenter', handleMouseEnter);
+      catalog.current?.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [catalog, handleMouseEnter, handleMouseLeave]);
+
+  const updateCoord = useCallback(() => {
+    if (hover && catalog.current) {
+      const rect = catalog.current.getBoundingClientRect();
+      setCoord({
+        x: mousePosition.x - rect.x || 0,
+        y: mousePosition.y - rect.y || 0,
+      });
+    }
+  }, [hover, mousePosition]);
+
+  useEffect(() => {
+    console.log(catalog.current);
+    if (hover) {
+      requestAnimationFrame(updateCoord);
+    }
+  }, [hover, updateCoord]);
+
+  if (hide) return null;
 
   return (
     <div className={className}>
-      {cardsClothe && <ModalClotheCraft onHandle={onHandle} imgSrc={clothe.imgSrc} show={show} category={clothe.category} collection={clothe.collection}price={clothe.price} />}
+
+      {cardsClothe &&
+          <ModalClotheCraft onHandle={onHandle} imgSrc={clothe.imgSrc} show={show} category={clothe.category}
+            collection={clothe.collection} price={clothe.price}/>}
+      {cardsOmi &&
+          <ModalClotheCraft onHandle={onHandle} imgSrc={omis.imgSrc} show={show} category={"OMI"}
+            type={'OMI'} model={omis.modelCategory} price={omis.price}/>}
       <div className={cn(s.catalog)}>
         {label && <div className={cn(s.label, 'text-line')}>{label}</div>}
-        <div className={cn(s.wrapper, countsRow === 4 && s['row-4'])}>
+        <div className={cn(s.wrapper, countsRow === 4 && s['row-4'])} ref={catalog}>
           {cardsOmi && cardsOmi.map((card, index) => {
             return <div className={cn('opacity', s.item)} key={card.id} data-delay={index * 0.1}>
               <CardOmi
+                onClick={() => onHandle(true)}
                 className={cn(s.card)} {...card} /></div>;
           })}
           {cardsClothe && cardsClothe.map((card: IClothe, index) => {
             return <div className={cn('opacity', s.item)} key={card.id} data-delay={index * 0.1}>
               <CardClothe isStats={isCardsStats}
                 className={cn(s.card)}
-                onClick={()=>onHandle(true)}
+                onClick={() => onHandle(true)}
                 {...card} />
             </div>;
           })}
+          {cardsOmi && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>OMI</InfoCircle>}
+          {cardsClothe && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>Craft</InfoCircle>}
         </div>
-        {cardsClothe && <BtnBig className={s.catalog__btn} onClick={()=>onHandle(true)}>Craft Hat for 120 MAC</BtnBig>}
+        {cardsClothe &&
+            <BtnBig className={s.catalog__btn} onClick={() => onHandle(true)}>Craft Hat for 120 MAC</BtnBig>}
       </div>
     </div>
   );

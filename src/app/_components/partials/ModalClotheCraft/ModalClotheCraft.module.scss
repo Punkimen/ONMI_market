@@ -6,6 +6,13 @@
   max-width: toVw(537);
   width: 100%;
   font-family: SFPro, sans-serif;
+
+  &_omi {
+    img {
+      margin: 0 auto;
+      max-width: toVw(135);
+    }
+  }
 }
 
 .title {

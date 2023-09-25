@@ -6,7 +6,8 @@ import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import {IBody} from "@/app/_types/cards.types";
 
 interface ICardOmiProps extends IBody {
-  className?: string
+    className?: string,
+    onClick?: () => void,
 }
 
 export const CardOmi: FC<ICardOmiProps> = ({
@@ -18,10 +19,11 @@ export const CardOmi: FC<ICardOmiProps> = ({
   quantity,
   typeClothes,
   modelCategory,
-  className
+  className,
+  onClick,
 }) => {
   return (
-    <div className={cn(s.card, className)}>
+    <div className={cn(s.card, className)} onClick={onClick}>
       <div className={s["card__inner"]}>
         <div className={s.img}>
           <Image src={imgSrc} quality={100} alt={`omi ${modelCategory} model`}/>
@@ -43,16 +45,16 @@ export const CardOmi: FC<ICardOmiProps> = ({
           <div className={s["stats__row"]}>
             <div className={s["stats__label"]}>Monthly reward</div>
             <div className={s["stats__value"]}>
-              ~ {rewards} ONM
+                            ~ {rewards} ONM
             </div>
           </div>
         </div>
         <BtnBig className={s.btn} onClick={() => {
         }}>
-          Buy {`(${price})`}
+                    Buy {`(${price})`}
         </BtnBig>
         <div className={s.available}>
-          Available {quantity}
+                    Available {quantity}
         </div>
       </div>
     </div>

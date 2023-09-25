@@ -4,10 +4,15 @@
 .card {
   border: toVw(1) solid #1F1F1F;
   padding: toVw(55) toVw(82) toVw(125);
+  cursor: pointer;
   @media(max-width: $md5 + px) {
     padding: toVw(45, 390) toVw(35, 390) toVw(25, 390);
   }
-
+  &:hover {
+   .img img {
+      transform: scale(1.1);
+    }
+  }
   &__inner {
     max-width: toVw(316);
     width: 100%;
@@ -39,11 +44,14 @@
     margin-bottom: toVw(32, 390);
   }
 
+
+
   img {
     display: block;
     width: 100%;
     height: auto;
     margin-bottom: toVw(64);
+    transition: transform ease-in-out .3s;
     @media(max-width: $md4 + px) {
       margin-bottom: toVw(16, $md4);
     }
