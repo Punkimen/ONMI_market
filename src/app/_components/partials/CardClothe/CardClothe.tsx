@@ -1,5 +1,5 @@
 import {IClothe} from "@/app/_types/cards.types";
-import React, {FC, memo} from "react";
+import React, {FC} from "react";
 import s from './CardClothe.module.scss';
 import Image from "next/image";
 import stat1 from '@/../public/img/icons/stat_1.svg';
@@ -10,7 +10,6 @@ import cn from 'classnames';
 import {useBagState} from "@/app/_state/store";
 import {CraftProgress} from "@/app/_components/partials/CraftProgress/CraftProgress";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
-import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
 
 
 interface ICardClotheProps extends IClothe {
@@ -35,8 +34,7 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
   craftPoint,
   craftPointMax,
   onClick,
-  ...props
-}) => {
+  className}) => {
   const bagState = useBagState(state => state.bag);
   const addtoCard = useBagState(state => state.addToCart);
   const windowWidth = useWindowWidth();
@@ -45,7 +43,7 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
   if (windowWidth > 450) {
     return (
       <>
-        <div className={cn(s.card, props.className)} onClick={onClick}
+        <div className={cn(s.card, className)} onClick={onClick}
         >
           <div className={s.model}>{modelCategory}</div>
           <div className={s.img}>
@@ -70,14 +68,14 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
   } else {
     return (
       <>
-        <div className={cn(s.card, props.className)} onClick={onClick}>
+        <div className={cn(s.card, className)} onClick={onClick}>
           <div className={s.model}>{modelCategory}</div>
           <div className={s.img}>
             <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
           {isStats && windowWidth > 450 ? <div className={s.bottom}>
             <div className={s.stats}>
-              {stats.map((el, index) => {
+              {stats?.map((el, index) => {
                 return (
                   <div key={index} className={s.stat}>
                     <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
