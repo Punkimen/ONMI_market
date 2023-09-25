@@ -12,14 +12,14 @@ import {Hero} from "@/app/_components/blocks/Hero/Hero";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
 import {useCatalogState} from "@/app/_state/store";
+import {CollectionsMob} from "@/app/_components/blocks/CollectionsMob/CollectionsMob";
 
 export const Clothes: FC = () => {
   const windowWidth = useWindowWidth();
   const clothes = useCatalogState(state => state.clothes);
-  const [show, setShow] = useState(false);
   return (
     <div className={s.content}>
-      <Hero>
+      <Hero hide={windowWidth<=450}>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
                     onmi® Zero
         </Title>
@@ -30,7 +30,8 @@ export const Clothes: FC = () => {
           </>
         </Text>
       </Hero>
-      <section className={s.clothes} onClick={()=>setShow(true)}>
+      <CollectionsMob hide={windowWidth>450}/>
+      <section className={s.clothes} >
         {windowWidth > 768 ?
           <Catalog
             className={s.catalog} label={'hats'}

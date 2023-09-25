@@ -1,0 +1,73 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.collection {
+  position: relative;
+  margin-bottom: toVw(80, 390);
+}
+
+.content {
+  height: 90vh;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+  z-index: 2;
+  font-size: toVw(16, 390);
+  font-family: SFPro, sans-serif;
+  margin-bottom: toVw(93, 390);
+}
+
+.season {
+  margin-bottom: toVw(24, 390);
+}
+
+.title {
+  max-width: toVw(296, 390);
+  font-size: toVw(30, 390);
+  margin-bottom: toVw(10, 390);
+}
+
+.coorp {
+  opacity: 0.7;
+  font-size: toVw(14, 390);
+}
+
+.info {
+  padding: toVw(38, 390) 0;
+  position: relative;
+  z-index: 2;
+  font-size: toVw(14, 390);
+  border-top: toVw(1, 390) solid #292730;
+  border-bottom: toVw(1, 390) solid #292730;
+  margin-bottom: toVw(52, 390);
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: toVw(14, 390);
+    }
+  }
+
+  &__label {
+    color: #A4A0A0;
+  }
+}
+
+.description {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+
+  &__title {
+    font-size: toVw(18, 390);
+    margin-bottom: toVw(20, 390);
+  }
+
+  &__text {
+    font-size: toVw(16, 390);
+  }
+}

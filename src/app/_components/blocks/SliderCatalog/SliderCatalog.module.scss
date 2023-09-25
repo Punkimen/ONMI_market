@@ -22,7 +22,9 @@
   }
 
   &__slider_omi {
-    padding: 0 toVw(16, 390);
+    @media(max-width: $md5 + px) {
+      padding:0 toVw(16, 390);
+    }
   }
 }
 
