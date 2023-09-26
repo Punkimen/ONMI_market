@@ -22,6 +22,13 @@
     height: toVw(40);
     padding-top: toVw(5);
     padding-bottom: toVw(5);
+
+    &.full {
+      max-width: 100%;
+      width: 100%;
+      border-radius: toVw(10);
+      margin-top: toVw(64);
+    }
   }
 
 }
@@ -43,4 +50,6 @@
 .btn_top {
   margin-left: auto;
   margin-right: 0;
+
+
 }

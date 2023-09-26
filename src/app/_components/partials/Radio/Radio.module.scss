@@ -1,0 +1,81 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.radio {
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  font-size: toVw(14);
+
+  &__indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: toVw(14);
+    width: toVw(14);
+    background: #1E1E1E;
+    border: 1px solid #4B4B4B;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.radio input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.radio:hover input ~ .radio__indicator,
+.radio input:focus ~ .radio__indicator {
+  border-color: #D6F82E;
+}
+
+.radio input:checked ~ .radio__indicator {
+  border-color: #D6F82E;
+}
+
+.radio:hover input:not([disabled]):checked ~ .radio__indicator,
+.radio input:checked:focus ~ .radio__indicator {
+  border-color: #D6F82E;
+}
+
+.radio input:disabled ~ .radio__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.radio__indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.radio input:checked ~ .radio__indicator:after {
+  display: block;
+}
+
+.radio .radio__indicator {
+  border-radius: 50%;
+}
+
+
+.radio .radio__indicator:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: toVw(8);
+  width: toVw(8);
+  border-radius: 50%;
+  background: #D6F82E;
+  transition: background 250ms;
+}
+
+.radio input:disabled ~ .radio__indicator:after {
+  background: #7b7b7b;
+}
+

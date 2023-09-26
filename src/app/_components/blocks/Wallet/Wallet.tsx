@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import s from './Wallet.module.scss';
 import cn from 'classnames';
 import {Title} from "@/app/_components/partials/Title/Title";
@@ -6,13 +6,45 @@ import Image from "next/image";
 import security from "@/../public/img/icons/security.svg";
 import {IBaseComponents} from "@/app/_types/base.types";
 import {WalletBlock} from "@/app/_components/partials/WalletBlock/WalletBlock";
+import {Radio} from "@/app/_components/partials/Radio/Radio";
 
 interface IWalletProps extends IBaseComponents {
   show: boolean,
   close?: () => void;
 }
 
+const radios: Array<{ value: string, label: string, checked?: boolean }> = [
+  {
+    label: "150 MAC",
+    value: "150",
+    checked: false
+  },
+  {
+    label: "500 MAC",
+    value: "500",
+    checked: false
+  },
+  {
+    label: "1500 MAC",
+    value: "1500",
+    checked: true
+  },
+  {
+    label: "7500 MAC",
+    value: "7500",
+    checked: false
+  },
+  {
+    label: "Other amount…",
+    value: "other",
+    checked: false
+  },
+];
+
 export const Wallet: FC<IWalletProps> = ({show, close}) => {
+
+  const [isTop, setIsTop] = useState(false);
+
   return (
     <div className={cn(s.wallet, show && s.show)}>
       <div className={s.close} onClick={close}>
@@ -27,15 +59,28 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
           <Title align={'left'} tag={'h5'} className={s.title}>
             Wallet
           </Title>
-          <WalletBlock className={s.block} value={"120 MAC"} course={'1 MAC = 1 USD'}/>
-          <WalletBlock className={s.block} value={"0 ONM"} course={'Soon'} isSoon={true}/>
+          <WalletBlock className={cn(s.block)} isTop={isTop} onTop={() => setIsTop(true)} value={"120 MAC"}
+            course={'1 MAC = 1 USD'}>
+            {isTop && <div className={s['top-label']}>Top Up</div>}
+            {isTop && radios.map(el => {
+              return <div key={el.value}
+                className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
+                <Radio value={el.value} label={el.label} name={'topUp'} checked={el.checked ? el.checked : false}/>
+                <span className={s.course}>
+                  {el.value !== 'other' && `${el.value} USD`}
+                </span>
+              </div>;
+            })}
+          </WalletBlock>
+          {!isTop && <WalletBlock className={s.block} value={"0 ONM"} course={'Soon'} isSoon={true}/>}
+
         </div>
 
         <div className={s.bottom}>
-          <div className={s.text}>
+          {!isTop && <div className={s.text}>
             <p>MAC — is an in-game coin for making purchases. All MAC entries will be saved in your account.</p>
             <p>ONM — is an in-game coin for making purchases. All MAC entries will be saved in your account.</p>
-          </div>
+          </div>}
           <div className={s.powered}>
             <Image src={security} alt="security"/>
             <p><span>powered by</span>

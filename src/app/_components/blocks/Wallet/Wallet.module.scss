@@ -48,6 +48,38 @@
   }
 }
 
+.top-label {
+  margin-bottom: toVw(16);
+  font-size: toVw(14);
+  font-weight: 600;
+}
+
+.radio {
+  background: #1E1E1E;
+  border-radius: toVw(9);
+  padding: toVw(14) toVw(14) toVw(16) toVw(14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.current {
+    background: #1F2918;
+  }
+
+  &.other {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: toVw(8);
+  }
+}
+
+.course {
+  color: #D6F82E;
+  font-size: toVw(14);
+}
+
 .content {
   display: flex;
   flex-direction: column;
