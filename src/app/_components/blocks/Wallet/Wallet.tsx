@@ -68,7 +68,7 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
             {isTop && radios.map(el => {
               return <div key={el.value}
                 className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
-                <Radio value={el.value} label={el.label} name={'topUp'} checked={el.checked ? el.checked : false}/>
+                <Radio onChange={()=>{}} value={el.value} label={el.label} name={'topUp'} checked={el.checked ? el.checked : false}/>
                 <span className={s.course}>
                   {el.value !== 'other' && `${el.value} USD`}
                 </span>

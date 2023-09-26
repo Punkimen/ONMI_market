@@ -9,8 +9,14 @@
   &__btn {
     margin: toVw(58) auto 0;
     font-weight: 600;
-    max-width: toVw(292);
+    width: toVw(164);
+    height: toVw(164);
+    border-radius: 50%;
     font-size: toVw(14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toVw(40) toVw(30) toVw(30);
   }
 }
 
