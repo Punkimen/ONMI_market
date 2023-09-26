@@ -11,15 +11,15 @@
   //transition: opacity linear .3s;
   background-color: #1c1ee0;
   color: #fff;
-  width: toVw(50);
-  height: toVw(50);
+  width: toVw(150);
+  height: toVw(150);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   z-index: 2;
-  font-size: toVw(12);
-  transition: opacity ease-in .3s;
+  font-size: toVw(16);
+  transition: width .6s cubic-bezier(.16, .01, .77, 1), height .6s cubic-bezier(.16, .01, .77, 1), opacity .6s cubic-bezier(.16, .01, .77, 1);
 
   &.show {
     opacity: 1;

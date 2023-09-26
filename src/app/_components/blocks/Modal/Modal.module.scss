@@ -16,10 +16,17 @@
   justify-content: center;
   align-items: center;
   z-index: 11;
+  transition: opacity linear .2s;
 
   &.show {
     opacity: 1;
     pointer-events: auto;
+
+    .modal {
+      transition: opacity ease-out .1s, transform ease-out .3s;
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 }
 
@@ -29,6 +36,9 @@
   background: #111111;
   border-radius: toVw(31);
   width: 100%;
+  transform: scale(0.5);
+  opacity: 0;
+  transition: opacity ease-out .3s, transform ease-out .2s;
 }
 
 .close {

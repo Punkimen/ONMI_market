@@ -10,7 +10,7 @@
   width: toVw(420);
   z-index: 11;
   background: #141414;
-  padding: toVw(70) toVw(41) toVw(67) toVw(49);
+  padding: toVw(73) toVw(41) toVw(67) toVw(49);
   height: 100vh;
 
   overflow: auto;
@@ -21,6 +21,7 @@
   }
 
   .title {
+    padding-left: toVw(5);
     font-weight: bold;
     margin-bottom: toVw(27);
   }
@@ -109,6 +110,7 @@
 }
 
 .text {
+  padding-left: toVw(5);
   font-size: toVw(14);
   color: #B8B8B8;
   margin-bottom: toVw(78);

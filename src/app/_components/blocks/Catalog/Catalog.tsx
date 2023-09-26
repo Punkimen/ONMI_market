@@ -60,14 +60,22 @@ export const Catalog: FC<ICatalogProps> = memo(({
   const updateCoord = useCallback(() => {
     if (hover && catalog.current) {
       const rect = catalog.current.getBoundingClientRect();
+      const targetX = mousePosition.x - rect.x;
+      const targetY = mousePosition.y - rect.y;
+
+      // Smoothness factor (adjust this value for desired smoothness)
+      const smoothness = 0.1;
+
+      // Calculate the new position using linear interpolation
+      const newX = coord.x + (targetX - coord.x) * smoothness;
+      const newY = coord.y + (targetY - coord.y) * smoothness;
 
       setCoord({
-        x: mousePosition.x - rect.x || 0,
-        y: mousePosition.y - rect.y || 0,
+        x: newX,
+        y: newY,
       });
-
     }
-  }, [hover, mousePosition]);
+  }, [hover, mousePosition, catalog, coord]);
 
   useEffect(() => {
     if (hover) {

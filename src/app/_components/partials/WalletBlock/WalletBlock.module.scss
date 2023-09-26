@@ -4,7 +4,7 @@
 .wallet {
   background: #0A0A0A;
   border-radius: toVw(27);
-  padding: toVw(29) toVw(19) toVw(22) toVw(35);
+  padding: toVw(29) toVw(33) toVw(22) toVw(33);
   min-height: toVw(189);
   display: flex;
   flex-direction: column;
@@ -30,7 +30,26 @@
       margin-top: toVw(64);
     }
   }
-
+  .arrow{
+    margin: toVw(31) auto 0;
+    width: toVw(33);
+    height: toVw(18);
+    border-radius: toVw(25);
+    background-color: #1d1d1d;
+    transition: background-color ease .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      max-width: toVw(12);
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    &:hover{
+      background-color: rgba(29, 29, 29, 0.76);
+    }
+  }
 }
 
 .content {
@@ -50,6 +69,5 @@
 .btn_top {
   margin-left: auto;
   margin-right: 0;
-
-
 }
+

@@ -1,6 +1,9 @@
+import React from "react";
+
 export interface IBaseComponents {
   hide?: boolean,
   className?: string,
+  ref?: React.RefObject<HTMLInputElement>;
 };
 
 export interface ILink {

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import s from './Wallet.module.scss';
 import cn from 'classnames';
 import {Title} from "@/app/_components/partials/Title/Title";
@@ -7,10 +7,11 @@ import security from "@/../public/img/icons/security.svg";
 import {IBaseComponents} from "@/app/_types/base.types";
 import {WalletBlock} from "@/app/_components/partials/WalletBlock/WalletBlock";
 import {Radio} from "@/app/_components/partials/Radio/Radio";
+import {useOutsideClick} from "@/app/_hooks/useOutsideClick";
 
 interface IWalletProps extends IBaseComponents {
-  show: boolean,
-  close?: () => void;
+    show: boolean,
+    close?: () => void;
 }
 
 const radios: Array<{ value: string, label: string, checked?: boolean }> = [
@@ -42,8 +43,12 @@ const radios: Array<{ value: string, label: string, checked?: boolean }> = [
 ];
 
 export const Wallet: FC<IWalletProps> = ({show, close}) => {
-
   const [isTop, setIsTop] = useState(false);
+  const cardsRef = useRef(null);
+  useOutsideClick(cardsRef, () => {
+    setIsTop(false);
+  });
+
 
   return (
     <div className={cn(s.wallet, show && s.show)}>
@@ -58,17 +63,20 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
         </svg>
       </div>
       <div className={s.content}>
-        <div className={s.top}>
+        <div className={s.top} ref={cardsRef}>
           <Title align={'left'} tag={'h5'} className={s.title}>
-            Wallet
+                        Wallet
           </Title>
-          <WalletBlock className={cn(s.block)} isTop={isTop} onTop={() => setIsTop(true)} value={"120 MAC"}
+          <WalletBlock className={cn(s.block)} isTop={isTop} onTop={() => setIsTop(!isTop)}
+            value={"120 MAC"}
             course={'1 MAC = 1 USD'}>
             {isTop && <div className={s['top-label']}>Top Up</div>}
             {isTop && radios.map(el => {
               return <div key={el.value}
                 className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
-                <Radio onChange={()=>{}} value={el.value} label={el.label} name={'topUp'} checked={el.checked ? el.checked : false}/>
+                <Radio onChange={() => {
+                }} value={el.value} label={el.label} name={'topUp'}
+                checked={el.checked ? el.checked : false}/>
                 <span className={s.course}>
                   {el.value !== 'other' && `${el.value} USD`}
                 </span>
@@ -81,13 +89,16 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
 
         <div className={s.bottom}>
           {!isTop && <div className={s.text}>
-            <p>MAC — is an in-game coin for making purchases. All MAC entries will be saved in your account.</p>
-            <p>ONM — is an in-game coin for making purchases. All MAC entries will be saved in your account.</p>
+            <p>MAC — is an in-game coin for making purchases. All MAC entries will be saved in your
+                            account.</p>
+            <p>ONM — is an in-game coin for making purchases. All MAC entries will be saved in your
+                            account.</p>
           </div>}
           <div className={s.powered}>
             <Image src={security} alt="security"/>
             <p><span>powered by</span>
-              <svg width="51" height="14" viewBox="0 0 51 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="51" height="14" viewBox="0 0 51 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.25574 9.53979L4.00122 13.3198H0.472656L4.34432 6.987L0.864571 1.34169H4.19718L6.15742 4.67965L8.11766 1.34169H11.4991L8.02002 6.987L11.8917 13.3198H8.51025L6.25574 9.53979Z"
                   fill="#F6FAFF"/>
