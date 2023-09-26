@@ -10,7 +10,6 @@ import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/Moda
 import {useCatalogState} from "@/app/_state/store";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import {useMousePosition} from "@/app/_hooks/useMousePosition";
-import {useAnimatedPosition} from "@/app/_hooks/useAnimatedPosition";
 import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
 
 export interface ICatalogProps extends IBaseComponents {
@@ -35,14 +34,11 @@ export const Catalog: FC<ICatalogProps> = memo(({
   const [show, setShow] = useState(false);
   const [hover, setHover] = useState(false);
   const catalog = useRef(null);
-  const [coord, setCoord] = useState({ x: 0, y: 0 });
-  const cursorPos = useMousePosition();
-  const { x: animatedX, y: animatedY } = useAnimatedPosition(0, 0, cursorPos,  hover);
-
+  const mousePosition = useMousePosition();
+  const [coord, setCoord] = useState({x: 0, y: 0});
   const onHandle = (isShow: boolean) => {
     setShow(isShow);
   };
-
   const handleMouseEnter = useCallback(() => {
     setHover(true);
   }, []);
@@ -54,15 +50,28 @@ export const Catalog: FC<ICatalogProps> = memo(({
   useEffect(() => {
     catalog.current?.addEventListener('mouseenter', handleMouseEnter);
     catalog.current?.addEventListener('mouseleave', handleMouseLeave);
-    // catalog.current?.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       catalog.current?.removeEventListener('mouseenter', handleMouseEnter);
       catalog.current?.removeEventListener('mouseleave', handleMouseLeave);
-      // catalog.current?.removeEventListener('mousemove', handleMouseMove);
     };
   }, [catalog, handleMouseEnter, handleMouseLeave]);
 
+  const updateCoord = useCallback(() => {
+    if (hover && catalog.current) {
+      const rect = catalog.current.getBoundingClientRect();
+      setCoord({
+        x: mousePosition.x - rect.x || 0,
+        y: mousePosition.y - rect.y || 0,
+      });
+    }
+  }, [hover, mousePosition]);
+
+  useEffect(() => {
+    if (hover) {
+      requestAnimationFrame(updateCoord);
+    }
+  }, [hover, updateCoord]);
 
   if (hide) return null;
 
@@ -92,8 +101,8 @@ export const Catalog: FC<ICatalogProps> = memo(({
                 {...card} />
             </div>;
           })}
-          {cardsOmi && <InfoCircle show={hover} x={animatedX} y={animatedY}>OMI</InfoCircle>}
-          {cardsClothe && <InfoCircle show={hover} x={animatedX} y={animatedY}>Craft</InfoCircle>}
+          {cardsOmi && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>OMI</InfoCircle>}
+          {cardsClothe && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>Craft</InfoCircle>}
         </div>
         {cardsClothe &&
             <BtnBig className={s.catalog__btn} onClick={() => onHandle(true)}>Craft Hat for 120 MAC</BtnBig>}
@@ -101,3 +110,4 @@ export const Catalog: FC<ICatalogProps> = memo(({
     </div>
   );
 });
+Catalog.displayName = 'Catalog';

@@ -14,7 +14,7 @@ interface IInfoCircleProps extends IBaseComponents {
 export const InfoCircle: FC<IInfoCircleProps> = ({className, hide, x, y, children, show}) => {
   if (hide) return null;
   return (
-    <div className={cn(s.circle, show && s.show, className)} style={{transform:`translate( calc(-50% + ${x}px), calc(-550% + ${y}px))`}}>
+    <div className={cn(s.circle, show && s.show, className)} style={{transform:`translate( calc(-50% + ${x}px), calc(-50% + ${y}px))`}}>
       {children}
     </div>
   );
