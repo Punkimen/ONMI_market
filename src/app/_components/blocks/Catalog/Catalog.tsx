@@ -60,10 +60,12 @@ export const Catalog: FC<ICatalogProps> = memo(({
   const updateCoord = useCallback(() => {
     if (hover && catalog.current) {
       const rect = catalog.current.getBoundingClientRect();
-      setCoord({
-        x: mousePosition.x - rect.x || 0,
-        y: mousePosition.y - rect.y || 0,
-      });
+      setTimeout(() => {
+        setCoord({
+          x: mousePosition.x - rect.x || 0,
+          y: mousePosition.y - rect.y || 0,
+        });
+      }, 40);
     }
   }, [hover, mousePosition]);
 
