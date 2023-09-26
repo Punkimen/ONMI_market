@@ -1,5 +1,5 @@
 "use client";
-import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
+import React, {FC, memo, useCallback, useEffect, useRef, useState} from 'react';
 import s from './Catalog.module.scss';
 import cn from 'classnames';
 import {CardOmi} from "@/app/_components/partials/CardOmi/CardOmi";
@@ -20,7 +20,7 @@ export interface ICatalogProps extends IBaseComponents {
   isCardsStats?: boolean,
 }
 
-export const Catalog: FC<ICatalogProps> = ({
+export const Catalog: FC<ICatalogProps> = memo(({
   label,
   countsRow,
   cardsClothe,
@@ -68,7 +68,6 @@ export const Catalog: FC<ICatalogProps> = ({
   }, [hover, mousePosition]);
 
   useEffect(() => {
-    console.log(catalog.current);
     if (hover) {
       requestAnimationFrame(updateCoord);
     }
@@ -110,4 +109,4 @@ export const Catalog: FC<ICatalogProps> = ({
       </div>
     </div>
   );
-};
+});
