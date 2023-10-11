@@ -22,6 +22,7 @@
     height: toVw(40);
     padding-top: toVw(5);
     padding-bottom: toVw(5);
+    transition: opacity ease-in .15s, max-height linear .3s;
 
     &.full {
       max-width: 100%;
@@ -29,8 +30,21 @@
       border-radius: toVw(10);
       margin-top: toVw(64);
     }
+
+    &.hide {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.show {
+      max-height: 100px;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
-  .arrow{
+
+  .arrow {
     margin: toVw(31) auto 0;
     width: toVw(33);
     height: toVw(18);
@@ -40,13 +54,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+
+    img {
       max-width: toVw(12);
       display: block;
       width: 100%;
       height: auto;
     }
-    &:hover{
+
+    &:hover {
       background-color: rgba(29, 29, 29, 0.76);
     }
   }

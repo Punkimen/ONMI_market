@@ -17,6 +17,16 @@
     transition: opacity, max-height ease-in .3s;
     border-radius: toVw(16);
 
+    &.center {
+      left: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.right {
+      left: auto;
+      right: 0;
+    }
+
     &.show {
       max-height: 50vh;
       opacity: 1;

@@ -111,11 +111,8 @@ export const Catalog: FC<ICatalogProps> = memo(({
                 {...card} />
             </div>;
           })}
-          {cardsOmi && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>OMI</InfoCircle>}
           {cardsClothe && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>Craft</InfoCircle>}
         </div>
-        {cardsClothe &&
-            <BtnBig className={s.catalog__btn} onClick={() => onHandle(true)}>Craft Hat for 120 MAC</BtnBig>}
       </div>
     </div>
   );

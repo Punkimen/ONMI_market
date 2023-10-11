@@ -1,7 +1,5 @@
 'use client';
 import s from "./Clothes.module.scss";
-import {BackgroundImage} from "@/app/_components/partials/BackgroundImage/BackgroundImage";
-import bg from "../../../../../public/img/decor_bg.png";
 import {Title} from "@/app/_components/partials/Title/Title";
 import cn from "classnames";
 import {Text} from "@/app/_components/partials/Text/Text";
@@ -12,8 +10,8 @@ import {Hero} from "@/app/_components/blocks/Hero/Hero";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
 import {useCatalogState} from "@/app/_state/store";
-import {CollectionsMob} from "@/app/_components/blocks/CollectionsMob/CollectionsMob";
 import {DropTimer} from "@/app/_components/partials/DropTimer/DropTimer";
+import {ClothesCollection} from "@/app/_components/blocks/ClothesCollection/ClothesCollection";
 
 export const Clothes: FC = () => {
   const windowWidth = useWindowWidth();
@@ -24,7 +22,7 @@ export const Clothes: FC = () => {
   useEffect(() => {
     if (windowWidth && windowWidth <= 450) {
       setShowCollectionsMob(true);
-    } else if(windowWidth){
+    } else if (windowWidth) {
       setShowCollectionsMob(false);
     }
   }, [windowWidth]);
@@ -35,19 +33,18 @@ export const Clothes: FC = () => {
       {!showCollectionsMob && <Hero>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
               onmi® Zero
-          <DropTimer className={s.timer} label={'Drop/01'} startTime={'02:23:59'} />
+          <DropTimer className={s.timer} label={'Drop/01'} startTime={'02:23:59'}/>
         </Title>
-        <Text className={s['']}>
+        <Text className={s.text}>
           <>
             <div className={'row'}>Take four simple steps and start exploring</div>
             <div className={'row'}>the ONMI world</div>
           </>
         </Text>
+        <ClothesCollection className={s.descr}/>
       </Hero>}
 
-      {showCollectionsMob && <CollectionsMob />}
-
-      <section className={s.clothes} >
+      <section className={s.clothes}>
         {windowWidth > 768 ?
           <Catalog
             className={s.catalog} label={'hats'}

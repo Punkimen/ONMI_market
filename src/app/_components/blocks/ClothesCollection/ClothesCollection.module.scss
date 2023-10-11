@@ -1,0 +1,29 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.img {
+  display: block;
+  max-width: toVw(1003);
+  margin: 0 auto;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.text {
+  position: relative;
+  max-width: toVw(709);
+  margin: toVw(-302) auto toVw(70);
+  font-size: toVw(30);
+}
+
+.available {
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid #2d2d2d;
+  padding: toVw(17) toVw(30) toVw(17);
+  border-radius: toVw(29);
+}

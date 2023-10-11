@@ -23,7 +23,7 @@
     pointer-events: auto;
 
     .modal {
-      transition: opacity ease-out .1s, transform ease-out .3s;
+      transition: opacity ease-out .1s, transform ease-out .2s;
       transform: scale(1);
       opacity: 1;
     }
@@ -36,9 +36,9 @@
   background: #111111;
   border-radius: toVw(31);
   width: 100%;
-  transform: scale(0.5);
+  transform: scale(0.8);
   opacity: 0;
-  transition: opacity ease-out .3s, transform ease-out .2s;
+  transition: opacity ease-out .2s, transform ease-out .1s;
 }
 
 .close {

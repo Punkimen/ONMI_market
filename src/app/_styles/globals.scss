@@ -160,6 +160,7 @@ h4 {
   @media(max-width: $md5 + px) {
   }
 }
+
 h5 {
   font-size: toVw(25);
   @media(max-width: $md2 + px) {
@@ -170,6 +171,7 @@ h5 {
   @media(max-width: $md5 + px) {
   }
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -220,6 +222,9 @@ button {
   color: var(--gray);
 }
 
+.color_green {
+  color: var(--green);
+}
 
 .gradient-text {
   color: #D4C9C1;

@@ -1,4 +1,4 @@
-import React, {FC, useRef, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import s from './Wallet.module.scss';
 import cn from 'classnames';
 import {Title} from "@/app/_components/partials/Title/Title";
@@ -8,10 +8,13 @@ import {IBaseComponents} from "@/app/_types/base.types";
 import {WalletBlock} from "@/app/_components/partials/WalletBlock/WalletBlock";
 import {Radio} from "@/app/_components/partials/Radio/Radio";
 import {useOutsideClick} from "@/app/_hooks/useOutsideClick";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {triggerAnimate} from "@/app/_animations/animation";
 
 interface IWalletProps extends IBaseComponents {
-    show: boolean,
-    close?: () => void;
+  show: boolean,
+  close?: () => void;
 }
 
 const radios: Array<{ value: string, label: string, checked?: boolean }> = [
@@ -43,17 +46,32 @@ const radios: Array<{ value: string, label: string, checked?: boolean }> = [
 ];
 
 export const Wallet: FC<IWalletProps> = ({show, close}) => {
-  const [isTop, setIsTop] = useState(false);
+  const content = useRef<HTMLDivElement>(null);
   const cardsRef = useRef(null);
+  const [isTop, setIsTop] = useState(false);
+
   useOutsideClick(cardsRef, () => {
     setIsTop(false);
   });
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.context(() => {
+      const opacityElems = gsap.utils.toArray('.isTop .opacity');
+      if (isTop) {
+        opacityElems?.forEach((el) => {
+          // @ts-ignore
+          el && triggerAnimate(el);
+        });
+      }
+
+    }, [content]);
+  }, [content, isTop]);
 
   return (
-    <div className={cn(s.wallet, show && s.show)}>
+    <div ref={content} className={cn(s.wallet, isTop && s.isTop, show && s.show)}>
       <div className={s.close} onClick={() => {
-        close();
+        close && close();
         setIsTop(false);
       }}>
         <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
@@ -64,37 +82,38 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
       </div>
       <div className={s.content}>
         <div className={s.top} ref={cardsRef}>
-          <Title align={'left'} tag={'h5'} className={s.title}>
-                        Wallet
+          <Title align={'left'} tag={'h5'} className={cn(s.title)}>
+            Wallet
           </Title>
-          <WalletBlock className={cn(s.block)} isTop={isTop} onTop={() => setIsTop(!isTop)}
+          <WalletBlock className={cn(s.block, isTop && s.block_top)} isTop={isTop} onTop={() => setIsTop(!isTop)}
             value={"120 MAC"}
             course={'1 MAC = 1 USD'}>
-            {isTop && <div className={s['top-label']}>Top Up</div>}
-            {isTop && radios.map(el => {
-              return <div key={el.value}
-                className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
-                <Radio onChange={() => {
-                }} value={el.value} label={el.label} name={'topUp'}
-                checked={el.checked ? el.checked : false}/>
-                <span className={s.course}>
-                  {el.value !== 'other' && `${el.value} USD`}
-                </span>
-              </div>;
-            })}
+            <div className={s.block_content}>
+              {<div className={s['top-label']}>Top Up</div>}
+              {radios.map(el => {
+                return <div key={el.value}
+                  className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
+                  <Radio onChange={() => {
+                  }} value={el.value} label={el.label} name={'topUp'}
+                  checked={el.checked ? el.checked : false}/>
+                  <span className={s.course}>
+                    {el.value !== 'other' && `${el.value} USD`}
+                  </span>
+                </div>;
+              })}
+            </div>
           </WalletBlock>
-          {!isTop && <WalletBlock className={s.block} value={"0 ONM"} course={'Soon'} isSoon={true}/>}
-
+          {!isTop && <WalletBlock className={cn(s.block)} value={"0 ONM"} course={'Soon'} isSoon={true}/>}
         </div>
 
         <div className={s.bottom}>
-          {!isTop && <div className={s.text}>
+          {!isTop && <div className={cn(s.text)}>
             <p>MAC — is an in-game coin for making purchases. All MAC entries will be saved in your
-                            account.</p>
+                  account.</p>
             <p>ONM — is an in-game coin for making purchases. All MAC entries will be saved in your
-                            account.</p>
+                  account.</p>
           </div>}
-          <div className={s.powered}>
+          <div className={cn(s.powered)}>
             <Image src={security} alt="security"/>
             <p><span>powered by</span>
               <svg width="51" height="14" viewBox="0 0 51 14" fill="none"

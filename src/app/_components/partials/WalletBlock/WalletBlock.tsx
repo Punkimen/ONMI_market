@@ -9,12 +9,12 @@ import arrow from '@/../public/img/icons/arrow_triangle.svg';
 import Image from "next/image";
 
 interface IWalletBlock extends IBaseComponents {
-    value: string,
-    course: string,
-    isSoon?: boolean,
-    children?: ChildrenType,
-    isTop?: boolean,
-    onTop?: () => void,
+  value: string,
+  course: string,
+  isSoon?: boolean,
+  children?: ChildrenType,
+  isTop?: boolean,
+  onTop?: () => void,
 }
 
 export const WalletBlock: FC<IWalletBlock> = ({
@@ -34,13 +34,16 @@ export const WalletBlock: FC<IWalletBlock> = ({
         <div className={s.value}>{value}</div>
         <div className={s.course}>{course}</div>
       </div>
-      {isTop && children && children}
-      {!isTop ? !isSoon &&
-                <BtnBig className={cn(s.btn_top, s.btn)} onClick={onTop}>
-                    + Top Up
-                </BtnBig> : <BtnBig className={cn(s.btn_top, s.btn, s.full)}>
-                + Top Up
-      </BtnBig>}
+      {children && children}
+      {!isSoon &&
+          <>
+            <BtnBig className={cn(s.btn_top, s.btn, isTop ? s.hide : s.show)} onClick={onTop}>
+                  + Top Up
+            </BtnBig>
+            <BtnBig className={cn(s.btn_top, s.btn, !isTop ? s.hide : s.show, s.full)}>
+              + Top Up
+            </BtnBig>
+          </>}
       {isTop && <BtnReset className={s.arrow} onClick={onTop}>
         <Image src={arrow} alt={'arrow'}/>
       </BtnReset>}

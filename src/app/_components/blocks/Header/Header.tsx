@@ -72,12 +72,11 @@ export const Header = () => {
 
             </div>
             <div className={cn(s.right)}>
-              <Bag className={cn(s.bag, 'text-line')} data-delay='0.3'/>
               <Balance className={cn(s.balance)} onClick={()=>setWalletShow(!walletShow)} hide={!isAuth}/>
               {!showCollectionsMob && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
               </div>}
-              <Dropdown menu={[{title: 'Inventory', href: Routes.INVENTORY}, {
+              <Dropdown position={"right"} menu={[{title: 'Inventory', href: Routes.INVENTORY}, {
                 title: 'Sign out', href: "", onClick: () => {
                   user.auth();
                   setIsAuth(user.isAuth);
@@ -85,7 +84,6 @@ export const Header = () => {
               }]} hide={!isAuth || windowWidth <= 450}>
                 <div className={s.user}>
                   {user.avatar && <Image className={s.avatar} src={user.avatar} alt={'avatar'}/>}
-                  {user.nickname && <div className={s.name}>{user.nickname}</div>}
                 </div>
               </Dropdown>
               {showCollectionsMob && <Burger active={show} setActive={() => setShow(!show)}/>}

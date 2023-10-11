@@ -101,16 +101,13 @@
 .avatar {
   width: toVw(33);
   height: toVw(33);
-  margin-right: toVw(15);
   @media(max-width: $md2 + px){
     width: toVw(33, $md2);
     height: toVw(33, $md2);
-    margin-right: toVw(15, $md2);
   }
   @media(max-width: $md4 + px){
     width: toVw(33, $md4);
     height: toVw(33, $md4);
-    margin-right: 0;
   }
   @media(max-width: $md5 + px){}
 

@@ -9,8 +9,9 @@
   transition: transform ease-in .4s;
   width: toVw(420);
   z-index: 11;
-  background: #141414;
-  padding: toVw(73) toVw(41) toVw(67) toVw(49);
+  backdrop-filter: blur(10px);
+  background-color: rgba(20, 20, 20, 0.88);
+  padding: toVw(67) toVw(41) toVw(67) toVw(49);
   height: 100vh;
 
   overflow: auto;
@@ -18,13 +19,35 @@
 
   &.show {
     transform: translateX(0);
+
+    .title,
+    .powered,
+    .block,
+    .text {
+      opacity: 1;
+    }
+  }
+
+  &.isTop {
+    .text {
+      opacity: 0;
+    }
   }
 
   .title {
     padding-left: toVw(5);
     font-weight: bold;
     margin-bottom: toVw(27);
+
   }
+}
+
+.title,
+.powered,
+.block,
+.text {
+  opacity: 0;
+  transition: opacity ease-in .3s .3s;
 }
 
 .top {
@@ -104,6 +127,28 @@
 }
 
 .block {
+  max-height: 200px;
+  overflow: hidden;
+  transition: opacity ease-in .3s, max-height linear .3s;
+
+  .block_content {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+    transition: opacity ease-in .3s, max-height linear .3s;
+  }
+
+  &_top {
+    max-height: 1000px;
+
+    .block_content {
+      opacity: 1;
+      max-height: 1000px;
+      transition: opacity, max-height ease-in .3s;
+      pointer-events: auto;
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: toVw(13);
   }
