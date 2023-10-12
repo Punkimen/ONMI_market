@@ -24,9 +24,7 @@ export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
   imgSrc,
   className,
   category,
-  price,
   collection,
-  hide
 }) => {
   return (
     <Modal className={cn(s.modal, className, type === 'OMI' && s.modal_omi)} show={show} onHandle={onHandle}>

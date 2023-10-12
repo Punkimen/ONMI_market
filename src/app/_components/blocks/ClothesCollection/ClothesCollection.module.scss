@@ -13,11 +13,13 @@
   }
 }
 
-.text {
-  position: relative;
-  max-width: toVw(709);
-  margin: toVw(-302) auto toVw(70);
-  font-size: toVw(30);
+.block {
+  .text {
+    position: relative;
+    max-width: toVw(709);
+    margin: toVw(-118) auto toVw(70);
+    font-size: toVw(30);
+  }
 }
 
 .available {

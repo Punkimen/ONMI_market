@@ -22,7 +22,7 @@
     height: toVw(40);
     padding-top: toVw(5);
     padding-bottom: toVw(5);
-    transition: opacity ease-in .15s, max-height linear .3s;
+    transition: opacity cubic-bezier(.15, .85, .45, 1) .3s, max-height cubic-bezier(.15, .85, .45, 1) .3s;
 
     &.full {
       max-width: 100%;

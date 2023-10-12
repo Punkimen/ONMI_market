@@ -37,8 +37,8 @@ export const Clothes: FC = () => {
         </Title>
         <Text className={s.text}>
           <>
-            <div className={'row'}>Take four simple steps and start exploring</div>
-            <div className={'row'}>the ONMI world</div>
+            <div className={'row'}>The first and only collection available.</div>
+            <div className={'row'}>Already iconic.</div>
           </>
         </Text>
         <ClothesCollection className={s.descr}/>

@@ -6,12 +6,12 @@
   top: 0;
   right: 0;
   transform: translateX(100%);
-  transition: transform ease-in .4s;
+  transition: transform cubic-bezier(.15, .85, .45, 1) .4s;
   width: toVw(420);
   z-index: 11;
   backdrop-filter: blur(10px);
   background-color: rgba(20, 20, 20, 0.88);
-  padding: toVw(67) toVw(41) toVw(67) toVw(49);
+  padding: toVw(67) toVw(41) toVw(67) toVw(41);
   height: 100vh;
 
   overflow: auto;
@@ -44,10 +44,9 @@
 
 .title,
 .powered,
-.block,
 .text {
   opacity: 0;
-  transition: opacity ease-in .3s .3s;
+  transition: opacity cubic-bezier(.15, .85, .45, 1) .3s .3s;
 }
 
 .top {
@@ -129,22 +128,25 @@
 .block {
   max-height: 200px;
   overflow: hidden;
-  transition: opacity ease-in .3s, max-height linear .3s;
+  transition: opacity cubic-bezier(.15, .85, .45, 1) .6s,
+  max-height cubic-bezier(.15, .85, .45, 1) .6s;
 
   .block_content {
     opacity: 0;
     max-height: 0;
     pointer-events: none;
-    transition: opacity ease-in .3s, max-height linear .3s;
+    transition: opacity cubic-bezier(.15, .85, .45, 1) .6s,
+    max-height cubic-bezier(.15, .85, .45, 1) .6s;
   }
 
   &_top {
-    max-height: 1000px;
+    max-height: 700px;
 
     .block_content {
       opacity: 1;
-      max-height: 1000px;
-      transition: opacity, max-height ease-in .3s;
+      max-height: 400px;
+      transition: opacity cubic-bezier(.15, .85, .45, 1) .6s,
+      max-height cubic-bezier(.15, .85, .45, 1) .6s;
       pointer-events: auto;
     }
   }
