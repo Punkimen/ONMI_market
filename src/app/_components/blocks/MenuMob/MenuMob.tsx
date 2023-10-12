@@ -17,7 +17,7 @@ export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, 
     <div className={cn(s['mob-menu'], isShow && s.show, className)}>
       <div className="container">
         {links.map(link => {
-          return <Link href={link.href} className={s.link} key={link.href}>
+          return <Link href={link.href}  onClick={()=>setIsShow()} className={s.link} key={link.href}>
             <span>{link.title}</span>
           </Link>;
         })}
@@ -26,19 +26,19 @@ export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, 
           <div className={s["label"]}>Social</div>
           <ul className={s.list}>
             <li className={s.elem}>
-              <a href="https://instagram.com/onmi.world" target="_blank"
+              <a href="https://instagram.com/onmi.world" onClick={()=>setIsShow()} target="_blank"
                 className={s.social__link} rel="noreferrer">Instagram</a>
             </li>
-            <li className="mob-menu__elem">
-              <a href="https://twitter.com/onmionmi" target="_blank" className={s.social__link} rel="noreferrer">𝕏
+            <li className={s.elem}>
+              <a href="https://twitter.com/onmionmi" onClick={()=>setIsShow()} target="_blank" className={s.social__link} rel="noreferrer">𝕏
                 (Twitter)</a>
             </li>
-            <li className="mob-menu__elem">
-              <a href="https://facebook.com/onmi.world" target="_blank"
+            <li className={s.elem}>
+              <a href="https://facebook.com/onmi.world" onClick={()=>setIsShow()} target="_blank"
                 className={s.social__link} rel="noreferrer">Facebook</a>
             </li>
-            <li className="mob-menu__elem">
-              <a href="https://medium.com/@onmiwww" target="_blank" className={s.social__link}
+            <li className={s.elem}>
+              <a href="https://medium.com/@onmiwww" onClick={()=>setIsShow()} target="_blank" className={s.social__link}
                 rel="noreferrer">Medium</a>
             </li>
           </ul>

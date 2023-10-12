@@ -8,7 +8,6 @@ import {CardClothe} from "@/app/_components/partials/CardClothe/CardClothe";
 import {IBaseComponents} from "@/app/_types/base.types";
 import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/ModalClotheCraft";
 import {useCatalogState} from "@/app/_state/store";
-import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 import {useMousePosition} from "@/app/_hooks/useMousePosition";
 import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
 
@@ -98,13 +97,13 @@ export const Catalog: FC<ICatalogProps> = memo(({
         {label && <div className={cn(s.label, 'text-line')}>{label}</div>}
         <div className={cn(s.wrapper, countsRow === 4 && s['row-4'])} ref={catalog}>
           {cardsOmi && cardsOmi.map((card, index) => {
-            return <div className={cn('opacity', s.item)} key={card.id} data-delay={index * 0.1}>
+            return <div className={cn(s.item)} key={card.id} >
               <CardOmi
                 onClick={() => onHandle(true)}
                 className={cn(s.card)} {...card} /></div>;
           })}
           {cardsClothe && cardsClothe.map((card: IClothe, index) => {
-            return <div className={cn('opacity', s.item)} key={card.id} data-delay={index * 0.1}>
+            return <div className={cn( s.item)} key={card.id} >
               <CardClothe isStats={isCardsStats}
                 className={cn(s.card)}
                 onClick={() => onHandle(true)}

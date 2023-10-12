@@ -30,10 +30,11 @@ export const Clothes: FC = () => {
 
   return (
     <div className={s.content}>
-      {!showCollectionsMob && <Hero>
+      <Hero className={s.hero}>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
-              onmi® Zero
-          <DropTimer className={s.timer} label={'Drop/01'} startTime={'02:23:59'}/>
+          <span className={'text-line'}>onmi® Zero</span>
+          <DropTimer className={cn(s.timer, 'opacity')} data-delay={'0.3'} label={'Drop/01'}
+            startTime={'02:23:59'}/>
         </Title>
         <Text className={s.text}>
           <>
@@ -42,7 +43,7 @@ export const Clothes: FC = () => {
           </>
         </Text>
         <ClothesCollection className={s.descr}/>
-      </Hero>}
+      </Hero>
 
       <section className={s.clothes}>
         {windowWidth > 768 ?

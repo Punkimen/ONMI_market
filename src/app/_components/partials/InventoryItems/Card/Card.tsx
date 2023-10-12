@@ -12,12 +12,12 @@ interface ICardProps extends IBaseComponents {
 export const Card: FC<ICardProps> = ({children, className}) => {
   return (
     <div className={cn(s.card, className)}>
-      <Dropdown className={s.settings}
+      {/*  <Dropdown className={s.settings}
         menu={[{title: "Share", href: ""}, {title: "Sale", href: ""}, {title: "Remove", href: ""}]}>
         <div className={s.settings__wrapper}>
           <span></span><span></span><span></span>
         </div>
-      </Dropdown>
+      </Dropdown>*/}
       {children}
     </div>
   );

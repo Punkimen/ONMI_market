@@ -10,7 +10,7 @@ export const ClothesCollection: FC<IBaseComponents> = ({className}) => {
   return (
     <div className={cn(s.block, className)}>
       <div className={s.img}>
-        <Image src={pose} alt={'pose'}/>
+        <Image src={pose} alt={'pose'} quality={100}/>
       </div>
       <Text className={s.text}>
         These items <span className={'color_green'}>open the digital story</span> of Reality 2.0

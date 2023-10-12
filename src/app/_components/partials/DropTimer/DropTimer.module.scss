@@ -12,10 +12,21 @@
   letter-spacing: 0;
   border-radius: toVw(20);
   font-weight: 600;
+  @media(max-width: $md3 + px) {
+    padding: toVw(9, $md3) toVw(22, $md3) toVw(9, $md3) toVw(22, $md3);
+    font-size: toVw(16, $md3);
+    border-radius: toVw(20, $md3);
+  }
+  @media(max-width: $md5 + px) {
+    display: none;
+  }
 
   &__label {
     white-space: nowrap;
     margin-right: toVw(16);
+    @media(max-width: $md3 + px) {
+      margin-right: toVw(16, $md3);
+    }
   }
 
   &__timer {

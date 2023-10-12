@@ -13,7 +13,7 @@ interface InputProps extends React.HTMLProps<HTMLInputElement> {
   disabled?: boolean;
   className?: string,
   styletype?: "line",
-  type?: 'password' | 'text',
+  type?: 'password' | 'text' | 'number',
 }
 
 export const Input: FC<InputProps> = ({label, blockClass, className,type, labelClass, ...props}) => {

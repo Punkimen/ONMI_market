@@ -4,11 +4,11 @@ import cn from 'classnames';
 import {IBaseComponents} from "@/app/_types/base.types";
 
 interface IRadioProps extends IBaseComponents {
-  value: string,
+  value: string | number,
   name: string,
   label?: string,
   checked?: boolean,
-  onChange: () => void,
+  onChange: (e?: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 export const Radio: FC<IRadioProps> = ({label, name, value,onChange, className, checked}) => {

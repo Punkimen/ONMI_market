@@ -1,6 +1,4 @@
-import {ReactElement} from "react";
-
-export const setStyle = (el: HTMLElement, animProps:DOMStringMap) => {
+export const setStyle = (el: HTMLElement, animProps: DOMStringMap) => {
   for (let prop in animProps) {
     const capitalize = prop.charAt(0).toUpperCase() + prop.slice(1);
     if (capitalize === "Delay") {

@@ -8,11 +8,11 @@ interface IDropTimerProps extends IBaseComponents {
   startTime: string,
 }
 
-export const DropTimer: FC<IDropTimerProps> = ({className, hide, startTime, label}) => {
+export const DropTimer: FC<IDropTimerProps> = ({className, hide, startTime, label, ...props}) => {
 
   if (hide) return null;
   return (
-    <div className={cn(s.timer, className)}>
+    <div className={cn(s.timer, className)} {...props}>
       <div className={s.timer__label}>
         {label}
       </div>

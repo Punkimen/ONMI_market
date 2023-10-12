@@ -1,17 +1,31 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .hero {
   position: relative;
+  overflow: hidden;
 
   &__title {
     width: fit-content;
     margin: 0 auto;
     position: relative;
+    @media(max-width: $md5 + px) {
+      line-height: 1em;
+      margin-bottom: toVw(20, 390);
+    }
   }
 }
-.text{
+
+.text {
   margin-bottom: toVw(90);
+  @media(max-width: $md3 + px) {
+    margin-bottom: toVw(90, $md3);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(50, 390);
+  }
 }
+
 .timer {
   position: absolute;
   top: 15%;

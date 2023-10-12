@@ -5,6 +5,16 @@
   display: block;
   max-width: toVw(1003);
   margin: 0 auto;
+  @media(max-width: $md3 + px) {
+    max-width: 100%;
+  }
+  @media(max-width: $md5 + px) {
+    max-width: 180%;
+    width: 180%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   img {
     display: block;
@@ -19,6 +29,16 @@
     max-width: toVw(709);
     margin: toVw(-118) auto toVw(70);
     font-size: toVw(30);
+    @media(max-width: $md3 + px) {
+      max-width: toVw(709, $md3);
+      margin: toVw(-118, $md3) auto toVw(70, $md3);
+      font-size: toVw(30, $md3);
+    }
+    @media(max-width: $md5 + px) {
+      text-align: center;
+      font-size: toVw(18, 390);
+      max-width: toVw(300, 390);
+    }
   }
 }
 
@@ -28,4 +48,14 @@
   border: 1px solid #2d2d2d;
   padding: toVw(17) toVw(30) toVw(17);
   border-radius: toVw(29);
+  @media(max-width: $md3 + px) {
+    padding: toVw(17, $md3) toVw(30, $md3) toVw(17, $md3);
+    border-radius: toVw(29, $md3);
+  }
+  @media(max-width: $md5 + px) {
+    text-align: center;
+    font-size: toVw(12, 390);
+    padding: toVw(14, 390) toVw(45, 390) toVw(14, 390);
+    border-radius: toVw(29, 390);
+  }
 }

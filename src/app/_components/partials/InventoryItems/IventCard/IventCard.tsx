@@ -8,9 +8,8 @@ import Image from "next/image";
 import stat1 from "@/../public/img/icons/stat_1.svg";
 import stat2 from "@/../public/img/icons/stat_2.svg";
 import stat3 from "@/../public/img/icons/stat_3.svg";
-import stat4 from "@/../public/img/icons/stat_4.svg";
 
-const statsIcons = [stat1, stat2, stat3, stat4];
+const statsIcons = [stat1, stat2, stat3];
 
 interface IInvenCardProps extends IInvenCard, IBaseComponents {
   quality?: number;

@@ -25,7 +25,7 @@ export const Balance: FC<IBalanceProps> = ({className,onClick, ...props}) => {
   return (
     <div className={cn(s.balance, className)} onClick={onClick}>
       <div className={s.wrapper}>
-        <div className={s.text}>MAC</div>
+        <div className={s.text}>Wallet</div>
         <div className={s.count}>
           {balance}
         </div>

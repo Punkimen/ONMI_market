@@ -61,6 +61,13 @@
     text-align: center;
     color: #5A5A5A;
   }
+
+  -moz-appearance:textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 .eye {
@@ -80,3 +87,4 @@
     fill: rgba(255, 255, 255, .2);
   }
 }
+

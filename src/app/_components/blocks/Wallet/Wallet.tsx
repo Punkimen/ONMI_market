@@ -1,5 +1,4 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
-import s from './Wallet.module.scss';
 import cn from 'classnames';
 import {Title} from "@/app/_components/partials/Title/Title";
 import Image from "next/image";
@@ -11,37 +10,34 @@ import {useOutsideClick} from "@/app/_hooks/useOutsideClick";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
-
+import {Input} from "@/app/_components/partials/Input/Input";
+import s from './Wallet.module.scss';
 interface IWalletProps extends IBaseComponents {
   show: boolean,
   close?: () => void;
 }
 
-const radios: Array<{ value: string, label: string, checked?: boolean }> = [
+const radios: Array<{ value: number, label: string, isCustom?: boolean }> = [
   {
     label: "150 MAC",
-    value: "150",
-    checked: false
+    value: 150,
   },
   {
     label: "500 MAC",
-    value: "500",
-    checked: false
+    value: 500,
   },
   {
     label: "1500 MAC",
-    value: "1500",
-    checked: true
+    value: 1500,
   },
   {
     label: "7500 MAC",
-    value: "7500",
-    checked: false
+    value: 7500,
   },
   {
     label: "Other amount…",
-    value: "other",
-    checked: false
+    isCustom: true,
+    value: 0,
   },
 ];
 
@@ -49,6 +45,8 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
   const content = useRef<HTMLDivElement>(null);
   const cardsRef = useRef(null);
   const [isTop, setIsTop] = useState(false);
+  const [value, setValue] = useState(1500);
+  const [customValue, setCustomValue] = useState(0);
 
   useOutsideClick(cardsRef, () => {
     setIsTop(false);
@@ -92,26 +90,32 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
               {<div className={s['top-label']}>Top Up</div>}
               {radios.map(el => {
                 return <div key={el.value}
-                  className={cn(s.radio, el.checked && s.current, el.value === 'other' && s.other)}>
-                  <Radio onChange={() => {
-                  }} value={el.value} label={el.label} name={'topUp'}
-                  checked={el.checked ? el.checked : false}/>
-                  <span className={s.course}>
-                    {el.value !== 'other' && `${el.value} USD`}
-                  </span>
+                  className={cn(s.radio, !el.isCustom ? el.value === value && s.current : customValue === value  && s.current, el.isCustom && s.other)}>
+                  <Radio onChange={(e) => {
+                    el.isCustom && setCustomValue(e ? +e.target.value : el.value);
+                    setValue(e ? +e.target.value : el.value);
+                  }} value={el.isCustom ? customValue : el.value} label={!el.isCustom ?el.label : undefined} name={'topUp'}
+                  checked={el.isCustom ? customValue === value : value === el.value}/>
+                  {!el.isCustom ?  <span className={s.course}>
+                    {`${el.value} USD`}
+                  </span> :
+                    <Input className={s.input} type={'number'}
+                      onChange={e=>{
+                        setCustomValue(e ? e.target.value : el.value);
+                        setValue(e ? e.target.value : el.value);
+                      }} placeholder={el.label}/>
+                  }
                 </div>;
               })}
             </div>
           </WalletBlock>
-          {!isTop && <WalletBlock className={cn(s.block)} value={"0 ONM"} course={'Soon'} isSoon={true}/>}
+          {!isTop && <WalletBlock className={cn(s.block)} value={"ONM"} course={'Soon'} isSoon={true}/>}
         </div>
 
         <div className={s.bottom}>
           {!isTop && <div className={cn(s.text)}>
-            <p>MAC — is an in-game coin for making purchases. All MAC entries will be saved in your
-                  account.</p>
-            <p>ONM — is an in-game coin for making purchases. All MAC entries will be saved in your
-                  account.</p>
+            <p>MAC — the only tool to purchase virtual goods. Cannot be exchanged, withdrawn, transferred.</p>
+            <p>ONM — utility token. The main currency for in-game activities & earnings. Сan be withdraw to the exchanges and personal wallet.</p>
           </div>}
           <div className={cn(s.powered)}>
             <Image src={security} alt="security"/>
