@@ -38,8 +38,12 @@ export const Clothes: FC = () => {
         </Title>
         <Text className={s.text}>
           <>
-            <div className={'row'}>The first and only collection available.</div>
-            <div className={'row'}>Already iconic.</div>
+            <div className={'row'}>
+              <span className={'text-line'}>The first and only collection available.</span>
+            </div>
+            <div className={'row'}>
+              <span className={'text-line'}>Already iconic.</span>
+            </div>
           </>
         </Text>
         <ClothesCollection className={s.descr}/>

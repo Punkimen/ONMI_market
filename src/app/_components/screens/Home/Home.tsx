@@ -19,6 +19,7 @@ import {Hero} from "@/app/_components/blocks/Hero/Hero";
 import {useStore} from "zustand";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalog";
+import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
 
 
 export const Home: FC = () => {
@@ -128,7 +129,7 @@ export const Home: FC = () => {
               cardsClothe={clothes?.slice(0, 4)} isCardsStats={false}/>}
         </div>
         <div className="container">
-          <BtnSmall className={cn(s.zero__btn, 'text-line')} href={Routes.CLOTHES}>
+          <BtnSmall color={'white'} className={cn(s.zero__btn)} href={Routes.CLOTHES}>
             Open collection
           </BtnSmall>
         </div>

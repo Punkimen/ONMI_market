@@ -109,19 +109,26 @@
   }
 
   &__btn {
-    display: block;
-    font-family: SFPro, sans-serif;
-    font-weight: 600;
-    margin: 0 auto;
-    padding: toVw(21) toVw(20) toVw(22);
+    padding: toVw(20) toVw(24) toVw(22);
     max-width: toVw(170);
-    width: 100%;
-    margin: 0 auto;
     border-radius: toVw(31);
+    width: 100%;
+    display: block;
+    margin: 0 auto;
     @media(max-width: $md2 + px) {
-      padding: toVw(21, $md2) toVw(20, $md2) toVw(22, $md2);
+      padding: toVw(20, $md2) toVw(24, $md2) toVw(22, $md2);
       max-width: toVw(170, $md2);
       border-radius: toVw(31, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      padding: toVw(20, $md3) toVw(24, $md3) toVw(22, $md3);
+      max-width: toVw(170, $md3);
+      border-radius: toVw(31, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      padding: toVw(20, $md4) toVw(24, $md4) toVw(22, $md4);
+      max-width: toVw(170, $md4);
+      border-radius: toVw(31, $md4);
     }
     @media(max-width: $md5 + px) {
       padding: toVw(21, 390) toVw(20, 390) toVw(22, 390);
@@ -170,7 +177,8 @@
 
 .questions {
   position: relative;
-  &__line{
+
+  &__line {
     bottom: 1px;
   }
 }

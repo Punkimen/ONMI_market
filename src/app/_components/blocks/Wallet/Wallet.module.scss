@@ -13,9 +13,21 @@
   background-color: rgba(20, 20, 20, 0.88);
   padding: toVw(67) toVw(41) toVw(67) toVw(41);
   height: 100vh;
-
   overflow: auto;
 
+  @media(max-width: $md2 + px) {
+    width: toVw(420, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    width: toVw(400, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(400, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: 100%;
+    padding: toVw(60, 390) toVw(16, 390);
+  }
 
   &.show {
     transform: translateX(0);
@@ -38,7 +50,13 @@
     padding-left: toVw(5);
     font-weight: bold;
     margin-bottom: toVw(27);
-
+    @media(max-width: $md4 + px) {
+      font-size: toVw(25, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(25, 390);
+      margin-bottom: toVw(24, 390);
+    }
   }
 }
 
@@ -51,6 +69,12 @@
 
 .top {
   margin-bottom: toVw(50);
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(50, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(50, 390);
+  }
 }
 
 .close {
@@ -75,6 +99,23 @@
   margin-bottom: toVw(16);
   font-size: toVw(14);
   font-weight: 600;
+
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+    margin-bottom: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+    margin-bottom: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+    margin-bottom: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    margin-bottom: toVw(16, 390);
+  }
 }
 
 .radio {
@@ -84,6 +125,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media(max-width: $md2 + px) {
+    border-radius: toVw(9, $md2);
+    padding: toVw(14, $md2) toVw(14, $md2) toVw(16, $md2) toVw(14, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    border-radius: toVw(9, $md4);
+    padding: toVw(14, $md4) toVw(14, $md4) toVw(16, $md4) toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    border-radius: toVw(9, 390);
+    padding: toVw(14, 390) toVw(14, 390) toVw(16, 390) toVw(14, 390);
+  }
 
   &.current {
     background: #1F2918;
@@ -95,12 +148,27 @@
 
   &:not(:last-child) {
     margin-bottom: toVw(8);
+    @media(max-width: $md2 + px) {
+      margin-bottom: toVw(8, $md2);
+    }
   }
 }
 
 .course {
-  color: #D6F82E;
+  color: var(--gray);
   font-size: toVw(14);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+  }
 }
 
 .content {
@@ -109,82 +177,173 @@
   justify-content: space-between;
   height: 100%;
   min-height: toVw(400);
+  @media(max-width: $md2 + px) {
+    min-height: toVw(400, $md2);
+  }
 }
 
 .powered {
   display: flex;
   align-items: center;
+  margin-bottom: toVw(20);
+  @media(max-width: $md2 + px) {
+    margin-bottom: toVw(20, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    margin-bottom: toVw(20, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(20, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(20, 390);
+    font-size: toVw(16, 390);
+  }
 
   img {
     display: block;
     margin-right: toVw(11);
+    @media(max-width: $md2 + px) {
+      margin-right: toVw(11, $md2);
+    }
   }
 
   span {
     margin-right: toVw(7);
+    @media(max-width: $md2 + px) {
+      margin-right: toVw(7, $md2);
+    }
   }
 }
 
 .block {
-  max-height: 200px;
+  max-height: toVw(200);
   overflow: hidden;
-  transition: opacity cubic-bezier(0, .68, .39, 1.02) 1s,
-  max-height cubic-bezier(0, .68, .39, 1.02) 1s;
-
+  transition: opacity cubic-bezier(0, .68, .39, 1.02) .8s,
+  max-height cubic-bezier(0, .68, .39, 1.02) .8s;
+  @media(max-width: $md2 + px) {
+    max-height: toVw(200, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    max-height: toVw(200, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    max-height: toVw(200, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    max-height: toVw(200, 390);
+  }
 
   .block_content {
     opacity: 0;
     max-height: 0;
     pointer-events: none;
-    transition: opacity cubic-bezier(0, .68, .39, 1.02) 1s,
-    max-height cubic-bezier(0, .68, .39, 1.02) 1s;
+    transition: opacity cubic-bezier(0, .68, .39, 1.02) .6s,
+    max-height cubic-bezier(0, .68, .39, 1.02) .8s;
 
   }
 
   &_top {
-    max-height: 700px;
+    max-height: toVw(700);
+    @media(max-width: $md2 + px) {
+      max-height: toVw(700, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      max-height: toVw(700, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      max-height: toVw(700, 390);
+    }
 
     .block_content {
       opacity: 1;
-      max-height: 400px;
+      max-height: toVw(400);
       transition: opacity cubic-bezier(0, .68, .39, 1.02) 1s,
       max-height cubic-bezier(0, .68, .39, 1.02) 1s;
-
       pointer-events: auto;
+      @media(max-width: $md2 + px) {
+        max-height: toVw(400, $md2);
+      }
+      @media(max-width: $md5 + px) {
+        max-height: toVw(400, 390);
+      }
     }
+
   }
 
   &:not(:last-child) {
     margin-bottom: toVw(13);
-  }
-}
-
-.input {
-  background: none;
-  font-size: toVw(14);
-  padding: 0 toVw(5);
-  text-align: left;
-  border: none;
-  border-radius: 0;
-
-  &::placeholder {
-    text-align: left;
+    @media(max-width: $md2 + px) {
+      margin-bottom: toVw(13, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      margin-bottom: toVw(15, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(15, 390);
+    }
   }
 
-  &:hover, &:focus {
+  .input {
     background: none;
+    font-size: toVw(14);
+    padding: 0 toVw(5);
+    text-align: left;
+    border: none;
+    border-radius: 0;
+    @media(max-width: $md2 + px) {
+      font-size: toVw(14, $md2);
+      padding: toVw(0) toVw(5, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      font-size: toVw(14, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(14, $md3);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(14, 390);
+    }
+
+    &::placeholder {
+      text-align: left;
+      font-size: inherit;
+    }
+
+    &:hover, &:focus {
+      background: none;
+    }
   }
+
 }
+
 
 .text {
   padding-left: toVw(5);
   font-size: toVw(14);
   color: #B8B8B8;
   margin-bottom: toVw(78);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+    margin-bottom: toVw(78, $md2);
+    padding-left: toVw(5, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+  }
 
   p {
     &:not(:last-child) {
       margin-bottom: toVw(26);
+      @media(max-width: $md2 + px) {
+        margin-bottom: toVw(26, $md2);
+      }
     }
   }
 }

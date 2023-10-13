@@ -8,7 +8,19 @@
   padding-left: 24px;
   cursor: pointer;
   font-size: toVw(14);
-
+  color: var(--green);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+  }
   &__indicator {
     position: absolute;
     top: 50%;
@@ -19,6 +31,26 @@
     border: 1px solid #4B4B4B;
     border-radius: 50%;
     transform: translateY(-50%);
+    @media(max-width: $md1 + px) {
+      height: toVw(14, $md1);
+      width: toVw(14, $md1);
+    }
+    @media(max-width: $md2 + px) {
+      height: toVw(14, $md2);
+      width: toVw(14, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      height: toVw(14, $md3);
+      width: toVw(14, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      height: toVw(14, $md4);
+      width: toVw(14, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      height: toVw(14, 390);
+      width: toVw(14, 390);
+    }
   }
 }
 
@@ -73,6 +105,26 @@
   border-radius: 50%;
   background: #D6F82E;
   transition: background 250ms;
+  @media(max-width: $md1 + px) {
+    height: toVw(8, $md1);
+    width: toVw(8, $md1);
+  }
+  @media(max-width: $md2 + px) {
+    height: toVw(8, $md2);
+    width: toVw(8, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    height: toVw(8, $md3);
+    width: toVw(8, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    height: toVw(8, $md4);
+    width: toVw(8, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    height: toVw(8, 390);
+    width: toVw(8, 390);
+  }
 }
 
 .radio input:disabled ~ .radio__indicator:after {

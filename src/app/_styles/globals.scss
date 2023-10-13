@@ -107,6 +107,11 @@ body {
   @media(max-width: $md4 + px) {
     font-size: toVw(16, $md4);
   }
+
+  &.overlay {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 .page {

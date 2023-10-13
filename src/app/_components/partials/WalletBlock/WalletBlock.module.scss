@@ -9,11 +9,31 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media(max-width: $md2 + px) {
+    border-radius: toVw(27, $md2);
+    padding: toVw(29, $md2) toVw(33, $md2) toVw(22, $md2) toVw(33, $md2);
+    min-height: toVw(189, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    border-radius: toVw(27, $md3);
+    padding: toVw(29, $md3) toVw(33, $md3) toVw(22, $md3) toVw(33, $md3);
+    min-height: toVw(189, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    border-radius: toVw(27, $md4);
+    padding: toVw(29, $md4) toVw(33, $md4) toVw(22, $md4) toVw(33, $md4);
+    min-height: toVw(189, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    border-radius: toVw(27, 390);
+    padding: toVw(29, 390) toVw(33, 390) toVw(22, 390) toVw(33, 390);
+    min-height: toVw(189, 390);
+  }
 
   &_soon {
     color: #888888;
     background: none;
-    border: 1px solid var(--graySecondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .btn {
@@ -22,15 +42,51 @@
     max-width: toVw(118);
     width: 100%;
     height: toVw(40);
-    padding-top: toVw(5);
-    padding-bottom: toVw(5);
+    padding-top: toVw(12);
+    padding-bottom: toVw(12);
     transition: opacity cubic-bezier(.15, .85, .45, 1) .3s, max-height cubic-bezier(.15, .85, .45, 1) .3s;
+    @media(max-width: $md2 + px) {
+      font-size: toVw(14, $md2);
+      max-width: toVw(118, $md2);
+      height: toVw(40, $md2);
+      padding: toVw(10, $md2) toVw(20, $md2);
+      height: auto;
+      max-width: fit-content;
+      border-radius: toVw(25, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      font-size: toVw(14, $md3);
+      padding: toVw(10, $md3) toVw(20, $md3);
+      border-radius: toVw(25, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(14, $md4);
+      padding: toVw(10, $md4) toVw(20, $md4);
+      border-radius: toVw(25, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(14, 390);
+      padding: toVw(10, 390) toVw(20, 390);
+      border-radius: toVw(25, 390);
+    }
 
     &.full {
       max-width: 100%;
       width: 100%;
       border-radius: toVw(10);
       margin-top: toVw(64);
+      @media(max-width: $md2 + px) {
+        border-radius: toVw(10, $md2);
+        margin-top: toVw(64, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        border-radius: toVw(10, $md4);
+        margin-top: toVw(44, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        border-radius: toVw(10, 390);
+        margin-top: toVw(44, 390);
+      }
     }
 
     &.hide {
@@ -56,12 +112,49 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media(max-width: $md2 + px) {
+      margin: toVw(31, $md2) auto 0;
+      width: toVw(33, $md2);
+      height: toVw(18, $md2);
+      border-radius: toVw(25, $md2);
+    }
+
+    @media(max-width: $md3 + px) {
+      margin: toVw(31, $md3) auto 0;
+      width: toVw(33, $md3);
+      height: toVw(18, $md3);
+      border-radius: toVw(25, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      margin: toVw(31, $md4) auto 0;
+      width: toVw(33, $md4);
+      height: toVw(18, $md4);
+      border-radius: toVw(25, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin: toVw(31, 390) auto 0;
+      width: toVw(44, 390);
+      height: toVw(24, 390);
+      border-radius: toVw(25, 390);
+    }
 
     img {
       max-width: toVw(12);
       display: block;
       width: 100%;
       height: auto;
+      @media(max-width: $md2 + px) {
+        max-width: toVw(12, $md2);
+      }
+      @media(max-width: $md3 + px) {
+        max-width: toVw(12, $md3);
+      }
+      @media(max-width: $md4 + px) {
+        max-width: toVw(12, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        max-width: toVw(12, 390);
+      }
     }
 
     &:hover {
@@ -72,16 +165,49 @@
 
 .content {
   margin-bottom: toVw(41);
+  @media(max-width: $md2 + px) {
+    margin-bottom: toVw(41, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(41, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(40, 390);
+  }
 }
 
 .value {
   font-size: toVw(28);
   font-weight: bold;
   margin-bottom: toVw(4);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(28, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(28, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(28, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(28, 390);
+  }
 }
 
 .course {
   font-size: toVw(14);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+  }
 }
 
 .btn_top {
