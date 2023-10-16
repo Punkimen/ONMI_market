@@ -48,7 +48,7 @@ export const Header = () => {
   const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
   const [walletShow, setWalletShow] = useState(false);
   useEffect(() => {
-    if (windowWidth && windowWidth <= 450) {
+    if (windowWidth && windowWidth <= 450 && windowWidth > 0) {
       setShowCollectionsMob(true);
     } else if (windowWidth) {
       setShowCollectionsMob(false);
@@ -81,7 +81,7 @@ export const Header = () => {
                   user.auth();
                   setIsAuth(user.isAuth);
                 }
-              }]} hide={!isAuth || windowWidth <= 450}>
+              }]} hide={!isAuth || windowWidth <= 450 && windowWidth > 0}>
                 <div className={s.user}>
                   {user.avatar && <Image className={s.avatar} src={user.avatar} alt={'avatar'}/>}
                 </div>

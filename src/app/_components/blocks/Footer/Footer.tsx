@@ -20,7 +20,7 @@ export const Footer: FC = () => {
   return (
     <div className={s.footer}>
       <div className="container">
-        <LineDecor hide={windowWidth <= 450}/>
+        <LineDecor hide={windowWidth <= 450 && windowWidth > 0}/>
         <div className={s["footer__wrapper"]}>
           <div className={s["footer__left"]}>
             <div className={s["footer__logo"]}>

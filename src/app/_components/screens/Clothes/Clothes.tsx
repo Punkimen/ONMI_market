@@ -39,10 +39,10 @@ export const Clothes: FC = () => {
         <Text className={s.text}>
           <>
             <div className={'row'}>
-              <span className={'text-line'}>The first and only collection available.</span>
+              <span className={'text-line'} data-delay={0.1}>The first and only collection available.</span>
             </div>
             <div className={'row'}>
-              <span className={'text-line'}>Already iconic.</span>
+              <span className={'text-line'} data-delay={0.2}>Already iconic.</span>
             </div>
           </>
         </Text>

@@ -10,10 +10,10 @@ import {IClothe} from "@/app/_types/cards.types";
 import Image from "next/image";
 
 interface IModalClothCraftProps extends IBaseComponents, Pick<IClothe, 'price' | 'imgSrc' | 'collection' | 'category' | 'imgSrc'> {
-    show: boolean,
-    onHandle: (isShow: boolean) => void;
-    type?: "OMI",
-    model?: 'A' | 'B' | 'C' | 'D'
+  show: boolean,
+  onHandle: (isShow: boolean) => void;
+  type?: "OMI",
+  model?: 'A' | 'B' | 'C' | 'D'
 }
 
 export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
@@ -36,12 +36,15 @@ export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
 
       {type === 'OMI' ? null :
         <div className={s.text}>Final attributes, colors and type will be determined automatically</div>}
-      <BtnBig className={s.btn}>
-                Craft for 290 MAC
-      </BtnBig>
-      <Link href={''} className={s.link}>
-                How crafting works →
+
+      <Link hidden={type === 'OMI'} href={''} className={s.link}>
+        How crafting works →
       </Link>
+
+      <BtnBig className={s.btn}>
+        Craft for 290 MAC
+      </BtnBig>
+ 
     </Modal>
   );
 };
