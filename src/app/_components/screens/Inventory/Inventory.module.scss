@@ -92,6 +92,16 @@
   }
 }
 
+.wrapper {
+  display: flex;
+}
+
+.col {
+  &:not(:last-child) {
+    margin-right: toVw(73);
+  }
+}
+
 /*.card {
   margin: toVw(2) 0;
 

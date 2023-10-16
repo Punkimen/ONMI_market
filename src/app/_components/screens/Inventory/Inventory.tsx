@@ -266,26 +266,32 @@ export const Inventory: FC = () => {
                 collectionId={el.collectionId}/>;
             })}
           </div>}
-          {activeTab === 'Materials' && <>
-            <div className={cn(s.catalog, s.catalog_flex)}>
-              {initData.resources.map(el => {
-                return (
-                  <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
-                    value={el.value}/>
-                );
-              })}
+          {activeTab === 'Materials' && <div className={s.wrapper}>
+            <div className={s.col}>
+              <div className={s.label__mineral}>Materials
+              </div>
+              <div className={cn(s.catalog, s.catalog_flex)}>
+                {initData.resources.map(el => {
+                  return (
+                    <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
+                      value={el.value}/>
+                  );
+                })}
+              </div>
             </div>
-            <div className={s.label__mineral}>Minerals
+            <div className={s.col}>
+              <div className={s.label__mineral}>Minerals
+              </div>
+              <div className={cn(s.catalog, s.catalog_flex)}>
+                {initData.minerals.map(el => {
+                  return (
+                    <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
+                      value={el.value}/>
+                  );
+                })}
+              </div>
             </div>
-            <div className={cn(s.catalog, s.catalog_flex)}>
-              {initData.minerals.map(el => {
-                return (
-                  <MaterialCard key={el.label} className={s.card} imgSrc={el.imgSrc} label={el.label}
-                    value={el.value}/>
-                );
-              })}
-            </div>
-          </>
+          </div>
           }
         </div>
       </div>

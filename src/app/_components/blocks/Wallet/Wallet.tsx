@@ -12,6 +12,7 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
 import {Input} from "@/app/_components/partials/Input/Input";
 import s from './Wallet.module.scss';
+
 interface IWalletProps extends IBaseComponents {
   show: boolean,
   close?: () => void;
@@ -65,7 +66,10 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
 
     }, [content]);
   }, [content, isTop]);
-
+  useEffect(() => {
+    const body = document.querySelector('body');
+    show ? body?.classList.add('overlay') : body?.classList.remove('overlay');
+  }, [show]);
   return (
     <div ref={content} className={cn(s.wallet, isTop && s.isTop, show && s.show)}>
       <div className={s.close} onClick={() => {
@@ -90,17 +94,18 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
               {<div className={s['top-label']}>Top Up</div>}
               {radios.map(el => {
                 return <div key={el.value}
-                  className={cn(s.radio, !el.isCustom ? el.value === value && s.current : customValue === value  && s.current, el.isCustom && s.other)}>
+                  className={cn(s.radio, !el.isCustom ? el.value === value && s.current : customValue === value && s.current, el.isCustom && s.other)}>
                   <Radio onChange={(e) => {
                     el.isCustom && setCustomValue(e ? +e.target.value : el.value);
                     setValue(e ? +e.target.value : el.value);
-                  }} value={el.isCustom ? customValue : el.value} label={!el.isCustom ?el.label : undefined} name={'topUp'}
+                  }} value={el.isCustom ? customValue : el.value} label={!el.isCustom ? el.label : undefined}
+                  name={'topUp'}
                   checked={el.isCustom ? customValue === value : value === el.value}/>
-                  {!el.isCustom ?  <span className={s.course}>
+                  {!el.isCustom ? <span className={s.course}>
                     {`${el.value} USD`}
                   </span> :
                     <Input className={s.input} type={'number'}
-                      onChange={e=>{
+                      onChange={e => {
                         setCustomValue(e ? e.target.value : el.value);
                         setValue(e ? e.target.value : el.value);
                       }} placeholder={el.label}/>
@@ -115,7 +120,8 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
         <div className={s.bottom}>
           {!isTop && <div className={cn(s.text)}>
             <p>MAC — the only tool to purchase virtual goods. Cannot be exchanged, withdrawn, transferred.</p>
-            <p>ONM — utility token. The main currency for in-game activities & earnings. Сan be withdraw to the exchanges and personal wallet.</p>
+            <p>ONM — utility token. The main currency for in-game activities & earnings. Сan be withdraw to the
+                  exchanges and personal wallet.</p>
           </div>}
           <div className={cn(s.powered)}>
             <Image src={security} alt="security"/>
