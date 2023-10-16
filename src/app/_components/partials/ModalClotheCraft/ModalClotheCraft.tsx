@@ -29,22 +29,24 @@ export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
   return (
     <Modal className={cn(s.modal, className, type === 'OMI' && s.modal_omi)} show={show} onHandle={onHandle}>
       <div className={s.title}>{category}</div>
-      <div className={s.text}>{type === 'OMI' ? `${model}-Model` : collection.name}</div>
+      <div className={s.subtitle}>{type === 'OMI' ? `${model}-Model` : collection.name}</div>
       <div className={s.img}>
         <Image src={imgSrc} alt={category}/>
       </div>
 
       {type === 'OMI' ? null :
-        <div className={s.text}>Final attributes, colors and type will be determined automatically</div>}
-
-      <Link hidden={type === 'OMI'} href={''} className={s.link}>
-        How crafting works →
-      </Link>
+        <div className={s.content}>
+          <div className={s.text}>Final attributes, colors and type will be determined automatically</div>
+          <Link hidden={type === 'OMI'} href={''} className={s.link}>
+            How crafting works →
+          </Link>
+        </div>
+      }
 
       <BtnBig className={s.btn}>
         Craft for 290 MAC
       </BtnBig>
- 
+
     </Modal>
   );
 };
