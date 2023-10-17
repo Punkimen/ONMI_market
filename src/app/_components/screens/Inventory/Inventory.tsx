@@ -20,6 +20,7 @@ import omi from '@/../public/img/omi.png';
 import box from '@/../public/img/box.png';
 import {BoxCard} from "@/app/_components/partials/InventoryItems/BoxCard/BoxCard";
 import {IventCard} from "@/app/_components/partials/InventoryItems/IventCard/IventCard";
+import {useInventoryState} from "@/app/_state/store";
 
 interface IData {
   minerals: IMaterialCardProps[];
@@ -187,42 +188,23 @@ const initData: IData = {
     }
   ],
 };
-const initTabs: Array<{ title: string, isActive: boolean }> = [
-  {
-    title: "Omis",
-    isActive: true,
-  },
-  {
-    title: "Clothes",
-    isActive: false,
-  },
-  {
-    title: "Materials",
-    isActive: false,
-  },
-  {
-    title: "Boxes",
-    isActive: false,
-  },
-];
-export const Inventory: FC = () => {
-  const [tabs, setTabs] = useState(initTabs);
 
-  const [activeTab, setActiveTab] = useState<"Omis" |
-    "Clothes" |
-    "Materials" |
-    "Boxes">(// @ts-ignore
-      tabs.filter(el => el.isActive === true)[0].title);
+export const Inventory: FC = () => {
+  const tabs = useInventoryState(state => state.tabs);
+  const changeActiveTab = useInventoryState(state => state.changeActiveTab);
+
   const [cards, setCards] = useState([]);
-  const changeTab = useCallback((title: string) => {
-    setTabs(prevState => {
-      return prevState.map(el => ({
-        ...el,
-        isActive: el.title === title
-      }));
+  const [activeTab, setActiveTab] = useState('');
+
+  useEffect(()=>{
+    tabs.forEach(el=>{
+      if(el.isActive === true){
+        console.log(el.title);
+        setActiveTab(el.title);
+      }
     });
-    setActiveTab(title);
-  }, [tabs, activeTab]);
+  },[tabs]);
+
   useEffect(() => {
     switch (activeTab) {
       case 'Omis':
@@ -235,25 +217,15 @@ export const Inventory: FC = () => {
         setCards(initData.boxes);
         break;
     }
-  }, [tabs, activeTab]);
+  }, [activeTab]);
 
   return (
     <div className='container'>
       <div className={cn(s.inventory)}>
-        <nav className={s.tabs}>
-          <ul className={s.list}>
-            {tabs.map(el => {
-              return <li className={s.elem} key={el.title}>
-                <button className={cn(s.tab, el.isActive && s.active, 'btn-reset')} onClick={() => {
-                  changeTab(el.title);
-                }}>{el.title}</button>
-              </li>;
-            })}
-          </ul>
-        </nav>
+
         <div className={s.body}>
           {(activeTab === 'Omis' || activeTab === 'Clothes') && <div className={s.catalog}>
-            {cards?.map(el => {
+            {cards?.map((el) => {
               return <IventCard key={el.id} className={cn(s.card)}
                 imgSrc={el.imgSrc} id={el.id}
                 resources={el.resources} quality={el.quality || null}

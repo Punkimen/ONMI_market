@@ -1,12 +1,10 @@
 'use client';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
-import s from './Header.module.scss';
 import Link from "next/link";
 import Image from "next/image";
 import logo from '@/../public/img/logo.svg';
 import {ILink} from "@/app/_types/nav.types";
 import {NavLinks} from "@/app/_components/blocks/NavLinks/NavLinks";
-import {Bag} from "@/app/_components/partials/Bag/Bag";
 import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {Routes} from "@/app/_utils/Routes";
 import {gsap} from "gsap";
@@ -14,13 +12,16 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
 import cn from "classnames";
 import {Balance} from "@/app/_components/partials/Balance/Balance";
-import {useBagState, useUser} from "@/app/_state/store";
+import {useBagState, useInventoryState, useUser} from "@/app/_state/store";
 import {Dropdown} from "@/app/_components/partials/Dropdown/Dropdown";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {Burger} from "@/app/_components/partials/Burger/Burger";
 import {MenuMob} from "@/app/_components/blocks/MenuMob/MenuMob";
 import {usePathname} from "next/navigation";
 import {Wallet} from "@/app/_components/blocks/Wallet/Wallet";
+import inventoryIcon from "@/../public/img/icons/inventory_icon.svg";
+import signOutIcon from "@/../public/img/icons/signOut_icon.svg";
+import s from './Header.module.scss';
 
 
 const links: Array<ILink> = [
@@ -41,12 +42,19 @@ export const Header = () => {
       });
     }, [header]);
   }, [windowWidth]);
+
   const user = useUser(state => state);
   const [isAuth, setIsAuth] = useState(false);
   const [show, setShow] = useState(false);
-  const bag = useBagState(state => state.bag);
+
   const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
   const [walletShow, setWalletShow] = useState(false);
+
+  const tabs = useInventoryState(state => state.tabs);
+  const changeActiveTab = useInventoryState(state => state.changeActiveTab);
+
+  const listRef = useRef(null);
+
   useEffect(() => {
     if (windowWidth && windowWidth <= 450 && windowWidth > 0) {
       setShowCollectionsMob(true);
@@ -61,7 +69,7 @@ export const Header = () => {
 
   return (
     <>
-      <header ref={header} className={cn(s.header, pathname.includes('/inventory') && s.black)}>
+      <header ref={header} className={cn(s.header)}>
         <div className="container">
           <div className={s.wrapper}>
             <div className={s.left}>
@@ -69,15 +77,28 @@ export const Header = () => {
                 <Image src={logo} className={'text-line'} alt={'onmi'} priority={true}/>
               </Link>
               {!showCollectionsMob && <NavLinks links={links} className={s.nav}/>}
-
             </div>
+
+            {pathname.includes('/inventory') && <nav className={s.tabs}>
+              <ul className={s.list} ref={listRef}>
+
+                {tabs.map(el => {
+                  return <li className={s.elem} key={el.title}>
+                    <button className={cn(s.tab, el.isActive && s.active, 'btn-reset')} onClick={() => {
+                      changeActiveTab(el.title);
+                    }}>{el.title}</button>
+                  </li>;
+                })}
+              </ul>
+            </nav>}
+
             <div className={cn(s.right)}>
               <Balance className={cn(s.balance)} onClick={()=>setWalletShow(!walletShow)} hide={!isAuth}/>
               {!showCollectionsMob && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
               </div>}
-              <Dropdown position={"right"} menu={[{title: 'Inventory', href: Routes.INVENTORY}, {
-                title: 'Sign out', href: "", onClick: () => {
+              <Dropdown position={"right"} menu={[{title: 'Inventory', icon: inventoryIcon, href: Routes.INVENTORY}, {
+                title: 'Sign out', icon:signOutIcon, href: "", onClick: () => {
                   user.auth();
                   setIsAuth(user.isAuth);
                 }

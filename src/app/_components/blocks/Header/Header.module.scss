@@ -8,9 +8,11 @@
   left: 0;
   width: 100%;
   z-index: 10;
-  &.black{
+
+  &.black {
     background: #000;
   }
+
   @media(max-width: $md4 + px) {
     padding: toVw(16, $md4) 0;
   }
@@ -30,10 +32,12 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .left {
+  min-width: toVw(390);
   display: flex;
   align-items: center;
 }
@@ -67,6 +71,8 @@
 
 .right {
   display: flex;
+  justify-content: flex-end;
+  min-width: toVw(390);
   @media(max-width: $md5 + px) {
     align-items: center;
   }
@@ -101,15 +107,16 @@
 .avatar {
   width: toVw(33);
   height: toVw(33);
-  @media(max-width: $md2 + px){
+  @media(max-width: $md2 + px) {
     width: toVw(33, $md2);
     height: toVw(33, $md2);
   }
-  @media(max-width: $md4 + px){
+  @media(max-width: $md4 + px) {
     width: toVw(33, $md4);
     height: toVw(33, $md4);
   }
-  @media(max-width: $md5 + px){}
+  @media(max-width: $md5 + px) {
+  }
 
   img {
     display: block;
@@ -120,11 +127,40 @@
 
 .name {
   font-size: toVw(12);
-  @media(max-width: $md2 + px){
-     font-size: toVw(12, $md2);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
   }
-  @media(max-width: $md4 + px){
+  @media(max-width: $md4 + px) {
     display: none;
   }
-  @media(max-width: $md5 + px){}
+  @media(max-width: $md5 + px) {
+  }
+}
+
+.list {
+  display: flex;
+  background: #1C1C1C;
+  border-radius: toVw(16);
+}
+.elem{
+  position: relative;
+  &:not(:first-child) {
+    margin-left: toVw(-12);
+  }
+}
+.tab {
+  padding: toVw(7) toVw(25);
+  color: rgba(255, 255, 255, 0.3);
+  transition: color ease-in .3s, background-color ease-in .3s;
+  font-size: toVw(14);
+  border-radius: toVw(16);
+
+  &.active {
+    color: #fff;
+    background-color: var(--secondary);
+  }
+
+  &:hover {
+    color: #fff;
+  }
 }

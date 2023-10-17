@@ -1,15 +1,17 @@
 import React from "react";
 import Image, {StaticImageData} from 'next/image';
 import {FC} from "react";
+import {IBaseComponents} from "@/app/_types/base.types";
 
-interface IBBackgroundImageProps {
+interface IBBackgroundImageProps  extends IBaseComponents{
   src: string | StaticImageData,
   alt: string
 }
 
-export const BackgroundImage: FC<IBBackgroundImageProps> = ({src, alt}) => {
+export const BackgroundImage: FC<IBBackgroundImageProps> = ({src, alt, className}) => {
   return (
     <Image
+      className={className}
       alt={alt}
       src={src}
       quality={100}

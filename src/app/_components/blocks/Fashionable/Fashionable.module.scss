@@ -1,0 +1,9 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.fashion{
+  padding: toVw(300) 0 toVw(400);
+}
+.title{
+  margin-bottom: toVw(97);
+}

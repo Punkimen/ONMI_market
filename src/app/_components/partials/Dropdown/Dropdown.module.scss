@@ -1,10 +1,11 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var';
 
 .dropdown {
   position: relative;
 
   &__menu {
-    min-width: toVw(120);
+    min-width: toVw(160);
     position: absolute;
     top: calc(100% + 5px);
     left: 0;
@@ -36,7 +37,7 @@
 
 .link {
   display: block;
-  padding: toVw(12) toVw(10);
+  padding: toVw(12) toVw(24);
   color: #9B9B9B;
   transition: color ease-in .2s;
   text-align: center;
@@ -44,7 +45,17 @@
   font-weight: 600;
   font-size: toVw(12);
 
+  &_icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   &:hover {
     color: #fff;
   }
+}
+.icon{
+  display: block;
+  margin-right: toVw(19);
 }

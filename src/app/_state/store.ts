@@ -5,6 +5,7 @@ import {persist} from "zustand/middleware";
 import {dataBodies, dataClothes} from "@/app/_state/dataClothes";
 import {IUser} from "@/app/_types/user.types";
 import avatar from '@/../public/img/avatar.png';
+import {IInventoryState} from "@/app/_types/inventory.types";
 
 interface ICatalogState {
   clothes: IClothe[],
@@ -153,6 +154,42 @@ export const useBagState = create<IBagState>()(
     }),
     {
       name: 'bag-storage'
+    }
+  )
+);
+
+
+export const useInventoryState = create<IInventoryState>()(
+  persist(
+    (set) => ({
+      tabs: [
+        {
+          title: "Omis",
+          isActive: true,
+        },
+        {
+          title: "Clothes",
+          isActive: false,
+        },
+        {
+          title: "Materials",
+          isActive: false,
+        },
+        {
+          title: "Boxes",
+          isActive: false,
+        },
+      ],
+      changeActiveTab: (title)=> set(state => {
+        state.tabs = state.tabs.map(el => ({
+          ...el,
+          isActive: el.title === title
+        }));
+        return {...state};
+      })
+    }),
+    {
+      name: 'inventory-storage'
     }
   )
 );

@@ -12,6 +12,7 @@ import {SliderCatalog} from "@/app/_components/blocks/SliderCatalog/SliderCatalo
 import {useCatalogState} from "@/app/_state/store";
 import {DropTimer} from "@/app/_components/partials/DropTimer/DropTimer";
 import {ClothesCollection} from "@/app/_components/blocks/ClothesCollection/ClothesCollection";
+import {Fashionable} from "@/app/_components/blocks/Fashionable/Fashionable";
 
 export const Clothes: FC = () => {
   const windowWidth = useWindowWidth();
@@ -87,6 +88,9 @@ export const Clothes: FC = () => {
             slidesPerView={3}
           />}
       </section>
+
+      <Fashionable />
+
     </div>
   );
 };
