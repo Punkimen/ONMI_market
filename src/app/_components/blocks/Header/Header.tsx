@@ -21,6 +21,7 @@ import {usePathname} from "next/navigation";
 import {Wallet} from "@/app/_components/blocks/Wallet/Wallet";
 import inventoryIcon from "@/../public/img/icons/inventory_icon.svg";
 import signOutIcon from "@/../public/img/icons/signOut_icon.svg";
+import avatar from '@/../public/img/avatar.png';
 import s from './Header.module.scss';
 
 
@@ -104,7 +105,7 @@ export const Header = () => {
                 }
               }]} hide={!isAuth || windowWidth <= 450 && windowWidth > 0}>
                 <div className={s.user}>
-                  {user.avatar && <Image className={s.avatar} src={user.avatar} alt={'avatar'}/>}
+                  {user.avatar && <Image className={s.avatar} src={avatar} alt={'avatar'}/>}
                 </div>
               </Dropdown>
               {showCollectionsMob && <Burger active={show} setActive={() => setShow(!show)}/>}
