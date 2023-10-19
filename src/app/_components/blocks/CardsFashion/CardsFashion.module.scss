@@ -82,10 +82,12 @@
     height: toVw(300);
     padding-left: toVw(20);
     padding-right: toVw(20);
+    padding-bottom: toVw(25);
   }
 
   &_2 {
     height: toVw(300);
+    padding-bottom: toVw(25);
 
     .label {
       max-width: toVw(160);
@@ -117,6 +119,12 @@
   &_4 {
     padding-top: toVw(65);
     min-height: toVw(613);
+
+    .label {
+      max-width: toVw(300);
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &_5 {
@@ -136,11 +144,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-
+    padding-right: toVw(25);
     .label {
       position: relative;
-      flex: 0 0 toVw(155);
-      text-align: right;
+      flex: 0 0 toVw(160);
+      text-align: left;
     }
   }
 }

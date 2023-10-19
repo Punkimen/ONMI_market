@@ -20,7 +20,7 @@ export const CardsFashion: FC<IBaseComponents> = ({className}) => {
             <Image src={stats} alt={'1000+'} />
           </div>
           <div className={cn(s.label, s.label_small)}>
-            одежда увеличивает силу
+            Get dressed and gain the power
           </div>
         </div>
         <div className={cn(s.card, s.card_2)}>
@@ -28,20 +28,20 @@ export const CardsFashion: FC<IBaseComponents> = ({className}) => {
             <Image src={clothe} alt={'clothe'} />
           </div>
           <div className={cn(s.label, s.label_small)}>
-            крафти новые вещи
+            Craft is the way to a new apparel
           </div>
         </div>
         <div className={cn(s.card, s.card_3)}>
           <div className={cn(s.label)}>
-            Находи ресурсы
+            Find the resources around
           </div>
           <Image className={s.find} src={find} alt={'find'} />
         </div>
       </div>
       <div className={cn(s.col, s.col_2)}>
         <div className={cn(s.card, s.card_4)}>
-          <div className={cn(s.label, s.label_big)}>
-            Торгуй на внутреннем маркете
+          <div className={cn(s.label, s.label_big, 'gradient-text_green')}>
+            Market is also part of the game
           </div>
           <div className={s.phone}>
             <Image src={phone} alt={'phone'} />
@@ -51,7 +51,8 @@ export const CardsFashion: FC<IBaseComponents> = ({className}) => {
       <div className={cn(s.col, s.col_3)}>
         <div className={cn(s.card, s.card_5)}>
           <div className={cn(s.label)}>
-            Обменивай на реальные шмотки
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            Brand's Swap:<br/> from digital to real
           </div>
           <div className={s.jacket}>
             <Image src={jacket} alt={'jacket'} />
@@ -62,7 +63,7 @@ export const CardsFashion: FC<IBaseComponents> = ({className}) => {
             <Image src={omis} alt={'omis'} />
           </div>
           <div className={cn(s.label)}>
-            побеждай в фэшн баттле
+            Make your style an earning power
           </div>
         </div>
       </div>

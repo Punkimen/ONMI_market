@@ -64,7 +64,7 @@ export const Layout: FC<ILayoutProps> = ({children}) => {
       <main className="main">
         {children}
       </main>
-      {!pathname.includes('/login') && <Footer/>}
+      {pathname.includes('/login') || pathname.includes('/inventory') ? null : <Footer/>}
     </div>
   );
 };

@@ -1,0 +1,44 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.list {
+  position: relative;
+  display: flex;
+  background: #1C1C1C;
+  border-radius: toVw(16);
+  overflow: hidden;
+}
+
+.elem {
+  position: relative;
+
+  &:not(:first-child) {
+    //margin-left: toVw(-12);
+  }
+}
+
+.selector {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background-color: var(--secondary);
+  border-radius: toVw(16);
+}
+
+.tab {
+  padding: toVw(7) toVw(25);
+  color: rgba(255, 255, 255, 0.3);
+  transition: color ease-in .3s, background-color ease-in .3s;
+  font-size: toVw(14);
+
+
+  &.active {
+    color: #fff;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}

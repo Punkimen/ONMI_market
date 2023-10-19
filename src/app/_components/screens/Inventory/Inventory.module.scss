@@ -4,44 +4,6 @@
   margin-top: toVw(16);
 }
 
-.tabs {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: toVw(17) 0 toVw(14);
-  border-bottom: toVw(1) solid #151515;
-  position: fixed;
-  left: 0;
-  width: 100%;
-  top: toVw(67);
-  background-color: #000;
-  z-index: 8;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: toVw(1);
-    background: #151515;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: calc(100% + 3vw);
-    background: #000;
-    z-index: -1;
-  }
-}
-
 .list {
   display: flex;
 }
@@ -52,28 +14,9 @@
   }
 }
 
-.tab {
-  color: rgba(255, 255, 255, .3);
-  font-size: 14px;
-  font-weight: 600;
-  padding: toVw(6) toVw(12);
-  border-radius: toVw(17);
-  transition: color, background-color ease-in .3s;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, .3);
-    color: var(--white);
-  }
-
-  &.active {
-    background-color: rgba(255, 255, 255, .3);
-    color: var(--white);
-  }
-}
-
 .body {
   min-height: 80vh;
-  padding: toVw(100) 0 toVw(30);
+  padding: toVw(20) 0 toVw(30);
 }
 
 .catalog {

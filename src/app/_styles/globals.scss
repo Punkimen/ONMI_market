@@ -259,7 +259,21 @@ button {
     }
   }
 }
+.gradient-text_green {
+  color: #9DDB85;
 
+  @supports (--css: variables) {
+    background: #9DDB85;
+    background: linear-gradient(38deg, #9DDB85 14.03%, #A1BF0C 90.67%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    * {
+      background: inherit;
+    }
+  }
+}
 .row {
   display: block;
   overflow: hidden;
