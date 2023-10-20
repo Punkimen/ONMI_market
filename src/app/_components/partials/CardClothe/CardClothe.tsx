@@ -67,7 +67,7 @@ export const CardClothe: FC<ICardClotheProps> = React.memo(({
         </div>
       </>
     );
-  } else if (windowWidth > 0 && windowWidth < 450) {
+  } else if (windowWidth > 0 && windowWidth <= 450) {
     return (
       <>
         <div className={cn(s.card, className)} onClick={onClick}>

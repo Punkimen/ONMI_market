@@ -7,15 +7,15 @@ import s from './Fashionable.module.scss';
 export const Fashionable: FC<IBaseComponents> = ({className}) => {
   return (
     <section className={s.fashion}>
-      <Title tag={'h2'} className={s.title}>
-        <div className="row">
-          <div className="text-line color_gray">Not just</div>
-        </div>
-        <div className="row">
-          <div className="text-line" data-delay={0.1}>fashionable</div>
-        </div>
-      </Title>
       <div className="container">
+        <Title tag={'h2'} className={s.title}>
+          <div className="row">
+            <div className="text-line color_gray">Not just</div>
+          </div>
+          <div className="row">
+            <div className="text-line" data-delay={0.1}>fashionable</div>
+          </div>
+        </Title>
         <CardsFashion/>
       </div>
     </section>

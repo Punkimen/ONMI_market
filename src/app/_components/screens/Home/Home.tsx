@@ -30,9 +30,9 @@ export const Home: FC = () => {
   const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
 
   useEffect(() => {
-    if (windowWidth && windowWidth <= 450) {
+    if (windowWidth>0 && windowWidth <= 450) {
       setShowCollectionsMob(true);
-    } else if (windowWidth) {
+    } else if (windowWidth > 450) {
       setShowCollectionsMob(false);
     }
   }, [windowWidth]);
@@ -60,7 +60,7 @@ export const Home: FC = () => {
           </>
         </Text>
       </Hero>
-      <Catalog className={s.catalog} cardsOmi={bodies} hide={windowWidth > 0 && windowWidth <= 768} countsRow={4}
+      <Catalog className={s.catalog} cardsOmi={bodies} hide={windowWidth <= 768} countsRow={4}
         label={'Omi Bodys'}/>
       <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3}
         hide={windowWidth > 768}/>

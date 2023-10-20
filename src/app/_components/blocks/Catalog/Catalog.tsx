@@ -10,6 +10,7 @@ import {ModalClotheCraft} from "@/app/_components/partials/ModalClotheCraft/Moda
 import {useCatalogState} from "@/app/_state/store";
 import {useMousePosition} from "@/app/_hooks/useMousePosition";
 import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 export interface ICatalogProps extends IBaseComponents {
   cardsOmi?: IBody[],
@@ -37,6 +38,7 @@ export const Catalog: FC<ICatalogProps> = memo(({
   const catalog = useRef(null);
   const mousePosition = useMousePosition();
   const [coord, setCoord] = useState({x: 0, y: 0});
+  const windowWidth = useWindowWidth();
   const onHandle = (isShow: boolean) => {
     setShow(isShow);
   };
@@ -99,20 +101,21 @@ export const Catalog: FC<ICatalogProps> = memo(({
         {label && <div className={cn(s.label, 'text-line')}>{label}</div>}
         <div className={cn(s.wrapper, countsRow === 4 && s['row-4'])} ref={catalog}>
           {cardsOmi && cardsOmi.map((card, index) => {
-            return <div className={cn(s.item)} key={card.id} >
+            return <div className={cn(s.item)} key={card.id}>
               <CardOmi
                 onClick={() => onHandle(true)}
                 className={cn(s.card)} {...card} /></div>;
           })}
           {cardsClothe && cardsClothe.map((card: IClothe, index) => {
-            return <div className={cn( s.item)} key={card.id} >
+            return <div className={cn(s.item)} key={card.id}>
               <CardClothe isEmpty={isEmptyCards} isStats={isCardsStats}
                 className={cn(s.card)}
                 onClick={() => onHandle(true)}
                 {...card} />
             </div>;
           })}
-          {cardsClothe && <InfoCircle show={hover} x={coord.x || 0} y={coord.y || 0}>Craft</InfoCircle>}
+          {cardsClothe && <InfoCircle hide={windowWidth <= 768 && windowWidth > 0} show={hover} x={coord.x || 0}
+            y={coord.y || 0}>Craft</InfoCircle>}
         </div>
       </div>
     </div>

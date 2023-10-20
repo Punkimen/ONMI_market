@@ -9,17 +9,100 @@
   width: 100%;
   margin: 0 auto;
   @media(max-width: $md2 + px) {
-    max-width: toVw(1470, $md2);
+    max-width: 100%;
+    grid-gap: toVw(10, $md2);
   }
   @media(max-width: $md4 + px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: calc(100% + toVw(10, $md4));
-    max-width: calc(100% + toVw(10, $md4));
-    margin: 0 toVw(-10);
   }
   @media(max-width: $md5 + px) {
-    display: block;
+    grid-template-columns:1fr;
+    grid-gap: toVw(9, 390);
+  }
+}
+
+.label {
+  font-size: toVw(21);
+  text-align: center;
+  font-weight: 600;
+
+  @media(max-width: $md2+ px) {
+    font-size: toVw(21, $md2);
+  }
+  @media(max-width: $md4+ px) {
+    font-size: toVw(21, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(18, 390);
+  }
+
+  &_small {
+    font-size: toVw(18);
+    @media(max-width: $md2+ px) {
+      font-size: toVw(16, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      font-size: toVw(15, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(16, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(16, 390);
+    }
+  }
+
+  &_big {
+    font-size: toVw(32);
+    @media(max-width: $md2+ px) {
+      font-size: toVw(32, $md2);
+    }
+    @media(max-width: $md4+ px) {
+      font-size: toVw(32, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(32, 390);
+    }
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: toVw(10);
+  @media(max-width: $md2 + px) {
+    gap: toVw(10, $md2);
+  }
+  @media(max-width: $md5 + px) {
+    gap: toVw(9, 390);
+  }
+
+  &_1 {
+    display: grid;
+    grid-gap: toVw(10);
+    grid-template-columns: toVw(204) 1fr;
+    grid-template-rows: toVw(300) 1fr;
+    @media(max-width: $md2 + px) {
+      grid-gap: toVw(10, $md2);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: toVw(300, $md2) 1fr;
+    }
+    @media(max-width: $md5 + px) {
+      grid-template-rows: toVw(200, 390) 1fr;
+      grid-gap: toVw(9, 390);
+    }
+  }
+
+  &_3 {
+    @media(max-width: $md4 + px) {
+      grid-column: 1/3;
+      flex-direction: row;
+    }
+    @media(max-width: $md5 + px) {
+      grid-column: 1/2;
+      flex-direction: column;
+    }
   }
 }
 
@@ -33,71 +116,70 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  flex-grow: 1;
   @media(max-width: $md2 + px) {
-    margin: toVw(5, $md2);
     position: relative;
     border-radius: toVw(18, $md2);
   }
   @media(max-width: $md4 + px) {
-    margin: toVw(5, $md4);
     border-radius: toVw(18, $md4);
   }
   @media(max-width: $md5 + px) {
-    margin: toVw(5, 390);
     border-radius: toVw(18, 390);
+    padding: toVw(20, 390) toVw(15, 390) toVw(30, 390);
   }
-}
-
-.label {
-  font-size: toVw(21);
-  text-align: center;
-  font-weight: 600;
-
-  &_small {
-    font-size: toVw(18);
-  }
-
-  &_big {
-    font-size: toVw(32);
-  }
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  gap: toVw(10);
-
-  &_1 {
-    display: grid;
-    grid-gap: toVw(10);
-    grid-template-columns: toVw(204) 1fr;
-    grid-template-rows: toVw(300) 1fr;
-  }
-}
-
-.card {
-  flex-grow: 1;
 
   &_1 {
     height: toVw(300);
     padding-left: toVw(20);
     padding-right: toVw(20);
     padding-bottom: toVw(25);
+    @media(max-width: $md2 + px) {
+      height: toVw(300, $md2);
+      padding-left: toVw(20, $md2);
+      padding-right: toVw(20, $md2);
+      padding-bottom: toVw(25, $md2);
+    }
+    @media(max-width: $md5 + px) {
+      height: 100%;
+      padding-bottom: toVw(20, 390);
+    }
   }
 
   &_2 {
     height: toVw(300);
     padding-bottom: toVw(25);
+    @media(max-width: $md2 + px) {
+      height: toVw(300, $md2);
+      padding-bottom: toVw(25, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      padding-left: toVw(10, $md3);
+      padding-right: toVw(10, $md3);
+    }
+    @media(max-width: $md5 + px) {
+      height: 100%;
+      padding-bottom: toVw(20, 390);
+    }
 
     .label {
       max-width: toVw(160);
       margin: 0 auto;
+      @media(max-width: $md2 + px) {
+        max-width: toVw(160, $md2);
+      }
+      @media(max-width: $md3 + px) {
+        max-width: 100%;
+      }
     }
   }
 
   &_3 {
     height: 100%;
     grid-column: 1/3;
+    @media(max-width: $md5 + px) {
+      height: toVw(200, 390);
+    }
 
     .label {
       position: relative;
@@ -119,11 +201,23 @@
   &_4 {
     padding-top: toVw(65);
     min-height: toVw(613);
+    @media(max-width: $md2 + px) {
+      min-height: toVw(613, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      min-height: toVw(420, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      min-height: toVw(420, 390);
+    }
 
     .label {
       max-width: toVw(300);
       margin-left: auto;
       margin-right: auto;
+      @media(max-width: $md2 + px) {
+        max-width: 100%;
+      }
     }
   }
 
@@ -132,10 +226,35 @@
     align-items: center;
     justify-content: space-between;
     max-height: toVw(247);
+    @media(max-width: $md2 + px) {
+      max-height: toVw(247, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      width: 100%;
+      min-height: toVw(250, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      min-height: toVw(200, 390);
+    }
 
     .label {
       flex: 0 0 toVw(230);
       text-align: left;
+      position: relative;
+      z-index: 2;
+      @media(max-width: $md2 + px) {
+        flex: 0 0 toVw(230, $md2);
+      }
+      @media(max-width: $md3 + px) {
+        top: toVw(20, $md3);
+      }
+      @media(max-width: $md4 + px) {
+        flex: 0 0 toVw(230, $md4);
+        top: 0;
+      }
+      @media(max-width: $md5 + px) {
+        flex: 0 0 toVw(230, 390)
+      }
     }
   }
 
@@ -145,10 +264,33 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: toVw(25);
+    @media(max-width: $md2 + px) {
+      padding-right: toVw(25, $md2);
+    }
+    @media(max-width: $md4 + px) {
+      flex-grow: 0;
+      width: 100%;
+    }
+    @media(max-width: $md5 + px) {
+      min-height: toVw(200, 390);
+      padding-right: toVw(15, 390);
+    }
+
     .label {
       position: relative;
       flex: 0 0 toVw(160);
+      line-height: 1.1em;
       text-align: left;
+
+      @media(max-width: $md2 + px) {
+        flex: 0 0 toVw(160, $md2);
+      }
+      @media(max-width: $md4 + px) {
+        flex: 0 0 toVw(160, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        flex: 0 0 toVw(160, 390);
+      }
     }
   }
 }
@@ -159,6 +301,34 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: toVw(45);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(45, $md2);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(45, 390);
+  }
+}
+
+.clothe {
+  max-width: toVw(185);
+  width: 100%;
+  @media(max-width: $md2 + px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: toVw(185, $md2);
+  }
+  @media(max-width: $md5 + px) {
+    max-width: 67%;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .phone {
@@ -166,6 +336,20 @@
   bottom: toVw(-10);
   left: 50%;
   transform: translateX(-50%);
+  max-width: toVw(261);
+  width: 100%;
+  @media(max-width: $md2 + px) {
+    max-width: toVw(261, $md2);
+  }
+  @media(max-width: $md5 + px) {
+    max-width: 50%;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .jacket {
@@ -173,11 +357,44 @@
   top: 60%;
   transform: translate(32%, -50%);
   right: 0;
+  width: toVw(345);
+  @media(max-width: $md3 + px) {
+    width: toVw(250, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(250, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: toVw(250, 390);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .omis {
   position: absolute;
-
   transform: translateY(5%);
   left: 0;
+  bottom: 0;
+  width: toVw(444);
+  @media(max-width: $md2 + px) {
+    width: toVw(400, $md2);
+    left: toVw(-25, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(340, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: toVw(270, 390);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }

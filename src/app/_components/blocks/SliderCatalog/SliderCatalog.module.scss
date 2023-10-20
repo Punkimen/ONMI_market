@@ -16,21 +16,20 @@
 
 .catalog {
   &__slider {
-
+    :global(.swiper-wrapper) {
+      min-height: 100%;
+    }
   }
 
   &__slider_omi {
     @media(max-width: $md5 + px) {
-      padding:0 toVw(16, 390);
+      padding: 0 toVw(16, 390);
     }
   }
 }
 
 .slider {
 
-  @media(max-width: $md5 + px) {
-    padding-left: toVw(16, 390);
-  }
   .card {
     &_omi {
       @media(max-width: $md5 + px) {

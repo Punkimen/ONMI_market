@@ -29,6 +29,9 @@
   }
   @media(max-width: $md5 + px) {
     margin-bottom: toVw(122, 390);
+    :global(.swiper) {
+      padding-left: toVw(16, 390);
+    }
   }
 }
 

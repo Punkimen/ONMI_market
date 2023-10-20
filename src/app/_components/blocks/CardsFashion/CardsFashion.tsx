@@ -1,7 +1,6 @@
 import React, {FC} from "react";
 import {IBaseComponents} from "@/app/_types/base.types";
 import Image from "next/image";
-import stats from "@/../public/img/fashionCards/stats.svg";
 import clothe from "@/../public/img/fashionCards/clothe.png";
 import find from "@/../public/img/fashionCards/find.png";
 import phone from "@/../public/img/fashionCards/phone.png";
@@ -15,8 +14,8 @@ export const CardsFashion: FC<IBaseComponents> = ({className}) => {
     <div className={cn(s.cards, className)}>
       <div className={cn(s.col, s.col_1)}>
         <div className={cn(s.card, s.card_1)}>
-          <div className={s.stats}>
-            <Image src={stats} alt={'1000+'} />
+          <div className={cn(s.stats, 'gradient-text_green')}>
+            1000+
           </div>
           <div className={cn(s.label, s.label_small)}>
             Get dressed and gain the power

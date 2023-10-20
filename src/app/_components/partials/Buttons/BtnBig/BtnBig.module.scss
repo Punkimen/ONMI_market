@@ -14,6 +14,8 @@
   transition: background-color ease-in .3s;
   @media(max-width: $md2 + px) {
     font-size: toVw(12, $md2);
+    padding: toVw(16, $md2) toVw(16, $md2) toVw(17, $md2);
+    border-radius: toVw(27, $md2);
   }
   @media(max-width: $md4 + px) {
     padding: toVw(12, $md4) toVw(12, $md4) toVw(13, $md4);

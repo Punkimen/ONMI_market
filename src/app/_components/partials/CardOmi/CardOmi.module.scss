@@ -5,6 +5,9 @@
   border: toVw(1) solid #1F1F1F;
   padding: toVw(55) toVw(82) toVw(85);
   cursor: pointer;
+  @media(max-width: $md4 + px){
+    padding: toVw(45, $md4) toVw(15, $md4) toVw(25, $md4);
+  }
   @media(max-width: $md5 + px) {
     padding: toVw(45, 390) toVw(35, 390) toVw(25, 390);
   }

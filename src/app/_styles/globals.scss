@@ -107,11 +107,15 @@ body {
   @media(max-width: $md4 + px) {
     font-size: toVw(16, $md4);
   }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(16, 390);
+  }
 
   &.overlay {
     height: 100vh;
     overflow: hidden;
-    &::before{
+
+    &::before {
       content: '';
       position: fixed;
       top: 0;
@@ -259,6 +263,7 @@ button {
     }
   }
 }
+
 .gradient-text_green {
   color: #9DDB85;
 
@@ -274,6 +279,7 @@ button {
     }
   }
 }
+
 .row {
   display: block;
   overflow: hidden;

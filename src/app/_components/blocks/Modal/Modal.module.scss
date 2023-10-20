@@ -15,11 +15,15 @@
   justify-content: center;
   align-items: center;
   z-index: 11;
+  overflow: auto;
+  padding: toVw(20);
   transition: opacity ease-in .3s .1s;
+
 
   &.show {
     opacity: 1;
     pointer-events: auto;
+
     .modal {
       transform: scale(1);
       opacity: 1;
@@ -36,6 +40,14 @@
   transform: scale(0.9);
   opacity: 0;
   transition: opacity ease-in .3s, transform ease-in .3s;
+  margin: 0 auto;
+  @media(max-width: $md4 + px) {
+    padding: toVw(40, $md4) toVw(15, $md4);
+    border-radius: toVw(31, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    padding: toVw(40, 390) toVw(15, 390);
+  }
 }
 
 .close {
@@ -43,6 +55,10 @@
   top: toVw(22);
   right: toVw(22);
   transition: fill ease .2s;
+  @media(max-width: $md4 + px) {
+    top: toVw(22, $md4);
+    right: toVw(22, $md4);
+  }
 
   &:hover {
     svg {
