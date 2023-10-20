@@ -4,9 +4,11 @@ import cn from "classnames";
 import {gsap} from "gsap";
 import {useInventoryState} from "@/app/_state/store";
 import s from './Tabs.module.scss';
-interface ITabsProps extends IBaseComponents{}
 
-export const Tabs:FC<ITabsProps> = ({hide, className})=>{
+interface ITabsProps extends IBaseComponents {
+}
+
+export const Tabs: FC<ITabsProps> = React.memo(({hide, className}) => {
 
   const tabs = useInventoryState(state => state.tabs);
   const changeActiveTab = useInventoryState(state => state.changeActiveTab);
@@ -24,7 +26,7 @@ export const Tabs:FC<ITabsProps> = ({hide, className})=>{
       if (activeEl) {
         const width = activeEl.getBoundingClientRect().width;
         const left = activeEl.getBoundingClientRect().left - list.getBoundingClientRect().left;
-
+        console.log(width, left);
         gsap.to(selector, {
           width: width,
           left: left,
@@ -33,8 +35,8 @@ export const Tabs:FC<ITabsProps> = ({hide, className})=>{
         });
       }
     }
-  }, [tabs,listRef, selectorRef]);
-  if(hide) return null;
+  }, [tabs, listRef, selectorRef, hide]);
+  if (hide) return null;
   return <nav className={cn(s.tabs, className)}>
     <ul className={s.list} ref={listRef}>
       <div ref={selectorRef} className={s.selector}></div>
@@ -48,4 +50,6 @@ export const Tabs:FC<ITabsProps> = ({hide, className})=>{
       })}
     </ul>
   </nav>;
-};
+});
+
+Tabs.displayName = 'Tabs';
