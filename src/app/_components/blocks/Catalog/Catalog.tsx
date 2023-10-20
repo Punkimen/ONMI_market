@@ -17,6 +17,7 @@ export interface ICatalogProps extends IBaseComponents {
   countsRow: number,
   label?: string,
   isCardsStats?: boolean,
+  isEmptyCards?: boolean,
 }
 
 export const Catalog: FC<ICatalogProps> = memo(({
@@ -26,6 +27,7 @@ export const Catalog: FC<ICatalogProps> = memo(({
   cardsOmi,
   className,
   isCardsStats = true,
+  isEmptyCards,
   hide
 }) => {
   const clothe = useCatalogState(state => state.clothes[0]);
@@ -104,7 +106,7 @@ export const Catalog: FC<ICatalogProps> = memo(({
           })}
           {cardsClothe && cardsClothe.map((card: IClothe, index) => {
             return <div className={cn( s.item)} key={card.id} >
-              <CardClothe isStats={isCardsStats}
+              <CardClothe isEmpty={isEmptyCards} isStats={isCardsStats}
                 className={cn(s.card)}
                 onClick={() => onHandle(true)}
                 {...card} />

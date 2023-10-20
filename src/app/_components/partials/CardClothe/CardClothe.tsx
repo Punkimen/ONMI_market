@@ -15,12 +15,13 @@ import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 interface ICardClotheProps extends IClothe {
   className?: string,
   isStats?: boolean,
+  isEmpty?: boolean,
   onClick?: () => void,
 }
 
 const statsIcons = [stat1, stat2, stat3];
 const rarity = ["A", "B", "C", "D"];
-export const CardClothe: FC<ICardClotheProps> =  React.memo(({
+export const CardClothe: FC<ICardClotheProps> = React.memo(({
   id,
   imgSrc,
   price,
@@ -34,9 +35,9 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
   craftPoint,
   craftPointMax,
   onClick,
-  className}) => {
-  const bagState = useBagState(state => state.bag);
-  const addtoCard = useBagState(state => state.addToCart);
+  isEmpty,
+  className
+}) => {
   const windowWidth = useWindowWidth();
 
 
@@ -54,7 +55,8 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
               {stats.map((el, index) => {
                 return (
                   <div key={index} className={s.stat}>
-                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
+                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]}
+                      alt={'stat icon'}/>
                     <span>{el}</span>
                   </div>
                 );
@@ -65,11 +67,11 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
         </div>
       </>
     );
-  } else if(windowWidth > 0 && windowWidth < 450){
+  } else if (windowWidth > 0 && windowWidth < 450) {
     return (
       <>
         <div className={cn(s.card, className)} onClick={onClick}>
-          <div className={s.model}>{modelCategory}</div>
+          {!isEmpty && <div className={s.model}>{modelCategory}</div>}
           <div className={s.img}>
             <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
@@ -78,7 +80,8 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
               {stats?.map((el, index) => {
                 return (
                   <div key={index} className={s.stat}>
-                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]} alt={'stat icon'}/>
+                    <Image className={s[`img_${index + 1}`]} src={statsIcons[index]}
+                      alt={'stat icon'}/>
                     <span>{el}</span>
                   </div>
                 );
@@ -86,15 +89,17 @@ export const CardClothe: FC<ICardClotheProps> =  React.memo(({
             </div>
             <CraftProgress craftPoint={craftPoint} hide={windowWidth <= 450} craftPointMax={craftPointMax}/>
           </div> : null}
-          <div className={s.rarity}>
-            <div className={s.rarity__label}>Types of rarity:</div>
-            <div className={s.rarity__type}>
-              {rarity.map(el => {
-                return <span key={el} className={cn(el === modelCategory && s.current)}>{el}</span>;
-              })}
+          {!isEmpty && <>
+            <div className={s.rarity}>
+              <div className={s.rarity__label}>Types of rarity:</div>
+              <div className={s.rarity__type}>
+                {rarity.map(el => {
+                  return <span key={el} className={cn(el === modelCategory && s.current)}>{el}</span>;
+                })}
+              </div>
             </div>
-          </div>
-          <BtnBig>Buy (${price})</BtnBig>
+            <BtnBig>Buy (${price})</BtnBig>
+          </>}
         </div>
       </>
     );

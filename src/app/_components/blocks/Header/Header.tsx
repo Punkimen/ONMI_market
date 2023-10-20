@@ -1,5 +1,5 @@
 'use client';
-import React, {ReactDOM, ReactNode, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import logo from '@/../public/img/logo.svg';
@@ -12,7 +12,7 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {triggerAnimate} from "@/app/_animations/animation";
 import cn from "classnames";
 import {Balance} from "@/app/_components/partials/Balance/Balance";
-import {useBagState, useInventoryState, useUser} from "@/app/_state/store";
+import {useUser} from "@/app/_state/store";
 import {Dropdown} from "@/app/_components/partials/Dropdown/Dropdown";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 import {Burger} from "@/app/_components/partials/Burger/Burger";

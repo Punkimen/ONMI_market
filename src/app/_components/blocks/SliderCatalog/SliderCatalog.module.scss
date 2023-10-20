@@ -16,9 +16,7 @@
 
 .catalog {
   &__slider {
-    @media(max-width: $md5 + px) {
-      padding-left: toVw(16, 390);
-    }
+
   }
 
   &__slider_omi {
@@ -30,6 +28,9 @@
 
 .slider {
 
+  @media(max-width: $md5 + px) {
+    padding-left: toVw(16, 390);
+  }
   .card {
     &_omi {
       @media(max-width: $md5 + px) {

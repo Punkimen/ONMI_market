@@ -19,7 +19,6 @@
     margin: toVw(1, 390);
     padding: toVw(28, 390) 0 toVw(32, 390);
     border: none;
-    border-top: toVw(1, 390) solid #33363E;
   }
 
   &__link {
@@ -79,7 +78,9 @@
   }
   @media(max-width: $md5 + px) {
     max-width: toVw(245, 390);
-    margin-bottom: toVw(30, 390);
+    &:not(:last-child){
+      margin-bottom: toVw(30, 390);
+    }
   }
 
   img {

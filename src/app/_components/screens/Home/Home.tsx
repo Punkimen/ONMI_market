@@ -60,8 +60,8 @@ export const Home: FC = () => {
           </>
         </Text>
       </Hero>
-      <Catalog className={s.catalog} cardsOmi={bodies} countsRow={4} label={'Omi Bodys'}
-        hide={windowWidth <= 768}/>
+      <Catalog className={s.catalog} cardsOmi={bodies} hide={windowWidth > 0 && windowWidth <= 768} countsRow={4}
+        label={'Omi Bodys'}/>
       <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3}
         hide={windowWidth > 768}/>
 
@@ -123,10 +123,12 @@ export const Home: FC = () => {
           </Text>
         </div>
         <div className={s.zero__wrapper}>
-          {windowWidth > 450 ? <MarqueCatalog className={s.zero__catalog}
-            cardsClothe={clothes}/> :
-            <Catalog countsRow={4} className={s.zero__catalog}
-              cardsClothe={clothes?.slice(0, 4)} isCardsStats={false}/>}
+          {windowWidth <= 450 && windowWidth > 0 ? <Catalog countsRow={4} className={s.zero__catalog}
+            cardsClothe={clothes?.slice(0, 4)} isCardsStats={false}
+            isEmptyCards={true}/> :
+            <MarqueCatalog className={s.zero__catalog}
+              cardsClothe={clothes}/>
+          }
         </div>
         <div className="container">
           <BtnSmall color={'white'} className={cn(s.zero__btn)} href={Routes.CLOTHES}>

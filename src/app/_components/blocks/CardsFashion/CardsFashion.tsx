@@ -9,7 +9,6 @@ import jacket from "@/../public/img/fashionCards/jacket.png";
 import omis from "@/../public/img/fashionCards/omis.png";
 import cn from 'classnames';
 import s from './CardsFashion.module.scss';
-import {BackgroundImage} from "@/app/_components/partials/BackgroundImage/BackgroundImage";
 
 export const CardsFashion: FC<IBaseComponents> = ({className}) => {
   return (

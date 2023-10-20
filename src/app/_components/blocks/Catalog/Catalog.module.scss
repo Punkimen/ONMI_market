@@ -21,6 +21,14 @@
 }
 
 .item {
+  @media(max-width: $md5 + px){
+    border-top: 1px solid #1F1F1F;
+  }
+  &:nth-child(2n+1){
+    @media(max-width: $md5 + px){
+      border-right: 1px solid #1F1F1F;
+    }
+  }
   &:not(:first-child) {
     .card {
       border-left: none;

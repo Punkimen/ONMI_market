@@ -11,7 +11,7 @@ export const Tabs:FC<ITabsProps> = ({hide, className})=>{
   const tabs = useInventoryState(state => state.tabs);
   const changeActiveTab = useInventoryState(state => state.changeActiveTab);
 
-  const listRef = useRef<HTMLDivElement | null>(null);
+  const listRef = useRef<HTMLUListElement | null>(null);
   const selectorRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const Tabs:FC<ITabsProps> = ({hide, className})=>{
         });
       }
     }
-  }, [tabs]);
+  }, [tabs,listRef, selectorRef]);
   if(hide) return null;
   return <nav className={cn(s.tabs, className)}>
     <ul className={s.list} ref={listRef}>
