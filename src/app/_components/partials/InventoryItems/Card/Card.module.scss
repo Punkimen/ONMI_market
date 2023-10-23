@@ -1,10 +1,21 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .card {
   position: relative;
   border-radius: toVw(31);
   padding: toVw(50) toVw(27) toVw(45) toVw(27);
   background-color: #111111;
+
+  @media(max-width: $md3 + px) {
+    padding: toVw(50, $md3) toVw(27, $md3) toVw(24, $md3) toVw(27, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    padding: toVw(50, $md4) toVw(27, $md4) toVw(24, $md4) toVw(27, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    padding: toVw(50, 390) toVw(15, 390) toVw(24, 390) toVw(15, 390);
+  }
 }
 
 .settings {

@@ -53,7 +53,6 @@ export const Header = () => {
   const [walletShow, setWalletShow] = useState(false);
 
 
-
   useEffect(() => {
     if (windowWidth && windowWidth <= 450 && windowWidth > 0) {
       setShowCollectionsMob(true);
@@ -65,8 +64,6 @@ export const Header = () => {
   useEffect(() => {
     setIsAuth(user.isAuth);
   }, [user.isAuth]);
-
-
 
 
   return (
@@ -81,7 +78,7 @@ export const Header = () => {
               {!showCollectionsMob && <NavLinks links={links} className={s.nav}/>}
             </div>
 
-            <Tabs hide={!pathname.includes('/inventory')} />
+            <Tabs hide={!pathname.includes('/inventory') || windowWidth <= 768}/>
 
             <div className={cn(s.right)}>
               <Balance className={cn(s.balance)} onClick={() => setWalletShow(!walletShow)}

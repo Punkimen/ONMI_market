@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .card {
   width: toVw(119);
@@ -6,16 +7,49 @@
   background-color: #1B1C1D;
   padding: toVw(13) toVw(15) toVw(19);
   font-size: toVw(14);
+  @media(max-width: $md2 + px) {
+    width: toVw(105, $md2);
+    border-radius: toVw(26, $md2);
+    padding: toVw(13, $md2) toVw(15, $md2) toVw(19, $md2);
+    font-size: toVw(14, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    width: toVw(119, $md3);
+    padding: toVw(13, $md3) toVw(15, $md3) toVw(19, $md3);
+    font-size: toVw(14, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(119, $md4);
+    padding: toVw(13, $md4) toVw(15, $md4) toVw(19, $md4);
+    font-size: toVw(14, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: calc(33.8% - toVw(5, 390));
+    padding: toVw(13, 390) toVw(15, 390) toVw(19, 390);
+    font-size: toVw(14, 390);
+  }
 }
 
 .img {
   display: block;
   margin-bottom: toVw(22);
+  @media(max-width: $md3 + px) {
+    margin-bottom: toVw(22, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    margin-bottom: toVw(22, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(22, 390);
+  }
 }
 
 .label {
   font-weight: 500;
   margin-bottom: toVw(5);
+  @media(max-width: $md5 + px) {
+    margin-bottom: toVw(5, 390);
+  }
 }
 
 .value {

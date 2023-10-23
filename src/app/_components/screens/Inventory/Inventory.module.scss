@@ -1,7 +1,17 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
 
 .inventory {
   margin-top: toVw(16);
+  @media(max-width: $md3 + px) {
+    margin-top: toVw(30, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    margin-top: toVw(50, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-top: toVw(90, 390);
+  }
 }
 
 .list {
@@ -24,6 +34,17 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: toVw(8);
+  @media(max-width: $md3 + px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media(max-width: $md4 + px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: toVw(8, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    grid-template-columns: 1fr 1fr;
+    gap: toVw(5, 390);
+  }
 
   &_flex {
     display: flex;
@@ -32,16 +53,26 @@
 
   &:not(:last-child) {
     margin-bottom: toVw(43);
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(43, 390);
+    }
   }
 }
 
 .wrapper {
   display: flex;
+  @media(max-width: $md3 + px) {
+    display: block;
+  }
 }
 
 .col {
   &:not(:last-child) {
     margin-right: toVw(73);
+    @media(max-width: $md3 + px) {
+      margin-right: 0;
+      margin-bottom: toVw(64, $md3);
+    }
   }
 }
 

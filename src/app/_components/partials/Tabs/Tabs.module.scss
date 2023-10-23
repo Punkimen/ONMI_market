@@ -7,14 +7,23 @@
   background: #1C1C1C;
   border-radius: toVw(16);
   overflow: hidden;
+  @media(max-width: $md2 + px) {
+    border-radius: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    border-radius: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    border-radius: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    border-radius: toVw(16, 390);
+  }
+
 }
 
 .elem {
   position: relative;
-
-  &:not(:first-child) {
-    //margin-left: toVw(-12);
-  }
 }
 
 .selector {
@@ -24,6 +33,18 @@
   height: 100%;
   background-color: var(--secondary);
   border-radius: toVw(16);
+  @media(max-width: $md2 + px) {
+    border-radius: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    border-radius: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    border-radius: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    border-radius: toVw(16, 390);
+  }
 }
 
 .tab {
@@ -31,7 +52,14 @@
   color: rgba(255, 255, 255, 0.3);
   transition: color ease-in .3s, background-color ease-in .3s;
   font-size: toVw(14);
-
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+    padding: toVw(7, $md2) toVw(25, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+    padding: toVw(7, $md3) toVw(12, $md3);
+  }
 
   &.active {
     color: #fff;
