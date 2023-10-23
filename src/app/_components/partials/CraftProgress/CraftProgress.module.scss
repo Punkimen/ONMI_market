@@ -17,6 +17,11 @@
   @media(max-width: $md4 + px) {
     font-size: toVw(12, $md4);
   }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(16, 390);
+    padding: toVw(12, 390) toVw(18, 390) toVw(11, 390);
+    border-radius: toVw(22, 390);
+  }
 }
 
 .label {

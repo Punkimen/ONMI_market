@@ -64,6 +64,9 @@ export const CardClothe: FC<ICardClotheProps> = React.memo(({
             </div>
             <CraftProgress craftPoint={craftPoint} craftPointMax={craftPointMax}/>
           </div> : null}
+          {!isEmpty && windowWidth<=768 && <>
+            <BtnBig className={s.btn_craft}>Craft</BtnBig>
+          </>}
         </div>
       </>
     );
@@ -71,7 +74,6 @@ export const CardClothe: FC<ICardClotheProps> = React.memo(({
     return (
       <>
         <div className={cn(s.card, className)} onClick={onClick}>
-          {!isEmpty && <div className={s.model}>{modelCategory}</div>}
           <div className={s.img}>
             <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
@@ -90,15 +92,7 @@ export const CardClothe: FC<ICardClotheProps> = React.memo(({
             <CraftProgress craftPoint={craftPoint} hide={windowWidth <= 450} craftPointMax={craftPointMax}/>
           </div> : null}
           {!isEmpty && <>
-            <div className={s.rarity}>
-              <div className={s.rarity__label}>Types of rarity:</div>
-              <div className={s.rarity__type}>
-                {rarity.map(el => {
-                  return <span key={el} className={cn(el === modelCategory && s.current)}>{el}</span>;
-                })}
-              </div>
-            </div>
-            <BtnBig>Buy (${price})</BtnBig>
+            <BtnBig hide={windowWidth <=450}>Craft</BtnBig>
           </>}
         </div>
       </>

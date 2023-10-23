@@ -78,7 +78,7 @@
   }
   @media(max-width: $md5 + px) {
     max-width: toVw(245, 390);
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-bottom: toVw(30, 390);
     }
   }
@@ -174,8 +174,11 @@
 
 .bottom {
   margin-top: toVw(50);
-}
 
+}
+.btn_craft{
+  margin-top: toVw(44, $md4);
+}
 .btn {
   font-weight: 600;
   max-width: toVw(206);

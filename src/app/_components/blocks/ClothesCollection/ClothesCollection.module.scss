@@ -43,19 +43,37 @@
 }
 
 .available {
+  display: flex;
+  align-items: center;
   width: fit-content;
   margin: 0 auto;
   border: 1px solid #2d2d2d;
   padding: toVw(17) toVw(30) toVw(17);
-  border-radius: toVw(29);
+  border-radius: toVw(16);
+
+  img {
+    display: block;
+    margin-right: toVw(15);
+    width: toVw(22);
+    height: auto;
+  }
+
   @media(max-width: $md3 + px) {
     padding: toVw(17, $md3) toVw(30, $md3) toVw(17, $md3);
-    border-radius: toVw(29, $md3);
+    border-radius: toVw(16, $md3);
+    img {
+      width: toVw(22, $md3);
+      margin-right: toVw(15, $md3);
+    }
   }
   @media(max-width: $md5 + px) {
     text-align: center;
     font-size: toVw(12, 390);
     padding: toVw(14, 390) toVw(45, 390) toVw(14, 390);
-    border-radius: toVw(29, 390);
+    border-radius: toVw(16, 390);
+    img {
+      width: toVw(22, 390);
+      margin-right: toVw(15, 390);
+    }
   }
 }
