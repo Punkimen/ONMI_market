@@ -30,8 +30,6 @@
 
   &__left {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
     @media(max-width: $md4 + px) {
       display: block;
       margin-bottom: toVw(73, $md4);
@@ -46,17 +44,21 @@
     align-items: center;
     @media(max-width: $md4 + px) {
       display: block;
+      margin-bottom: toVw(75, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(50, 390);
     }
   }
 
   &__logo {
-    margin-right: toVw(57); /* 3.6vw to rem */
+    margin-bottom: toVw(22);
     width: toVw(83); /* 5.21vw to rem */
     min-width: toVw(50); /* 3.13vw to rem */
     @media(max-width: $md2 + px) {
-      margin-right: toVw(57, $md2);
       width: toVw(83, $md2);
       min-width: toVw(50, $md2);
+      margin-bottom: toVw(22, $md2);
     }
     @media(max-width: $md4 + px) {
       margin: 0 auto toVw(16, $md4);
@@ -78,10 +80,10 @@
   }
 
   &__labels {
-    font-size: toVw(15); /* 0.94vw to rem */
-    line-height: 1.1em;
+    font-size: toVw(18); /* 0.94vw to rem */
+    line-height: 1.3em;
     @media(max-width: $md2 + px) {
-      font-size: toVw(15, $md2);
+      font-size: toVw(18, $md2);
     }
     @media(max-width: $md4 + px) {
       font-size: toVw(23, $md4);
@@ -108,7 +110,7 @@
       margin-right: auto;
       margin-bottom: toVw(90, $md4);
     }
-    @media(max-width: $md5 + px){
+    @media(max-width: $md5 + px) {
       margin-bottom: toVw(90, 390);
     }
 
@@ -186,6 +188,7 @@
 
   &__socials-link {
     width: 100%;
+
     &:not(:last-child) {
       margin-right: toVw(29); /* 1.82vw to rem */
       @media(max-width: $md2 + px) {
@@ -202,7 +205,7 @@
 
   &__btns {
     display: flex;
-    @media(max-width: $md4 + px){
+    @media(max-width: $md4 + px) {
       justify-content: center;
     }
   }
@@ -238,6 +241,57 @@
   }
 }
 
+.col {
+  &:not(:last-child) {
+    margin-right: toVw(125);
+  }
+}
+
+.lists {
+  display: flex;
+  @media(max-width: $md4 + px) {
+    justify-content: center;
+    font-size: toVw(18, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    justify-content: flex-start;
+    font-size: toVw(16, 390);
+  }
+}
+
+.links {
+  &:not(:last-child) {
+    margin-right: toVw(36);
+    @media(max-width: $md4 + px) {
+      margin-right: toVw(55, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin-right: toVw(55, 390);
+    }
+  }
+}
+
+.elem {
+  &:not(:last-child) {
+    margin-bottom: toVw(5);
+    @media(max-width: $md4 + px) {
+      margin-bottom: toVw(5, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(5, 390);
+    }
+  }
+}
+
+.link {
+  transition: color ease .2s;
+  color: #fff;
+
+  &:hover {
+    color: var(--gray);
+  }
+}
+
 .app-btn {
   border-radius: toVw(6); /* 0.36vw to rem */
   background-color: rgba(32, 32, 32, 0.71);
@@ -266,6 +320,7 @@
     padding: toVw(20, $md4) toVw(20, $md4) toVw(20, $md4) toVw(20, $md4);
   }
   @media(max-width: $md5 + px) {
+    width: 100%;
     min-width: toVw(167, 390);
     font-size: toVw(15, 390);
     border-radius: toVw(10, 390);

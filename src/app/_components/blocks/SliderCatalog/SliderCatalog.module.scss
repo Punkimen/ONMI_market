@@ -16,6 +16,13 @@
 
 .catalog {
   &__slider {
+    .slider {
+      @media(max-width: $md5 + px) {
+        border-top: 1px solid #33363E;
+        padding: toVw(19, 390) toVw(16, 390) 0;
+      }
+    }
+
     :global(.swiper-wrapper) {
       min-height: 100%;
     }
@@ -27,10 +34,7 @@
 }
 
 .slider {
-  @media(max-width: $md5 + px) {
-    border-top: 1px solid #33363E;
-    padding: toVw(19, 390) toVw(16, 390) 0;
-  }
+
 
   .card {
     &_omi {
