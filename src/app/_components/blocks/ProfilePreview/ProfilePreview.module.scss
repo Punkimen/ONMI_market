@@ -1,0 +1,50 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.avatar {
+  max-width: toVw(106);
+  width: 100%;
+  margin: 0 auto toVw(21);
+  @media(max-width: $md4 + px) {
+    max-width: toVw(106, $md4);
+    margin-bottom: toVw(21, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    max-width: toVw(106, 390);
+    margin-bottom: toVw(21, 390);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.name {
+  text-align: center;
+  margin-bottom: toVw(20);
+  @media(max-width: $md4 + px) {
+    font-size: toVw(20, $md4);
+    margin-bottom: toVw(20, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(20, 390);
+    margin-bottom: toVw(20, 390);
+  }
+}
+
+.balance {
+  margin: 0 auto;
+  @media(max-width: $md4 + px) {
+    min-width: toRem(180);
+    border-radius: toVw(21, $md4);
+    font-size: toVw(14, $md4);
+    padding: toVw(10, $md4) toVw(20, $md4) toVw(11, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    border-radius: toVw(21, 390);
+    font-size: toVw(14, 390);
+    padding: toVw(10, 390) toVw(20, 390) toVw(11, 390);
+  }
+}

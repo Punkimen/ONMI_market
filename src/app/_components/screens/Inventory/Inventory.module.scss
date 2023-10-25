@@ -23,7 +23,22 @@
     margin-right: toVw(8);
   }
 }
-
+.profile{
+  @media(max-width: $md4 + px){
+    margin-bottom: toVw(43, $md4);
+  }
+  @media(max-width: $md5 + px){
+    margin-bottom: toVw(43, 390);
+  }
+}
+.tabs{
+  @media(max-width: $md4 + px){
+     margin-bottom: toVw(23, $md4);
+  }
+  @media(max-width: $md5 + px){
+     margin-bottom: toVw(23, 390);
+  }
+}
 .body {
   min-height: 80vh;
   padding: toVw(20) 0 toVw(30);

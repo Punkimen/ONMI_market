@@ -7,6 +7,7 @@
   background: #1C1C1C;
   border-radius: toVw(16);
   overflow: hidden;
+  width: fit-content;
   @media(max-width: $md2 + px) {
     border-radius: toVw(16, $md2);
   }
@@ -14,6 +15,7 @@
     border-radius: toVw(16, $md3);
   }
   @media(max-width: $md4 + px) {
+    margin: 0 auto;
     border-radius: toVw(16, $md4);
   }
   @media(max-width: $md5 + px) {
@@ -60,7 +62,14 @@
     font-size: toVw(14, $md3);
     padding: toVw(7, $md3) toVw(12, $md3);
   }
-
+@media(max-width: $md4 + px){
+  font-size: toVw(14, $md4);
+  padding: toVw(7, $md4) toVw(20, $md4);
+}
+@media(max-width: $md5 + px){
+  font-size: toVw(14, 390);
+  padding: toVw(7, 390) toVw(20, 390);
+}
   &.active {
     color: #fff;
   }

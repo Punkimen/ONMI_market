@@ -21,6 +21,10 @@ import box from '@/../public/img/box.png';
 import {BoxCard} from "@/app/_components/partials/InventoryItems/BoxCard/BoxCard";
 import {IventCard} from "@/app/_components/partials/InventoryItems/IventCard/IventCard";
 import {useInventoryState} from "@/app/_state/store";
+import {ProfilePreview} from "@/app/_components/blocks/ProfilePreview/ProfilePreview";
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import {Tabs} from "@/app/_components/partials/Tabs/Tabs";
+import {Wallet} from "@/app/_components/blocks/Wallet/Wallet";
 
 interface IData {
   minerals: IMaterialCardProps[];
@@ -195,11 +199,11 @@ export const Inventory: FC = () => {
 
   const [cards, setCards] = useState([]);
   const [activeTab, setActiveTab] = useState('');
+  const windowWidth = useWindowWidth();
 
   useEffect(()=>{
     tabs.forEach(el=>{
       if(el.isActive === true){
-        console.log(el.title);
         setActiveTab(el.title);
       }
     });
@@ -222,7 +226,8 @@ export const Inventory: FC = () => {
   return (
     <div className='container'>
       <div className={cn(s.inventory)}>
-
+        <ProfilePreview className={s.profile} hide={windowWidth>768} />
+        <Tabs className={s.tabs} hide={windowWidth>768} />
         <div className={s.body}>
           {(activeTab === 'Omis' || activeTab === 'Clothes') && <div className={s.catalog}>
             {cards?.map((el) => {

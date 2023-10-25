@@ -26,7 +26,6 @@ export const Tabs: FC<ITabsProps> = React.memo(({hide, className}) => {
       if (activeEl) {
         const width = activeEl.getBoundingClientRect().width;
         const left = activeEl.getBoundingClientRect().left - list.getBoundingClientRect().left;
-        console.log(width, left);
         gsap.to(selector, {
           width: width,
           left: left,
