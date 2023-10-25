@@ -21,6 +21,7 @@ import Image from "next/image";
 import stat1 from '@/../public/img/icons/stat_1.svg';
 import stat2 from '@/../public/img/icons/stat_2.svg';
 import stat3 from '@/../public/img/icons/stat_3.svg';
+import modalImg from "@/../public/img/modal_clothe.png";
 import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
 
 interface ISliderCatalogProps extends IBaseComponents, Omit<ICatalogProps, 'countsRow'> {
@@ -67,7 +68,7 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
     <div className={cn(s.catalog, className)}>
 
       {cardsClothe &&
-          <ModalClotheCraft onHandle={onHandle} imgSrc={clothe.imgSrc} show={show} category={clothe.category}
+          <ModalClotheCraft onHandle={onHandle} imgSrc={modalImg} show={show} category={clothe.category}
             collection={clothe.collection} price={clothe.price}/>}
       {cardsOmi &&
           <ModalClotheCraft onHandle={onHandle} imgSrc={omis.imgSrc} show={show} category={"OMI"}

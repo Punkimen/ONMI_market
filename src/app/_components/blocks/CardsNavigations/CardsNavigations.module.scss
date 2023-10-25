@@ -40,6 +40,7 @@
   border-radius: toVw(18);
   background: #171717;
   overflow: hidden;
+  font-weight: bold;
   @media(max-width: $md2 + px) {
     margin: toVw(5, $md2);
     position: relative;
@@ -112,7 +113,6 @@
     text-align: center;
     color: #F1AB3B;
     font-size: toVw(39);
-    font-weight: bold;
     @media(max-width: $md2 + px) {
       font-size: toVw(39, $md2);
     }
@@ -198,6 +198,7 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    min-height: toVw(303);
     @media(max-width: $md5 + px) {
       min-height: toVw(283, 390);
     }
@@ -240,7 +241,6 @@
     position: relative;
     z-index: 2;
     color: #3B6EF1;
-    font-weight: bold;
     font-size: toVw(39);
     line-height: 1.3em;
     @media(max-width: $md2 + px) {
@@ -303,7 +303,6 @@
   }
 
   &__signature-text {
-    font-weight: bold;
     color: #D3DB85;
     @media(max-width: $md4 + px) {
       font-size: toVw(21, $md4);
@@ -345,7 +344,6 @@
   &__battle-label {
     position: relative;
     font-size: toVw(32);
-    font-weight: bold;
     text-align: center;
     @media(max-width: $md2 + px) {
       text-align: center;
@@ -395,7 +393,6 @@
   }
 
   &__customize-text {
-    font-weight: bold;
     width: 90%;
     margin: 0 auto;
   }
@@ -415,8 +412,7 @@
   }
 
   &__chat-text {
-    font-weight: bold;
-    width: 90%;
+    width: 82%;
     margin: 0 auto toVw(20);
     @media(max-width: $md2 + px) {
       margin-bottom: toVw(20, $md2);
@@ -450,5 +446,6 @@
 }
 
 .row {
+  flex-grow: 1;
   display: flex;
 }

@@ -1,6 +1,5 @@
 "use client";
 import React, {FC, memo, useCallback, useEffect, useRef, useState} from 'react';
-import s from './Catalog.module.scss';
 import cn from 'classnames';
 import {CardOmi} from "@/app/_components/partials/CardOmi/CardOmi";
 import {IBody, IClothe} from "@/app/_types/cards.types";
@@ -11,6 +10,8 @@ import {useCatalogState} from "@/app/_state/store";
 import {useMousePosition} from "@/app/_hooks/useMousePosition";
 import {InfoCircle} from "@/app/_components/partials/InfoCircle/InfoCircle";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import modalImg from "@/../public/img/modal_clothe.png";
+import s from './Catalog.module.scss';
 
 export interface ICatalogProps extends IBaseComponents {
   cardsOmi?: IBody[],
@@ -92,7 +93,7 @@ export const Catalog: FC<ICatalogProps> = memo(({
     <div className={className}>
 
       {cardsClothe &&
-          <ModalClotheCraft onHandle={onHandle} imgSrc={clothe.imgSrc} show={show} category={clothe.category}
+          <ModalClotheCraft onHandle={onHandle} imgSrc={modalImg} show={show} category={clothe.category}
             collection={clothe.collection} price={clothe.price}/>}
       {cardsOmi &&
           <ModalClotheCraft onHandle={onHandle} imgSrc={omis.imgSrc} show={show} category={"OMI"}
