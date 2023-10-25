@@ -19,7 +19,7 @@ export const Login: FC = () => {
           Email</BtnEnter>
         </div>
         <div className={cn(s.sign, 'opacity')} data-delay={0.2} >
-          <span className={"color_gray"}>You don't have an account?</span>
+          <span className={"color_gray"}>You don&apos;t have an account?</span>
           <Link href={Routes.CREATE}>Sign up →</Link>
         </div>
       </div>
