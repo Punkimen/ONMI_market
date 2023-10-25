@@ -7,6 +7,7 @@ export enum Routes {
   LOGIN = '/login',
   EMAIL= '/login/email',
   ENTER= '/login/enter',
+  CREATE= '/login/create',
   FORGOT= '/login/password',
   RESET= '/login/resetPassword',
 }

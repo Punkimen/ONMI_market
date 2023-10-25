@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var';
 
 .nav {
   display: flex;
@@ -14,10 +15,47 @@
     border-radius: toVw(32);
     font-size: toVw(14);
     font-weight: 500;
+    @media(max-width: $md2 + px) {
+      font-size: toVw(14, $md2);
+      max-width: toVw(162, $md2);
+      border-radius: toVw(32, $md2);
+    }
+    @media(max-width: $md3 + px) {
+      font-size: toVw(14, $md3);
+      max-width: toVw(162, $md3);
+      border-radius: toVw(32, $md3);
+    }
+    @media(max-width: $md4 + px) {
+      font-size: toVw(14, $md4);
+      max-width: toVw(162, $md4);
+      border-radius: toVw(32, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      font-size: toVw(14, 390);
+      max-width: toVw(162, 390);
+      border-radius: toVw(32, 390);
+    }
+
     &_arrow {
       width: toVw(62);
       height: toVw(62);
       border-radius: 50%;
+      @media(max-width: $md2 + px) {
+        width: toVw(62, $md2);
+        height: toVw(62, $md2);
+      }
+      @media(max-width: $md3 + px) {
+        width: toVw(62, $md3);
+        height: toVw(62, $md3);
+      }
+      @media(max-width: $md4 + px) {
+        width: toVw(62, $md4);
+        height: toVw(62, $md4);
+      }
+      @media(max-width: $md5 + px) {
+        width: toVw(62, 390);
+        height: toVw(62, 390);
+      }
     }
   }
 }
@@ -27,4 +65,16 @@
   display: block;
   width: toVw(16);
   height: auto;
+  @media(max-width: $md2 + px) {
+    width: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    width: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    width: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    width: toVw(16, 390);
+  }
 }

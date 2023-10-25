@@ -178,8 +178,10 @@ h4 {
     font-size: toVw(40, $md2);
   }
   @media(max-width: $md4 + px) {
+        font-size: toVw(40, $md4);
   }
   @media(max-width: $md5 + px) {
+        font-size: toVw(40, 390);
   }
 }
 

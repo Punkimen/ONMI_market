@@ -1,4 +1,5 @@
 @import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var';
 
 .btn {
   width: 100%;
@@ -13,6 +14,30 @@
   padding: toVw(15) toVw(45) toVw(15) toVw(25);
   border-radius: toVw(28);
   min-height: toVw(55);
+  @media(max-width: $md2 + px) {
+    font-size: toVw(14, $md2);
+    padding: toVw(15, $md2) toVw(45, $md2) toVw(15, $md2) toVw(25, $md2);
+    border-radius: toVw(28, $md2);
+    min-height: toVw(55, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    font-size: toVw(14, $md3);
+    padding: toVw(15, $md3) toVw(45, $md3) toVw(15, $md3) toVw(25, $md3);
+    border-radius: toVw(28, $md3);
+    min-height: toVw(55, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    font-size: toVw(14, $md4);
+    padding: toVw(15, $md4) toVw(45, $md4) toVw(15, $md4) toVw(25, $md4);
+    border-radius: toVw(28, $md4);
+    min-height: toVw(55, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    padding: toVw(15, 390) toVw(45, 390) toVw(15, 390) toVw(25, 390);
+    border-radius: toVw(28, 390);
+    min-height: toVw(55, 390);
+  }
 
   &:hover {
     background-color: #363636;
@@ -33,6 +58,22 @@
   margin-right: toVw(16);
   width: toVw(16);
   height: auto;
+  @media(max-width: $md2 + px) {
+    margin-right: toVw(16, $md2);
+    width: toVw(16, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    margin-right: toVw(16, $md3);
+    width: toVw(16, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    margin-right: toVw(16, $md4);
+    width: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    margin-right: toVw(16, 390);
+    width: toVw(16, 390);
+  }
 }
 
 .arrow {
@@ -42,6 +83,18 @@
   right: toVw(24);
   fill: var(--white);
   pointer-events: none;
+  @media(max-width: $md2 + px) {
+    right: toVw(24, $md2);
+  }
+  @media(max-width: $md3 + px) {
+    right: toVw(24, $md3);
+  }
+  @media(max-width: $md4 + px) {
+    right: toVw(24, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    right: toVw(24, 390);
+  }
 
   &.black {
     fill: var(--dark);

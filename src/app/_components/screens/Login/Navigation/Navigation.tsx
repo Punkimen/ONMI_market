@@ -22,7 +22,7 @@ export const Navigation: FC<INavigationProps> = (props) => {
   }
   ;
   return (
-    <div className={cn(s.nav, props.className)}>
+    <div className={cn(s.nav, 'container', props.className)}>
       <BtnBig color={"gray"} onClick={() => router.back()} className={cn(s.nav__btn, s.nav__btn_arrow, 'opacity')}>
         <Image className={s.arrow} src={arrow} alt={'arrow'}/>
       </BtnBig>

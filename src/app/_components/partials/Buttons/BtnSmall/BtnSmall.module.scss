@@ -5,7 +5,7 @@
   font-size: toVw(12);
   font-weight: 600;
   border-radius: toVw(17);
-  padding: toVw(6) toVw(24) toVw(5);
+  padding: toVw(8) toVw(24) toVw(8);
   background-color: var(--white);
   color: var(--dark);
   transition: background-color ease-in .3s;
@@ -16,22 +16,22 @@
   @media(max-width: $md2 + px) {
     font-size: toVw(12, $md2);
     border-radius: toVw(17, $md2);
-    padding: toVw(6, $md2) toVw(24, $md2) toVw(5, $md2);
+    padding: toVw(8, $md2) toVw(24, $md2) toVw(8, $md2);
   }
   @media(max-width: $md3 + px) {
     font-size: toVw(12, $md3);
     border-radius: toVw(17, $md3);
-    padding: toVw(6, $md3) toVw(24, $md3) toVw(5, $md3);
+    padding: toVw(8, $md3) toVw(24, $md3) toVw(8, $md3);
   }
   @media(max-width: $md4 + px) {
     font-size: toVw(12, $md4);
     border-radius: toVw(17, $md4);
-    padding: toVw(6, $md4) toVw(24, $md4) toVw(5, $md4);
+    padding: toVw(8, $md4) toVw(24, $md4) toVw(8, $md4);
   }
   @media(max-width: $md5 + px) {
     font-size: toVw(14, 390);
     border-radius: toVw(17, 390);
-    padding: toVw(6, 390) toVw(24, 390) toVw(5, 390);
+    padding: toVw(8, 390) toVw(24, 390) toVw(8, 390);
   }
 
   &:hover {

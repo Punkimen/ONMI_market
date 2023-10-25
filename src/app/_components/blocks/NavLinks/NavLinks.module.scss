@@ -20,19 +20,19 @@
   font-weight: 600;
   font-size: toVw(12);
   letter-spacing: 0.03em;
-  padding: toVw(9) toVw(18) toVw(9);
+  padding: toVw(8) toVw(18) toVw(8);
   transition: all ease-in .3s;
   border-radius: toVw(17);
   background-color: #202020;
   white-space: nowrap;
   @media(max-width: $md2 + px) {
     font-size: toVw(12, $md2);
-    padding: toVw(9, $md2) toVw(18, $md2) toVw(9, $md2);
+    padding: toVw(8, $md2) toVw(18, $md2) toVw(8, $md2);
     border-radius: toVw(17, $md2);
   }
   @media(max-width: $md4 + px) {
     font-size: toVw(12, $md4);
-    padding: toVw(9, $md4) toVw(18, $md4) toVw(9, $md4);
+    padding: toVw(8, $md4) toVw(18, $md4) toVw(8, $md4);
     border-radius: toVw(17, $md4);
   }
 

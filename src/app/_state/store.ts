@@ -176,3 +176,14 @@ export const useInventoryState = create<IInventoryState>()(
     }
   )
 );
+
+export const useTimer = create<{timer: Date}>()(
+  persist(
+    (set) => ({
+      timer: new Date(),
+    }),
+    {
+      name: 'timer-storage'
+    }
+  )
+);

@@ -2,11 +2,13 @@ import {ChildrenType} from "@/app/_types/children.types";
 import {Navigation} from "@/app/_components/screens/Login/Navigation/Navigation";
 import React, {FC} from "react";
 import {Title} from "@/app/_components/partials/Title/Title";
-import s from './Login.module.scss';
 import cn from "classnames";
 import Link from "next/link";
 import {Routes} from "@/app/_utils/Routes";
-interface ILoginLayout{
+import s from './Login.module.scss';
+import {IBaseComponents} from "@/app/_types/base.types";
+
+interface ILoginLayout extends IBaseComponents{
   children: ChildrenType;
   title?: string;
   description: string;
@@ -14,9 +16,9 @@ interface ILoginLayout{
   href?: string;
   onClick?: ()=> void;
 }
-export const LoginLayout:FC<ILoginLayout> = ({children,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
+export const LoginLayout:FC<ILoginLayout> = ({children, className,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
   return(
-    <div className={s.login}>
+    <div className={cn(s.login, className)}>
       <Link className={s.close} href={Routes.HOME}
       >
         <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +27,7 @@ export const LoginLayout:FC<ILoginLayout> = ({children,href, title='Welcome to o
             fill="inherit"/>
         </svg>
       </Link>
-      <div className={s.container}>
+      <div className={cn(s.container, 'container')}>
         <div className={s.content}>
           <div className={s.description}>
             <Title tag={'h4'} className={cn(s.title, 'text-line')}>{title}</Title>

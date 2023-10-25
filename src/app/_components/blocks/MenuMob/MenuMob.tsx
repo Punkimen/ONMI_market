@@ -3,6 +3,9 @@ import s from './MenuMob.module.scss';
 import cn from 'classnames';
 import {IBaseComponents} from "@/app/_types/base.types";
 import Link from "next/link";
+import {useUser} from "@/app/_state/store";
+import {Routes} from "@/app/_utils/Routes";
+import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
 
 interface IMenuMobProps extends IBaseComponents {
   isShow?: boolean,
@@ -11,7 +14,7 @@ interface IMenuMobProps extends IBaseComponents {
 }
 
 export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, links}) => {
-
+  const user = useUser(state=>state);
   if (hide) return null;
   return (
     <div className={cn(s['mob-menu'], isShow && s.show, className)}>
@@ -21,6 +24,10 @@ export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, 
             <span>{link.title}</span>
           </Link>;
         })}
+        {user.isAuth ? <>
+          <Link href={Routes.INVENTORY} className={s.link}>Inventory</Link>
+          <BtnReset onClick={user.auth} className={s.link}>Sign out</BtnReset>
+        </> : <Link href={Routes.LOGIN} className={s.link}>Login</Link>}
 
         <div className={s["links"]} data-delay="0.5">
           <div className={s["label"]}>Social</div>
