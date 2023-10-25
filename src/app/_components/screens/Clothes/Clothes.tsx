@@ -34,8 +34,7 @@ export const Clothes: FC = () => {
       <Hero className={s.hero}>
         <Title tag='h1' className={cn(s['hero__title'], 'gradient-text')}>
           <span className={'text-line'}>onmi® Zero</span>
-          <DropTimer className={cn(s.timer, 'opacity')} data-delay={'0.3'} label={'Drop/01'}
-            startTime={'02:23:59'}/>
+          <DropTimer className={cn(s.timer, 'opacity')} data-delay={'0.3'} label={'Drop/01'} />
         </Title>
         <Text className={s.text}>
           <>
