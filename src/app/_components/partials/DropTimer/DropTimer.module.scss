@@ -12,6 +12,11 @@
   letter-spacing: 0;
   border-radius: toVw(20);
   font-weight: 600;
+  @media(max-width: $md2 + px) {
+    padding: toVw(9, $md2) toVw(22, $md2) toVw(9, $md2) toVw(22, $md2);
+    font-size: toVw(16, $md2);
+    border-radius: toVw(20, $md2);
+  }
   @media(max-width: $md3 + px) {
     padding: toVw(9, $md3) toVw(22, $md3) toVw(9, $md3) toVw(22, $md3);
     font-size: toVw(16, $md3);
@@ -31,6 +36,9 @@
 
   &__timer {
     white-space: nowrap;
-    min-width: toRem(57);
+    min-width: toVw(57);
+    @media(max-width: $md2 + px) {
+      min-width: toVw(58, $md2);
+    }
   }
 }
