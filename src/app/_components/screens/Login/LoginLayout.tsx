@@ -20,7 +20,7 @@ interface ILoginLayout extends IBaseComponents{
 export const LoginLayout:FC<ILoginLayout> = ({children, className,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
   const [isSafari, setIsSafari] = useState(false);
   useEffect(()=>{
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isSafari = navigator.userAgent.includes('Safari');
     setIsSafari(isSafari);
   },[]);
 
