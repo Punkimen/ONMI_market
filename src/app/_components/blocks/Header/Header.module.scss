@@ -17,9 +17,7 @@
     padding: toVw(16, $md4) 0;
   }
   @media(max-width: $md5 + px) {
-    background: #000;
     padding: toVw(23, 390) 0;
-    border-bottom: toVw(1, 390) solid #1F1F1F;
   }
 
   &__btn {

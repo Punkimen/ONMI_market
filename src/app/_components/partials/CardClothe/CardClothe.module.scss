@@ -44,8 +44,13 @@
   text-align: center;
   font-size: toVw(17);
   font-weight: 600;
-  line-height: 1.1em;
-
+  @media(max-width: $md2 + px) {
+    font-size: toVw(12, $md2);
+    top: toVw(12, $md2);
+    right: toVw(12, $md2);
+    width: toVw(24, $md2);
+    height: toVw(24, $md2);
+  }
   @media(max-width: $md3 + px) {
     font-size: toVw(12, $md3);
     top: toVw(12, $md3);

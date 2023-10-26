@@ -16,6 +16,7 @@ export const MarqueCatalog: FC<IMarqueCatalog> = ({cardsClothe, className}) => {
       {cardsClothe && cardsClothe?.map((card: IClothe, index) => {
         return <CardClothe isStats={false}
           key={card.id}
+          isEmpty={true}
           className={cn(s.card)}
           {...card} />;
       })}

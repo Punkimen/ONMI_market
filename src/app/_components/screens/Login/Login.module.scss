@@ -9,6 +9,11 @@
   padding-bottom: toVw(60);
   @media(max-width: $md5 + px) {
     padding-top: toVw(56, 390);
+    padding-bottom: toVw(36, 390);
+
+    &.safary {
+      padding-bottom: toRem(60);
+    }
   }
 
   .title {

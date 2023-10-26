@@ -105,9 +105,13 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
                     {`${el.value} USD`}
                   </span> :
                     <Input className={s.input} type={'number'}
+                      onFocus={(e)=>{
+                        setCustomValue(e ? +e.target.value : el.value);
+                        setValue(e ? +e.target.value : el.value);
+                      }}
                       onChange={e => {
-                        setCustomValue(e ? e.target.value : el.value);
-                        setValue(e ? e.target.value : el.value);
+                        setCustomValue(e ? e.target?.value : el.value);
+                        setValue(e ? e.target?.value : el.value);
                       }} placeholder={el.label}/>
                   }
                 </div>;

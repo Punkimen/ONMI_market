@@ -28,7 +28,7 @@ export const Navigation: FC<INavigationProps> = (props) => {
       </BtnBig>
       <BtnBig className={cn(s.nav__btn, 'opacity')} data-delay='0.2' color={'white'} href={props.href}
         onClick={() => props.onClick && props.onClick()}>
-        Continue
+        Next
       </BtnBig>
     </div>
   );

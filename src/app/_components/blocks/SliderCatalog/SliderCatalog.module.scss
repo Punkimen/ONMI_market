@@ -16,26 +16,26 @@
 
 .catalog {
   &__slider {
-    .slider {
-      @media(max-width: $md5 + px) {
-        border-top: 1px solid #33363E;
-        padding: toVw(19, 390) toVw(16, 390) 0;
-      }
-    }
-
     :global(.swiper-wrapper) {
       min-height: 100%;
     }
   }
 
-  &__slider_omi {
+  &__slider_clothe {
+    .slider {
 
+      @media(max-width: $md5 + px) {
+        :global(.swiper-wrapper){
+          border-top: 1px solid #33363E;
+          padding-top:  toVw(19, 390) ;
+        }
+        padding: 0 toVw(16, 390);
+      }
+    }
   }
 }
 
 .slider {
-
-
   .card {
     &_omi {
       @media(max-width: $md5 + px) {

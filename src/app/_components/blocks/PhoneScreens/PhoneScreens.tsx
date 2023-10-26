@@ -1,17 +1,14 @@
 import React, {FC, useLayoutEffect, useRef} from 'react';
 import s from './PhoneScreens.module.scss';
 import cn from 'classnames';
-// images
 import phone1 from '@/../public/img/reality/phone_1.png';
 import phone2 from '@/../public/img/reality/phone_2.png';
 import phone3 from '@/../public/img/reality/phone_3.png';
 import Image from "next/image";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {BtnBig} from "@/app/_components/partials/Buttons/BtnBig/BtnBig";
-import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
-import {horizontalTransform, triggerAnimate} from "@/app/_animations/animation";
+import {horizontalTransform} from "@/app/_animations/animation";
 import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
@@ -62,8 +59,8 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
           <div className="row"><span data-delay={'0.2'} className={'text-line'}>Reality 2.0</span></div>
         </>}
       </Text>
-      <BtnSmall className={s.btn} onClick={() => {
-      }}>More info</BtnSmall>
+      <BtnBig className={s.btn} color={'white'} onClick={() => {
+      }}>More info</BtnBig>
     </div>
   );
 };

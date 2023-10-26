@@ -47,7 +47,7 @@ export const CardClothe: FC<ICardClotheProps> = React.memo(({
         <div className={cn(s.card, className)} onClick={onClick}
         >
           <div className={s.model}>{modelCategory}</div>
-          <div className={s.img}>
+          <div className={cn(s.img, 'card__img')}>
             <Image src={imgSrc} alt={`${category} ${id}`}/>
           </div>
           {isStats ? <div className={s.bottom}>

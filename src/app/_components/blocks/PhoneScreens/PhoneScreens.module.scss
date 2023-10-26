@@ -83,24 +83,21 @@
 
 .btn {
   padding: toVw(20) toVw(24) toVw(22);
-  max-width: toVw(170);
+  max-width: toRem(170);
   border-radius: toVw(31);
   width: 100%;
   display: block;
   margin: 0 auto;
   @media(max-width: $md2 + px) {
     padding: toVw(20, $md2) toVw(24, $md2) toVw(22, $md2);
-    max-width: toVw(170, $md2);
     border-radius: toVw(31, $md2);
   }
   @media(max-width: $md3 + px) {
     padding: toVw(20, $md3) toVw(24, $md3) toVw(22, $md3);
-    max-width: toVw(170, $md3);
     border-radius: toVw(31, $md3);
   }
   @media(max-width: $md4 + px) {
     padding: toVw(20, $md4) toVw(24, $md4) toVw(22, $md4);
-    max-width: toVw(170, $md4);
     border-radius: toVw(31, $md4);
   }
   @media(max-width: $md5 + px) {

@@ -5,14 +5,20 @@
   position: relative;
   top: 0;
   right: 0px;
-  min-width: toVw(35, 390);
-  width: toVw(35, 390);
-  height: toVw(7, 390);
+  min-width: toVw(48);
+  width: toVw(48);
+  height: toVw(9);
   cursor: pointer;
   z-index: 5;
-  display: none;
+  @media(max-width: $md4 + px){
+    min-width: toVw(48, $md4);
+    width: toVw(48, $md4);
+    height: toVw(9, $md4);
+  }
   @media(max-width: $md5 + px) {
-    display: block;
+    min-width: toVw(48, 420);
+    width: toVw(48, 420);
+    height: toVw(9, 420);
   }
 
   span {
@@ -24,6 +30,12 @@
     width: 100%;
     background: #fff;
     display: block;
+    @media(max-width: $md5 + px) {
+      height: toVw(2, $md4);
+    }
+    @media(max-width: $md5 + px) {
+      height: toVw(2, 420);
+    }
 
     &:first-child {
       top: 0;
@@ -46,7 +58,13 @@
 
       &:last-child {
         transform: rotate(45deg);
-        bottom: calc(50% - toVw(1));
+        bottom: calc(50% - toVw(2));
+        @media(max-width: $md5 + px) {
+          bottom: calc(50% - toVw(2, $md4));
+        }
+        @media(max-width: $md5 + px) {
+          bottom: calc(50% - toVw(3, 420));
+        }
       }
     }
   }

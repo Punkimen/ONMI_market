@@ -5,14 +5,36 @@
   display: flex;
 
 }
+
 .card {
   min-width: toVw(383);
   width: toVw(383);
   border: none;
   position: relative;
-  @media(max-width: $md3 + px){
+  padding: toVw(25) toVw(30) toVw(34);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :global(.card__img){
+    width: 70%;
+  }
+
+  @media(max-width: $md2 + px) {
+    width: toVw(382, $md2);
+    height: toVw(382, $md2);
+    padding: toVw(25, $md2) toVw(30, $md2) toVw(34, $md2);
+  }
+  @media(max-width: $md3 + px) {
     min-width: toVw(300, $md3);
     width: toVw(300, $md3);
     height: toVw(300, $md3);
   }
+  @media(max-width: $md5 + px) {
+
+    width: toVw(206, 420);
+    height: toVw(206, 420);
+    padding: toVw(14, 420) toVw(15, 420) toVw(14, 420);
+  }
+
 }

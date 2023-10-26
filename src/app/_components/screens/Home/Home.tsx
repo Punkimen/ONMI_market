@@ -5,7 +5,6 @@ import cn from "classnames";
 import {Text} from "@/app/_components/partials/Text/Text";
 import {Catalog} from "@/app/_components/blocks/Catalog/Catalog";
 import {CardsNavigations} from "@/app/_components/blocks/CardsNavigations/CardsNavigations";
-import {BtnSmall} from "@/app/_components/partials/Buttons/BtnSmall/BtnSmall";
 import {Routes} from "@/app/_utils/Routes";
 import {PhoneScreens} from "@/app/_components/blocks/PhoneScreens/PhoneScreens";
 import {Question} from "@/app/_components/partials/Question/Question";
@@ -123,17 +122,13 @@ export const Home: FC = () => {
           </Text>
         </div>
         <div className={s.zero__wrapper}>
-          {windowWidth <= 450 && windowWidth > 0 ? <Catalog countsRow={4} className={s.zero__catalog}
-            cardsClothe={clothes?.slice(0, 4)} isCardsStats={false}
-            isEmptyCards={true}/> :
-            <MarqueCatalog className={s.zero__catalog}
-              cardsClothe={clothes}/>
-          }
+          <MarqueCatalog className={s.zero__catalog}
+            cardsClothe={clothes}/>
         </div>
         <div className="container">
-          <BtnSmall color={'white'} className={cn(s.zero__btn)} href={Routes.CLOTHES}>
+          <BtnBig color={'white'} className={cn(s.zero__btn)} href={Routes.CLOTHES}>
             Open collection
-          </BtnSmall>
+          </BtnBig>
         </div>
       </section>
       <section className={s.available}>

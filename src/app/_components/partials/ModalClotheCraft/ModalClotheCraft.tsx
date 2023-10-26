@@ -44,7 +44,7 @@ export const ModalClotheCraft: FC<IModalClothCraftProps> = ({
       }
 
       <BtnBig className={s.btn}>
-        Craft for 290 MAC
+        {type === 'OMI' ? "Buy" : "Craft for 290 MAC" }
       </BtnBig>
 
     </Modal>

@@ -34,4 +34,10 @@
 
 .catalog {
   margin-bottom: toVw(130);
+  @media(max-width: $md4 + px){
+    margin-bottom: toVw(130, $md4);
+  }
+  @media(max-width: $md5 + px){
+    margin-bottom: toVw(100, 390);
+  }
 }

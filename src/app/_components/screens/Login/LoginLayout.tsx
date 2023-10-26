@@ -1,12 +1,13 @@
+'use client';
 import {ChildrenType} from "@/app/_types/children.types";
 import {Navigation} from "@/app/_components/screens/Login/Navigation/Navigation";
-import React, {FC} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {Title} from "@/app/_components/partials/Title/Title";
 import cn from "classnames";
 import Link from "next/link";
 import {Routes} from "@/app/_utils/Routes";
-import s from './Login.module.scss';
 import {IBaseComponents} from "@/app/_types/base.types";
+import s from './Login.module.scss';
 
 interface ILoginLayout extends IBaseComponents{
   children: ChildrenType;
@@ -17,8 +18,14 @@ interface ILoginLayout extends IBaseComponents{
   onClick?: ()=> void;
 }
 export const LoginLayout:FC<ILoginLayout> = ({children, className,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
+  const [isSafari, setIsSafari] = useState(false);
+  useEffect(()=>{
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    setIsSafari(isSafari);
+  },[]);
+
   return(
-    <div className={cn(s.login, className)}>
+    <div className={cn(s.login, className, isSafari && s.safary)}>
       <Link className={s.close} href={Routes.HOME}
       >
         <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">

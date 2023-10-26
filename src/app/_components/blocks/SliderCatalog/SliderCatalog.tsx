@@ -75,10 +75,10 @@ export const SliderCatalog: FC<ISliderCatalogProps> = ({
             type={'OMI'} model={omis.modelCategory} price={omis.price}/>}
 
       {label && <div className="container">
-        <div className={cn(s.label, 'text-line')}>{label}</div>
+        <div className={cn(s.label, 'text-line')}>{`${label} (${slideLength})`}</div>
       </div>
       }
-      <div className={cn(s.catalog__slider, cardsClothe && s.catalog__slider_omi)}>
+      <div className={cn(s.catalog__slider, cardsClothe && s.catalog__slider_clothe)}>
         <Swiper
           className={s.slider}
           pagination={true}

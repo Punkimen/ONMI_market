@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {IBtn} from "@/app/_types/buttons.types";
-import s from './BtnReset.module.scss';
 import cn from 'classnames';
+import s from './BtnReset.module.scss';
 
 interface IBtnReset extends IBtn {
   className?: string;
