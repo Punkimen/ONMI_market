@@ -1,5 +1,5 @@
 'use client';
-import React, {FC, useEffect, useRef} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 import cn from 'classnames';
@@ -11,6 +11,7 @@ import {Header} from "@/app/_components/blocks/Header/Header";
 import {usePathname} from "next/navigation";
 import {Metadata} from "next";
 import {triggerAnimate} from "@/app/_animations/animation";
+import {AlertCookie} from "@/app/_components/partials/AlertCookie/AlertCookie";
 
 interface ILayoutProps {
   children: ChildrenType
@@ -35,6 +36,8 @@ export const Layout: FC<ILayoutProps> = ({children}) => {
   const windowHeight = useDocHeight();
   const content = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const [acceptCookie, setAcceptCookie] = useState(false);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.context(() => {
@@ -54,13 +57,21 @@ export const Layout: FC<ILayoutProps> = ({children}) => {
         el && triggerAnimate(el);
       });
     }, [content]);
-  }, [content, windowWidth, windowHeight]);
+  }, [content, windowWidth, windowHeight,pathname]);
 
+  useEffect(()=>{
+    const acceptCookie = localStorage.getItem('acceptCookie');
+
+    if(acceptCookie){
+      setAcceptCookie(true);
+    }
+  },[]);
 
 
   return (
     <div ref={content} className={cn('page-content')}>
       {!pathname.includes('/login') && <Header/>}
+      <AlertCookie hide={acceptCookie}/>
       <main className="main">
         {children}
       </main>

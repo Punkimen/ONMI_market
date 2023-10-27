@@ -1,0 +1,66 @@
+@import '@/app/_styles/functions.scss';
+@import '@/app/_styles/var.scss';
+
+.alert {
+  position: fixed;
+  top: 50%;
+  left: toVw(24);;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background-color: #121212;
+  width: fit-content;
+  padding: toRem(19) toRem(25) toRem(20);
+  border-radius: toRem(16);
+
+  &.hide {
+    display: none;
+  }
+
+  @media(max-width: $md2 + px) {
+    left: toVw(24, $md2);
+  }
+  @media(max-width: $md4 + px) {
+    left: toVw(16, $md4);
+  }
+  @media(max-width: $md5 + px) {
+    left: toVw(16, 390);
+    top: auto;
+    right: toVw(16, 390);
+    bottom: toRem(15);
+    transform: translateY(0);
+    width: auto;
+    justify-content: space-between;
+  }
+}
+
+.label {
+  flex: 0 0 toRem(100);
+  max-width: toRem(100);
+  width: 100%;
+  font-size: toRem(14);
+  margin-right: toRem(18);
+  @media(max-width: $md5 + px) {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.btn {
+  text-align: center;
+  flex: 0 0 toRem(90);
+  background-color: #393939;
+  width: toRem(90);
+  height: toRem(32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: toRem(14);
+  line-height: 1.2em;
+
+  &:hover {
+    background-color: #545454FF;
+  }
+}
