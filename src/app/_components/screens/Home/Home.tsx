@@ -60,8 +60,8 @@ export const Home: FC = () => {
         </Text>
       </Hero>
       <Catalog className={s.catalog} cardsOmi={bodies} hide={windowWidth <= 768} countsRow={4}
-        label={'Omi Bodys'}/>
-      <SliderCatalog className={s.catalog} cardsOmi={bodies} label={'Omi Bodys'} slidesPerView={3}
+        label={'Omi'}/>
+      <SliderCatalog className={s.catalog} cardsOmi={bodies}  slidesPerView={3}
         hide={windowWidth > 768}/>
 
 

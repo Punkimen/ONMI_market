@@ -6,6 +6,7 @@ import {useUser} from "@/app/_state/store";
 import {Routes} from "@/app/_utils/Routes";
 import {BtnReset} from "@/app/_components/partials/Buttons/BtnReset/BtnReset";
 import s from './MenuMob.module.scss';
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
 
 interface IMenuMobProps extends IBaseComponents {
   isShow?: boolean,
@@ -15,6 +16,7 @@ interface IMenuMobProps extends IBaseComponents {
 
 export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, links}) => {
   const user = useUser(state=>state);
+  const windowWidth = useWindowWidth();
   if (hide) return null;
   return (
     <div className={cn(s['mob-menu'], isShow && s.show, className)}>
@@ -25,9 +27,13 @@ export const MenuMob: FC<IMenuMobProps> = ({isShow, className, hide, setIsShow, 
           </Link>;
         })}
         {user.isAuth ? <>
-          <Link href={Routes.INVENTORY} className={s.link}>Inventory</Link>
-          <BtnReset onClick={user.auth} className={cn(s.link, s.link_login)}>Sign out</BtnReset>
-        </> : <Link href={Routes.LOGIN} className={cn(s.link, s.link_login)}>Login</Link>}
+          <Link href={Routes.WALLET} onClick={()=>setIsShow()} className={s.link}>Wallet</Link>
+          <Link href={Routes.INVENTORY} onClick={()=>setIsShow()} className={s.link}>Inventory</Link>
+          <BtnReset onClick={()=>{
+            user.auth();
+            setIsShow();
+          }} className={cn(s.link, s.link_login)}>Sign out</BtnReset>
+        </> : <Link href={Routes.LOGIN}  onClick={()=>setIsShow()} className={cn(s.link, s.link_login)}>Login</Link>}
 
         <div className={s["links"]} data-delay="0.5">
           <div className={s["label"]}>Social</div>

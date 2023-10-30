@@ -8,7 +8,7 @@
   min-height: calc(100vh - toVw(60));
   padding-bottom: toVw(60);
   @media(max-width: $md5 + px) {
-    padding-top: toVw(56, 390);
+    padding-top: toVw(40, 390);
     padding-bottom: toVw(36, 390);
 
     &.safary {
@@ -18,6 +18,9 @@
 
   .title {
     text-align: left;
+    @media(max-width: $md5 + px) {
+      margin-bottom: toVw(15, 390);
+    }
   }
 }
 
@@ -95,7 +98,7 @@
     margin-bottom: toVw(36, $md4);
   }
   @media(max-width: $md5 + px) {
-    margin-bottom: toVw(36, 390);
+    margin-bottom: toVw(65, 390);
   }
 }
 

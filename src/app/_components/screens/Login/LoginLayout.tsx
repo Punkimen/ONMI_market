@@ -9,22 +9,31 @@ import {Routes} from "@/app/_utils/Routes";
 import {IBaseComponents} from "@/app/_types/base.types";
 import s from './Login.module.scss';
 
-interface ILoginLayout extends IBaseComponents{
-  children: ChildrenType;
-  title?: string;
-  description: string;
-  isHideNav?: boolean;
-  href?: string;
-  onClick?: ()=> void;
+interface ILoginLayout extends IBaseComponents {
+    children: ChildrenType;
+    title?: string;
+    description: string;
+    isHideNav?: boolean;
+    href?: string;
+    onClick?: () => void;
 }
-export const LoginLayout:FC<ILoginLayout> = ({children, className,href, title='Welcome to onmi®',onClick, description, isHideNav})=>{
-  const [isSafari, setIsSafari] = useState(false);
-  useEffect(()=>{
-    const isSafari = navigator.userAgent.includes('Safari');
-    setIsSafari(isSafari);
-  },[]);
 
-  return(
+export const LoginLayout: FC<ILoginLayout> = ({
+  children,
+  className,
+  href,
+  title = 'Welcome to onmi®',
+  onClick,
+  description,
+  isHideNav
+}) => {
+  const [isSafari, setIsSafari] = useState(false);
+  useEffect(() => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    setIsSafari(isSafari);
+  }, []);
+
+  return (
     <div className={cn(s.login, className, isSafari && s.safary)}>
       <Link className={s.close} href={Routes.HOME}
       >

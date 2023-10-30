@@ -42,7 +42,7 @@ const radios: Array<{ value: number, label: string, isCustom?: boolean }> = [
   },
 ];
 
-export const Wallet: FC<IWalletProps> = ({show, close}) => {
+export const Wallet: FC<IWalletProps> = ({show, close, hide, className}) => {
   const content = useRef<HTMLDivElement>(null);
   const cardsRef = useRef(null);
   const [isTop, setIsTop] = useState(false);
@@ -70,8 +70,11 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
     const body = document.querySelector('body');
     show ? body?.classList.add('overlay') : body?.classList.remove('overlay');
   }, [show]);
+
+  if (hide) return null;
+
   return (
-    <div ref={content} className={cn(s.wallet, isTop && s.isTop, show && s.show)}>
+    <div ref={content} className={cn(s.wallet, isTop && s.isTop, show && s.show, className)}>
       <div className={s.close} onClick={() => {
         close && close();
         setIsTop(false);
@@ -105,7 +108,7 @@ export const Wallet: FC<IWalletProps> = ({show, close}) => {
                     {`${el.value} USD`}
                   </span> :
                     <Input className={s.input} type={'number'}
-                      onFocus={(e)=>{
+                      onFocus={(e) => {
                         setCustomValue(e ? +e.target.value : el.value);
                         setValue(e ? +e.target.value : el.value);
                       }}

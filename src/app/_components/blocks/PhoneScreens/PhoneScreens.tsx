@@ -20,19 +20,22 @@ export const PhoneScreens: FC<{ className?: string }> = ({className}) => {
       horizontalTransform(gsap, screen_1.current, screen_1.current, '17.5vw', '0', true, null, 'top bottom', 'top+=25 center');
       horizontalTransform(gsap, screen_3.current, screen_3.current, '-17.5vw', "0", true, null, 'top bottom', 'top+=25 center');
     }
-  }, [windowWidth,screen_1, screen_3]);
+  }, [windowWidth, screen_1, screen_3]);
   return (
     <div className={cn(s.block, className)}>
       <div className={s.wrapper}>
         <div ref={screen_1} className={cn(s.screen, s.screen_1)}>
           <Image src={phone1} alt="phone screen 1"/>
         </div>
-        <div className={cn(s.screen, s.screen_2)}>
-          <Image src={phone2} alt="phone screen 2"/>
-        </div>
-        <div ref={screen_3} className={cn(s.screen, s.screen_3)}>
-          <Image src={phone3} alt="phone screen 3"/>
-        </div>
+        {windowWidth > 450 && <>
+          <div className={cn(s.screen, s.screen_2)}>
+            <Image src={phone2} alt="phone screen 2"/>
+          </div>
+          <div ref={screen_3} className={cn(s.screen, s.screen_3)}>
+            <Image src={phone3} alt="phone screen 3"/>
+          </div>
+        </>}
+
       </div>
       <Text className={s.text}>
         {windowWidth > 450 ? <>

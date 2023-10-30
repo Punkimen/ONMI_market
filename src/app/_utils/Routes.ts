@@ -10,4 +10,5 @@ export enum Routes {
   CREATE= '/login/create',
   FORGOT= '/login/password',
   RESET= '/login/resetPassword',
+  WALLET = '/wallet'
 }

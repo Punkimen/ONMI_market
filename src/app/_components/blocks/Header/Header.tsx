@@ -82,7 +82,7 @@ export const Header = () => {
 
             <div className={cn(s.right)}>
               <Balance className={cn(s.balance)} onClick={() => setWalletShow(!walletShow)}
-                hide={!isAuth}/>
+                hide={!isAuth || windowWidth <=450 }/>
               {!showCollectionsMob && <div className={'text-line'} data-delay='0.4'>
                 <BtnSmall className={s.header__btn} href={Routes.LOGIN} hide={isAuth}>Log In</BtnSmall>
               </div>}
@@ -103,7 +103,7 @@ export const Header = () => {
         </div>
       </header>
       {showCollectionsMob && <MenuMob links={links} isShow={show} setIsShow={() => setShow(false)}/>}
-      <Wallet show={walletShow} close={() => setWalletShow(false)}/>
+      <Wallet hide={windowWidth <= 450 && windowWidth > 0} show={walletShow} close={() => setWalletShow(false)}/>
     </>
   );
 };
