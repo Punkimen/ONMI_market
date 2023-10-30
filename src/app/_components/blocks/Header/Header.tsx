@@ -103,7 +103,7 @@ export const Header = () => {
         </div>
       </header>
       {showCollectionsMob && <MenuMob links={links} isShow={show} setIsShow={() => setShow(false)}/>}
-      <Wallet hide={windowWidth <= 450 && windowWidth > 0} show={walletShow} close={() => setWalletShow(false)}/>
+      <Wallet hide={windowWidth <= 450} show={walletShow} close={() => setWalletShow(false)}/>
     </>
   );
 };
