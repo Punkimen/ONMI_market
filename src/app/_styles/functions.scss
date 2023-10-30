@@ -9,7 +9,3 @@
   @return math.div($font * 1px, $vw-context) * 1vw;
 }
 
-@function px-to-rem($value) {
-  $remValue: calc((100vw * 16) / 1920 * $value);
-  @return #{$remValue};
-}

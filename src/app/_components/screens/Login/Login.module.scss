@@ -12,7 +12,7 @@
     padding-bottom: toVw(36, 390);
 
     &.safary {
-      padding-bottom: toRem(80);
+      padding-bottom: toRem(115);
     }
   }
 
@@ -193,6 +193,10 @@
 
 .sign {
   display: flex;
+  @media(max-width: $md5 + px) {
+    font-size: toVw(14, 390);
+    font-weight: 600;
+  }
 
   span {
     display: block;
