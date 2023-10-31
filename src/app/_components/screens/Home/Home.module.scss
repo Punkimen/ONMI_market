@@ -105,6 +105,8 @@
       margin-bottom: toVw(73, $md2);
     }
     @media(max-width: $md5 + px) {
+      border-left: none;
+      border-right: none;
       border-top: 1px solid #1F1F1F;
       border-bottom: 1px solid #1F1F1F;
       margin-bottom: toVw(53, $md5);
