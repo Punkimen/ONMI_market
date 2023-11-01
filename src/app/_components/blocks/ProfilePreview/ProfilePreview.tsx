@@ -7,21 +7,32 @@ import {IBaseComponents} from "@/app/_types/base.types";
 import cn from "classnames";
 import {Balance} from "@/app/_components/partials/Balance/Balance";
 import {Wallet} from "@/app/_components/blocks/Wallet/Wallet";
-export const ProfilePreview:FC<IBaseComponents> = ({className,hide})=>{
+import {useWindowWidth} from "@/app/_hooks/useWindowWidth";
+import {useRouter} from "next/navigation";
+import {Routes} from "@/app/_utils/Routes";
+
+export const ProfilePreview: FC<IBaseComponents> = ({className, hide}) => {
   const user = useUser(state => state);
   const [walletShow, setWalletShow] = useState(false);
-
-  if(hide) return null;
+  const windowWidth = useWindowWidth();
+  const router = useRouter();
+  if (hide) return null;
 
   return (
     <div className={cn(s.preview, className)}>
       <div className={s.avatar}>
-        <Image src={user.avatar || avatar} alt={'avatar'} />
+        <Image src={user.avatar || avatar} alt={'avatar'}/>
       </div>
       <div className={s.name}>{user.nickname}</div>
-      <Balance className={cn(s.balance)} onClick={() => setWalletShow(!walletShow)}
-        hide={!user.isAuth}/>
-      <Wallet className={s.wallet} show={walletShow} close={() => setWalletShow(false)}/>
+      <Balance className={cn(s.balance)} onClick={() => {
+        if (windowWidth <= 450 && windowWidth > 0) {
+          router.replace(Routes.WALLET);
+        } else {
+          setWalletShow(!walletShow);
+        }
+      }} hide={!user.isAuth}/>
+      <Wallet className={s.wallet} hide={windowWidth <= 450 && windowWidth > 0} show={walletShow}
+        close={() => setWalletShow(false)}/>
     </div>
   );
 };

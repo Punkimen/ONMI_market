@@ -3,9 +3,7 @@
 
 .alert {
   position: fixed;
-  top: 50%;
   left: toVw(24);;
-  transform: translateY(-50%);
   z-index: 10;
   display: flex;
   align-items: center;
@@ -13,6 +11,7 @@
   width: fit-content;
   padding: toRem(19) toRem(25) toRem(20);
   border-radius: toRem(16);
+  bottom: toRem(15);
 
   &.hide {
     display: none;
