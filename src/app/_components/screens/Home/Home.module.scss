@@ -7,14 +7,8 @@
 
   &__title {
     @media(max-width: $md5 + px) {
-      text-align: left;
+      font-size: toVw(80, 390);
       margin-bottom: toVw(-20, 390);
-    }
-  }
-
-  &__text {
-    @media(max-width: $md5 + px) {
-      text-align: left;
     }
   }
 }
@@ -40,15 +34,13 @@
 
   &__title {
     @media(max-width: $md5 + px) {
-      text-align: left;
-      margin-bottom: toVw(-85, 390);
+      margin-bottom: toVw(-45, 390);
     }
   }
 
   &__text {
     margin-bottom: toVw(136);
     @media(max-width: $md5 + px) {
-      text-align: left;
       margin-bottom: toVw(56, 390);
     }
   }
@@ -77,17 +69,9 @@
     }
   }
 
-  &__title {
-    @media(max-width: $md5 + px) {
-      text-align: left;
-      margin-bottom: toVw(-30, 390);
-    }
-  }
-
   &__text {
     margin-bottom: toVw(86);
     @media(max-width: $md5 + px) {
-      text-align: left;
       margin-bottom: toVw(60, 390);
     }
   }
@@ -138,7 +122,6 @@
       padding: toVw(21, 390) toVw(20, 390) toVw(22, 390);
       max-width: toVw(170, 390);
       border-radius: toVw(31, 390);
-      margin-left: 0;
     }
   }
 }
@@ -149,7 +132,7 @@
 
   &__title {
     @media(max-width: $md5 + px) {
-      margin-bottom: toVw(-90, 390);
+      margin-bottom: toVw(-40, 390);
     }
   }
 

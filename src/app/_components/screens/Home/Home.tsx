@@ -29,7 +29,7 @@ export const Home: FC = () => {
   const [showCollectionsMob, setShowCollectionsMob] = useState(false); // Initial state is set to false
 
   useEffect(() => {
-    if (windowWidth>0 && windowWidth <= 450) {
+    if (windowWidth > 0 && windowWidth <= 450) {
       setShowCollectionsMob(true);
     } else if (windowWidth > 450) {
       setShowCollectionsMob(false);
@@ -61,7 +61,7 @@ export const Home: FC = () => {
       </Hero>
       <Catalog className={s.catalog} cardsOmi={bodies} hide={windowWidth <= 768} countsRow={4}
         label={'Omi'}/>
-      <SliderCatalog className={s.catalog} cardsOmi={bodies}  slidesPerView={3}
+      <SliderCatalog className={s.catalog} cardsOmi={bodies} slidesPerView={3}
         hide={windowWidth > 768}/>
 
 
@@ -77,16 +77,13 @@ export const Home: FC = () => {
               </div>
             </> : <>
               <div className="row">
-                <div className={'text-line'}><span className='color_gray'>Omi</span> gives</div>
+                <div className={'text-line color_gray'}>Omi</div>
               </div>
               <div className="row">
-                <div className={'text-line'}>you</div>
+                <div className={'text-line'}>gives you</div>
               </div>
               <div className="row">
-                <div className={'text-line'}>super-po</div>
-              </div>
-              <div className="row">
-                <div className={'text-line'}>wers</div>
+                <div className={'text-line'}>superpowers</div>
               </div>
             </>}
           </Title>
@@ -106,14 +103,7 @@ export const Home: FC = () => {
       <section className={s.zero}>
         <div className="container">
           <Title tag='h2' className={s['zero__title']}>
-            {windowWidth > 450 ?
-              <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
-              : <>
-                <div className="row color_gray">onmi®</div>
-                <div className="row">zero</div>
-              </>
-            }
-
+            <div className={'text-line'}><span className='color_gray'>onmi®</span> zero</div>
           </Title>
           <Text className={s['zero__text']}>
             <div className='row'>
@@ -143,10 +133,7 @@ export const Home: FC = () => {
               </div>
             </> : <>
               <div className="row">
-                <div className={'text-line color_gray'}>Omi</div>
-              </div>
-              <div className="row">
-                <div className={'text-line'}>available</div>
+                <div className={'text-line'}><span className={'color_gray'}>Omi</span> available</div>
               </div>
               <div className="row">
                 <div className={'text-line'}>in onmi®</div>

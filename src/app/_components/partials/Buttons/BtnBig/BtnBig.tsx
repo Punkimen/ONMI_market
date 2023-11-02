@@ -10,8 +10,8 @@ interface IBtnBigProps extends IBtn, IBaseComponents {
   color?: 'gray' | 'white',
 }
 
-export const BtnBig: FC<IBtnBigProps> = ({children, className, color, href, onClick, disabled, ...props}) => {
-  if(props.hide) return null;
+export const BtnBig: FC<IBtnBigProps> = ({children, hide, className, color, href, onClick, disabled, ...props}) => {
+  if(hide) return null;
   return (
     <>
       {href ? <Link href={href} className={cn(s.btn, color === 'gray' && s.gray, color === 'white' && s.white, className)}>{children}</Link>

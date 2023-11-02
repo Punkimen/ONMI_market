@@ -14,7 +14,6 @@
     font-size: toVw(16, $md4);
   }
   @media(max-width: $md5 + px) {
-    text-align: left;
     font-size: toVw(16, 390);
   }
 }

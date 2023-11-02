@@ -23,19 +23,13 @@
   .link {
     display: block;
     text-transform: capitalize;
-    width: fit-content;
     font-weight: 600;
-    font-size: toRem(30);
+    font-size: toRem(17);
+    padding: toRem(15) 0;
     letter-spacing: 0.03em;
     transition: all ease-in .3s;
     white-space: nowrap;
-
-    &:not(:last-child) {
-      margin-bottom: toVw(10, 390);
-      @media(max-width: $md5 + px) {
-        margin-bottom: toVw(10, 390);
-      }
-    }
+    border-bottom: 1px solid #313131;
 
     &:hover {
       color: var(--graySecondary);
@@ -44,41 +38,40 @@
     &.active {
       color: var(--graySecondary);
     }
-    &_login{
+
+    &_login {
       color: var(--green);
       margin-top: toVw(40, 390);
-      &:hover{
+
+      &:hover {
         color: #b2ce27;
       }
     }
   }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
 }
 
-
-
 .links {
-  margin-top: toVw(60, 390);
-  font-size: toVw(22, 390);
+  margin-bottom: toVw(30, 390);
+}
+
+.socials-links {
+  margin-bottom: toVw(50, 390);
 }
 
 .label {
-  font-size: toVw(14, 390);
+  font-size: toVw(18, 390);
   color: #333333;
   margin-bottom: toVw(10, 390);
 }
 
-.elem {
-  display: block;
-  width: fit-content;
-  font-size: toVw(21, 390);
-  transition: color ease-in .3s;
-
-  &:hover {
-    color: var(--graySecondary);
-  }
-
-  &:not(:last-child) {
-    margin-bottom: toVw(10, 390);
-  }
+.socials {
+  display: flex;
+  gap: toVw(45, 390);
 }

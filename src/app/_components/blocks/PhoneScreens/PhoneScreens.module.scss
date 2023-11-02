@@ -11,7 +11,6 @@
     margin: 0 0 toVw(113, $md2);
   }
   @media(max-width: $md5 + px) {
-    justify-content: flex-start;
     margin-bottom: toVw(75, 390);
   }
 }
@@ -104,6 +103,5 @@
     padding: toVw(21, 390) toVw(20, 390) toVw(22, 390);
     max-width: toVw(170, 390);
     border-radius: toVw(31, 390);
-    margin-left: 0;
   }
 }
